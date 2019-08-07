@@ -1,0 +1,48 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "allOf": [
+                {
+                    "title": "entity",
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        }
+                    },
+                    "example": {
+                        "id": "String (identifier)"
+                    }
+                },
+                {
+                    "title": "workbookChartFill",
+                    "type": "object"
+                }
+            ],
+            "example": {
+                "id": "String (identifier)"
+            }
+        },
+        "driveItem_id": {
+            "required": true,
+            "type": "string"
+        },
+        "workbookNamedItem_id": {
+            "required": true,
+            "type": "string"
+        },
+        "workbookChart_id": {
+            "required": true,
+            "type": "string"
+        },
+        "workbookChartSeries_id": {
+            "required": true,
+            "type": "string"
+        },
+        "workbookChartPoint_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

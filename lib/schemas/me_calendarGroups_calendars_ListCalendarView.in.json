@@ -1,0 +1,153 @@
+{
+    "type": "object",
+    "properties": {
+        "calendarGroup_id": {
+            "required": true,
+            "type": "string"
+        },
+        "calendar_id": {
+            "required": true,
+            "type": "string"
+        },
+        "_top": {
+            "minimum": 0,
+            "type": "integer"
+        },
+        "_skip": {
+            "minimum": 0,
+            "type": "integer"
+        },
+        "_filter": {
+            "type": "string"
+        },
+        "_count": {
+            "type": "boolean"
+        },
+        "_orderby": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "id desc",
+                    "createdDateTime",
+                    "createdDateTime desc",
+                    "lastModifiedDateTime",
+                    "lastModifiedDateTime desc",
+                    "changeKey",
+                    "changeKey desc",
+                    "categories",
+                    "categories desc",
+                    "originalStartTimeZone",
+                    "originalStartTimeZone desc",
+                    "originalEndTimeZone",
+                    "originalEndTimeZone desc",
+                    "responseStatus",
+                    "responseStatus desc",
+                    "iCalUId",
+                    "iCalUId desc",
+                    "reminderMinutesBeforeStart",
+                    "reminderMinutesBeforeStart desc",
+                    "isReminderOn",
+                    "isReminderOn desc",
+                    "hasAttachments",
+                    "hasAttachments desc",
+                    "subject",
+                    "subject desc",
+                    "body",
+                    "body desc",
+                    "bodyPreview",
+                    "bodyPreview desc",
+                    "importance",
+                    "importance desc",
+                    "sensitivity",
+                    "sensitivity desc",
+                    "start",
+                    "start desc",
+                    "originalStart",
+                    "originalStart desc",
+                    "end",
+                    "end desc",
+                    "location",
+                    "location desc",
+                    "locations",
+                    "locations desc",
+                    "isAllDay",
+                    "isAllDay desc",
+                    "isCancelled",
+                    "isCancelled desc",
+                    "isOrganizer",
+                    "isOrganizer desc",
+                    "recurrence",
+                    "recurrence desc",
+                    "responseRequested",
+                    "responseRequested desc",
+                    "seriesMasterId",
+                    "seriesMasterId desc",
+                    "showAs",
+                    "showAs desc",
+                    "type",
+                    "type desc",
+                    "attendees",
+                    "attendees desc",
+                    "organizer",
+                    "organizer desc",
+                    "webLink",
+                    "webLink desc",
+                    "onlineMeetingUrl",
+                    "onlineMeetingUrl desc"
+                ],
+                "type": "string"
+            }
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "createdDateTime",
+                    "lastModifiedDateTime",
+                    "changeKey",
+                    "categories",
+                    "originalStartTimeZone",
+                    "originalEndTimeZone",
+                    "responseStatus",
+                    "iCalUId",
+                    "reminderMinutesBeforeStart",
+                    "isReminderOn",
+                    "hasAttachments",
+                    "subject",
+                    "body",
+                    "bodyPreview",
+                    "importance",
+                    "sensitivity",
+                    "start",
+                    "originalStart",
+                    "end",
+                    "location",
+                    "locations",
+                    "isAllDay",
+                    "isCancelled",
+                    "isOrganizer",
+                    "recurrence",
+                    "responseRequested",
+                    "seriesMasterId",
+                    "showAs",
+                    "type",
+                    "attendees",
+                    "organizer",
+                    "webLink",
+                    "onlineMeetingUrl",
+                    "calendar",
+                    "instances",
+                    "extensions",
+                    "attachments",
+                    "singleValueExtendedProperties",
+                    "multiValueExtendedProperties"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

@@ -1,0 +1,173 @@
+{
+    "type": "object",
+    "properties": {
+        "_top": {
+            "minimum": 0,
+            "type": "integer"
+        },
+        "_skip": {
+            "minimum": 0,
+            "type": "integer"
+        },
+        "_search": {
+            "type": "string"
+        },
+        "_filter": {
+            "type": "string"
+        },
+        "_count": {
+            "type": "boolean"
+        },
+        "_orderby": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "id desc",
+                    "displayName",
+                    "displayName desc",
+                    "description",
+                    "description desc",
+                    "createdDateTime",
+                    "createdDateTime desc",
+                    "lastModifiedDateTime",
+                    "lastModifiedDateTime desc",
+                    "version",
+                    "version desc",
+                    "periodOfflineBeforeAccessCheck",
+                    "periodOfflineBeforeAccessCheck desc",
+                    "periodOnlineBeforeAccessCheck",
+                    "periodOnlineBeforeAccessCheck desc",
+                    "allowedInboundDataTransferSources",
+                    "allowedInboundDataTransferSources desc",
+                    "allowedOutboundDataTransferDestinations",
+                    "allowedOutboundDataTransferDestinations desc",
+                    "organizationalCredentialsRequired",
+                    "organizationalCredentialsRequired desc",
+                    "allowedOutboundClipboardSharingLevel",
+                    "allowedOutboundClipboardSharingLevel desc",
+                    "dataBackupBlocked",
+                    "dataBackupBlocked desc",
+                    "deviceComplianceRequired",
+                    "deviceComplianceRequired desc",
+                    "managedBrowserToOpenLinksRequired",
+                    "managedBrowserToOpenLinksRequired desc",
+                    "saveAsBlocked",
+                    "saveAsBlocked desc",
+                    "periodOfflineBeforeWipeIsEnforced",
+                    "periodOfflineBeforeWipeIsEnforced desc",
+                    "pinRequired",
+                    "pinRequired desc",
+                    "maximumPinRetries",
+                    "maximumPinRetries desc",
+                    "simplePinBlocked",
+                    "simplePinBlocked desc",
+                    "minimumPinLength",
+                    "minimumPinLength desc",
+                    "pinCharacterSet",
+                    "pinCharacterSet desc",
+                    "periodBeforePinReset",
+                    "periodBeforePinReset desc",
+                    "allowedDataStorageLocations",
+                    "allowedDataStorageLocations desc",
+                    "contactSyncBlocked",
+                    "contactSyncBlocked desc",
+                    "printBlocked",
+                    "printBlocked desc",
+                    "fingerprintBlocked",
+                    "fingerprintBlocked desc",
+                    "disableAppPinIfDevicePinIsSet",
+                    "disableAppPinIfDevicePinIsSet desc",
+                    "minimumRequiredOsVersion",
+                    "minimumRequiredOsVersion desc",
+                    "minimumWarningOsVersion",
+                    "minimumWarningOsVersion desc",
+                    "minimumRequiredAppVersion",
+                    "minimumRequiredAppVersion desc",
+                    "minimumWarningAppVersion",
+                    "minimumWarningAppVersion desc",
+                    "isAssigned",
+                    "isAssigned desc",
+                    "screenCaptureBlocked",
+                    "screenCaptureBlocked desc",
+                    "disableAppEncryptionIfDeviceEncryptionIsEnabled",
+                    "disableAppEncryptionIfDeviceEncryptionIsEnabled desc",
+                    "encryptAppData",
+                    "encryptAppData desc",
+                    "deployedAppCount",
+                    "deployedAppCount desc",
+                    "minimumRequiredPatchVersion",
+                    "minimumRequiredPatchVersion desc",
+                    "minimumWarningPatchVersion",
+                    "minimumWarningPatchVersion desc"
+                ],
+                "type": "string"
+            }
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "displayName",
+                    "description",
+                    "createdDateTime",
+                    "lastModifiedDateTime",
+                    "version",
+                    "periodOfflineBeforeAccessCheck",
+                    "periodOnlineBeforeAccessCheck",
+                    "allowedInboundDataTransferSources",
+                    "allowedOutboundDataTransferDestinations",
+                    "organizationalCredentialsRequired",
+                    "allowedOutboundClipboardSharingLevel",
+                    "dataBackupBlocked",
+                    "deviceComplianceRequired",
+                    "managedBrowserToOpenLinksRequired",
+                    "saveAsBlocked",
+                    "periodOfflineBeforeWipeIsEnforced",
+                    "pinRequired",
+                    "maximumPinRetries",
+                    "simplePinBlocked",
+                    "minimumPinLength",
+                    "pinCharacterSet",
+                    "periodBeforePinReset",
+                    "allowedDataStorageLocations",
+                    "contactSyncBlocked",
+                    "printBlocked",
+                    "fingerprintBlocked",
+                    "disableAppPinIfDevicePinIsSet",
+                    "minimumRequiredOsVersion",
+                    "minimumWarningOsVersion",
+                    "minimumRequiredAppVersion",
+                    "minimumWarningAppVersion",
+                    "isAssigned",
+                    "screenCaptureBlocked",
+                    "disableAppEncryptionIfDeviceEncryptionIsEnabled",
+                    "encryptAppData",
+                    "deployedAppCount",
+                    "minimumRequiredPatchVersion",
+                    "minimumWarningPatchVersion",
+                    "assignments",
+                    "apps",
+                    "deploymentSummary"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*",
+                    "assignments",
+                    "apps",
+                    "deploymentSummary"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

@@ -1,0 +1,86 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "issue": {
+                    "anyOf": [
+                        {
+                            "title": "Json",
+                            "type": "object"
+                        }
+                    ],
+                    "nullable": true
+                },
+                "firstInterest": {
+                    "anyOf": [
+                        {
+                            "title": "Json",
+                            "type": "object"
+                        }
+                    ],
+                    "nullable": true
+                },
+                "settlement": {
+                    "anyOf": [
+                        {
+                            "title": "Json",
+                            "type": "object"
+                        }
+                    ],
+                    "nullable": true
+                },
+                "rate": {
+                    "anyOf": [
+                        {
+                            "title": "Json",
+                            "type": "object"
+                        }
+                    ],
+                    "nullable": true
+                },
+                "par": {
+                    "anyOf": [
+                        {
+                            "title": "Json",
+                            "type": "object"
+                        }
+                    ],
+                    "nullable": true
+                },
+                "frequency": {
+                    "anyOf": [
+                        {
+                            "title": "Json",
+                            "type": "object"
+                        }
+                    ],
+                    "nullable": true
+                },
+                "basis": {
+                    "anyOf": [
+                        {
+                            "title": "Json",
+                            "type": "object"
+                        }
+                    ],
+                    "nullable": true
+                },
+                "calcMethod": {
+                    "anyOf": [
+                        {
+                            "title": "Json",
+                            "type": "object"
+                        }
+                    ],
+                    "nullable": true
+                }
+            }
+        },
+        "driveItem_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

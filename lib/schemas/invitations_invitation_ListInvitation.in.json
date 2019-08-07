@@ -1,0 +1,79 @@
+{
+    "type": "object",
+    "properties": {
+        "_top": {
+            "minimum": 0,
+            "type": "integer"
+        },
+        "_skip": {
+            "minimum": 0,
+            "type": "integer"
+        },
+        "_search": {
+            "type": "string"
+        },
+        "_filter": {
+            "type": "string"
+        },
+        "_count": {
+            "type": "boolean"
+        },
+        "_orderby": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "id desc",
+                    "invitedUserDisplayName",
+                    "invitedUserDisplayName desc",
+                    "invitedUserType",
+                    "invitedUserType desc",
+                    "invitedUserEmailAddress",
+                    "invitedUserEmailAddress desc",
+                    "invitedUserMessageInfo",
+                    "invitedUserMessageInfo desc",
+                    "sendInvitationMessage",
+                    "sendInvitationMessage desc",
+                    "inviteRedirectUrl",
+                    "inviteRedirectUrl desc",
+                    "inviteRedeemUrl",
+                    "inviteRedeemUrl desc",
+                    "status",
+                    "status desc"
+                ],
+                "type": "string"
+            }
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "invitedUserDisplayName",
+                    "invitedUserType",
+                    "invitedUserEmailAddress",
+                    "invitedUserMessageInfo",
+                    "sendInvitationMessage",
+                    "inviteRedirectUrl",
+                    "inviteRedeemUrl",
+                    "status",
+                    "invitedUser"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*",
+                    "invitedUser"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

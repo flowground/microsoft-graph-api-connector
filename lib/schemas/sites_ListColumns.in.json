@@ -1,0 +1,114 @@
+{
+    "type": "object",
+    "properties": {
+        "site_id": {
+            "required": true,
+            "type": "string"
+        },
+        "_top": {
+            "minimum": 0,
+            "type": "integer"
+        },
+        "_skip": {
+            "minimum": 0,
+            "type": "integer"
+        },
+        "_search": {
+            "type": "string"
+        },
+        "_filter": {
+            "type": "string"
+        },
+        "_count": {
+            "type": "boolean"
+        },
+        "_orderby": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "id desc",
+                    "boolean",
+                    "boolean desc",
+                    "calculated",
+                    "calculated desc",
+                    "choice",
+                    "choice desc",
+                    "columnGroup",
+                    "columnGroup desc",
+                    "currency",
+                    "currency desc",
+                    "dateTime",
+                    "dateTime desc",
+                    "defaultValue",
+                    "defaultValue desc",
+                    "description",
+                    "description desc",
+                    "displayName",
+                    "displayName desc",
+                    "enforceUniqueValues",
+                    "enforceUniqueValues desc",
+                    "hidden",
+                    "hidden desc",
+                    "indexed",
+                    "indexed desc",
+                    "lookup",
+                    "lookup desc",
+                    "name",
+                    "name desc",
+                    "number",
+                    "number desc",
+                    "personOrGroup",
+                    "personOrGroup desc",
+                    "readOnly",
+                    "readOnly desc",
+                    "required",
+                    "required desc",
+                    "text",
+                    "text desc"
+                ],
+                "type": "string"
+            }
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "boolean",
+                    "calculated",
+                    "choice",
+                    "columnGroup",
+                    "currency",
+                    "dateTime",
+                    "defaultValue",
+                    "description",
+                    "displayName",
+                    "enforceUniqueValues",
+                    "hidden",
+                    "indexed",
+                    "lookup",
+                    "name",
+                    "number",
+                    "personOrGroup",
+                    "readOnly",
+                    "required",
+                    "text"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

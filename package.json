@@ -1,0 +1,15 @@
+{
+    "name": "microsoft-graph-api-connector",
+    "version": "1.0.1",
+    "description": "OData Service for namespace microsoft.graph. This OData service is located at https://graph.microsoft.com/v1.0",
+    "main": "component.json",
+    "dependencies": {
+        "elasticio-node": "0.0.9",
+        "elasticio-sailor-nodejs": "^2.2.1",
+        "swagger-client": "^3.8.22"
+    },
+    "author": {
+        "name": "Deutsche Telekom AG"
+    },
+    "license": "Apache-2.0"
+}

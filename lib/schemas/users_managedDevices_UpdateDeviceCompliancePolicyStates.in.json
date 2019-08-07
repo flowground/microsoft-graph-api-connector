@@ -1,0 +1,244 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "allOf": [
+                {
+                    "title": "entity",
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        }
+                    },
+                    "example": {
+                        "id": "String (identifier)"
+                    }
+                },
+                {
+                    "title": "deviceCompliancePolicyState",
+                    "type": "object",
+                    "properties": {
+                        "settingStates": {
+                            "type": "array",
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "title": "deviceCompliancePolicySettingState",
+                                        "type": "object",
+                                        "properties": {
+                                            "setting": {
+                                                "type": "string",
+                                                "description": "The setting that is being reported",
+                                                "nullable": true
+                                            },
+                                            "settingName": {
+                                                "type": "string",
+                                                "description": "Localized/user friendly setting name that is being reported",
+                                                "nullable": true
+                                            },
+                                            "instanceDisplayName": {
+                                                "type": "string",
+                                                "description": "Name of setting instance that is being reported.",
+                                                "nullable": true
+                                            },
+                                            "state": {
+                                                "anyOf": [
+                                                    {
+                                                        "title": "complianceStatus",
+                                                        "enum": [
+                                                            "unknown",
+                                                            "notApplicable",
+                                                            "compliant",
+                                                            "remediated",
+                                                            "nonCompliant",
+                                                            "error",
+                                                            "conflict",
+                                                            "notAssigned"
+                                                        ],
+                                                        "type": "string"
+                                                    }
+                                                ],
+                                                "description": "The compliance state of the setting"
+                                            },
+                                            "errorCode": {
+                                                "type": "integer",
+                                                "description": "Error code for the setting",
+                                                "format": "int64"
+                                            },
+                                            "errorDescription": {
+                                                "type": "string",
+                                                "description": "Error description",
+                                                "nullable": true
+                                            },
+                                            "userId": {
+                                                "type": "string",
+                                                "description": "UserId",
+                                                "nullable": true
+                                            },
+                                            "userName": {
+                                                "type": "string",
+                                                "description": "UserName",
+                                                "nullable": true
+                                            },
+                                            "userEmail": {
+                                                "type": "string",
+                                                "description": "UserEmail",
+                                                "nullable": true
+                                            },
+                                            "userPrincipalName": {
+                                                "type": "string",
+                                                "description": "UserPrincipalName.",
+                                                "nullable": true
+                                            },
+                                            "sources": {
+                                                "type": "array",
+                                                "items": {
+                                                    "anyOf": [
+                                                        {
+                                                            "title": "settingSource",
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "id": {
+                                                                    "type": "string",
+                                                                    "nullable": true
+                                                                },
+                                                                "displayName": {
+                                                                    "type": "string",
+                                                                    "nullable": true
+                                                                }
+                                                            },
+                                                            "example": {
+                                                                "id": "String",
+                                                                "displayName": "String"
+                                                            }
+                                                        }
+                                                    ],
+                                                    "nullable": true
+                                                },
+                                                "description": "Contributing policies"
+                                            },
+                                            "currentValue": {
+                                                "type": "string",
+                                                "description": "Current value of setting on device",
+                                                "nullable": true
+                                            }
+                                        },
+                                        "example": {
+                                            "setting": "String",
+                                            "settingName": "String",
+                                            "instanceDisplayName": "String",
+                                            "state": {
+                                                "@odata.type": "microsoft.graph.complianceStatus"
+                                            },
+                                            "errorCode": "Int64",
+                                            "errorDescription": "String",
+                                            "userId": "String",
+                                            "userName": "String",
+                                            "userEmail": "String",
+                                            "userPrincipalName": "String",
+                                            "sources": [
+                                                {
+                                                    "@odata.type": "microsoft.graph.settingSource"
+                                                }
+                                            ],
+                                            "currentValue": "String"
+                                        }
+                                    }
+                                ],
+                                "nullable": true
+                            }
+                        },
+                        "displayName": {
+                            "type": "string",
+                            "description": "The name of the policy for this policyBase",
+                            "nullable": true
+                        },
+                        "version": {
+                            "maximum": 2147483647,
+                            "minimum": -2147483648,
+                            "type": "integer",
+                            "description": "The version of the policy",
+                            "format": "int32"
+                        },
+                        "platformType": {
+                            "anyOf": [
+                                {
+                                    "title": "policyPlatformType",
+                                    "enum": [
+                                        "android",
+                                        "iOS",
+                                        "macOS",
+                                        "windowsPhone81",
+                                        "windows81AndLater",
+                                        "windows10AndLater",
+                                        "androidWorkProfile",
+                                        "all"
+                                    ],
+                                    "type": "string"
+                                }
+                            ],
+                            "description": "Platform type that the policy applies to"
+                        },
+                        "state": {
+                            "anyOf": [
+                                {
+                                    "title": "complianceStatus",
+                                    "enum": [
+                                        "unknown",
+                                        "notApplicable",
+                                        "compliant",
+                                        "remediated",
+                                        "nonCompliant",
+                                        "error",
+                                        "conflict",
+                                        "notAssigned"
+                                    ],
+                                    "type": "string"
+                                }
+                            ],
+                            "description": "The compliance state of the policy"
+                        },
+                        "settingCount": {
+                            "maximum": 2147483647,
+                            "minimum": -2147483648,
+                            "type": "integer",
+                            "description": "Count of how many setting a policy holds",
+                            "format": "int32"
+                        }
+                    },
+                    "description": "Device Compliance Policy State for a given device."
+                }
+            ],
+            "example": {
+                "id": "String (identifier)",
+                "settingStates": [
+                    {
+                        "@odata.type": "microsoft.graph.deviceCompliancePolicySettingState"
+                    }
+                ],
+                "displayName": "String",
+                "version": "Int32",
+                "platformType": {
+                    "@odata.type": "microsoft.graph.policyPlatformType"
+                },
+                "state": {
+                    "@odata.type": "microsoft.graph.complianceStatus"
+                },
+                "settingCount": "Int32"
+            }
+        },
+        "user_id": {
+            "required": true,
+            "type": "string"
+        },
+        "managedDevice_id": {
+            "required": true,
+            "type": "string"
+        },
+        "deviceCompliancePolicyState_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

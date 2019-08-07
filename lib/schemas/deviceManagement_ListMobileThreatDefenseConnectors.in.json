@@ -1,0 +1,77 @@
+{
+    "type": "object",
+    "properties": {
+        "_top": {
+            "minimum": 0,
+            "type": "integer"
+        },
+        "_skip": {
+            "minimum": 0,
+            "type": "integer"
+        },
+        "_search": {
+            "type": "string"
+        },
+        "_filter": {
+            "type": "string"
+        },
+        "_count": {
+            "type": "boolean"
+        },
+        "_orderby": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "id desc",
+                    "lastHeartbeatDateTime",
+                    "lastHeartbeatDateTime desc",
+                    "partnerState",
+                    "partnerState desc",
+                    "androidEnabled",
+                    "androidEnabled desc",
+                    "iosEnabled",
+                    "iosEnabled desc",
+                    "androidDeviceBlockedOnMissingPartnerData",
+                    "androidDeviceBlockedOnMissingPartnerData desc",
+                    "iosDeviceBlockedOnMissingPartnerData",
+                    "iosDeviceBlockedOnMissingPartnerData desc",
+                    "partnerUnsupportedOsVersionBlocked",
+                    "partnerUnsupportedOsVersionBlocked desc",
+                    "partnerUnresponsivenessThresholdInDays",
+                    "partnerUnresponsivenessThresholdInDays desc"
+                ],
+                "type": "string"
+            }
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "lastHeartbeatDateTime",
+                    "partnerState",
+                    "androidEnabled",
+                    "iosEnabled",
+                    "androidDeviceBlockedOnMissingPartnerData",
+                    "iosDeviceBlockedOnMissingPartnerData",
+                    "partnerUnsupportedOsVersionBlocked",
+                    "partnerUnresponsivenessThresholdInDays"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

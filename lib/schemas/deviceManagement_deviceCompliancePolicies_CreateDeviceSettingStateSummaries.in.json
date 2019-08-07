@@ -1,0 +1,103 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "allOf": [
+                {
+                    "title": "entity",
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        }
+                    },
+                    "example": {
+                        "id": "String (identifier)"
+                    }
+                },
+                {
+                    "title": "settingStateDeviceSummary",
+                    "type": "object",
+                    "properties": {
+                        "settingName": {
+                            "type": "string",
+                            "description": "Name of the setting",
+                            "nullable": true
+                        },
+                        "instancePath": {
+                            "type": "string",
+                            "description": "Name of the InstancePath for the setting",
+                            "nullable": true
+                        },
+                        "unknownDeviceCount": {
+                            "maximum": 2147483647,
+                            "minimum": -2147483648,
+                            "type": "integer",
+                            "description": "Device Unkown count for the setting",
+                            "format": "int32"
+                        },
+                        "notApplicableDeviceCount": {
+                            "maximum": 2147483647,
+                            "minimum": -2147483648,
+                            "type": "integer",
+                            "description": "Device Not Applicable count for the setting",
+                            "format": "int32"
+                        },
+                        "compliantDeviceCount": {
+                            "maximum": 2147483647,
+                            "minimum": -2147483648,
+                            "type": "integer",
+                            "description": "Device Compliant count for the setting",
+                            "format": "int32"
+                        },
+                        "remediatedDeviceCount": {
+                            "maximum": 2147483647,
+                            "minimum": -2147483648,
+                            "type": "integer",
+                            "description": "Device Compliant count for the setting",
+                            "format": "int32"
+                        },
+                        "nonCompliantDeviceCount": {
+                            "maximum": 2147483647,
+                            "minimum": -2147483648,
+                            "type": "integer",
+                            "description": "Device NonCompliant count for the setting",
+                            "format": "int32"
+                        },
+                        "errorDeviceCount": {
+                            "maximum": 2147483647,
+                            "minimum": -2147483648,
+                            "type": "integer",
+                            "description": "Device error count for the setting",
+                            "format": "int32"
+                        },
+                        "conflictDeviceCount": {
+                            "maximum": 2147483647,
+                            "minimum": -2147483648,
+                            "type": "integer",
+                            "description": "Device conflict error count for the setting",
+                            "format": "int32"
+                        }
+                    },
+                    "description": "Device Compilance Policy and Configuration for a Setting State summary"
+                }
+            ],
+            "example": {
+                "id": "String (identifier)",
+                "settingName": "String",
+                "instancePath": "String",
+                "unknownDeviceCount": "Int32",
+                "notApplicableDeviceCount": "Int32",
+                "compliantDeviceCount": "Int32",
+                "remediatedDeviceCount": "Int32",
+                "nonCompliantDeviceCount": "Int32",
+                "errorDeviceCount": "Int32",
+                "conflictDeviceCount": "Int32"
+            }
+        },
+        "deviceCompliancePolicy_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

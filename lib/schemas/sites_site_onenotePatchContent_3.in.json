@@ -1,0 +1,89 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "commands": {
+                    "type": "array",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "title": "onenotePatchContentCommand",
+                                "type": "object",
+                                "properties": {
+                                    "action": {
+                                        "anyOf": [
+                                            {
+                                                "title": "onenotePatchActionType",
+                                                "enum": [
+                                                    "Replace",
+                                                    "Append",
+                                                    "Delete",
+                                                    "Insert",
+                                                    "Prepend"
+                                                ],
+                                                "type": "string"
+                                            }
+                                        ]
+                                    },
+                                    "target": {
+                                        "type": "string"
+                                    },
+                                    "content": {
+                                        "type": "string",
+                                        "nullable": true
+                                    },
+                                    "position": {
+                                        "anyOf": [
+                                            {
+                                                "title": "onenotePatchInsertPosition",
+                                                "enum": [
+                                                    "After",
+                                                    "Before"
+                                                ],
+                                                "type": "string"
+                                            }
+                                        ],
+                                        "nullable": true
+                                    }
+                                },
+                                "example": {
+                                    "action": {
+                                        "@odata.type": "microsoft.graph.onenotePatchActionType"
+                                    },
+                                    "target": "String",
+                                    "content": "String",
+                                    "position": {
+                                        "@odata.type": "microsoft.graph.onenotePatchInsertPosition"
+                                    }
+                                }
+                            }
+                        ],
+                        "nullable": true
+                    }
+                }
+            }
+        },
+        "site_id": {
+            "required": true,
+            "type": "string"
+        },
+        "onenotePage_id": {
+            "required": true,
+            "type": "string"
+        },
+        "sectionGroup_id": {
+            "required": true,
+            "type": "string"
+        },
+        "onenoteSection_id": {
+            "required": true,
+            "type": "string"
+        },
+        "onenotePage_id2": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

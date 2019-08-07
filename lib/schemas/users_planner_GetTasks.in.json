@@ -1,0 +1,61 @@
+{
+    "type": "object",
+    "properties": {
+        "user_id": {
+            "required": true,
+            "type": "string"
+        },
+        "plannerTask_id": {
+            "required": true,
+            "type": "string"
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "createdBy",
+                    "planId",
+                    "bucketId",
+                    "title",
+                    "orderHint",
+                    "assigneePriority",
+                    "percentComplete",
+                    "startDateTime",
+                    "createdDateTime",
+                    "dueDateTime",
+                    "hasDescription",
+                    "previewType",
+                    "completedDateTime",
+                    "completedBy",
+                    "referenceCount",
+                    "checklistItemCount",
+                    "activeChecklistItemCount",
+                    "appliedCategories",
+                    "assignments",
+                    "conversationThreadId",
+                    "details",
+                    "assignedToTaskBoardFormat",
+                    "progressTaskBoardFormat",
+                    "bucketTaskBoardFormat"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*",
+                    "details",
+                    "assignedToTaskBoardFormat",
+                    "progressTaskBoardFormat",
+                    "bucketTaskBoardFormat"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

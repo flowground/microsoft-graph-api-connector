@@ -1,0 +1,41 @@
+{
+    "type": "object",
+    "properties": {
+        "termsAndConditions_id": {
+            "required": true,
+            "type": "string"
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "createdDateTime",
+                    "lastModifiedDateTime",
+                    "displayName",
+                    "description",
+                    "title",
+                    "bodyText",
+                    "acceptanceStatement",
+                    "version",
+                    "assignments",
+                    "acceptanceStatuses"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*",
+                    "assignments",
+                    "acceptanceStatuses"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

@@ -1,0 +1,140 @@
+{
+    "type": "object",
+    "properties": {
+        "_top": {
+            "minimum": 0,
+            "type": "integer"
+        },
+        "_skip": {
+            "minimum": 0,
+            "type": "integer"
+        },
+        "_search": {
+            "type": "string"
+        },
+        "_filter": {
+            "type": "string"
+        },
+        "_count": {
+            "type": "boolean"
+        },
+        "_orderby": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "id desc",
+                    "displayName",
+                    "displayName desc",
+                    "description",
+                    "description desc",
+                    "createdDateTime",
+                    "createdDateTime desc",
+                    "lastModifiedDateTime",
+                    "lastModifiedDateTime desc",
+                    "version",
+                    "version desc",
+                    "enforcementLevel",
+                    "enforcementLevel desc",
+                    "enterpriseDomain",
+                    "enterpriseDomain desc",
+                    "enterpriseProtectedDomainNames",
+                    "enterpriseProtectedDomainNames desc",
+                    "protectionUnderLockConfigRequired",
+                    "protectionUnderLockConfigRequired desc",
+                    "dataRecoveryCertificate",
+                    "dataRecoveryCertificate desc",
+                    "revokeOnUnenrollDisabled",
+                    "revokeOnUnenrollDisabled desc",
+                    "rightsManagementServicesTemplateId",
+                    "rightsManagementServicesTemplateId desc",
+                    "azureRightsManagementServicesAllowed",
+                    "azureRightsManagementServicesAllowed desc",
+                    "iconsVisible",
+                    "iconsVisible desc",
+                    "protectedApps",
+                    "protectedApps desc",
+                    "exemptApps",
+                    "exemptApps desc",
+                    "enterpriseNetworkDomainNames",
+                    "enterpriseNetworkDomainNames desc",
+                    "enterpriseProxiedDomains",
+                    "enterpriseProxiedDomains desc",
+                    "enterpriseIPRanges",
+                    "enterpriseIPRanges desc",
+                    "enterpriseIPRangesAreAuthoritative",
+                    "enterpriseIPRangesAreAuthoritative desc",
+                    "enterpriseProxyServers",
+                    "enterpriseProxyServers desc",
+                    "enterpriseInternalProxyServers",
+                    "enterpriseInternalProxyServers desc",
+                    "enterpriseProxyServersAreAuthoritative",
+                    "enterpriseProxyServersAreAuthoritative desc",
+                    "neutralDomainResources",
+                    "neutralDomainResources desc",
+                    "indexingEncryptedStoresOrItemsBlocked",
+                    "indexingEncryptedStoresOrItemsBlocked desc",
+                    "smbAutoEncryptedFileExtensions",
+                    "smbAutoEncryptedFileExtensions desc",
+                    "isAssigned",
+                    "isAssigned desc"
+                ],
+                "type": "string"
+            }
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "displayName",
+                    "description",
+                    "createdDateTime",
+                    "lastModifiedDateTime",
+                    "version",
+                    "enforcementLevel",
+                    "enterpriseDomain",
+                    "enterpriseProtectedDomainNames",
+                    "protectionUnderLockConfigRequired",
+                    "dataRecoveryCertificate",
+                    "revokeOnUnenrollDisabled",
+                    "rightsManagementServicesTemplateId",
+                    "azureRightsManagementServicesAllowed",
+                    "iconsVisible",
+                    "protectedApps",
+                    "exemptApps",
+                    "enterpriseNetworkDomainNames",
+                    "enterpriseProxiedDomains",
+                    "enterpriseIPRanges",
+                    "enterpriseIPRangesAreAuthoritative",
+                    "enterpriseProxyServers",
+                    "enterpriseInternalProxyServers",
+                    "enterpriseProxyServersAreAuthoritative",
+                    "neutralDomainResources",
+                    "indexingEncryptedStoresOrItemsBlocked",
+                    "smbAutoEncryptedFileExtensions",
+                    "isAssigned",
+                    "protectedAppLockerFiles",
+                    "exemptAppLockerFiles",
+                    "assignments"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*",
+                    "protectedAppLockerFiles",
+                    "exemptAppLockerFiles",
+                    "assignments"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

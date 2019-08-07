@@ -1,0 +1,17 @@
+{
+    "type": "object",
+    "properties": {
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "height",
+                    "width"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

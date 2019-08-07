@@ -1,0 +1,47 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "allOf": [
+                {
+                    "title": "entity",
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        }
+                    },
+                    "example": {
+                        "id": "String (identifier)"
+                    }
+                },
+                {
+                    "title": "managedAppStatus",
+                    "type": "object",
+                    "properties": {
+                        "displayName": {
+                            "type": "string",
+                            "description": "Friendly name of the status report.",
+                            "nullable": true
+                        },
+                        "version": {
+                            "type": "string",
+                            "description": "Version of the entity.",
+                            "nullable": true
+                        }
+                    },
+                    "description": "Represents app protection and configuration status for the organization."
+                }
+            ],
+            "example": {
+                "id": "String (identifier)",
+                "displayName": "String",
+                "version": "String"
+            }
+        },
+        "managedAppStatus_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,34 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "nullable": true
+                },
+                "groupId": {
+                    "type": "string",
+                    "nullable": true
+                },
+                "siteCollectionId": {
+                    "type": "string",
+                    "nullable": true
+                },
+                "siteId": {
+                    "type": "string",
+                    "nullable": true
+                }
+            }
+        },
+        "group_id": {
+            "required": true,
+            "type": "string"
+        },
+        "onenotePage_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

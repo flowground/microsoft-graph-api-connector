@@ -1,0 +1,412 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "allOf": [
+                {
+                    "title": "entity",
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        }
+                    },
+                    "example": {
+                        "id": "String (identifier)"
+                    }
+                },
+                {
+                    "title": "columnDefinition",
+                    "type": "object",
+                    "properties": {
+                        "boolean": {
+                            "anyOf": [
+                                {
+                                    "title": "booleanColumn",
+                                    "type": "object"
+                                }
+                            ],
+                            "nullable": true
+                        },
+                        "calculated": {
+                            "anyOf": [
+                                {
+                                    "title": "calculatedColumn",
+                                    "type": "object",
+                                    "properties": {
+                                        "format": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "formula": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "outputType": {
+                                            "type": "string",
+                                            "nullable": true
+                                        }
+                                    },
+                                    "example": {
+                                        "format": "String",
+                                        "formula": "String",
+                                        "outputType": "String"
+                                    }
+                                }
+                            ],
+                            "nullable": true
+                        },
+                        "choice": {
+                            "anyOf": [
+                                {
+                                    "title": "choiceColumn",
+                                    "type": "object",
+                                    "properties": {
+                                        "allowTextEntry": {
+                                            "type": "boolean",
+                                            "nullable": true
+                                        },
+                                        "choices": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string",
+                                                "nullable": true
+                                            }
+                                        },
+                                        "displayAs": {
+                                            "type": "string",
+                                            "nullable": true
+                                        }
+                                    },
+                                    "example": {
+                                        "allowTextEntry": true,
+                                        "choices": [
+                                            "String"
+                                        ],
+                                        "displayAs": "String"
+                                    }
+                                }
+                            ],
+                            "nullable": true
+                        },
+                        "columnGroup": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "currency": {
+                            "anyOf": [
+                                {
+                                    "title": "currencyColumn",
+                                    "type": "object",
+                                    "properties": {
+                                        "locale": {
+                                            "type": "string",
+                                            "nullable": true
+                                        }
+                                    },
+                                    "example": {
+                                        "locale": "String"
+                                    }
+                                }
+                            ],
+                            "nullable": true
+                        },
+                        "dateTime": {
+                            "anyOf": [
+                                {
+                                    "title": "dateTimeColumn",
+                                    "type": "object",
+                                    "properties": {
+                                        "displayAs": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "format": {
+                                            "type": "string",
+                                            "nullable": true
+                                        }
+                                    },
+                                    "example": {
+                                        "displayAs": "String",
+                                        "format": "String"
+                                    }
+                                }
+                            ],
+                            "nullable": true
+                        },
+                        "defaultValue": {
+                            "anyOf": [
+                                {
+                                    "title": "defaultColumnValue",
+                                    "type": "object",
+                                    "properties": {
+                                        "formula": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "value": {
+                                            "type": "string",
+                                            "nullable": true
+                                        }
+                                    },
+                                    "example": {
+                                        "formula": "String",
+                                        "value": "String"
+                                    }
+                                }
+                            ],
+                            "nullable": true
+                        },
+                        "description": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "displayName": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "enforceUniqueValues": {
+                            "type": "boolean",
+                            "nullable": true
+                        },
+                        "hidden": {
+                            "type": "boolean",
+                            "nullable": true
+                        },
+                        "indexed": {
+                            "type": "boolean",
+                            "nullable": true
+                        },
+                        "lookup": {
+                            "anyOf": [
+                                {
+                                    "title": "lookupColumn",
+                                    "type": "object",
+                                    "properties": {
+                                        "allowMultipleValues": {
+                                            "type": "boolean",
+                                            "nullable": true
+                                        },
+                                        "allowUnlimitedLength": {
+                                            "type": "boolean",
+                                            "nullable": true
+                                        },
+                                        "columnName": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "listId": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "primaryLookupColumnId": {
+                                            "type": "string",
+                                            "nullable": true
+                                        }
+                                    },
+                                    "example": {
+                                        "allowMultipleValues": true,
+                                        "allowUnlimitedLength": true,
+                                        "columnName": "String",
+                                        "listId": "String",
+                                        "primaryLookupColumnId": "String"
+                                    }
+                                }
+                            ],
+                            "nullable": true
+                        },
+                        "name": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "number": {
+                            "anyOf": [
+                                {
+                                    "title": "numberColumn",
+                                    "type": "object",
+                                    "properties": {
+                                        "decimalPlaces": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "displayAs": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "maximum": {
+                                            "anyOf": [
+                                                {
+                                                    "type": "number"
+                                                },
+                                                {
+                                                    "type": "string"
+                                                },
+                                                {
+                                                    "enum": [
+                                                        "-INF",
+                                                        "INF",
+                                                        "NaN"
+                                                    ]
+                                                }
+                                            ],
+                                            "format": "double",
+                                            "nullable": true
+                                        },
+                                        "minimum": {
+                                            "anyOf": [
+                                                {
+                                                    "type": "number"
+                                                },
+                                                {
+                                                    "type": "string"
+                                                },
+                                                {
+                                                    "enum": [
+                                                        "-INF",
+                                                        "INF",
+                                                        "NaN"
+                                                    ]
+                                                }
+                                            ],
+                                            "format": "double",
+                                            "nullable": true
+                                        }
+                                    },
+                                    "example": {
+                                        "decimalPlaces": "String",
+                                        "displayAs": "String",
+                                        "maximum": "Double",
+                                        "minimum": "Double"
+                                    }
+                                }
+                            ],
+                            "nullable": true
+                        },
+                        "personOrGroup": {
+                            "anyOf": [
+                                {
+                                    "title": "personOrGroupColumn",
+                                    "type": "object",
+                                    "properties": {
+                                        "allowMultipleSelection": {
+                                            "type": "boolean",
+                                            "nullable": true
+                                        },
+                                        "chooseFromType": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "displayAs": {
+                                            "type": "string",
+                                            "nullable": true
+                                        }
+                                    },
+                                    "example": {
+                                        "allowMultipleSelection": true,
+                                        "chooseFromType": "String",
+                                        "displayAs": "String"
+                                    }
+                                }
+                            ],
+                            "nullable": true
+                        },
+                        "readOnly": {
+                            "type": "boolean",
+                            "nullable": true
+                        },
+                        "required": {
+                            "type": "boolean",
+                            "nullable": true
+                        },
+                        "text": {
+                            "anyOf": [
+                                {
+                                    "title": "textColumn",
+                                    "type": "object",
+                                    "properties": {
+                                        "allowMultipleLines": {
+                                            "type": "boolean",
+                                            "nullable": true
+                                        },
+                                        "appendChangesToExistingText": {
+                                            "type": "boolean",
+                                            "nullable": true
+                                        },
+                                        "linesForEditing": {
+                                            "maximum": 2147483647,
+                                            "minimum": -2147483648,
+                                            "type": "integer",
+                                            "format": "int32",
+                                            "nullable": true
+                                        },
+                                        "maxLength": {
+                                            "maximum": 2147483647,
+                                            "minimum": -2147483648,
+                                            "type": "integer",
+                                            "format": "int32",
+                                            "nullable": true
+                                        },
+                                        "textType": {
+                                            "type": "string",
+                                            "nullable": true
+                                        }
+                                    },
+                                    "example": {
+                                        "allowMultipleLines": true,
+                                        "appendChangesToExistingText": true,
+                                        "linesForEditing": "Int32",
+                                        "maxLength": "Int32",
+                                        "textType": "String"
+                                    }
+                                }
+                            ],
+                            "nullable": true
+                        }
+                    }
+                }
+            ],
+            "example": {
+                "id": "String (identifier)",
+                "boolean": {
+                    "@odata.type": "microsoft.graph.booleanColumn"
+                },
+                "calculated": {
+                    "@odata.type": "microsoft.graph.calculatedColumn"
+                },
+                "choice": {
+                    "@odata.type": "microsoft.graph.choiceColumn"
+                },
+                "columnGroup": "String",
+                "currency": {
+                    "@odata.type": "microsoft.graph.currencyColumn"
+                },
+                "dateTime": {
+                    "@odata.type": "microsoft.graph.dateTimeColumn"
+                },
+                "defaultValue": {
+                    "@odata.type": "microsoft.graph.defaultColumnValue"
+                },
+                "description": "String",
+                "displayName": "String",
+                "enforceUniqueValues": true,
+                "hidden": true,
+                "indexed": true,
+                "lookup": {
+                    "@odata.type": "microsoft.graph.lookupColumn"
+                },
+                "name": "String",
+                "number": {
+                    "@odata.type": "microsoft.graph.numberColumn"
+                },
+                "personOrGroup": {
+                    "@odata.type": "microsoft.graph.personOrGroupColumn"
+                },
+                "readOnly": true,
+                "required": true,
+                "text": {
+                    "@odata.type": "microsoft.graph.textColumn"
+                }
+            }
+        }
+    }
+}

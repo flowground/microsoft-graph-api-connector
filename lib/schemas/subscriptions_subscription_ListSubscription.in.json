@@ -1,0 +1,25 @@
+{
+    "type": "object",
+    "properties": {
+        "_search": {
+            "type": "string"
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "resource",
+                    "changeType",
+                    "clientState",
+                    "notificationUrl",
+                    "expirationDateTime",
+                    "applicationId",
+                    "creatorId"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

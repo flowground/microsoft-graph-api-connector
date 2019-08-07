@@ -1,0 +1,47 @@
+{
+    "type": "object",
+    "properties": {
+        "educationSchool_id": {
+            "required": true,
+            "type": "string"
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "displayName",
+                    "description",
+                    "externalSource",
+                    "principalEmail",
+                    "principalName",
+                    "externalPrincipalId",
+                    "lowestGrade",
+                    "highestGrade",
+                    "schoolNumber",
+                    "externalId",
+                    "phone",
+                    "fax",
+                    "createdBy",
+                    "address",
+                    "classes",
+                    "users"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*",
+                    "classes",
+                    "users"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

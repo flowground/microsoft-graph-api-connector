@@ -1,0 +1,74 @@
+{
+    "type": "object",
+    "properties": {
+        "defaultManagedAppProtection_id": {
+            "required": true,
+            "type": "string"
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "displayName",
+                    "description",
+                    "createdDateTime",
+                    "lastModifiedDateTime",
+                    "version",
+                    "periodOfflineBeforeAccessCheck",
+                    "periodOnlineBeforeAccessCheck",
+                    "allowedInboundDataTransferSources",
+                    "allowedOutboundDataTransferDestinations",
+                    "organizationalCredentialsRequired",
+                    "allowedOutboundClipboardSharingLevel",
+                    "dataBackupBlocked",
+                    "deviceComplianceRequired",
+                    "managedBrowserToOpenLinksRequired",
+                    "saveAsBlocked",
+                    "periodOfflineBeforeWipeIsEnforced",
+                    "pinRequired",
+                    "maximumPinRetries",
+                    "simplePinBlocked",
+                    "minimumPinLength",
+                    "pinCharacterSet",
+                    "periodBeforePinReset",
+                    "allowedDataStorageLocations",
+                    "contactSyncBlocked",
+                    "printBlocked",
+                    "fingerprintBlocked",
+                    "disableAppPinIfDevicePinIsSet",
+                    "minimumRequiredOsVersion",
+                    "minimumWarningOsVersion",
+                    "minimumRequiredAppVersion",
+                    "minimumWarningAppVersion",
+                    "appDataEncryptionType",
+                    "screenCaptureBlocked",
+                    "encryptAppData",
+                    "disableAppEncryptionIfDeviceEncryptionIsEnabled",
+                    "minimumRequiredSdkVersion",
+                    "customSettings",
+                    "deployedAppCount",
+                    "minimumRequiredPatchVersion",
+                    "minimumWarningPatchVersion",
+                    "faceIdBlocked",
+                    "apps",
+                    "deploymentSummary"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*",
+                    "apps",
+                    "deploymentSummary"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

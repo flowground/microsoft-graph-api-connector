@@ -1,0 +1,48 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "allOf": [
+                {
+                    "title": "entity",
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        }
+                    },
+                    "example": {
+                        "id": "String (identifier)"
+                    }
+                },
+                {
+                    "title": "managedDeviceMobileAppConfigurationAssignment",
+                    "type": "object",
+                    "properties": {
+                        "target": {
+                            "anyOf": [
+                                {
+                                    "title": "deviceAndAppManagementAssignmentTarget",
+                                    "type": "object"
+                                }
+                            ],
+                            "description": "Assignment target that the T&C policy is assigned to.",
+                            "nullable": true
+                        }
+                    },
+                    "description": "Contains the properties used to assign an MDM app configuration to a group."
+                }
+            ],
+            "example": {
+                "id": "String (identifier)",
+                "target": {
+                    "@odata.type": "microsoft.graph.deviceAndAppManagementAssignmentTarget"
+                }
+            }
+        },
+        "managedDeviceMobileAppConfiguration_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

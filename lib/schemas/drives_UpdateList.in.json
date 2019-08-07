@@ -1,0 +1,10 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {},
+        "drive_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

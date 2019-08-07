@@ -1,0 +1,48 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "allOf": [
+                {
+                    "title": "entity",
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        }
+                    },
+                    "example": {
+                        "id": "String (identifier)"
+                    }
+                },
+                {
+                    "title": "multiValueLegacyExtendedProperty",
+                    "type": "object",
+                    "properties": {
+                        "value": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "nullable": true
+                            }
+                        }
+                    }
+                }
+            ],
+            "example": {
+                "id": "String (identifier)",
+                "value": [
+                    "String"
+                ]
+            }
+        },
+        "contactFolder_id": {
+            "required": true,
+            "type": "string"
+        },
+        "multiValueLegacyExtendedProperty_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

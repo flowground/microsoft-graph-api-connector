@@ -1,0 +1,41 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "probability": {
+                    "anyOf": [
+                        {
+                            "title": "Json",
+                            "type": "object"
+                        }
+                    ],
+                    "nullable": true
+                },
+                "degFreedom1": {
+                    "anyOf": [
+                        {
+                            "title": "Json",
+                            "type": "object"
+                        }
+                    ],
+                    "nullable": true
+                },
+                "degFreedom2": {
+                    "anyOf": [
+                        {
+                            "title": "Json",
+                            "type": "object"
+                        }
+                    ],
+                    "nullable": true
+                }
+            }
+        },
+        "driveItem_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

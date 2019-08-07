@@ -1,0 +1,77 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "cost": {
+                    "anyOf": [
+                        {
+                            "title": "Json",
+                            "type": "object"
+                        }
+                    ],
+                    "nullable": true
+                },
+                "datePurchased": {
+                    "anyOf": [
+                        {
+                            "title": "Json",
+                            "type": "object"
+                        }
+                    ],
+                    "nullable": true
+                },
+                "firstPeriod": {
+                    "anyOf": [
+                        {
+                            "title": "Json",
+                            "type": "object"
+                        }
+                    ],
+                    "nullable": true
+                },
+                "salvage": {
+                    "anyOf": [
+                        {
+                            "title": "Json",
+                            "type": "object"
+                        }
+                    ],
+                    "nullable": true
+                },
+                "period": {
+                    "anyOf": [
+                        {
+                            "title": "Json",
+                            "type": "object"
+                        }
+                    ],
+                    "nullable": true
+                },
+                "rate": {
+                    "anyOf": [
+                        {
+                            "title": "Json",
+                            "type": "object"
+                        }
+                    ],
+                    "nullable": true
+                },
+                "basis": {
+                    "anyOf": [
+                        {
+                            "title": "Json",
+                            "type": "object"
+                        }
+                    ],
+                    "nullable": true
+                }
+            }
+        },
+        "driveItem_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

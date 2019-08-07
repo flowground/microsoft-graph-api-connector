@@ -1,0 +1,32 @@
+{
+    "type": "object",
+    "properties": {
+        "group_id": {
+            "required": true,
+            "type": "string"
+        },
+        "conversationThread_id": {
+            "required": true,
+            "type": "string"
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "toRecipients",
+                    "topic",
+                    "hasAttachments",
+                    "lastDeliveredDateTime",
+                    "uniqueSenders",
+                    "ccRecipients",
+                    "preview",
+                    "isLocked",
+                    "posts"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

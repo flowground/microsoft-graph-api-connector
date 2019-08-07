@@ -1,0 +1,59 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "settlement": {
+                    "anyOf": [
+                        {
+                            "title": "Json",
+                            "type": "object"
+                        }
+                    ],
+                    "nullable": true
+                },
+                "maturity": {
+                    "anyOf": [
+                        {
+                            "title": "Json",
+                            "type": "object"
+                        }
+                    ],
+                    "nullable": true
+                },
+                "investment": {
+                    "anyOf": [
+                        {
+                            "title": "Json",
+                            "type": "object"
+                        }
+                    ],
+                    "nullable": true
+                },
+                "redemption": {
+                    "anyOf": [
+                        {
+                            "title": "Json",
+                            "type": "object"
+                        }
+                    ],
+                    "nullable": true
+                },
+                "basis": {
+                    "anyOf": [
+                        {
+                            "title": "Json",
+                            "type": "object"
+                        }
+                    ],
+                    "nullable": true
+                }
+            }
+        },
+        "driveItem_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

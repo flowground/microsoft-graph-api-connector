@@ -1,0 +1,181 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "allOf": [
+                {
+                    "title": "entity",
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        }
+                    },
+                    "example": {
+                        "id": "String (identifier)"
+                    }
+                },
+                {
+                    "title": "workbookTableColumn",
+                    "type": "object",
+                    "properties": {
+                        "index": {
+                            "maximum": 2147483647,
+                            "minimum": -2147483648,
+                            "type": "integer",
+                            "format": "int32"
+                        },
+                        "name": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "values": {
+                            "anyOf": [
+                                {
+                                    "title": "Json",
+                                    "type": "object"
+                                }
+                            ],
+                            "nullable": true
+                        },
+                        "filter": {
+                            "anyOf": [
+                                {
+                                    "allOf": [
+                                        {
+                                            "title": "entity",
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "example": {
+                                                "id": "String (identifier)"
+                                            }
+                                        },
+                                        {
+                                            "title": "workbookFilter",
+                                            "type": "object",
+                                            "properties": {
+                                                "criteria": {
+                                                    "anyOf": [
+                                                        {
+                                                            "title": "workbookFilterCriteria",
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "color": {
+                                                                    "type": "string",
+                                                                    "nullable": true
+                                                                },
+                                                                "criterion1": {
+                                                                    "type": "string",
+                                                                    "nullable": true
+                                                                },
+                                                                "criterion2": {
+                                                                    "type": "string",
+                                                                    "nullable": true
+                                                                },
+                                                                "dynamicCriteria": {
+                                                                    "type": "string"
+                                                                },
+                                                                "filterOn": {
+                                                                    "type": "string"
+                                                                },
+                                                                "icon": {
+                                                                    "anyOf": [
+                                                                        {
+                                                                            "title": "workbookIcon",
+                                                                            "type": "object",
+                                                                            "properties": {
+                                                                                "index": {
+                                                                                    "maximum": 2147483647,
+                                                                                    "minimum": -2147483648,
+                                                                                    "type": "integer",
+                                                                                    "format": "int32"
+                                                                                },
+                                                                                "set": {
+                                                                                    "type": "string"
+                                                                                }
+                                                                            },
+                                                                            "example": {
+                                                                                "index": "Int32",
+                                                                                "set": "String"
+                                                                            }
+                                                                        }
+                                                                    ],
+                                                                    "nullable": true
+                                                                },
+                                                                "operator": {
+                                                                    "type": "string"
+                                                                },
+                                                                "values": {
+                                                                    "anyOf": [
+                                                                        {
+                                                                            "title": "Json",
+                                                                            "type": "object"
+                                                                        }
+                                                                    ],
+                                                                    "nullable": true
+                                                                }
+                                                            },
+                                                            "example": {
+                                                                "color": "String",
+                                                                "criterion1": "String",
+                                                                "criterion2": "String",
+                                                                "dynamicCriteria": "String",
+                                                                "filterOn": "String",
+                                                                "icon": {
+                                                                    "@odata.type": "microsoft.graph.workbookIcon"
+                                                                },
+                                                                "operator": "String",
+                                                                "values": {
+                                                                    "@odata.type": "microsoft.graph.Json"
+                                                                }
+                                                            }
+                                                        }
+                                                    ],
+                                                    "nullable": true
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "example": {
+                                        "id": "String (identifier)",
+                                        "criteria": {
+                                            "@odata.type": "microsoft.graph.workbookFilterCriteria"
+                                        }
+                                    }
+                                }
+                            ],
+                            "nullable": true
+                        }
+                    }
+                }
+            ],
+            "example": {
+                "id": "String (identifier)",
+                "index": "Int32",
+                "name": "String",
+                "values": {
+                    "@odata.type": "microsoft.graph.Json"
+                },
+                "filter": {
+                    "@odata.type": "microsoft.graph.workbookFilter"
+                }
+            }
+        },
+        "driveItem_id": {
+            "required": true,
+            "type": "string"
+        },
+        "workbookWorksheet_id": {
+            "required": true,
+            "type": "string"
+        },
+        "workbookTable_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

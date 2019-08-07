@@ -1,0 +1,10 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {},
+        "notebook_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

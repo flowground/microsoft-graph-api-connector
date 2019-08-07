@@ -1,0 +1,230 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "allOf": [
+                {
+                    "title": "entity",
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        }
+                    },
+                    "example": {
+                        "id": "String (identifier)"
+                    }
+                },
+                {
+                    "title": "thumbnailSet",
+                    "type": "object",
+                    "properties": {
+                        "large": {
+                            "anyOf": [
+                                {
+                                    "title": "thumbnail",
+                                    "type": "object",
+                                    "properties": {
+                                        "content": {
+                                            "type": "string",
+                                            "format": "base64url",
+                                            "nullable": true
+                                        },
+                                        "height": {
+                                            "maximum": 2147483647,
+                                            "minimum": -2147483648,
+                                            "type": "integer",
+                                            "format": "int32",
+                                            "nullable": true
+                                        },
+                                        "sourceItemId": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "url": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "width": {
+                                            "maximum": 2147483647,
+                                            "minimum": -2147483648,
+                                            "type": "integer",
+                                            "format": "int32",
+                                            "nullable": true
+                                        }
+                                    },
+                                    "example": {
+                                        "content": "Stream",
+                                        "height": "Int32",
+                                        "sourceItemId": "String",
+                                        "url": "String",
+                                        "width": "Int32"
+                                    }
+                                }
+                            ],
+                            "nullable": true
+                        },
+                        "medium": {
+                            "anyOf": [
+                                {
+                                    "title": "thumbnail",
+                                    "type": "object",
+                                    "properties": {
+                                        "content": {
+                                            "type": "string",
+                                            "format": "base64url",
+                                            "nullable": true
+                                        },
+                                        "height": {
+                                            "maximum": 2147483647,
+                                            "minimum": -2147483648,
+                                            "type": "integer",
+                                            "format": "int32",
+                                            "nullable": true
+                                        },
+                                        "sourceItemId": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "url": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "width": {
+                                            "maximum": 2147483647,
+                                            "minimum": -2147483648,
+                                            "type": "integer",
+                                            "format": "int32",
+                                            "nullable": true
+                                        }
+                                    },
+                                    "example": {
+                                        "content": "Stream",
+                                        "height": "Int32",
+                                        "sourceItemId": "String",
+                                        "url": "String",
+                                        "width": "Int32"
+                                    }
+                                }
+                            ],
+                            "nullable": true
+                        },
+                        "small": {
+                            "anyOf": [
+                                {
+                                    "title": "thumbnail",
+                                    "type": "object",
+                                    "properties": {
+                                        "content": {
+                                            "type": "string",
+                                            "format": "base64url",
+                                            "nullable": true
+                                        },
+                                        "height": {
+                                            "maximum": 2147483647,
+                                            "minimum": -2147483648,
+                                            "type": "integer",
+                                            "format": "int32",
+                                            "nullable": true
+                                        },
+                                        "sourceItemId": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "url": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "width": {
+                                            "maximum": 2147483647,
+                                            "minimum": -2147483648,
+                                            "type": "integer",
+                                            "format": "int32",
+                                            "nullable": true
+                                        }
+                                    },
+                                    "example": {
+                                        "content": "Stream",
+                                        "height": "Int32",
+                                        "sourceItemId": "String",
+                                        "url": "String",
+                                        "width": "Int32"
+                                    }
+                                }
+                            ],
+                            "nullable": true
+                        },
+                        "source": {
+                            "anyOf": [
+                                {
+                                    "title": "thumbnail",
+                                    "type": "object",
+                                    "properties": {
+                                        "content": {
+                                            "type": "string",
+                                            "format": "base64url",
+                                            "nullable": true
+                                        },
+                                        "height": {
+                                            "maximum": 2147483647,
+                                            "minimum": -2147483648,
+                                            "type": "integer",
+                                            "format": "int32",
+                                            "nullable": true
+                                        },
+                                        "sourceItemId": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "url": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "width": {
+                                            "maximum": 2147483647,
+                                            "minimum": -2147483648,
+                                            "type": "integer",
+                                            "format": "int32",
+                                            "nullable": true
+                                        }
+                                    },
+                                    "example": {
+                                        "content": "Stream",
+                                        "height": "Int32",
+                                        "sourceItemId": "String",
+                                        "url": "String",
+                                        "width": "Int32"
+                                    }
+                                }
+                            ],
+                            "nullable": true
+                        }
+                    }
+                }
+            ],
+            "example": {
+                "id": "String (identifier)",
+                "large": {
+                    "@odata.type": "microsoft.graph.thumbnail"
+                },
+                "medium": {
+                    "@odata.type": "microsoft.graph.thumbnail"
+                },
+                "small": {
+                    "@odata.type": "microsoft.graph.thumbnail"
+                },
+                "source": {
+                    "@odata.type": "microsoft.graph.thumbnail"
+                }
+            }
+        },
+        "driveItem_id": {
+            "required": true,
+            "type": "string"
+        },
+        "thumbnailSet_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

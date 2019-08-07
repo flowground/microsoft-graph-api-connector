@@ -1,0 +1,50 @@
+{
+    "type": "object",
+    "properties": {
+        "driveItem_id": {
+            "required": true,
+            "type": "string"
+        },
+        "workbookTable_id": {
+            "required": true,
+            "type": "string"
+        },
+        "workbookChart_id": {
+            "required": true,
+            "type": "string"
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "name",
+                    "position",
+                    "visibility",
+                    "charts",
+                    "names",
+                    "pivotTables",
+                    "protection",
+                    "tables"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*",
+                    "charts",
+                    "names",
+                    "pivotTables",
+                    "protection",
+                    "tables"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

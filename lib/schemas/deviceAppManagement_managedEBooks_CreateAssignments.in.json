@@ -1,0 +1,66 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "allOf": [
+                {
+                    "title": "entity",
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        }
+                    },
+                    "example": {
+                        "id": "String (identifier)"
+                    }
+                },
+                {
+                    "title": "managedEBookAssignment",
+                    "type": "object",
+                    "properties": {
+                        "target": {
+                            "anyOf": [
+                                {
+                                    "title": "deviceAndAppManagementAssignmentTarget",
+                                    "type": "object"
+                                }
+                            ],
+                            "description": "The assignment target for eBook.",
+                            "nullable": true
+                        },
+                        "installIntent": {
+                            "anyOf": [
+                                {
+                                    "title": "installIntent",
+                                    "enum": [
+                                        "available",
+                                        "required",
+                                        "uninstall",
+                                        "availableWithoutEnrollment"
+                                    ],
+                                    "type": "string"
+                                }
+                            ],
+                            "description": "The install intent for eBook."
+                        }
+                    },
+                    "description": "Contains properties used to assign a eBook to a group."
+                }
+            ],
+            "example": {
+                "id": "String (identifier)",
+                "target": {
+                    "@odata.type": "microsoft.graph.deviceAndAppManagementAssignmentTarget"
+                },
+                "installIntent": {
+                    "@odata.type": "microsoft.graph.installIntent"
+                }
+            }
+        },
+        "managedEBook_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

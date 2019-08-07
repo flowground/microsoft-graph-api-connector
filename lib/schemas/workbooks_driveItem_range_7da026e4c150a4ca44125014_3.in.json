@@ -1,0 +1,22 @@
+{
+    "type": "object",
+    "properties": {
+        "address": {
+            "required": true,
+            "type": "string",
+            "nullable": true
+        },
+        "driveItem_id": {
+            "required": true,
+            "type": "string"
+        },
+        "workbookNamedItem_id": {
+            "required": true,
+            "type": "string"
+        },
+        "workbookTable_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

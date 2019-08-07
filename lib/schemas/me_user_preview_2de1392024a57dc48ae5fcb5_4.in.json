@@ -1,0 +1,17 @@
+{
+    "type": "object",
+    "properties": {
+        "onenotePage_id": {
+            "required": true,
+            "type": "string"
+        },
+        "onenoteSection_id": {
+            "required": true,
+            "type": "string"
+        },
+        "onenotePage_id2": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

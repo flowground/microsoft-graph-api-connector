@@ -1,0 +1,98 @@
+{
+    "type": "object",
+    "properties": {
+        "user_id": {
+            "required": true,
+            "type": "string"
+        },
+        "_top": {
+            "minimum": 0,
+            "type": "integer"
+        },
+        "_skip": {
+            "minimum": 0,
+            "type": "integer"
+        },
+        "_search": {
+            "type": "string"
+        },
+        "_filter": {
+            "type": "string"
+        },
+        "_count": {
+            "type": "boolean"
+        },
+        "_orderby": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "id desc",
+                    "visualElements",
+                    "visualElements desc",
+                    "activitySourceHost",
+                    "activitySourceHost desc",
+                    "activationUrl",
+                    "activationUrl desc",
+                    "appActivityId",
+                    "appActivityId desc",
+                    "appDisplayName",
+                    "appDisplayName desc",
+                    "contentUrl",
+                    "contentUrl desc",
+                    "createdDateTime",
+                    "createdDateTime desc",
+                    "expirationDateTime",
+                    "expirationDateTime desc",
+                    "fallbackUrl",
+                    "fallbackUrl desc",
+                    "lastModifiedDateTime",
+                    "lastModifiedDateTime desc",
+                    "userTimezone",
+                    "userTimezone desc",
+                    "contentInfo",
+                    "contentInfo desc",
+                    "status",
+                    "status desc"
+                ],
+                "type": "string"
+            }
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "visualElements",
+                    "activitySourceHost",
+                    "activationUrl",
+                    "appActivityId",
+                    "appDisplayName",
+                    "contentUrl",
+                    "createdDateTime",
+                    "expirationDateTime",
+                    "fallbackUrl",
+                    "lastModifiedDateTime",
+                    "userTimezone",
+                    "contentInfo",
+                    "status",
+                    "historyItems"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*",
+                    "historyItems"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

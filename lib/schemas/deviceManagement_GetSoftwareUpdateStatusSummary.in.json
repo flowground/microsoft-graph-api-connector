@@ -1,0 +1,40 @@
+{
+    "type": "object",
+    "properties": {
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "displayName",
+                    "compliantDeviceCount",
+                    "nonCompliantDeviceCount",
+                    "remediatedDeviceCount",
+                    "errorDeviceCount",
+                    "unknownDeviceCount",
+                    "conflictDeviceCount",
+                    "notApplicableDeviceCount",
+                    "compliantUserCount",
+                    "nonCompliantUserCount",
+                    "remediatedUserCount",
+                    "errorUserCount",
+                    "unknownUserCount",
+                    "conflictUserCount",
+                    "notApplicableUserCount"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

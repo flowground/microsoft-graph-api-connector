@@ -1,0 +1,125 @@
+{
+    "type": "object",
+    "properties": {
+        "user_id": {
+            "required": true,
+            "type": "string"
+        },
+        "_top": {
+            "minimum": 0,
+            "type": "integer"
+        },
+        "_skip": {
+            "minimum": 0,
+            "type": "integer"
+        },
+        "_search": {
+            "type": "string"
+        },
+        "_filter": {
+            "type": "string"
+        },
+        "_count": {
+            "type": "boolean"
+        },
+        "_orderby": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "id desc",
+                    "createdBy",
+                    "createdBy desc",
+                    "planId",
+                    "planId desc",
+                    "bucketId",
+                    "bucketId desc",
+                    "title",
+                    "title desc",
+                    "orderHint",
+                    "orderHint desc",
+                    "assigneePriority",
+                    "assigneePriority desc",
+                    "percentComplete",
+                    "percentComplete desc",
+                    "startDateTime",
+                    "startDateTime desc",
+                    "createdDateTime",
+                    "createdDateTime desc",
+                    "dueDateTime",
+                    "dueDateTime desc",
+                    "hasDescription",
+                    "hasDescription desc",
+                    "previewType",
+                    "previewType desc",
+                    "completedDateTime",
+                    "completedDateTime desc",
+                    "completedBy",
+                    "completedBy desc",
+                    "referenceCount",
+                    "referenceCount desc",
+                    "checklistItemCount",
+                    "checklistItemCount desc",
+                    "activeChecklistItemCount",
+                    "activeChecklistItemCount desc",
+                    "appliedCategories",
+                    "appliedCategories desc",
+                    "assignments",
+                    "assignments desc",
+                    "conversationThreadId",
+                    "conversationThreadId desc"
+                ],
+                "type": "string"
+            }
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "createdBy",
+                    "planId",
+                    "bucketId",
+                    "title",
+                    "orderHint",
+                    "assigneePriority",
+                    "percentComplete",
+                    "startDateTime",
+                    "createdDateTime",
+                    "dueDateTime",
+                    "hasDescription",
+                    "previewType",
+                    "completedDateTime",
+                    "completedBy",
+                    "referenceCount",
+                    "checklistItemCount",
+                    "activeChecklistItemCount",
+                    "appliedCategories",
+                    "assignments",
+                    "conversationThreadId",
+                    "details",
+                    "assignedToTaskBoardFormat",
+                    "progressTaskBoardFormat",
+                    "bucketTaskBoardFormat"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*",
+                    "details",
+                    "assignedToTaskBoardFormat",
+                    "progressTaskBoardFormat",
+                    "bucketTaskBoardFormat"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

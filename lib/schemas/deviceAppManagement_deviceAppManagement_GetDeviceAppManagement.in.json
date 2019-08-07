@@ -1,0 +1,57 @@
+{
+    "type": "object",
+    "properties": {
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "microsoftStoreForBusinessLastSuccessfulSyncDateTime",
+                    "isEnabledForMicrosoftStoreForBusiness",
+                    "microsoftStoreForBusinessLanguage",
+                    "microsoftStoreForBusinessLastCompletedApplicationSyncTime",
+                    "mobileApps",
+                    "mobileAppCategories",
+                    "mobileAppConfigurations",
+                    "vppTokens",
+                    "managedAppPolicies",
+                    "iosManagedAppProtections",
+                    "androidManagedAppProtections",
+                    "defaultManagedAppProtections",
+                    "targetedManagedAppConfigurations",
+                    "mdmWindowsInformationProtectionPolicies",
+                    "windowsInformationProtectionPolicies",
+                    "managedAppRegistrations",
+                    "managedAppStatuses",
+                    "managedEBooks"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*",
+                    "mobileApps",
+                    "mobileAppCategories",
+                    "mobileAppConfigurations",
+                    "vppTokens",
+                    "managedAppPolicies",
+                    "iosManagedAppProtections",
+                    "androidManagedAppProtections",
+                    "defaultManagedAppProtections",
+                    "targetedManagedAppConfigurations",
+                    "mdmWindowsInformationProtectionPolicies",
+                    "windowsInformationProtectionPolicies",
+                    "managedAppRegistrations",
+                    "managedAppStatuses",
+                    "managedEBooks"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

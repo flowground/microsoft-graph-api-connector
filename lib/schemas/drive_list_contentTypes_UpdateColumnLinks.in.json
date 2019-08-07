@@ -1,0 +1,43 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "allOf": [
+                {
+                    "title": "entity",
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        }
+                    },
+                    "example": {
+                        "id": "String (identifier)"
+                    }
+                },
+                {
+                    "title": "columnLink",
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "type": "string",
+                            "nullable": true
+                        }
+                    }
+                }
+            ],
+            "example": {
+                "id": "String (identifier)",
+                "name": "String"
+            }
+        },
+        "contentType_id": {
+            "required": true,
+            "type": "string"
+        },
+        "columnLink_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

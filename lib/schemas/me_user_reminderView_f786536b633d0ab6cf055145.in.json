@@ -1,0 +1,14 @@
+{
+    "type": "object",
+    "properties": {
+        "StartDateTime": {
+            "required": true,
+            "type": "string"
+        },
+        "EndDateTime": {
+            "required": true,
+            "type": "string",
+            "nullable": true
+        }
+    }
+}

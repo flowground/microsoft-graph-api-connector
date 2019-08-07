@@ -1,0 +1,52 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "allOf": [
+                {
+                    "title": "entity",
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        }
+                    },
+                    "example": {
+                        "id": "String (identifier)"
+                    }
+                },
+                {
+                    "title": "deviceCompliancePolicyAssignment",
+                    "type": "object",
+                    "properties": {
+                        "target": {
+                            "anyOf": [
+                                {
+                                    "title": "deviceAndAppManagementAssignmentTarget",
+                                    "type": "object"
+                                }
+                            ],
+                            "description": "Target for the compliance policy assignment.",
+                            "nullable": true
+                        }
+                    },
+                    "description": "Device compliance policy assignment."
+                }
+            ],
+            "example": {
+                "id": "String (identifier)",
+                "target": {
+                    "@odata.type": "microsoft.graph.deviceAndAppManagementAssignmentTarget"
+                }
+            }
+        },
+        "deviceCompliancePolicy_id": {
+            "required": true,
+            "type": "string"
+        },
+        "deviceCompliancePolicyAssignment_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

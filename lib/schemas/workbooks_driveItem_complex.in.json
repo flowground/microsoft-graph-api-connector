@@ -1,0 +1,41 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "realNum": {
+                    "anyOf": [
+                        {
+                            "title": "Json",
+                            "type": "object"
+                        }
+                    ],
+                    "nullable": true
+                },
+                "iNum": {
+                    "anyOf": [
+                        {
+                            "title": "Json",
+                            "type": "object"
+                        }
+                    ],
+                    "nullable": true
+                },
+                "suffix": {
+                    "anyOf": [
+                        {
+                            "title": "Json",
+                            "type": "object"
+                        }
+                    ],
+                    "nullable": true
+                }
+            }
+        },
+        "driveItem_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

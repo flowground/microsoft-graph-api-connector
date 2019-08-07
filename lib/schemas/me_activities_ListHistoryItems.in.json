@@ -1,0 +1,83 @@
+{
+    "type": "object",
+    "properties": {
+        "userActivity_id": {
+            "required": true,
+            "type": "string"
+        },
+        "_top": {
+            "minimum": 0,
+            "type": "integer"
+        },
+        "_skip": {
+            "minimum": 0,
+            "type": "integer"
+        },
+        "_search": {
+            "type": "string"
+        },
+        "_filter": {
+            "type": "string"
+        },
+        "_count": {
+            "type": "boolean"
+        },
+        "_orderby": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "id desc",
+                    "status",
+                    "status desc",
+                    "activeDurationSeconds",
+                    "activeDurationSeconds desc",
+                    "createdDateTime",
+                    "createdDateTime desc",
+                    "lastActiveDateTime",
+                    "lastActiveDateTime desc",
+                    "lastModifiedDateTime",
+                    "lastModifiedDateTime desc",
+                    "expirationDateTime",
+                    "expirationDateTime desc",
+                    "startedDateTime",
+                    "startedDateTime desc",
+                    "userTimezone",
+                    "userTimezone desc"
+                ],
+                "type": "string"
+            }
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "status",
+                    "activeDurationSeconds",
+                    "createdDateTime",
+                    "lastActiveDateTime",
+                    "lastModifiedDateTime",
+                    "expirationDateTime",
+                    "startedDateTime",
+                    "userTimezone",
+                    "activity"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*",
+                    "activity"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

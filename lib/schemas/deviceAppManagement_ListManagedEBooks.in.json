@@ -1,0 +1,88 @@
+{
+    "type": "object",
+    "properties": {
+        "_top": {
+            "minimum": 0,
+            "type": "integer"
+        },
+        "_skip": {
+            "minimum": 0,
+            "type": "integer"
+        },
+        "_search": {
+            "type": "string"
+        },
+        "_filter": {
+            "type": "string"
+        },
+        "_count": {
+            "type": "boolean"
+        },
+        "_orderby": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "id desc",
+                    "displayName",
+                    "displayName desc",
+                    "description",
+                    "description desc",
+                    "publisher",
+                    "publisher desc",
+                    "publishedDateTime",
+                    "publishedDateTime desc",
+                    "largeCover",
+                    "largeCover desc",
+                    "createdDateTime",
+                    "createdDateTime desc",
+                    "lastModifiedDateTime",
+                    "lastModifiedDateTime desc",
+                    "informationUrl",
+                    "informationUrl desc",
+                    "privacyInformationUrl",
+                    "privacyInformationUrl desc"
+                ],
+                "type": "string"
+            }
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "displayName",
+                    "description",
+                    "publisher",
+                    "publishedDateTime",
+                    "largeCover",
+                    "createdDateTime",
+                    "lastModifiedDateTime",
+                    "informationUrl",
+                    "privacyInformationUrl",
+                    "assignments",
+                    "installSummary",
+                    "deviceStates",
+                    "userStateSummary"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*",
+                    "assignments",
+                    "installSummary",
+                    "deviceStates",
+                    "userStateSummary"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

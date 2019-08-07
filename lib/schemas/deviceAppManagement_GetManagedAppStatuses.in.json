@@ -1,0 +1,31 @@
+{
+    "type": "object",
+    "properties": {
+        "managedAppStatus_id": {
+            "required": true,
+            "type": "string"
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "displayName",
+                    "version"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

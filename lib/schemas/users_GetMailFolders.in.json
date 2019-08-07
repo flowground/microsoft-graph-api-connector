@@ -1,0 +1,33 @@
+{
+    "type": "object",
+    "properties": {
+        "user_id": {
+            "required": true,
+            "type": "string"
+        },
+        "mailFolder_id": {
+            "required": true,
+            "type": "string"
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "displayName",
+                    "parentFolderId",
+                    "childFolderCount",
+                    "unreadItemCount",
+                    "totalItemCount",
+                    "messages",
+                    "messageRules",
+                    "childFolders",
+                    "singleValueExtendedProperties",
+                    "multiValueExtendedProperties"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

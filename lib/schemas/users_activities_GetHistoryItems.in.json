@@ -1,0 +1,47 @@
+{
+    "type": "object",
+    "properties": {
+        "user_id": {
+            "required": true,
+            "type": "string"
+        },
+        "userActivity_id": {
+            "required": true,
+            "type": "string"
+        },
+        "activityHistoryItem_id": {
+            "required": true,
+            "type": "string"
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "status",
+                    "activeDurationSeconds",
+                    "createdDateTime",
+                    "lastActiveDateTime",
+                    "lastModifiedDateTime",
+                    "expirationDateTime",
+                    "startedDateTime",
+                    "userTimezone",
+                    "activity"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*",
+                    "activity"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

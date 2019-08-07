@@ -1,0 +1,18 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {},
+        "driveItem_id": {
+            "required": true,
+            "type": "string"
+        },
+        "workbookWorksheet_id": {
+            "required": true,
+            "type": "string"
+        },
+        "workbookNamedItem_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

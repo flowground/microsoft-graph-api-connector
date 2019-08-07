@@ -1,0 +1,33 @@
+{
+    "type": "object",
+    "properties": {
+        "plannerTask_id": {
+            "required": true,
+            "type": "string"
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "description",
+                    "previewType",
+                    "references",
+                    "checklist"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

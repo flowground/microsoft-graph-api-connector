@@ -1,0 +1,153 @@
+{
+    "type": "object",
+    "properties": {
+        "educationSchool_id": {
+            "required": true,
+            "type": "string"
+        },
+        "_top": {
+            "minimum": 0,
+            "type": "integer"
+        },
+        "_skip": {
+            "minimum": 0,
+            "type": "integer"
+        },
+        "_search": {
+            "type": "string"
+        },
+        "_filter": {
+            "type": "string"
+        },
+        "_count": {
+            "type": "boolean"
+        },
+        "_orderby": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "id desc",
+                    "primaryRole",
+                    "primaryRole desc",
+                    "middleName",
+                    "middleName desc",
+                    "externalSource",
+                    "externalSource desc",
+                    "residenceAddress",
+                    "residenceAddress desc",
+                    "mailingAddress",
+                    "mailingAddress desc",
+                    "student",
+                    "student desc",
+                    "teacher",
+                    "teacher desc",
+                    "createdBy",
+                    "createdBy desc",
+                    "relatedContacts",
+                    "relatedContacts desc",
+                    "accountEnabled",
+                    "accountEnabled desc",
+                    "assignedLicenses",
+                    "assignedLicenses desc",
+                    "assignedPlans",
+                    "assignedPlans desc",
+                    "businessPhones",
+                    "businessPhones desc",
+                    "department",
+                    "department desc",
+                    "displayName",
+                    "displayName desc",
+                    "givenName",
+                    "givenName desc",
+                    "mail",
+                    "mail desc",
+                    "mailNickname",
+                    "mailNickname desc",
+                    "mobilePhone",
+                    "mobilePhone desc",
+                    "passwordPolicies",
+                    "passwordPolicies desc",
+                    "passwordProfile",
+                    "passwordProfile desc",
+                    "officeLocation",
+                    "officeLocation desc",
+                    "preferredLanguage",
+                    "preferredLanguage desc",
+                    "provisionedPlans",
+                    "provisionedPlans desc",
+                    "refreshTokensValidFromDateTime",
+                    "refreshTokensValidFromDateTime desc",
+                    "showInAddressList",
+                    "showInAddressList desc",
+                    "surname",
+                    "surname desc",
+                    "usageLocation",
+                    "usageLocation desc",
+                    "userPrincipalName",
+                    "userPrincipalName desc",
+                    "userType",
+                    "userType desc"
+                ],
+                "type": "string"
+            }
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "primaryRole",
+                    "middleName",
+                    "externalSource",
+                    "residenceAddress",
+                    "mailingAddress",
+                    "student",
+                    "teacher",
+                    "createdBy",
+                    "relatedContacts",
+                    "accountEnabled",
+                    "assignedLicenses",
+                    "assignedPlans",
+                    "businessPhones",
+                    "department",
+                    "displayName",
+                    "givenName",
+                    "mail",
+                    "mailNickname",
+                    "mobilePhone",
+                    "passwordPolicies",
+                    "passwordProfile",
+                    "officeLocation",
+                    "preferredLanguage",
+                    "provisionedPlans",
+                    "refreshTokensValidFromDateTime",
+                    "showInAddressList",
+                    "surname",
+                    "usageLocation",
+                    "userPrincipalName",
+                    "userType",
+                    "schools",
+                    "classes",
+                    "user"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*",
+                    "schools",
+                    "classes",
+                    "user"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

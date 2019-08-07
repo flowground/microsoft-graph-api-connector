@@ -1,0 +1,36 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "allOf": [
+                {
+                    "title": "entity",
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        }
+                    },
+                    "example": {
+                        "id": "String (identifier)"
+                    }
+                },
+                {
+                    "title": "fieldValueSet",
+                    "type": "object"
+                }
+            ],
+            "example": {
+                "id": "String (identifier)"
+            }
+        },
+        "driveItem_id": {
+            "required": true,
+            "type": "string"
+        },
+        "listItemVersion_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

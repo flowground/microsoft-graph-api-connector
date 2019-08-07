@@ -1,0 +1,86 @@
+{
+    "type": "object",
+    "properties": {
+        "_top": {
+            "minimum": 0,
+            "type": "integer"
+        },
+        "_skip": {
+            "minimum": 0,
+            "type": "integer"
+        },
+        "_search": {
+            "type": "string"
+        },
+        "_filter": {
+            "type": "string"
+        },
+        "_count": {
+            "type": "boolean"
+        },
+        "_orderby": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "id desc",
+                    "self",
+                    "self desc",
+                    "createdDateTime",
+                    "createdDateTime desc",
+                    "displayName",
+                    "displayName desc",
+                    "createdBy",
+                    "createdBy desc",
+                    "lastModifiedBy",
+                    "lastModifiedBy desc",
+                    "lastModifiedDateTime",
+                    "lastModifiedDateTime desc",
+                    "isDefault",
+                    "isDefault desc",
+                    "links",
+                    "links desc",
+                    "pagesUrl",
+                    "pagesUrl desc"
+                ],
+                "type": "string"
+            }
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "self",
+                    "createdDateTime",
+                    "displayName",
+                    "createdBy",
+                    "lastModifiedBy",
+                    "lastModifiedDateTime",
+                    "isDefault",
+                    "links",
+                    "pagesUrl",
+                    "parentNotebook",
+                    "parentSectionGroup",
+                    "pages"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*",
+                    "parentNotebook",
+                    "parentSectionGroup",
+                    "pages"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

@@ -1,0 +1,36 @@
+{
+    "type": "object",
+    "properties": {
+        "site_id": {
+            "required": true,
+            "type": "string"
+        },
+        "onenoteResource_id": {
+            "required": true,
+            "type": "string"
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "self",
+                    "content",
+                    "contentUrl"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

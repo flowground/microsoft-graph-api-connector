@@ -1,0 +1,26 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "syncType": {
+                    "anyOf": [
+                        {
+                            "title": "deviceManagementExchangeConnectorSyncType",
+                            "enum": [
+                                "fullSync",
+                                "deltaSync"
+                            ],
+                            "type": "string"
+                        }
+                    ]
+                }
+            }
+        },
+        "deviceManagementExchangeConnector_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

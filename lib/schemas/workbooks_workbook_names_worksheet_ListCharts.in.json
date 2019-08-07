@@ -1,0 +1,90 @@
+{
+    "type": "object",
+    "properties": {
+        "driveItem_id": {
+            "required": true,
+            "type": "string"
+        },
+        "workbookNamedItem_id": {
+            "required": true,
+            "type": "string"
+        },
+        "_top": {
+            "minimum": 0,
+            "type": "integer"
+        },
+        "_skip": {
+            "minimum": 0,
+            "type": "integer"
+        },
+        "_search": {
+            "type": "string"
+        },
+        "_filter": {
+            "type": "string"
+        },
+        "_count": {
+            "type": "boolean"
+        },
+        "_orderby": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "id desc",
+                    "height",
+                    "height desc",
+                    "left",
+                    "left desc",
+                    "name",
+                    "name desc",
+                    "top",
+                    "top desc",
+                    "width",
+                    "width desc"
+                ],
+                "type": "string"
+            }
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "height",
+                    "left",
+                    "name",
+                    "top",
+                    "width",
+                    "axes",
+                    "dataLabels",
+                    "format",
+                    "legend",
+                    "series",
+                    "title",
+                    "worksheet"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*",
+                    "axes",
+                    "dataLabels",
+                    "format",
+                    "legend",
+                    "series",
+                    "title",
+                    "worksheet"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

@@ -1,0 +1,31 @@
+{
+    "type": "object",
+    "properties": {
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "trending",
+                    "shared",
+                    "used"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*",
+                    "trending",
+                    "shared",
+                    "used"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

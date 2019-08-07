@@ -1,0 +1,85 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "allOf": [
+                {
+                    "title": "entity",
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        }
+                    },
+                    "example": {
+                        "id": "String (identifier)"
+                    }
+                },
+                {
+                    "title": "deviceComplianceActionItem",
+                    "type": "object",
+                    "properties": {
+                        "gracePeriodHours": {
+                            "maximum": 2147483647,
+                            "minimum": -2147483648,
+                            "type": "integer",
+                            "description": "Number of hours to wait till the action will be enforced. Valid values 0 to 8760",
+                            "format": "int32"
+                        },
+                        "actionType": {
+                            "anyOf": [
+                                {
+                                    "title": "deviceComplianceActionType",
+                                    "enum": [
+                                        "noAction",
+                                        "notification",
+                                        "block",
+                                        "retire",
+                                        "wipe",
+                                        "removeResourceAccessProfiles",
+                                        "pushNotification"
+                                    ],
+                                    "type": "string"
+                                }
+                            ],
+                            "description": "What action to take"
+                        },
+                        "notificationTemplateId": {
+                            "type": "string",
+                            "description": "What notification Message template to use",
+                            "nullable": true
+                        },
+                        "notificationMessageCCList": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "nullable": true
+                            },
+                            "description": "A list of group IDs to speicify who to CC this notification message to."
+                        }
+                    },
+                    "description": "Scheduled Action Configuration"
+                }
+            ],
+            "example": {
+                "id": "String (identifier)",
+                "gracePeriodHours": "Int32",
+                "actionType": {
+                    "@odata.type": "microsoft.graph.deviceComplianceActionType"
+                },
+                "notificationTemplateId": "String",
+                "notificationMessageCCList": [
+                    "String"
+                ]
+            }
+        },
+        "deviceCompliancePolicy_id": {
+            "required": true,
+            "type": "string"
+        },
+        "deviceComplianceScheduledActionForRule_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

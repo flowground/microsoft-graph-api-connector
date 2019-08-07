@@ -1,0 +1,98 @@
+{
+    "type": "object",
+    "properties": {
+        "user_id": {
+            "required": true,
+            "type": "string"
+        },
+        "onenotePage_id": {
+            "required": true,
+            "type": "string"
+        },
+        "_top": {
+            "minimum": 0,
+            "type": "integer"
+        },
+        "_skip": {
+            "minimum": 0,
+            "type": "integer"
+        },
+        "_search": {
+            "type": "string"
+        },
+        "_filter": {
+            "type": "string"
+        },
+        "_count": {
+            "type": "boolean"
+        },
+        "_orderby": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "id desc",
+                    "self",
+                    "self desc",
+                    "createdDateTime",
+                    "createdDateTime desc",
+                    "title",
+                    "title desc",
+                    "createdByAppId",
+                    "createdByAppId desc",
+                    "links",
+                    "links desc",
+                    "contentUrl",
+                    "contentUrl desc",
+                    "content",
+                    "content desc",
+                    "lastModifiedDateTime",
+                    "lastModifiedDateTime desc",
+                    "level",
+                    "level desc",
+                    "order",
+                    "order desc",
+                    "userTags",
+                    "userTags desc"
+                ],
+                "type": "string"
+            }
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "self",
+                    "createdDateTime",
+                    "title",
+                    "createdByAppId",
+                    "links",
+                    "contentUrl",
+                    "content",
+                    "lastModifiedDateTime",
+                    "level",
+                    "order",
+                    "userTags",
+                    "parentSection",
+                    "parentNotebook"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*",
+                    "parentSection",
+                    "parentNotebook"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

@@ -1,0 +1,75 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "options": {
+                    "anyOf": [
+                        {
+                            "title": "workbookWorksheetProtectionOptions",
+                            "type": "object",
+                            "properties": {
+                                "allowAutoFilter": {
+                                    "type": "boolean"
+                                },
+                                "allowDeleteColumns": {
+                                    "type": "boolean"
+                                },
+                                "allowDeleteRows": {
+                                    "type": "boolean"
+                                },
+                                "allowFormatCells": {
+                                    "type": "boolean"
+                                },
+                                "allowFormatColumns": {
+                                    "type": "boolean"
+                                },
+                                "allowFormatRows": {
+                                    "type": "boolean"
+                                },
+                                "allowInsertColumns": {
+                                    "type": "boolean"
+                                },
+                                "allowInsertHyperlinks": {
+                                    "type": "boolean"
+                                },
+                                "allowInsertRows": {
+                                    "type": "boolean"
+                                },
+                                "allowPivotTables": {
+                                    "type": "boolean"
+                                },
+                                "allowSort": {
+                                    "type": "boolean"
+                                }
+                            },
+                            "example": {
+                                "allowAutoFilter": true,
+                                "allowDeleteColumns": true,
+                                "allowDeleteRows": true,
+                                "allowFormatCells": true,
+                                "allowFormatColumns": true,
+                                "allowFormatRows": true,
+                                "allowInsertColumns": true,
+                                "allowInsertHyperlinks": true,
+                                "allowInsertRows": true,
+                                "allowPivotTables": true,
+                                "allowSort": true
+                            }
+                        }
+                    ],
+                    "nullable": true
+                }
+            }
+        },
+        "driveItem_id": {
+            "required": true,
+            "type": "string"
+        },
+        "workbookWorksheet_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

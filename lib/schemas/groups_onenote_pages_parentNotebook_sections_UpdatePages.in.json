@@ -1,0 +1,22 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {},
+        "group_id": {
+            "required": true,
+            "type": "string"
+        },
+        "onenotePage_id": {
+            "required": true,
+            "type": "string"
+        },
+        "onenoteSection_id": {
+            "required": true,
+            "type": "string"
+        },
+        "onenotePage_id2": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

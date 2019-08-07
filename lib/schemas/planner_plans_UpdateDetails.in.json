@@ -1,0 +1,92 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "allOf": [
+                {
+                    "title": "entity",
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        }
+                    },
+                    "example": {
+                        "id": "String (identifier)"
+                    }
+                },
+                {
+                    "title": "plannerPlanDetails",
+                    "type": "object",
+                    "properties": {
+                        "sharedWith": {
+                            "anyOf": [
+                                {
+                                    "title": "plannerUserIds",
+                                    "type": "object"
+                                }
+                            ],
+                            "nullable": true
+                        },
+                        "categoryDescriptions": {
+                            "anyOf": [
+                                {
+                                    "title": "plannerCategoryDescriptions",
+                                    "type": "object",
+                                    "properties": {
+                                        "category1": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "category2": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "category3": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "category4": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "category5": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "category6": {
+                                            "type": "string",
+                                            "nullable": true
+                                        }
+                                    },
+                                    "example": {
+                                        "category1": "String",
+                                        "category2": "String",
+                                        "category3": "String",
+                                        "category4": "String",
+                                        "category5": "String",
+                                        "category6": "String"
+                                    }
+                                }
+                            ],
+                            "nullable": true
+                        }
+                    }
+                }
+            ],
+            "example": {
+                "id": "String (identifier)",
+                "sharedWith": {
+                    "@odata.type": "microsoft.graph.plannerUserIds"
+                },
+                "categoryDescriptions": {
+                    "@odata.type": "microsoft.graph.plannerCategoryDescriptions"
+                }
+            }
+        },
+        "plannerPlan_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

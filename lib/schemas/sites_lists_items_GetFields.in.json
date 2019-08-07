@@ -1,0 +1,37 @@
+{
+    "type": "object",
+    "properties": {
+        "site_id": {
+            "required": true,
+            "type": "string"
+        },
+        "list_id": {
+            "required": true,
+            "type": "string"
+        },
+        "listItem_id": {
+            "required": true,
+            "type": "string"
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

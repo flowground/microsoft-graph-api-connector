@@ -1,0 +1,96 @@
+{
+    "type": "object",
+    "properties": {
+        "_top": {
+            "minimum": 0,
+            "type": "integer"
+        },
+        "_skip": {
+            "minimum": 0,
+            "type": "integer"
+        },
+        "_search": {
+            "type": "string"
+        },
+        "_filter": {
+            "type": "string"
+        },
+        "_count": {
+            "type": "boolean"
+        },
+        "_orderby": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "id desc",
+                    "displayName",
+                    "displayName desc",
+                    "description",
+                    "description desc",
+                    "publisher",
+                    "publisher desc",
+                    "largeIcon",
+                    "largeIcon desc",
+                    "createdDateTime",
+                    "createdDateTime desc",
+                    "lastModifiedDateTime",
+                    "lastModifiedDateTime desc",
+                    "isFeatured",
+                    "isFeatured desc",
+                    "privacyInformationUrl",
+                    "privacyInformationUrl desc",
+                    "informationUrl",
+                    "informationUrl desc",
+                    "owner",
+                    "owner desc",
+                    "developer",
+                    "developer desc",
+                    "notes",
+                    "notes desc",
+                    "publishingState",
+                    "publishingState desc"
+                ],
+                "type": "string"
+            }
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "displayName",
+                    "description",
+                    "publisher",
+                    "largeIcon",
+                    "createdDateTime",
+                    "lastModifiedDateTime",
+                    "isFeatured",
+                    "privacyInformationUrl",
+                    "informationUrl",
+                    "owner",
+                    "developer",
+                    "notes",
+                    "publishingState",
+                    "categories",
+                    "assignments"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*",
+                    "categories",
+                    "assignments"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

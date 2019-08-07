@@ -1,0 +1,10 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {},
+        "listItem_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

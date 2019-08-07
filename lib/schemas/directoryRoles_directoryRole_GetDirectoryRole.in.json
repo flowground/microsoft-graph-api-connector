@@ -1,0 +1,24 @@
+{
+    "type": "object",
+    "properties": {
+        "directoryRole_id": {
+            "required": true,
+            "type": "string"
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "deletedDateTime",
+                    "description",
+                    "displayName",
+                    "roleTemplateId",
+                    "members"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

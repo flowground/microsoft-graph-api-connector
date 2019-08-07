@@ -1,0 +1,55 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "allOf": [
+                {
+                    "title": "entity",
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        }
+                    },
+                    "example": {
+                        "id": "String (identifier)"
+                    }
+                },
+                {
+                    "title": "singleValueLegacyExtendedProperty",
+                    "type": "object",
+                    "properties": {
+                        "value": {
+                            "type": "string",
+                            "nullable": true
+                        }
+                    }
+                }
+            ],
+            "example": {
+                "id": "String (identifier)",
+                "value": "String"
+            }
+        },
+        "user_id": {
+            "required": true,
+            "type": "string"
+        },
+        "calendarGroup_id": {
+            "required": true,
+            "type": "string"
+        },
+        "calendar_id": {
+            "required": true,
+            "type": "string"
+        },
+        "event_id": {
+            "required": true,
+            "type": "string"
+        },
+        "singleValueLegacyExtendedProperty_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

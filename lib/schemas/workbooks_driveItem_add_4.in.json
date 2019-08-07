@@ -1,0 +1,26 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "address": {
+                    "type": "string",
+                    "nullable": true
+                },
+                "hasHeaders": {
+                    "type": "boolean",
+                    "default": false
+                }
+            }
+        },
+        "driveItem_id": {
+            "required": true,
+            "type": "string"
+        },
+        "workbookNamedItem_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

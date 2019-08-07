@@ -1,0 +1,61 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "allOf": [
+                {
+                    "title": "entity",
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        }
+                    },
+                    "example": {
+                        "id": "String (identifier)"
+                    }
+                },
+                {
+                    "title": "windowsInformationProtectionAppLearningSummary",
+                    "type": "object",
+                    "properties": {
+                        "applicationName": {
+                            "type": "string",
+                            "description": "Application Name",
+                            "nullable": true
+                        },
+                        "applicationType": {
+                            "anyOf": [
+                                {
+                                    "title": "applicationType",
+                                    "enum": [
+                                        "universal",
+                                        "desktop"
+                                    ],
+                                    "type": "string"
+                                }
+                            ],
+                            "description": "Application Type"
+                        },
+                        "deviceCount": {
+                            "maximum": 2147483647,
+                            "minimum": -2147483648,
+                            "type": "integer",
+                            "description": "Device Count",
+                            "format": "int32"
+                        }
+                    },
+                    "description": "Windows Information Protection AppLearning Summary entity."
+                }
+            ],
+            "example": {
+                "id": "String (identifier)",
+                "applicationName": "String",
+                "applicationType": {
+                    "@odata.type": "microsoft.graph.applicationType"
+                },
+                "deviceCount": "Int32"
+            }
+        }
+    }
+}

@@ -1,0 +1,142 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "allOf": [
+                {
+                    "title": "entity",
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        }
+                    },
+                    "example": {
+                        "id": "String (identifier)"
+                    }
+                },
+                {
+                    "title": "subscribedSku",
+                    "type": "object",
+                    "properties": {
+                        "capabilityStatus": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "consumedUnits": {
+                            "maximum": 2147483647,
+                            "minimum": -2147483648,
+                            "type": "integer",
+                            "format": "int32",
+                            "nullable": true
+                        },
+                        "prepaidUnits": {
+                            "anyOf": [
+                                {
+                                    "title": "licenseUnitsDetail",
+                                    "type": "object",
+                                    "properties": {
+                                        "enabled": {
+                                            "maximum": 2147483647,
+                                            "minimum": -2147483648,
+                                            "type": "integer",
+                                            "format": "int32",
+                                            "nullable": true
+                                        },
+                                        "suspended": {
+                                            "maximum": 2147483647,
+                                            "minimum": -2147483648,
+                                            "type": "integer",
+                                            "format": "int32",
+                                            "nullable": true
+                                        },
+                                        "warning": {
+                                            "maximum": 2147483647,
+                                            "minimum": -2147483648,
+                                            "type": "integer",
+                                            "format": "int32",
+                                            "nullable": true
+                                        }
+                                    },
+                                    "example": {
+                                        "enabled": "Int32",
+                                        "suspended": "Int32",
+                                        "warning": "Int32"
+                                    }
+                                }
+                            ],
+                            "nullable": true
+                        },
+                        "servicePlans": {
+                            "type": "array",
+                            "items": {
+                                "title": "servicePlanInfo",
+                                "type": "object",
+                                "properties": {
+                                    "servicePlanId": {
+                                        "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+                                        "type": "string",
+                                        "format": "uuid",
+                                        "nullable": true
+                                    },
+                                    "servicePlanName": {
+                                        "type": "string",
+                                        "nullable": true
+                                    },
+                                    "provisioningStatus": {
+                                        "type": "string",
+                                        "nullable": true
+                                    },
+                                    "appliesTo": {
+                                        "type": "string",
+                                        "nullable": true
+                                    }
+                                },
+                                "example": {
+                                    "servicePlanId": "Guid",
+                                    "servicePlanName": "String",
+                                    "provisioningStatus": "String",
+                                    "appliesTo": "String"
+                                }
+                            }
+                        },
+                        "skuId": {
+                            "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+                            "type": "string",
+                            "format": "uuid",
+                            "nullable": true
+                        },
+                        "skuPartNumber": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "appliesTo": {
+                            "type": "string",
+                            "nullable": true
+                        }
+                    }
+                }
+            ],
+            "example": {
+                "id": "String (identifier)",
+                "capabilityStatus": "String",
+                "consumedUnits": "Int32",
+                "prepaidUnits": {
+                    "@odata.type": "microsoft.graph.licenseUnitsDetail"
+                },
+                "servicePlans": [
+                    {
+                        "@odata.type": "microsoft.graph.servicePlanInfo"
+                    }
+                ],
+                "skuId": "Guid",
+                "skuPartNumber": "String",
+                "appliesTo": "String"
+            }
+        },
+        "subscribedSku_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

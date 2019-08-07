@@ -1,0 +1,93 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "allOf": [
+                {
+                    "title": "entity",
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        }
+                    },
+                    "example": {
+                        "id": "String (identifier)"
+                    }
+                },
+                {
+                    "title": "mobileThreatDefenseConnector",
+                    "type": "object",
+                    "properties": {
+                        "lastHeartbeatDateTime": {
+                            "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                            "type": "string",
+                            "description": "DateTime of last Heartbeat recieved from the Data Sync Partner",
+                            "format": "date-time"
+                        },
+                        "partnerState": {
+                            "anyOf": [
+                                {
+                                    "title": "mobileThreatPartnerTenantState",
+                                    "enum": [
+                                        "unavailable",
+                                        "available",
+                                        "enabled",
+                                        "unresponsive"
+                                    ],
+                                    "type": "string"
+                                }
+                            ],
+                            "description": "Data Sync Partner state for this account"
+                        },
+                        "androidEnabled": {
+                            "type": "boolean",
+                            "description": "For Android, set whether data from the data sync partner should be used during compliance evaluations"
+                        },
+                        "iosEnabled": {
+                            "type": "boolean",
+                            "description": "For IOS, get or set whether data from the data sync partner should be used during compliance evaluations"
+                        },
+                        "androidDeviceBlockedOnMissingPartnerData": {
+                            "type": "boolean",
+                            "description": "For Android, set whether Intune must receive data from the data sync partner prior to marking a device compliant"
+                        },
+                        "iosDeviceBlockedOnMissingPartnerData": {
+                            "type": "boolean",
+                            "description": "For IOS, set whether Intune must receive data from the data sync partner prior to marking a device compliant"
+                        },
+                        "partnerUnsupportedOsVersionBlocked": {
+                            "type": "boolean",
+                            "description": "Get or set whether to block devices on the enabled platforms that do not meet the minimum version requirements of the Data Sync Partner"
+                        },
+                        "partnerUnresponsivenessThresholdInDays": {
+                            "maximum": 2147483647,
+                            "minimum": -2147483648,
+                            "type": "integer",
+                            "description": "Get or Set days the per tenant tolerance to unresponsiveness for this partner integration",
+                            "format": "int32"
+                        }
+                    },
+                    "description": "Entity which represents a connection to Mobile threat defense partner."
+                }
+            ],
+            "example": {
+                "id": "String (identifier)",
+                "lastHeartbeatDateTime": "DateTimeOffset (timestamp)",
+                "partnerState": {
+                    "@odata.type": "microsoft.graph.mobileThreatPartnerTenantState"
+                },
+                "androidEnabled": true,
+                "iosEnabled": true,
+                "androidDeviceBlockedOnMissingPartnerData": true,
+                "iosDeviceBlockedOnMissingPartnerData": true,
+                "partnerUnsupportedOsVersionBlocked": true,
+                "partnerUnresponsivenessThresholdInDays": "Int32"
+            }
+        },
+        "mobileThreatDefenseConnector_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

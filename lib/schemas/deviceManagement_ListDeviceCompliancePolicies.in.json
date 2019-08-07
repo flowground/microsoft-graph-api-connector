@@ -1,0 +1,82 @@
+{
+    "type": "object",
+    "properties": {
+        "_top": {
+            "minimum": 0,
+            "type": "integer"
+        },
+        "_skip": {
+            "minimum": 0,
+            "type": "integer"
+        },
+        "_search": {
+            "type": "string"
+        },
+        "_filter": {
+            "type": "string"
+        },
+        "_count": {
+            "type": "boolean"
+        },
+        "_orderby": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "id desc",
+                    "createdDateTime",
+                    "createdDateTime desc",
+                    "description",
+                    "description desc",
+                    "lastModifiedDateTime",
+                    "lastModifiedDateTime desc",
+                    "displayName",
+                    "displayName desc",
+                    "version",
+                    "version desc"
+                ],
+                "type": "string"
+            }
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "createdDateTime",
+                    "description",
+                    "lastModifiedDateTime",
+                    "displayName",
+                    "version",
+                    "scheduledActionsForRule",
+                    "deviceStatuses",
+                    "userStatuses",
+                    "deviceStatusOverview",
+                    "userStatusOverview",
+                    "deviceSettingStateSummaries",
+                    "assignments"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*",
+                    "scheduledActionsForRule",
+                    "deviceStatuses",
+                    "userStatuses",
+                    "deviceStatusOverview",
+                    "userStatusOverview",
+                    "deviceSettingStateSummaries",
+                    "assignments"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

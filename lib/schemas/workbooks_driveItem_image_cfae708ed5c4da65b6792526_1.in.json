@@ -1,0 +1,35 @@
+{
+    "type": "object",
+    "properties": {
+        "width": {
+            "required": true,
+            "maximum": 2147483647,
+            "minimum": -2147483648,
+            "type": "integer",
+            "format": "int32"
+        },
+        "height": {
+            "required": true,
+            "maximum": 2147483647,
+            "minimum": -2147483648,
+            "type": "integer",
+            "format": "int32"
+        },
+        "fittingMode": {
+            "required": true,
+            "type": "string"
+        },
+        "driveItem_id": {
+            "required": true,
+            "type": "string"
+        },
+        "workbookTable_id": {
+            "required": true,
+            "type": "string"
+        },
+        "workbookChart_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

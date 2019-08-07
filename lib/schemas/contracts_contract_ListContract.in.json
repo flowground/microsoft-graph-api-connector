@@ -1,0 +1,48 @@
+{
+    "type": "object",
+    "properties": {
+        "_top": {
+            "minimum": 0,
+            "type": "integer"
+        },
+        "_search": {
+            "type": "string"
+        },
+        "_orderby": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "id desc",
+                    "deletedDateTime",
+                    "deletedDateTime desc",
+                    "contractType",
+                    "contractType desc",
+                    "customerId",
+                    "customerId desc",
+                    "defaultDomainName",
+                    "defaultDomainName desc",
+                    "displayName",
+                    "displayName desc"
+                ],
+                "type": "string"
+            }
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "deletedDateTime",
+                    "contractType",
+                    "customerId",
+                    "defaultDomainName",
+                    "displayName"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

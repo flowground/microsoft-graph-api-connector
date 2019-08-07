@@ -1,0 +1,48 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "allOf": [
+                {
+                    "title": "entity",
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        }
+                    },
+                    "example": {
+                        "id": "String (identifier)"
+                    }
+                },
+                {
+                    "title": "groupLifecyclePolicy",
+                    "type": "object",
+                    "properties": {
+                        "groupLifetimeInDays": {
+                            "maximum": 2147483647,
+                            "minimum": -2147483648,
+                            "type": "integer",
+                            "format": "int32",
+                            "nullable": true
+                        },
+                        "managedGroupTypes": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "alternateNotificationEmails": {
+                            "type": "string",
+                            "nullable": true
+                        }
+                    }
+                }
+            ],
+            "example": {
+                "id": "String (identifier)",
+                "groupLifetimeInDays": "Int32",
+                "managedGroupTypes": "String",
+                "alternateNotificationEmails": "String"
+            }
+        }
+    }
+}

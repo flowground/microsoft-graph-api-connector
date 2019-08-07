@@ -1,0 +1,55 @@
+{
+    "type": "object",
+    "properties": {
+        "sharedDriveItem_id": {
+            "required": true,
+            "type": "string"
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "createdBy",
+                    "createdDateTime",
+                    "description",
+                    "eTag",
+                    "lastModifiedBy",
+                    "lastModifiedDateTime",
+                    "name",
+                    "parentReference",
+                    "webUrl",
+                    "owner",
+                    "createdByUser",
+                    "lastModifiedByUser",
+                    "driveItem",
+                    "items",
+                    "list",
+                    "listItem",
+                    "root",
+                    "site"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*",
+                    "createdByUser",
+                    "lastModifiedByUser",
+                    "driveItem",
+                    "items",
+                    "list",
+                    "listItem",
+                    "root",
+                    "site"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

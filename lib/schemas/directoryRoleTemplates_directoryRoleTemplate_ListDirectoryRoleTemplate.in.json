@@ -1,0 +1,38 @@
+{
+    "type": "object",
+    "properties": {
+        "_search": {
+            "type": "string"
+        },
+        "_orderby": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "id desc",
+                    "deletedDateTime",
+                    "deletedDateTime desc",
+                    "description",
+                    "description desc",
+                    "displayName",
+                    "displayName desc"
+                ],
+                "type": "string"
+            }
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "deletedDateTime",
+                    "description",
+                    "displayName"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

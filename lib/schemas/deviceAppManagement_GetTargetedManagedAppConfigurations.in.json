@@ -1,0 +1,43 @@
+{
+    "type": "object",
+    "properties": {
+        "targetedManagedAppConfiguration_id": {
+            "required": true,
+            "type": "string"
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "displayName",
+                    "description",
+                    "createdDateTime",
+                    "lastModifiedDateTime",
+                    "version",
+                    "customSettings",
+                    "deployedAppCount",
+                    "isAssigned",
+                    "apps",
+                    "deploymentSummary",
+                    "assignments"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*",
+                    "apps",
+                    "deploymentSummary",
+                    "assignments"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

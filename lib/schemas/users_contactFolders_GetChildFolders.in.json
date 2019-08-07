@@ -1,0 +1,47 @@
+{
+    "type": "object",
+    "properties": {
+        "user_id": {
+            "required": true,
+            "type": "string"
+        },
+        "contactFolder_id": {
+            "required": true,
+            "type": "string"
+        },
+        "contactFolder_id2": {
+            "required": true,
+            "type": "string"
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "parentFolderId",
+                    "displayName",
+                    "contacts",
+                    "childFolders",
+                    "singleValueExtendedProperties",
+                    "multiValueExtendedProperties"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*",
+                    "contacts",
+                    "childFolders",
+                    "singleValueExtendedProperties",
+                    "multiValueExtendedProperties"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

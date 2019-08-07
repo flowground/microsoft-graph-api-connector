@@ -1,0 +1,96 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "fields": {
+                    "type": "array",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "title": "workbookSortField",
+                                "type": "object",
+                                "properties": {
+                                    "ascending": {
+                                        "type": "boolean"
+                                    },
+                                    "color": {
+                                        "type": "string",
+                                        "nullable": true
+                                    },
+                                    "dataOption": {
+                                        "type": "string"
+                                    },
+                                    "icon": {
+                                        "anyOf": [
+                                            {
+                                                "title": "workbookIcon",
+                                                "type": "object",
+                                                "properties": {
+                                                    "index": {
+                                                        "maximum": 2147483647,
+                                                        "minimum": -2147483648,
+                                                        "type": "integer",
+                                                        "format": "int32"
+                                                    },
+                                                    "set": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "example": {
+                                                    "index": "Int32",
+                                                    "set": "String"
+                                                }
+                                            }
+                                        ],
+                                        "nullable": true
+                                    },
+                                    "key": {
+                                        "maximum": 2147483647,
+                                        "minimum": -2147483648,
+                                        "type": "integer",
+                                        "format": "int32"
+                                    },
+                                    "sortOn": {
+                                        "type": "string"
+                                    }
+                                },
+                                "example": {
+                                    "ascending": true,
+                                    "color": "String",
+                                    "dataOption": "String",
+                                    "icon": {
+                                        "@odata.type": "microsoft.graph.workbookIcon"
+                                    },
+                                    "key": "Int32",
+                                    "sortOn": "String"
+                                }
+                            }
+                        ],
+                        "nullable": true
+                    }
+                },
+                "matchCase": {
+                    "type": "boolean",
+                    "default": false
+                },
+                "method": {
+                    "type": "string"
+                }
+            }
+        },
+        "driveItem_id": {
+            "required": true,
+            "type": "string"
+        },
+        "workbookNamedItem_id": {
+            "required": true,
+            "type": "string"
+        },
+        "workbookTable_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

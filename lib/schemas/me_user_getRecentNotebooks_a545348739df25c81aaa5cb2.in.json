@@ -1,0 +1,10 @@
+{
+    "type": "object",
+    "properties": {
+        "includePersonalNotebooks": {
+            "required": true,
+            "type": "boolean",
+            "default": false
+        }
+    }
+}

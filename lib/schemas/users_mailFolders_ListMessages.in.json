@@ -1,0 +1,156 @@
+{
+    "type": "object",
+    "properties": {
+        "user_id": {
+            "required": true,
+            "type": "string"
+        },
+        "mailFolder_id": {
+            "required": true,
+            "type": "string"
+        },
+        "_top": {
+            "minimum": 0,
+            "type": "integer"
+        },
+        "_skip": {
+            "minimum": 0,
+            "type": "integer"
+        },
+        "_search": {
+            "type": "string"
+        },
+        "_filter": {
+            "type": "string"
+        },
+        "_count": {
+            "type": "boolean"
+        },
+        "_orderby": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "id desc",
+                    "createdDateTime",
+                    "createdDateTime desc",
+                    "lastModifiedDateTime",
+                    "lastModifiedDateTime desc",
+                    "changeKey",
+                    "changeKey desc",
+                    "categories",
+                    "categories desc",
+                    "receivedDateTime",
+                    "receivedDateTime desc",
+                    "sentDateTime",
+                    "sentDateTime desc",
+                    "hasAttachments",
+                    "hasAttachments desc",
+                    "internetMessageId",
+                    "internetMessageId desc",
+                    "internetMessageHeaders",
+                    "internetMessageHeaders desc",
+                    "subject",
+                    "subject desc",
+                    "body",
+                    "body desc",
+                    "bodyPreview",
+                    "bodyPreview desc",
+                    "importance",
+                    "importance desc",
+                    "parentFolderId",
+                    "parentFolderId desc",
+                    "sender",
+                    "sender desc",
+                    "from",
+                    "from desc",
+                    "toRecipients",
+                    "toRecipients desc",
+                    "ccRecipients",
+                    "ccRecipients desc",
+                    "bccRecipients",
+                    "bccRecipients desc",
+                    "replyTo",
+                    "replyTo desc",
+                    "conversationId",
+                    "conversationId desc",
+                    "uniqueBody",
+                    "uniqueBody desc",
+                    "isDeliveryReceiptRequested",
+                    "isDeliveryReceiptRequested desc",
+                    "isReadReceiptRequested",
+                    "isReadReceiptRequested desc",
+                    "isRead",
+                    "isRead desc",
+                    "isDraft",
+                    "isDraft desc",
+                    "webLink",
+                    "webLink desc",
+                    "inferenceClassification",
+                    "inferenceClassification desc",
+                    "flag",
+                    "flag desc"
+                ],
+                "type": "string"
+            }
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "createdDateTime",
+                    "lastModifiedDateTime",
+                    "changeKey",
+                    "categories",
+                    "receivedDateTime",
+                    "sentDateTime",
+                    "hasAttachments",
+                    "internetMessageId",
+                    "internetMessageHeaders",
+                    "subject",
+                    "body",
+                    "bodyPreview",
+                    "importance",
+                    "parentFolderId",
+                    "sender",
+                    "from",
+                    "toRecipients",
+                    "ccRecipients",
+                    "bccRecipients",
+                    "replyTo",
+                    "conversationId",
+                    "uniqueBody",
+                    "isDeliveryReceiptRequested",
+                    "isReadReceiptRequested",
+                    "isRead",
+                    "isDraft",
+                    "webLink",
+                    "inferenceClassification",
+                    "flag",
+                    "attachments",
+                    "extensions",
+                    "singleValueExtendedProperties",
+                    "multiValueExtendedProperties"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*",
+                    "attachments",
+                    "extensions",
+                    "singleValueExtendedProperties",
+                    "multiValueExtendedProperties"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

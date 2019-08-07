@@ -1,0 +1,45 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "allOf": [
+                {
+                    "title": "entity",
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        }
+                    },
+                    "example": {
+                        "id": "String (identifier)"
+                    }
+                },
+                {
+                    "title": "windowsInformationProtectionNetworkLearningSummary",
+                    "type": "object",
+                    "properties": {
+                        "url": {
+                            "type": "string",
+                            "description": "Website url",
+                            "nullable": true
+                        },
+                        "deviceCount": {
+                            "maximum": 2147483647,
+                            "minimum": -2147483648,
+                            "type": "integer",
+                            "description": "Device Count",
+                            "format": "int32"
+                        }
+                    },
+                    "description": "Windows Information Protection Network learning Summary entity."
+                }
+            ],
+            "example": {
+                "id": "String (identifier)",
+                "url": "String",
+                "deviceCount": "Int32"
+            }
+        }
+    }
+}

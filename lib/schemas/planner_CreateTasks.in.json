@@ -1,0 +1,562 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "allOf": [
+                {
+                    "title": "entity",
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        }
+                    },
+                    "example": {
+                        "id": "String (identifier)"
+                    }
+                },
+                {
+                    "title": "plannerTask",
+                    "type": "object",
+                    "properties": {
+                        "createdBy": {
+                            "anyOf": [
+                                {
+                                    "title": "identitySet",
+                                    "type": "object",
+                                    "properties": {
+                                        "application": {
+                                            "anyOf": [
+                                                {
+                                                    "title": "identity",
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "displayName": {
+                                                            "type": "string",
+                                                            "nullable": true
+                                                        },
+                                                        "id": {
+                                                            "type": "string",
+                                                            "nullable": true
+                                                        }
+                                                    },
+                                                    "example": {
+                                                        "displayName": "String",
+                                                        "id": "String"
+                                                    }
+                                                }
+                                            ],
+                                            "nullable": true
+                                        },
+                                        "device": {
+                                            "anyOf": [
+                                                {
+                                                    "title": "identity",
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "displayName": {
+                                                            "type": "string",
+                                                            "nullable": true
+                                                        },
+                                                        "id": {
+                                                            "type": "string",
+                                                            "nullable": true
+                                                        }
+                                                    },
+                                                    "example": {
+                                                        "displayName": "String",
+                                                        "id": "String"
+                                                    }
+                                                }
+                                            ],
+                                            "nullable": true
+                                        },
+                                        "user": {
+                                            "anyOf": [
+                                                {
+                                                    "title": "identity",
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "displayName": {
+                                                            "type": "string",
+                                                            "nullable": true
+                                                        },
+                                                        "id": {
+                                                            "type": "string",
+                                                            "nullable": true
+                                                        }
+                                                    },
+                                                    "example": {
+                                                        "displayName": "String",
+                                                        "id": "String"
+                                                    }
+                                                }
+                                            ],
+                                            "nullable": true
+                                        }
+                                    },
+                                    "example": {
+                                        "application": {
+                                            "@odata.type": "microsoft.graph.identity"
+                                        },
+                                        "device": {
+                                            "@odata.type": "microsoft.graph.identity"
+                                        },
+                                        "user": {
+                                            "@odata.type": "microsoft.graph.identity"
+                                        }
+                                    }
+                                }
+                            ],
+                            "nullable": true
+                        },
+                        "planId": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "bucketId": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "title": {
+                            "type": "string"
+                        },
+                        "orderHint": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "assigneePriority": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "percentComplete": {
+                            "maximum": 2147483647,
+                            "minimum": -2147483648,
+                            "type": "integer",
+                            "format": "int32",
+                            "nullable": true
+                        },
+                        "startDateTime": {
+                            "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                            "type": "string",
+                            "format": "date-time",
+                            "nullable": true
+                        },
+                        "createdDateTime": {
+                            "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                            "type": "string",
+                            "format": "date-time",
+                            "nullable": true
+                        },
+                        "dueDateTime": {
+                            "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                            "type": "string",
+                            "format": "date-time",
+                            "nullable": true
+                        },
+                        "hasDescription": {
+                            "type": "boolean",
+                            "nullable": true
+                        },
+                        "previewType": {
+                            "anyOf": [
+                                {
+                                    "title": "plannerPreviewType",
+                                    "enum": [
+                                        "automatic",
+                                        "noPreview",
+                                        "checklist",
+                                        "description",
+                                        "reference"
+                                    ],
+                                    "type": "string"
+                                }
+                            ],
+                            "nullable": true
+                        },
+                        "completedDateTime": {
+                            "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                            "type": "string",
+                            "format": "date-time",
+                            "nullable": true
+                        },
+                        "completedBy": {
+                            "anyOf": [
+                                {
+                                    "title": "identitySet",
+                                    "type": "object",
+                                    "properties": {
+                                        "application": {
+                                            "anyOf": [
+                                                {
+                                                    "title": "identity",
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "displayName": {
+                                                            "type": "string",
+                                                            "nullable": true
+                                                        },
+                                                        "id": {
+                                                            "type": "string",
+                                                            "nullable": true
+                                                        }
+                                                    },
+                                                    "example": {
+                                                        "displayName": "String",
+                                                        "id": "String"
+                                                    }
+                                                }
+                                            ],
+                                            "nullable": true
+                                        },
+                                        "device": {
+                                            "anyOf": [
+                                                {
+                                                    "title": "identity",
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "displayName": {
+                                                            "type": "string",
+                                                            "nullable": true
+                                                        },
+                                                        "id": {
+                                                            "type": "string",
+                                                            "nullable": true
+                                                        }
+                                                    },
+                                                    "example": {
+                                                        "displayName": "String",
+                                                        "id": "String"
+                                                    }
+                                                }
+                                            ],
+                                            "nullable": true
+                                        },
+                                        "user": {
+                                            "anyOf": [
+                                                {
+                                                    "title": "identity",
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "displayName": {
+                                                            "type": "string",
+                                                            "nullable": true
+                                                        },
+                                                        "id": {
+                                                            "type": "string",
+                                                            "nullable": true
+                                                        }
+                                                    },
+                                                    "example": {
+                                                        "displayName": "String",
+                                                        "id": "String"
+                                                    }
+                                                }
+                                            ],
+                                            "nullable": true
+                                        }
+                                    },
+                                    "example": {
+                                        "application": {
+                                            "@odata.type": "microsoft.graph.identity"
+                                        },
+                                        "device": {
+                                            "@odata.type": "microsoft.graph.identity"
+                                        },
+                                        "user": {
+                                            "@odata.type": "microsoft.graph.identity"
+                                        }
+                                    }
+                                }
+                            ],
+                            "nullable": true
+                        },
+                        "referenceCount": {
+                            "maximum": 2147483647,
+                            "minimum": -2147483648,
+                            "type": "integer",
+                            "format": "int32",
+                            "nullable": true
+                        },
+                        "checklistItemCount": {
+                            "maximum": 2147483647,
+                            "minimum": -2147483648,
+                            "type": "integer",
+                            "format": "int32",
+                            "nullable": true
+                        },
+                        "activeChecklistItemCount": {
+                            "maximum": 2147483647,
+                            "minimum": -2147483648,
+                            "type": "integer",
+                            "format": "int32",
+                            "nullable": true
+                        },
+                        "appliedCategories": {
+                            "anyOf": [
+                                {
+                                    "title": "plannerAppliedCategories",
+                                    "type": "object"
+                                }
+                            ],
+                            "nullable": true
+                        },
+                        "assignments": {
+                            "anyOf": [
+                                {
+                                    "title": "plannerAssignments",
+                                    "type": "object"
+                                }
+                            ],
+                            "nullable": true
+                        },
+                        "conversationThreadId": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "details": {
+                            "anyOf": [
+                                {
+                                    "allOf": [
+                                        {
+                                            "title": "entity",
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "example": {
+                                                "id": "String (identifier)"
+                                            }
+                                        },
+                                        {
+                                            "title": "plannerTaskDetails",
+                                            "type": "object",
+                                            "properties": {
+                                                "description": {
+                                                    "type": "string",
+                                                    "nullable": true
+                                                },
+                                                "previewType": {
+                                                    "anyOf": [
+                                                        {
+                                                            "title": "plannerPreviewType",
+                                                            "enum": [
+                                                                "automatic",
+                                                                "noPreview",
+                                                                "checklist",
+                                                                "description",
+                                                                "reference"
+                                                            ],
+                                                            "type": "string"
+                                                        }
+                                                    ],
+                                                    "nullable": true
+                                                },
+                                                "references": {
+                                                    "anyOf": [
+                                                        {
+                                                            "title": "plannerExternalReferences",
+                                                            "type": "object"
+                                                        }
+                                                    ],
+                                                    "nullable": true
+                                                },
+                                                "checklist": {
+                                                    "anyOf": [
+                                                        {
+                                                            "title": "plannerChecklistItems",
+                                                            "type": "object"
+                                                        }
+                                                    ],
+                                                    "nullable": true
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "example": {
+                                        "id": "String (identifier)",
+                                        "description": "String",
+                                        "previewType": {
+                                            "@odata.type": "microsoft.graph.plannerPreviewType"
+                                        },
+                                        "references": {
+                                            "@odata.type": "microsoft.graph.plannerExternalReferences"
+                                        },
+                                        "checklist": {
+                                            "@odata.type": "microsoft.graph.plannerChecklistItems"
+                                        }
+                                    }
+                                }
+                            ],
+                            "nullable": true
+                        },
+                        "assignedToTaskBoardFormat": {
+                            "anyOf": [
+                                {
+                                    "allOf": [
+                                        {
+                                            "title": "entity",
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "example": {
+                                                "id": "String (identifier)"
+                                            }
+                                        },
+                                        {
+                                            "title": "plannerAssignedToTaskBoardTaskFormat",
+                                            "type": "object",
+                                            "properties": {
+                                                "unassignedOrderHint": {
+                                                    "type": "string",
+                                                    "nullable": true
+                                                },
+                                                "orderHintsByAssignee": {
+                                                    "anyOf": [
+                                                        {
+                                                            "title": "plannerOrderHintsByAssignee",
+                                                            "type": "object"
+                                                        }
+                                                    ],
+                                                    "nullable": true
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "example": {
+                                        "id": "String (identifier)",
+                                        "unassignedOrderHint": "String",
+                                        "orderHintsByAssignee": {
+                                            "@odata.type": "microsoft.graph.plannerOrderHintsByAssignee"
+                                        }
+                                    }
+                                }
+                            ],
+                            "nullable": true
+                        },
+                        "progressTaskBoardFormat": {
+                            "anyOf": [
+                                {
+                                    "allOf": [
+                                        {
+                                            "title": "entity",
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "example": {
+                                                "id": "String (identifier)"
+                                            }
+                                        },
+                                        {
+                                            "title": "plannerProgressTaskBoardTaskFormat",
+                                            "type": "object",
+                                            "properties": {
+                                                "orderHint": {
+                                                    "type": "string",
+                                                    "nullable": true
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "example": {
+                                        "id": "String (identifier)",
+                                        "orderHint": "String"
+                                    }
+                                }
+                            ],
+                            "nullable": true
+                        },
+                        "bucketTaskBoardFormat": {
+                            "anyOf": [
+                                {
+                                    "allOf": [
+                                        {
+                                            "title": "entity",
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "example": {
+                                                "id": "String (identifier)"
+                                            }
+                                        },
+                                        {
+                                            "title": "plannerBucketTaskBoardTaskFormat",
+                                            "type": "object",
+                                            "properties": {
+                                                "orderHint": {
+                                                    "type": "string",
+                                                    "nullable": true
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "example": {
+                                        "id": "String (identifier)",
+                                        "orderHint": "String"
+                                    }
+                                }
+                            ],
+                            "nullable": true
+                        }
+                    }
+                }
+            ],
+            "example": {
+                "id": "String (identifier)",
+                "createdBy": {
+                    "@odata.type": "microsoft.graph.identitySet"
+                },
+                "planId": "String",
+                "bucketId": "String",
+                "title": "String",
+                "orderHint": "String",
+                "assigneePriority": "String",
+                "percentComplete": "Int32",
+                "startDateTime": "DateTimeOffset (timestamp)",
+                "createdDateTime": "DateTimeOffset (timestamp)",
+                "dueDateTime": "DateTimeOffset (timestamp)",
+                "hasDescription": true,
+                "previewType": {
+                    "@odata.type": "microsoft.graph.plannerPreviewType"
+                },
+                "completedDateTime": "DateTimeOffset (timestamp)",
+                "completedBy": {
+                    "@odata.type": "microsoft.graph.identitySet"
+                },
+                "referenceCount": "Int32",
+                "checklistItemCount": "Int32",
+                "activeChecklistItemCount": "Int32",
+                "appliedCategories": {
+                    "@odata.type": "microsoft.graph.plannerAppliedCategories"
+                },
+                "assignments": {
+                    "@odata.type": "microsoft.graph.plannerAssignments"
+                },
+                "conversationThreadId": "String",
+                "details": {
+                    "@odata.type": "microsoft.graph.plannerTaskDetails"
+                },
+                "assignedToTaskBoardFormat": {
+                    "@odata.type": "microsoft.graph.plannerAssignedToTaskBoardTaskFormat"
+                },
+                "progressTaskBoardFormat": {
+                    "@odata.type": "microsoft.graph.plannerProgressTaskBoardTaskFormat"
+                },
+                "bucketTaskBoardFormat": {
+                    "@odata.type": "microsoft.graph.plannerBucketTaskBoardTaskFormat"
+                }
+            }
+        }
+    }
+}

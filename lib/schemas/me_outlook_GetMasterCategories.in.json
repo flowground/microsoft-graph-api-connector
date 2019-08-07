@@ -1,0 +1,21 @@
+{
+    "type": "object",
+    "properties": {
+        "outlookCategory_id": {
+            "required": true,
+            "type": "string"
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "displayName",
+                    "color"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

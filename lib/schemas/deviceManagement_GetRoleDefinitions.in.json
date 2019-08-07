@@ -1,0 +1,35 @@
+{
+    "type": "object",
+    "properties": {
+        "roleDefinition_id": {
+            "required": true,
+            "type": "string"
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "displayName",
+                    "description",
+                    "rolePermissions",
+                    "isBuiltIn",
+                    "roleAssignments"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*",
+                    "roleAssignments"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

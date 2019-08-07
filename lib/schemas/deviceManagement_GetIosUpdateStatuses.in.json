@@ -1,0 +1,40 @@
+{
+    "type": "object",
+    "properties": {
+        "iosUpdateDeviceStatus_id": {
+            "required": true,
+            "type": "string"
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "installStatus",
+                    "osVersion",
+                    "deviceId",
+                    "userId",
+                    "deviceDisplayName",
+                    "userName",
+                    "deviceModel",
+                    "complianceGracePeriodExpirationDateTime",
+                    "status",
+                    "lastReportedDateTime",
+                    "userPrincipalName"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

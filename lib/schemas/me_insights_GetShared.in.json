@@ -1,0 +1,37 @@
+{
+    "type": "object",
+    "properties": {
+        "sharedInsight_id": {
+            "required": true,
+            "type": "string"
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "lastShared",
+                    "sharingHistory",
+                    "resourceVisualization",
+                    "resourceReference",
+                    "lastSharedMethod",
+                    "resource"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*",
+                    "lastSharedMethod",
+                    "resource"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

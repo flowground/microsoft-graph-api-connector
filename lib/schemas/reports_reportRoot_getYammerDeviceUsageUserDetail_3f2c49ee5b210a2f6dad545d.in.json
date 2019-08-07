@@ -1,0 +1,9 @@
+{
+    "type": "object",
+    "properties": {
+        "period": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,18 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {},
+        "user_id": {
+            "required": true,
+            "type": "string"
+        },
+        "userActivity_id": {
+            "required": true,
+            "type": "string"
+        },
+        "activityHistoryItem_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,417 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "allOf": [
+                {
+                    "title": "entity",
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        }
+                    },
+                    "example": {
+                        "id": "String (identifier)"
+                    }
+                },
+                {
+                    "title": "permission",
+                    "type": "object",
+                    "properties": {
+                        "grantedTo": {
+                            "anyOf": [
+                                {
+                                    "title": "identitySet",
+                                    "type": "object",
+                                    "properties": {
+                                        "application": {
+                                            "anyOf": [
+                                                {
+                                                    "title": "identity",
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "displayName": {
+                                                            "type": "string",
+                                                            "nullable": true
+                                                        },
+                                                        "id": {
+                                                            "type": "string",
+                                                            "nullable": true
+                                                        }
+                                                    },
+                                                    "example": {
+                                                        "displayName": "String",
+                                                        "id": "String"
+                                                    }
+                                                }
+                                            ],
+                                            "nullable": true
+                                        },
+                                        "device": {
+                                            "anyOf": [
+                                                {
+                                                    "title": "identity",
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "displayName": {
+                                                            "type": "string",
+                                                            "nullable": true
+                                                        },
+                                                        "id": {
+                                                            "type": "string",
+                                                            "nullable": true
+                                                        }
+                                                    },
+                                                    "example": {
+                                                        "displayName": "String",
+                                                        "id": "String"
+                                                    }
+                                                }
+                                            ],
+                                            "nullable": true
+                                        },
+                                        "user": {
+                                            "anyOf": [
+                                                {
+                                                    "title": "identity",
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "displayName": {
+                                                            "type": "string",
+                                                            "nullable": true
+                                                        },
+                                                        "id": {
+                                                            "type": "string",
+                                                            "nullable": true
+                                                        }
+                                                    },
+                                                    "example": {
+                                                        "displayName": "String",
+                                                        "id": "String"
+                                                    }
+                                                }
+                                            ],
+                                            "nullable": true
+                                        }
+                                    },
+                                    "example": {
+                                        "application": {
+                                            "@odata.type": "microsoft.graph.identity"
+                                        },
+                                        "device": {
+                                            "@odata.type": "microsoft.graph.identity"
+                                        },
+                                        "user": {
+                                            "@odata.type": "microsoft.graph.identity"
+                                        }
+                                    }
+                                }
+                            ],
+                            "nullable": true
+                        },
+                        "inheritedFrom": {
+                            "anyOf": [
+                                {
+                                    "title": "itemReference",
+                                    "type": "object",
+                                    "properties": {
+                                        "driveId": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "driveType": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "id": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "name": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "path": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "shareId": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "sharepointIds": {
+                                            "anyOf": [
+                                                {
+                                                    "title": "sharepointIds",
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "listId": {
+                                                            "type": "string",
+                                                            "nullable": true
+                                                        },
+                                                        "listItemId": {
+                                                            "type": "string",
+                                                            "nullable": true
+                                                        },
+                                                        "listItemUniqueId": {
+                                                            "type": "string",
+                                                            "nullable": true
+                                                        },
+                                                        "siteId": {
+                                                            "type": "string",
+                                                            "nullable": true
+                                                        },
+                                                        "siteUrl": {
+                                                            "type": "string",
+                                                            "nullable": true
+                                                        },
+                                                        "webId": {
+                                                            "type": "string",
+                                                            "nullable": true
+                                                        }
+                                                    },
+                                                    "example": {
+                                                        "listId": "String",
+                                                        "listItemId": "String",
+                                                        "listItemUniqueId": "String",
+                                                        "siteId": "String",
+                                                        "siteUrl": "String",
+                                                        "webId": "String"
+                                                    }
+                                                }
+                                            ],
+                                            "nullable": true
+                                        }
+                                    },
+                                    "example": {
+                                        "driveId": "String",
+                                        "driveType": "String",
+                                        "id": "String",
+                                        "name": "String",
+                                        "path": "String",
+                                        "shareId": "String",
+                                        "sharepointIds": {
+                                            "@odata.type": "microsoft.graph.sharepointIds"
+                                        }
+                                    }
+                                }
+                            ],
+                            "nullable": true
+                        },
+                        "invitation": {
+                            "anyOf": [
+                                {
+                                    "title": "sharingInvitation",
+                                    "type": "object",
+                                    "properties": {
+                                        "email": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "invitedBy": {
+                                            "anyOf": [
+                                                {
+                                                    "title": "identitySet",
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "application": {
+                                                            "anyOf": [
+                                                                {
+                                                                    "title": "identity",
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "displayName": {
+                                                                            "type": "string",
+                                                                            "nullable": true
+                                                                        },
+                                                                        "id": {
+                                                                            "type": "string",
+                                                                            "nullable": true
+                                                                        }
+                                                                    },
+                                                                    "example": {
+                                                                        "displayName": "String",
+                                                                        "id": "String"
+                                                                    }
+                                                                }
+                                                            ],
+                                                            "nullable": true
+                                                        },
+                                                        "device": {
+                                                            "anyOf": [
+                                                                {
+                                                                    "title": "identity",
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "displayName": {
+                                                                            "type": "string",
+                                                                            "nullable": true
+                                                                        },
+                                                                        "id": {
+                                                                            "type": "string",
+                                                                            "nullable": true
+                                                                        }
+                                                                    },
+                                                                    "example": {
+                                                                        "displayName": "String",
+                                                                        "id": "String"
+                                                                    }
+                                                                }
+                                                            ],
+                                                            "nullable": true
+                                                        },
+                                                        "user": {
+                                                            "anyOf": [
+                                                                {
+                                                                    "title": "identity",
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "displayName": {
+                                                                            "type": "string",
+                                                                            "nullable": true
+                                                                        },
+                                                                        "id": {
+                                                                            "type": "string",
+                                                                            "nullable": true
+                                                                        }
+                                                                    },
+                                                                    "example": {
+                                                                        "displayName": "String",
+                                                                        "id": "String"
+                                                                    }
+                                                                }
+                                                            ],
+                                                            "nullable": true
+                                                        }
+                                                    },
+                                                    "example": {
+                                                        "application": {
+                                                            "@odata.type": "microsoft.graph.identity"
+                                                        },
+                                                        "device": {
+                                                            "@odata.type": "microsoft.graph.identity"
+                                                        },
+                                                        "user": {
+                                                            "@odata.type": "microsoft.graph.identity"
+                                                        }
+                                                    }
+                                                }
+                                            ],
+                                            "nullable": true
+                                        },
+                                        "redeemedBy": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "signInRequired": {
+                                            "type": "boolean",
+                                            "nullable": true
+                                        }
+                                    },
+                                    "example": {
+                                        "email": "String",
+                                        "invitedBy": {
+                                            "@odata.type": "microsoft.graph.identitySet"
+                                        },
+                                        "redeemedBy": "String",
+                                        "signInRequired": true
+                                    }
+                                }
+                            ],
+                            "nullable": true
+                        },
+                        "link": {
+                            "anyOf": [
+                                {
+                                    "title": "sharingLink",
+                                    "type": "object",
+                                    "properties": {
+                                        "application": {
+                                            "anyOf": [
+                                                {
+                                                    "title": "identity",
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "displayName": {
+                                                            "type": "string",
+                                                            "nullable": true
+                                                        },
+                                                        "id": {
+                                                            "type": "string",
+                                                            "nullable": true
+                                                        }
+                                                    },
+                                                    "example": {
+                                                        "displayName": "String",
+                                                        "id": "String"
+                                                    }
+                                                }
+                                            ],
+                                            "nullable": true
+                                        },
+                                        "scope": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "type": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "webUrl": {
+                                            "type": "string",
+                                            "nullable": true
+                                        }
+                                    },
+                                    "example": {
+                                        "application": {
+                                            "@odata.type": "microsoft.graph.identity"
+                                        },
+                                        "scope": "String",
+                                        "type": "String",
+                                        "webUrl": "String"
+                                    }
+                                }
+                            ],
+                            "nullable": true
+                        },
+                        "roles": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "nullable": true
+                            }
+                        },
+                        "shareId": {
+                            "type": "string",
+                            "nullable": true
+                        }
+                    }
+                }
+            ],
+            "example": {
+                "id": "String (identifier)",
+                "grantedTo": {
+                    "@odata.type": "microsoft.graph.identitySet"
+                },
+                "inheritedFrom": {
+                    "@odata.type": "microsoft.graph.itemReference"
+                },
+                "invitation": {
+                    "@odata.type": "microsoft.graph.sharingInvitation"
+                },
+                "link": {
+                    "@odata.type": "microsoft.graph.sharingLink"
+                },
+                "roles": [
+                    "String"
+                ],
+                "shareId": "String"
+            }
+        },
+        "driveItem_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

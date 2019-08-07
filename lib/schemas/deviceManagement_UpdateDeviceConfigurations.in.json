@@ -1,0 +1,568 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "allOf": [
+                {
+                    "title": "entity",
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        }
+                    },
+                    "example": {
+                        "id": "String (identifier)"
+                    }
+                },
+                {
+                    "title": "deviceConfiguration",
+                    "type": "object",
+                    "properties": {
+                        "lastModifiedDateTime": {
+                            "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                            "type": "string",
+                            "description": "DateTime the object was last modified.",
+                            "format": "date-time"
+                        },
+                        "createdDateTime": {
+                            "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                            "type": "string",
+                            "description": "DateTime the object was created.",
+                            "format": "date-time"
+                        },
+                        "description": {
+                            "type": "string",
+                            "description": "Admin provided description of the Device Configuration.",
+                            "nullable": true
+                        },
+                        "displayName": {
+                            "type": "string",
+                            "description": "Admin provided name of the device configuration."
+                        },
+                        "version": {
+                            "maximum": 2147483647,
+                            "minimum": -2147483648,
+                            "type": "integer",
+                            "description": "Version of the device configuration.",
+                            "format": "int32"
+                        },
+                        "assignments": {
+                            "type": "array",
+                            "items": {
+                                "allOf": [
+                                    {
+                                        "title": "entity",
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "example": {
+                                            "id": "String (identifier)"
+                                        }
+                                    },
+                                    {
+                                        "title": "deviceConfigurationAssignment",
+                                        "type": "object",
+                                        "properties": {
+                                            "target": {
+                                                "anyOf": [
+                                                    {
+                                                        "title": "deviceAndAppManagementAssignmentTarget",
+                                                        "type": "object"
+                                                    }
+                                                ],
+                                                "description": "The assignment target for the device configuration.",
+                                                "nullable": true
+                                            }
+                                        },
+                                        "description": "The device configuration assignment entity assigns an AAD group to a specific device configuration."
+                                    }
+                                ],
+                                "example": {
+                                    "id": "String (identifier)",
+                                    "target": {
+                                        "@odata.type": "microsoft.graph.deviceAndAppManagementAssignmentTarget"
+                                    }
+                                }
+                            }
+                        },
+                        "deviceStatuses": {
+                            "type": "array",
+                            "items": {
+                                "allOf": [
+                                    {
+                                        "title": "entity",
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "example": {
+                                            "id": "String (identifier)"
+                                        }
+                                    },
+                                    {
+                                        "title": "deviceConfigurationDeviceStatus",
+                                        "type": "object",
+                                        "properties": {
+                                            "deviceDisplayName": {
+                                                "type": "string",
+                                                "description": "Device name of the DevicePolicyStatus.",
+                                                "nullable": true
+                                            },
+                                            "userName": {
+                                                "type": "string",
+                                                "description": "The User Name that is being reported",
+                                                "nullable": true
+                                            },
+                                            "deviceModel": {
+                                                "type": "string",
+                                                "description": "The device model that is being reported",
+                                                "nullable": true
+                                            },
+                                            "complianceGracePeriodExpirationDateTime": {
+                                                "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                                                "type": "string",
+                                                "description": "The DateTime when device compliance grace period expires",
+                                                "format": "date-time"
+                                            },
+                                            "status": {
+                                                "anyOf": [
+                                                    {
+                                                        "title": "complianceStatus",
+                                                        "enum": [
+                                                            "unknown",
+                                                            "notApplicable",
+                                                            "compliant",
+                                                            "remediated",
+                                                            "nonCompliant",
+                                                            "error",
+                                                            "conflict",
+                                                            "notAssigned"
+                                                        ],
+                                                        "type": "string"
+                                                    }
+                                                ],
+                                                "description": "Compliance status of the policy report."
+                                            },
+                                            "lastReportedDateTime": {
+                                                "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                                                "type": "string",
+                                                "description": "Last modified date time of the policy report.",
+                                                "format": "date-time"
+                                            },
+                                            "userPrincipalName": {
+                                                "type": "string",
+                                                "description": "UserPrincipalName.",
+                                                "nullable": true
+                                            }
+                                        }
+                                    }
+                                ],
+                                "example": {
+                                    "id": "String (identifier)",
+                                    "deviceDisplayName": "String",
+                                    "userName": "String",
+                                    "deviceModel": "String",
+                                    "complianceGracePeriodExpirationDateTime": "DateTimeOffset (timestamp)",
+                                    "status": {
+                                        "@odata.type": "microsoft.graph.complianceStatus"
+                                    },
+                                    "lastReportedDateTime": "DateTimeOffset (timestamp)",
+                                    "userPrincipalName": "String"
+                                }
+                            }
+                        },
+                        "userStatuses": {
+                            "type": "array",
+                            "items": {
+                                "allOf": [
+                                    {
+                                        "title": "entity",
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "example": {
+                                            "id": "String (identifier)"
+                                        }
+                                    },
+                                    {
+                                        "title": "deviceConfigurationUserStatus",
+                                        "type": "object",
+                                        "properties": {
+                                            "userDisplayName": {
+                                                "type": "string",
+                                                "description": "User name of the DevicePolicyStatus.",
+                                                "nullable": true
+                                            },
+                                            "devicesCount": {
+                                                "maximum": 2147483647,
+                                                "minimum": -2147483648,
+                                                "type": "integer",
+                                                "description": "Devices count for that user.",
+                                                "format": "int32"
+                                            },
+                                            "status": {
+                                                "anyOf": [
+                                                    {
+                                                        "title": "complianceStatus",
+                                                        "enum": [
+                                                            "unknown",
+                                                            "notApplicable",
+                                                            "compliant",
+                                                            "remediated",
+                                                            "nonCompliant",
+                                                            "error",
+                                                            "conflict",
+                                                            "notAssigned"
+                                                        ],
+                                                        "type": "string"
+                                                    }
+                                                ],
+                                                "description": "Compliance status of the policy report."
+                                            },
+                                            "lastReportedDateTime": {
+                                                "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                                                "type": "string",
+                                                "description": "Last modified date time of the policy report.",
+                                                "format": "date-time"
+                                            },
+                                            "userPrincipalName": {
+                                                "type": "string",
+                                                "description": "UserPrincipalName.",
+                                                "nullable": true
+                                            }
+                                        }
+                                    }
+                                ],
+                                "example": {
+                                    "id": "String (identifier)",
+                                    "userDisplayName": "String",
+                                    "devicesCount": "Int32",
+                                    "status": {
+                                        "@odata.type": "microsoft.graph.complianceStatus"
+                                    },
+                                    "lastReportedDateTime": "DateTimeOffset (timestamp)",
+                                    "userPrincipalName": "String"
+                                }
+                            }
+                        },
+                        "deviceStatusOverview": {
+                            "anyOf": [
+                                {
+                                    "allOf": [
+                                        {
+                                            "title": "entity",
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "example": {
+                                                "id": "String (identifier)"
+                                            }
+                                        },
+                                        {
+                                            "title": "deviceConfigurationDeviceOverview",
+                                            "type": "object",
+                                            "properties": {
+                                                "pendingCount": {
+                                                    "maximum": 2147483647,
+                                                    "minimum": -2147483648,
+                                                    "type": "integer",
+                                                    "description": "Number of pending devices",
+                                                    "format": "int32"
+                                                },
+                                                "notApplicableCount": {
+                                                    "maximum": 2147483647,
+                                                    "minimum": -2147483648,
+                                                    "type": "integer",
+                                                    "description": "Number of not applicable devices",
+                                                    "format": "int32"
+                                                },
+                                                "successCount": {
+                                                    "maximum": 2147483647,
+                                                    "minimum": -2147483648,
+                                                    "type": "integer",
+                                                    "description": "Number of succeeded devices",
+                                                    "format": "int32"
+                                                },
+                                                "errorCount": {
+                                                    "maximum": 2147483647,
+                                                    "minimum": -2147483648,
+                                                    "type": "integer",
+                                                    "description": "Number of error devices",
+                                                    "format": "int32"
+                                                },
+                                                "failedCount": {
+                                                    "maximum": 2147483647,
+                                                    "minimum": -2147483648,
+                                                    "type": "integer",
+                                                    "description": "Number of failed devices",
+                                                    "format": "int32"
+                                                },
+                                                "lastUpdateDateTime": {
+                                                    "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                                                    "type": "string",
+                                                    "description": "Last update time",
+                                                    "format": "date-time"
+                                                },
+                                                "configurationVersion": {
+                                                    "maximum": 2147483647,
+                                                    "minimum": -2147483648,
+                                                    "type": "integer",
+                                                    "description": "Version of the policy for that overview",
+                                                    "format": "int32"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "example": {
+                                        "id": "String (identifier)",
+                                        "pendingCount": "Int32",
+                                        "notApplicableCount": "Int32",
+                                        "successCount": "Int32",
+                                        "errorCount": "Int32",
+                                        "failedCount": "Int32",
+                                        "lastUpdateDateTime": "DateTimeOffset (timestamp)",
+                                        "configurationVersion": "Int32"
+                                    }
+                                }
+                            ],
+                            "nullable": true
+                        },
+                        "userStatusOverview": {
+                            "anyOf": [
+                                {
+                                    "allOf": [
+                                        {
+                                            "title": "entity",
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "example": {
+                                                "id": "String (identifier)"
+                                            }
+                                        },
+                                        {
+                                            "title": "deviceConfigurationUserOverview",
+                                            "type": "object",
+                                            "properties": {
+                                                "pendingCount": {
+                                                    "maximum": 2147483647,
+                                                    "minimum": -2147483648,
+                                                    "type": "integer",
+                                                    "description": "Number of pending Users",
+                                                    "format": "int32"
+                                                },
+                                                "notApplicableCount": {
+                                                    "maximum": 2147483647,
+                                                    "minimum": -2147483648,
+                                                    "type": "integer",
+                                                    "description": "Number of not applicable users",
+                                                    "format": "int32"
+                                                },
+                                                "successCount": {
+                                                    "maximum": 2147483647,
+                                                    "minimum": -2147483648,
+                                                    "type": "integer",
+                                                    "description": "Number of succeeded Users",
+                                                    "format": "int32"
+                                                },
+                                                "errorCount": {
+                                                    "maximum": 2147483647,
+                                                    "minimum": -2147483648,
+                                                    "type": "integer",
+                                                    "description": "Number of error Users",
+                                                    "format": "int32"
+                                                },
+                                                "failedCount": {
+                                                    "maximum": 2147483647,
+                                                    "minimum": -2147483648,
+                                                    "type": "integer",
+                                                    "description": "Number of failed Users",
+                                                    "format": "int32"
+                                                },
+                                                "lastUpdateDateTime": {
+                                                    "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                                                    "type": "string",
+                                                    "description": "Last update time",
+                                                    "format": "date-time"
+                                                },
+                                                "configurationVersion": {
+                                                    "maximum": 2147483647,
+                                                    "minimum": -2147483648,
+                                                    "type": "integer",
+                                                    "description": "Version of the policy for that overview",
+                                                    "format": "int32"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "example": {
+                                        "id": "String (identifier)",
+                                        "pendingCount": "Int32",
+                                        "notApplicableCount": "Int32",
+                                        "successCount": "Int32",
+                                        "errorCount": "Int32",
+                                        "failedCount": "Int32",
+                                        "lastUpdateDateTime": "DateTimeOffset (timestamp)",
+                                        "configurationVersion": "Int32"
+                                    }
+                                }
+                            ],
+                            "nullable": true
+                        },
+                        "deviceSettingStateSummaries": {
+                            "type": "array",
+                            "items": {
+                                "allOf": [
+                                    {
+                                        "title": "entity",
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "example": {
+                                            "id": "String (identifier)"
+                                        }
+                                    },
+                                    {
+                                        "title": "settingStateDeviceSummary",
+                                        "type": "object",
+                                        "properties": {
+                                            "settingName": {
+                                                "type": "string",
+                                                "description": "Name of the setting",
+                                                "nullable": true
+                                            },
+                                            "instancePath": {
+                                                "type": "string",
+                                                "description": "Name of the InstancePath for the setting",
+                                                "nullable": true
+                                            },
+                                            "unknownDeviceCount": {
+                                                "maximum": 2147483647,
+                                                "minimum": -2147483648,
+                                                "type": "integer",
+                                                "description": "Device Unkown count for the setting",
+                                                "format": "int32"
+                                            },
+                                            "notApplicableDeviceCount": {
+                                                "maximum": 2147483647,
+                                                "minimum": -2147483648,
+                                                "type": "integer",
+                                                "description": "Device Not Applicable count for the setting",
+                                                "format": "int32"
+                                            },
+                                            "compliantDeviceCount": {
+                                                "maximum": 2147483647,
+                                                "minimum": -2147483648,
+                                                "type": "integer",
+                                                "description": "Device Compliant count for the setting",
+                                                "format": "int32"
+                                            },
+                                            "remediatedDeviceCount": {
+                                                "maximum": 2147483647,
+                                                "minimum": -2147483648,
+                                                "type": "integer",
+                                                "description": "Device Compliant count for the setting",
+                                                "format": "int32"
+                                            },
+                                            "nonCompliantDeviceCount": {
+                                                "maximum": 2147483647,
+                                                "minimum": -2147483648,
+                                                "type": "integer",
+                                                "description": "Device NonCompliant count for the setting",
+                                                "format": "int32"
+                                            },
+                                            "errorDeviceCount": {
+                                                "maximum": 2147483647,
+                                                "minimum": -2147483648,
+                                                "type": "integer",
+                                                "description": "Device error count for the setting",
+                                                "format": "int32"
+                                            },
+                                            "conflictDeviceCount": {
+                                                "maximum": 2147483647,
+                                                "minimum": -2147483648,
+                                                "type": "integer",
+                                                "description": "Device conflict error count for the setting",
+                                                "format": "int32"
+                                            }
+                                        },
+                                        "description": "Device Compilance Policy and Configuration for a Setting State summary"
+                                    }
+                                ],
+                                "example": {
+                                    "id": "String (identifier)",
+                                    "settingName": "String",
+                                    "instancePath": "String",
+                                    "unknownDeviceCount": "Int32",
+                                    "notApplicableDeviceCount": "Int32",
+                                    "compliantDeviceCount": "Int32",
+                                    "remediatedDeviceCount": "Int32",
+                                    "nonCompliantDeviceCount": "Int32",
+                                    "errorDeviceCount": "Int32",
+                                    "conflictDeviceCount": "Int32"
+                                }
+                            }
+                        }
+                    },
+                    "description": "Device Configuration."
+                }
+            ],
+            "example": {
+                "id": "String (identifier)",
+                "lastModifiedDateTime": "DateTimeOffset (timestamp)",
+                "createdDateTime": "DateTimeOffset (timestamp)",
+                "description": "String",
+                "displayName": "String",
+                "version": "Int32",
+                "assignments": [
+                    {
+                        "@odata.type": "microsoft.graph.deviceConfigurationAssignment"
+                    }
+                ],
+                "deviceStatuses": [
+                    {
+                        "@odata.type": "microsoft.graph.deviceConfigurationDeviceStatus"
+                    }
+                ],
+                "userStatuses": [
+                    {
+                        "@odata.type": "microsoft.graph.deviceConfigurationUserStatus"
+                    }
+                ],
+                "deviceStatusOverview": {
+                    "@odata.type": "microsoft.graph.deviceConfigurationDeviceOverview"
+                },
+                "userStatusOverview": {
+                    "@odata.type": "microsoft.graph.deviceConfigurationUserOverview"
+                },
+                "deviceSettingStateSummaries": [
+                    {
+                        "@odata.type": "microsoft.graph.settingStateDeviceSummary"
+                    }
+                ]
+            }
+        },
+        "deviceConfiguration_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

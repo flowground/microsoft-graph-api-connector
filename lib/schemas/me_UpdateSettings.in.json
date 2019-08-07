@@ -1,0 +1,38 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "allOf": [
+                {
+                    "title": "entity",
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        }
+                    },
+                    "example": {
+                        "id": "String (identifier)"
+                    }
+                },
+                {
+                    "title": "userSettings",
+                    "type": "object",
+                    "properties": {
+                        "contributionToContentDiscoveryDisabled": {
+                            "type": "boolean"
+                        },
+                        "contributionToContentDiscoveryAsOrganizationDisabled": {
+                            "type": "boolean"
+                        }
+                    }
+                }
+            ],
+            "example": {
+                "id": "String (identifier)",
+                "contributionToContentDiscoveryDisabled": true,
+                "contributionToContentDiscoveryAsOrganizationDisabled": true
+            }
+        }
+    }
+}

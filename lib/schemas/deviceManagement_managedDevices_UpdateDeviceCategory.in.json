@@ -1,0 +1,46 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "allOf": [
+                {
+                    "title": "entity",
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        }
+                    },
+                    "example": {
+                        "id": "String (identifier)"
+                    }
+                },
+                {
+                    "title": "deviceCategory",
+                    "type": "object",
+                    "properties": {
+                        "displayName": {
+                            "type": "string",
+                            "description": "Display name for the device category.",
+                            "nullable": true
+                        },
+                        "description": {
+                            "type": "string",
+                            "description": "Optional description for the device category.",
+                            "nullable": true
+                        }
+                    }
+                }
+            ],
+            "example": {
+                "id": "String (identifier)",
+                "displayName": "String",
+                "description": "String"
+            }
+        },
+        "managedDevice_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

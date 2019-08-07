@@ -1,0 +1,70 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "allOf": [
+                {
+                    "title": "entity",
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        }
+                    },
+                    "example": {
+                        "id": "String (identifier)"
+                    }
+                },
+                {
+                    "title": "groupSetting",
+                    "type": "object",
+                    "properties": {
+                        "displayName": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "templateId": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "values": {
+                            "type": "array",
+                            "items": {
+                                "title": "settingValue",
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "nullable": true
+                                    },
+                                    "value": {
+                                        "type": "string",
+                                        "nullable": true
+                                    }
+                                },
+                                "example": {
+                                    "name": "String",
+                                    "value": "String"
+                                }
+                            }
+                        }
+                    }
+                }
+            ],
+            "example": {
+                "id": "String (identifier)",
+                "displayName": "String",
+                "templateId": "String",
+                "values": [
+                    {
+                        "@odata.type": "microsoft.graph.settingValue"
+                    }
+                ]
+            }
+        },
+        "group_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,350 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "allOf": [
+                {
+                    "allOf": [
+                        {
+                            "allOf": [
+                                {
+                                    "title": "entity",
+                                    "type": "object",
+                                    "properties": {
+                                        "id": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "example": {
+                                        "id": "String (identifier)"
+                                    }
+                                },
+                                {
+                                    "title": "managedAppPolicy",
+                                    "type": "object",
+                                    "properties": {
+                                        "displayName": {
+                                            "type": "string",
+                                            "description": "Policy display name."
+                                        },
+                                        "description": {
+                                            "type": "string",
+                                            "description": "The policy's description.",
+                                            "nullable": true
+                                        },
+                                        "createdDateTime": {
+                                            "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                                            "type": "string",
+                                            "description": "The date and time the policy was created.",
+                                            "format": "date-time"
+                                        },
+                                        "lastModifiedDateTime": {
+                                            "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                                            "type": "string",
+                                            "description": "Last time the policy was modified.",
+                                            "format": "date-time"
+                                        },
+                                        "version": {
+                                            "type": "string",
+                                            "description": "Version of the entity.",
+                                            "nullable": true
+                                        }
+                                    },
+                                    "description": "The ManagedAppPolicy resource represents a base type for platform specific policies."
+                                }
+                            ],
+                            "example": {
+                                "id": "String (identifier)",
+                                "displayName": "String",
+                                "description": "String",
+                                "createdDateTime": "DateTimeOffset (timestamp)",
+                                "lastModifiedDateTime": "DateTimeOffset (timestamp)",
+                                "version": "String"
+                            }
+                        },
+                        {
+                            "title": "managedAppConfiguration",
+                            "type": "object",
+                            "properties": {
+                                "customSettings": {
+                                    "type": "array",
+                                    "items": {
+                                        "title": "keyValuePair",
+                                        "type": "object",
+                                        "properties": {
+                                            "name": {
+                                                "type": "string",
+                                                "description": "Name for this key-value pair"
+                                            },
+                                            "value": {
+                                                "type": "string",
+                                                "description": "Value for this key-value pair",
+                                                "nullable": true
+                                            }
+                                        },
+                                        "example": {
+                                            "name": "String",
+                                            "value": "String"
+                                        }
+                                    },
+                                    "description": "A set of string key and string value pairs to be sent to apps for users to whom the configuration is scoped, unalterned by this service"
+                                }
+                            },
+                            "description": "Configuration used to deliver a set of custom settings as-is to apps for users to whom the configuration is scoped"
+                        }
+                    ],
+                    "example": {
+                        "id": "String (identifier)",
+                        "displayName": "String",
+                        "description": "String",
+                        "createdDateTime": "DateTimeOffset (timestamp)",
+                        "lastModifiedDateTime": "DateTimeOffset (timestamp)",
+                        "version": "String",
+                        "customSettings": [
+                            {
+                                "@odata.type": "microsoft.graph.keyValuePair"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "title": "targetedManagedAppConfiguration",
+                    "type": "object",
+                    "properties": {
+                        "deployedAppCount": {
+                            "maximum": 2147483647,
+                            "minimum": -2147483648,
+                            "type": "integer",
+                            "description": "Count of apps to which the current policy is deployed.",
+                            "format": "int32"
+                        },
+                        "isAssigned": {
+                            "type": "boolean",
+                            "description": "Indicates if the policy is deployed to any inclusion groups or not."
+                        },
+                        "apps": {
+                            "type": "array",
+                            "items": {
+                                "allOf": [
+                                    {
+                                        "title": "entity",
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "example": {
+                                            "id": "String (identifier)"
+                                        }
+                                    },
+                                    {
+                                        "title": "managedMobileApp",
+                                        "type": "object",
+                                        "properties": {
+                                            "mobileAppIdentifier": {
+                                                "anyOf": [
+                                                    {
+                                                        "title": "mobileAppIdentifier",
+                                                        "type": "object"
+                                                    }
+                                                ],
+                                                "description": "The identifier for an app with it's operating system type.",
+                                                "nullable": true
+                                            },
+                                            "version": {
+                                                "type": "string",
+                                                "description": "Version of the entity.",
+                                                "nullable": true
+                                            }
+                                        },
+                                        "description": "The identifier for the deployment an app."
+                                    }
+                                ],
+                                "example": {
+                                    "id": "String (identifier)",
+                                    "mobileAppIdentifier": {
+                                        "@odata.type": "microsoft.graph.mobileAppIdentifier"
+                                    },
+                                    "version": "String"
+                                }
+                            }
+                        },
+                        "deploymentSummary": {
+                            "anyOf": [
+                                {
+                                    "allOf": [
+                                        {
+                                            "title": "entity",
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "example": {
+                                                "id": "String (identifier)"
+                                            }
+                                        },
+                                        {
+                                            "title": "managedAppPolicyDeploymentSummary",
+                                            "type": "object",
+                                            "properties": {
+                                                "displayName": {
+                                                    "type": "string",
+                                                    "nullable": true
+                                                },
+                                                "configurationDeployedUserCount": {
+                                                    "maximum": 2147483647,
+                                                    "minimum": -2147483648,
+                                                    "type": "integer",
+                                                    "format": "int32"
+                                                },
+                                                "lastRefreshTime": {
+                                                    "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                                                    "type": "string",
+                                                    "format": "date-time"
+                                                },
+                                                "configurationDeploymentSummaryPerApp": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "anyOf": [
+                                                            {
+                                                                "title": "managedAppPolicyDeploymentSummaryPerApp",
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "mobileAppIdentifier": {
+                                                                        "anyOf": [
+                                                                            {
+                                                                                "title": "mobileAppIdentifier",
+                                                                                "type": "object"
+                                                                            }
+                                                                        ],
+                                                                        "description": "Deployment of an app.",
+                                                                        "nullable": true
+                                                                    },
+                                                                    "configurationAppliedUserCount": {
+                                                                        "maximum": 2147483647,
+                                                                        "minimum": -2147483648,
+                                                                        "type": "integer",
+                                                                        "description": "Number of users the policy is applied.",
+                                                                        "format": "int32"
+                                                                    }
+                                                                },
+                                                                "example": {
+                                                                    "mobileAppIdentifier": {
+                                                                        "@odata.type": "microsoft.graph.mobileAppIdentifier"
+                                                                    },
+                                                                    "configurationAppliedUserCount": "Int32"
+                                                                }
+                                                            }
+                                                        ],
+                                                        "nullable": true
+                                                    }
+                                                },
+                                                "version": {
+                                                    "type": "string",
+                                                    "description": "Version of the entity.",
+                                                    "nullable": true
+                                                }
+                                            },
+                                            "description": "The ManagedAppEntity is the base entity type for all other entity types under app management workflow."
+                                        }
+                                    ],
+                                    "example": {
+                                        "id": "String (identifier)",
+                                        "displayName": "String",
+                                        "configurationDeployedUserCount": "Int32",
+                                        "lastRefreshTime": "DateTimeOffset (timestamp)",
+                                        "configurationDeploymentSummaryPerApp": [
+                                            {
+                                                "@odata.type": "microsoft.graph.managedAppPolicyDeploymentSummaryPerApp"
+                                            }
+                                        ],
+                                        "version": "String"
+                                    }
+                                }
+                            ],
+                            "nullable": true
+                        },
+                        "assignments": {
+                            "type": "array",
+                            "items": {
+                                "allOf": [
+                                    {
+                                        "title": "entity",
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "example": {
+                                            "id": "String (identifier)"
+                                        }
+                                    },
+                                    {
+                                        "title": "targetedManagedAppPolicyAssignment",
+                                        "type": "object",
+                                        "properties": {
+                                            "target": {
+                                                "anyOf": [
+                                                    {
+                                                        "title": "deviceAndAppManagementAssignmentTarget",
+                                                        "type": "object"
+                                                    }
+                                                ],
+                                                "description": "Identifier for deployment of a group or app",
+                                                "nullable": true
+                                            }
+                                        },
+                                        "description": "The type for deployment of groups or apps."
+                                    }
+                                ],
+                                "example": {
+                                    "id": "String (identifier)",
+                                    "target": {
+                                        "@odata.type": "microsoft.graph.deviceAndAppManagementAssignmentTarget"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "description": "Configuration used to deliver a set of custom settings as-is to all users in the targeted security group"
+                }
+            ],
+            "example": {
+                "id": "String (identifier)",
+                "displayName": "String",
+                "description": "String",
+                "createdDateTime": "DateTimeOffset (timestamp)",
+                "lastModifiedDateTime": "DateTimeOffset (timestamp)",
+                "version": "String",
+                "customSettings": [
+                    {
+                        "@odata.type": "microsoft.graph.keyValuePair"
+                    }
+                ],
+                "deployedAppCount": "Int32",
+                "isAssigned": true,
+                "apps": [
+                    {
+                        "@odata.type": "microsoft.graph.managedMobileApp"
+                    }
+                ],
+                "deploymentSummary": {
+                    "@odata.type": "microsoft.graph.managedAppPolicyDeploymentSummary"
+                },
+                "assignments": [
+                    {
+                        "@odata.type": "microsoft.graph.targetedManagedAppPolicyAssignment"
+                    }
+                ]
+            }
+        },
+        "targetedManagedAppConfiguration_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

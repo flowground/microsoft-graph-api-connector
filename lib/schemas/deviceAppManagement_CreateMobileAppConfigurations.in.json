@@ -1,0 +1,477 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "allOf": [
+                {
+                    "title": "entity",
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        }
+                    },
+                    "example": {
+                        "id": "String (identifier)"
+                    }
+                },
+                {
+                    "title": "managedDeviceMobileAppConfiguration",
+                    "type": "object",
+                    "properties": {
+                        "targetedMobileApps": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "nullable": true
+                            },
+                            "description": "the associated app."
+                        },
+                        "createdDateTime": {
+                            "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                            "type": "string",
+                            "description": "DateTime the object was created.",
+                            "format": "date-time"
+                        },
+                        "description": {
+                            "type": "string",
+                            "description": "Admin provided description of the Device Configuration.",
+                            "nullable": true
+                        },
+                        "lastModifiedDateTime": {
+                            "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                            "type": "string",
+                            "description": "DateTime the object was last modified.",
+                            "format": "date-time"
+                        },
+                        "displayName": {
+                            "type": "string",
+                            "description": "Admin provided name of the device configuration."
+                        },
+                        "version": {
+                            "maximum": 2147483647,
+                            "minimum": -2147483648,
+                            "type": "integer",
+                            "description": "Version of the device configuration.",
+                            "format": "int32"
+                        },
+                        "assignments": {
+                            "type": "array",
+                            "items": {
+                                "allOf": [
+                                    {
+                                        "title": "entity",
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "example": {
+                                            "id": "String (identifier)"
+                                        }
+                                    },
+                                    {
+                                        "title": "managedDeviceMobileAppConfigurationAssignment",
+                                        "type": "object",
+                                        "properties": {
+                                            "target": {
+                                                "anyOf": [
+                                                    {
+                                                        "title": "deviceAndAppManagementAssignmentTarget",
+                                                        "type": "object"
+                                                    }
+                                                ],
+                                                "description": "Assignment target that the T&C policy is assigned to.",
+                                                "nullable": true
+                                            }
+                                        },
+                                        "description": "Contains the properties used to assign an MDM app configuration to a group."
+                                    }
+                                ],
+                                "example": {
+                                    "id": "String (identifier)",
+                                    "target": {
+                                        "@odata.type": "microsoft.graph.deviceAndAppManagementAssignmentTarget"
+                                    }
+                                }
+                            }
+                        },
+                        "deviceStatuses": {
+                            "type": "array",
+                            "items": {
+                                "allOf": [
+                                    {
+                                        "title": "entity",
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "example": {
+                                            "id": "String (identifier)"
+                                        }
+                                    },
+                                    {
+                                        "title": "managedDeviceMobileAppConfigurationDeviceStatus",
+                                        "type": "object",
+                                        "properties": {
+                                            "deviceDisplayName": {
+                                                "type": "string",
+                                                "description": "Device name of the DevicePolicyStatus.",
+                                                "nullable": true
+                                            },
+                                            "userName": {
+                                                "type": "string",
+                                                "description": "The User Name that is being reported",
+                                                "nullable": true
+                                            },
+                                            "deviceModel": {
+                                                "type": "string",
+                                                "description": "The device model that is being reported",
+                                                "nullable": true
+                                            },
+                                            "complianceGracePeriodExpirationDateTime": {
+                                                "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                                                "type": "string",
+                                                "description": "The DateTime when device compliance grace period expires",
+                                                "format": "date-time"
+                                            },
+                                            "status": {
+                                                "anyOf": [
+                                                    {
+                                                        "title": "complianceStatus",
+                                                        "enum": [
+                                                            "unknown",
+                                                            "notApplicable",
+                                                            "compliant",
+                                                            "remediated",
+                                                            "nonCompliant",
+                                                            "error",
+                                                            "conflict",
+                                                            "notAssigned"
+                                                        ],
+                                                        "type": "string"
+                                                    }
+                                                ],
+                                                "description": "Compliance status of the policy report."
+                                            },
+                                            "lastReportedDateTime": {
+                                                "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                                                "type": "string",
+                                                "description": "Last modified date time of the policy report.",
+                                                "format": "date-time"
+                                            },
+                                            "userPrincipalName": {
+                                                "type": "string",
+                                                "description": "UserPrincipalName.",
+                                                "nullable": true
+                                            }
+                                        },
+                                        "description": "Contains properties, inherited properties and actions for an MDM mobile app configuration status for a device."
+                                    }
+                                ],
+                                "example": {
+                                    "id": "String (identifier)",
+                                    "deviceDisplayName": "String",
+                                    "userName": "String",
+                                    "deviceModel": "String",
+                                    "complianceGracePeriodExpirationDateTime": "DateTimeOffset (timestamp)",
+                                    "status": {
+                                        "@odata.type": "microsoft.graph.complianceStatus"
+                                    },
+                                    "lastReportedDateTime": "DateTimeOffset (timestamp)",
+                                    "userPrincipalName": "String"
+                                }
+                            }
+                        },
+                        "userStatuses": {
+                            "type": "array",
+                            "items": {
+                                "allOf": [
+                                    {
+                                        "title": "entity",
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "example": {
+                                            "id": "String (identifier)"
+                                        }
+                                    },
+                                    {
+                                        "title": "managedDeviceMobileAppConfigurationUserStatus",
+                                        "type": "object",
+                                        "properties": {
+                                            "userDisplayName": {
+                                                "type": "string",
+                                                "description": "User name of the DevicePolicyStatus.",
+                                                "nullable": true
+                                            },
+                                            "devicesCount": {
+                                                "maximum": 2147483647,
+                                                "minimum": -2147483648,
+                                                "type": "integer",
+                                                "description": "Devices count for that user.",
+                                                "format": "int32"
+                                            },
+                                            "status": {
+                                                "anyOf": [
+                                                    {
+                                                        "title": "complianceStatus",
+                                                        "enum": [
+                                                            "unknown",
+                                                            "notApplicable",
+                                                            "compliant",
+                                                            "remediated",
+                                                            "nonCompliant",
+                                                            "error",
+                                                            "conflict",
+                                                            "notAssigned"
+                                                        ],
+                                                        "type": "string"
+                                                    }
+                                                ],
+                                                "description": "Compliance status of the policy report."
+                                            },
+                                            "lastReportedDateTime": {
+                                                "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                                                "type": "string",
+                                                "description": "Last modified date time of the policy report.",
+                                                "format": "date-time"
+                                            },
+                                            "userPrincipalName": {
+                                                "type": "string",
+                                                "description": "UserPrincipalName.",
+                                                "nullable": true
+                                            }
+                                        },
+                                        "description": "Contains properties, inherited properties and actions for an MDM mobile app configuration status for a user."
+                                    }
+                                ],
+                                "example": {
+                                    "id": "String (identifier)",
+                                    "userDisplayName": "String",
+                                    "devicesCount": "Int32",
+                                    "status": {
+                                        "@odata.type": "microsoft.graph.complianceStatus"
+                                    },
+                                    "lastReportedDateTime": "DateTimeOffset (timestamp)",
+                                    "userPrincipalName": "String"
+                                }
+                            }
+                        },
+                        "deviceStatusSummary": {
+                            "anyOf": [
+                                {
+                                    "allOf": [
+                                        {
+                                            "title": "entity",
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "example": {
+                                                "id": "String (identifier)"
+                                            }
+                                        },
+                                        {
+                                            "title": "managedDeviceMobileAppConfigurationDeviceSummary",
+                                            "type": "object",
+                                            "properties": {
+                                                "pendingCount": {
+                                                    "maximum": 2147483647,
+                                                    "minimum": -2147483648,
+                                                    "type": "integer",
+                                                    "description": "Number of pending devices",
+                                                    "format": "int32"
+                                                },
+                                                "notApplicableCount": {
+                                                    "maximum": 2147483647,
+                                                    "minimum": -2147483648,
+                                                    "type": "integer",
+                                                    "description": "Number of not applicable devices",
+                                                    "format": "int32"
+                                                },
+                                                "successCount": {
+                                                    "maximum": 2147483647,
+                                                    "minimum": -2147483648,
+                                                    "type": "integer",
+                                                    "description": "Number of succeeded devices",
+                                                    "format": "int32"
+                                                },
+                                                "errorCount": {
+                                                    "maximum": 2147483647,
+                                                    "minimum": -2147483648,
+                                                    "type": "integer",
+                                                    "description": "Number of error devices",
+                                                    "format": "int32"
+                                                },
+                                                "failedCount": {
+                                                    "maximum": 2147483647,
+                                                    "minimum": -2147483648,
+                                                    "type": "integer",
+                                                    "description": "Number of failed devices",
+                                                    "format": "int32"
+                                                },
+                                                "lastUpdateDateTime": {
+                                                    "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                                                    "type": "string",
+                                                    "description": "Last update time",
+                                                    "format": "date-time"
+                                                },
+                                                "configurationVersion": {
+                                                    "maximum": 2147483647,
+                                                    "minimum": -2147483648,
+                                                    "type": "integer",
+                                                    "description": "Version of the policy for that overview",
+                                                    "format": "int32"
+                                                }
+                                            },
+                                            "description": "Contains properties, inherited properties and actions for an MDM mobile app configuration device status summary."
+                                        }
+                                    ],
+                                    "example": {
+                                        "id": "String (identifier)",
+                                        "pendingCount": "Int32",
+                                        "notApplicableCount": "Int32",
+                                        "successCount": "Int32",
+                                        "errorCount": "Int32",
+                                        "failedCount": "Int32",
+                                        "lastUpdateDateTime": "DateTimeOffset (timestamp)",
+                                        "configurationVersion": "Int32"
+                                    }
+                                }
+                            ],
+                            "nullable": true
+                        },
+                        "userStatusSummary": {
+                            "anyOf": [
+                                {
+                                    "allOf": [
+                                        {
+                                            "title": "entity",
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "example": {
+                                                "id": "String (identifier)"
+                                            }
+                                        },
+                                        {
+                                            "title": "managedDeviceMobileAppConfigurationUserSummary",
+                                            "type": "object",
+                                            "properties": {
+                                                "pendingCount": {
+                                                    "maximum": 2147483647,
+                                                    "minimum": -2147483648,
+                                                    "type": "integer",
+                                                    "description": "Number of pending Users",
+                                                    "format": "int32"
+                                                },
+                                                "notApplicableCount": {
+                                                    "maximum": 2147483647,
+                                                    "minimum": -2147483648,
+                                                    "type": "integer",
+                                                    "description": "Number of not applicable users",
+                                                    "format": "int32"
+                                                },
+                                                "successCount": {
+                                                    "maximum": 2147483647,
+                                                    "minimum": -2147483648,
+                                                    "type": "integer",
+                                                    "description": "Number of succeeded Users",
+                                                    "format": "int32"
+                                                },
+                                                "errorCount": {
+                                                    "maximum": 2147483647,
+                                                    "minimum": -2147483648,
+                                                    "type": "integer",
+                                                    "description": "Number of error Users",
+                                                    "format": "int32"
+                                                },
+                                                "failedCount": {
+                                                    "maximum": 2147483647,
+                                                    "minimum": -2147483648,
+                                                    "type": "integer",
+                                                    "description": "Number of failed Users",
+                                                    "format": "int32"
+                                                },
+                                                "lastUpdateDateTime": {
+                                                    "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                                                    "type": "string",
+                                                    "description": "Last update time",
+                                                    "format": "date-time"
+                                                },
+                                                "configurationVersion": {
+                                                    "maximum": 2147483647,
+                                                    "minimum": -2147483648,
+                                                    "type": "integer",
+                                                    "description": "Version of the policy for that overview",
+                                                    "format": "int32"
+                                                }
+                                            },
+                                            "description": "Contains properties, inherited properties and actions for an MDM mobile app configuration user status summary."
+                                        }
+                                    ],
+                                    "example": {
+                                        "id": "String (identifier)",
+                                        "pendingCount": "Int32",
+                                        "notApplicableCount": "Int32",
+                                        "successCount": "Int32",
+                                        "errorCount": "Int32",
+                                        "failedCount": "Int32",
+                                        "lastUpdateDateTime": "DateTimeOffset (timestamp)",
+                                        "configurationVersion": "Int32"
+                                    }
+                                }
+                            ],
+                            "nullable": true
+                        }
+                    },
+                    "description": "An abstract class for Mobile app configuration for enrolled devices."
+                }
+            ],
+            "example": {
+                "id": "String (identifier)",
+                "targetedMobileApps": [
+                    "String"
+                ],
+                "createdDateTime": "DateTimeOffset (timestamp)",
+                "description": "String",
+                "lastModifiedDateTime": "DateTimeOffset (timestamp)",
+                "displayName": "String",
+                "version": "Int32",
+                "assignments": [
+                    {
+                        "@odata.type": "microsoft.graph.managedDeviceMobileAppConfigurationAssignment"
+                    }
+                ],
+                "deviceStatuses": [
+                    {
+                        "@odata.type": "microsoft.graph.managedDeviceMobileAppConfigurationDeviceStatus"
+                    }
+                ],
+                "userStatuses": [
+                    {
+                        "@odata.type": "microsoft.graph.managedDeviceMobileAppConfigurationUserStatus"
+                    }
+                ],
+                "deviceStatusSummary": {
+                    "@odata.type": "microsoft.graph.managedDeviceMobileAppConfigurationDeviceSummary"
+                },
+                "userStatusSummary": {
+                    "@odata.type": "microsoft.graph.managedDeviceMobileAppConfigurationUserSummary"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "type": "object",
+    "properties": {
+        "groupSettingTemplate_id": {
+            "required": true,
+            "type": "string"
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "deletedDateTime",
+                    "displayName",
+                    "description",
+                    "values"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

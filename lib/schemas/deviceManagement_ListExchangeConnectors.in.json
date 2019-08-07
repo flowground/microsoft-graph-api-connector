@@ -1,0 +1,80 @@
+{
+    "type": "object",
+    "properties": {
+        "_top": {
+            "minimum": 0,
+            "type": "integer"
+        },
+        "_skip": {
+            "minimum": 0,
+            "type": "integer"
+        },
+        "_search": {
+            "type": "string"
+        },
+        "_filter": {
+            "type": "string"
+        },
+        "_count": {
+            "type": "boolean"
+        },
+        "_orderby": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "id desc",
+                    "lastSyncDateTime",
+                    "lastSyncDateTime desc",
+                    "status",
+                    "status desc",
+                    "primarySmtpAddress",
+                    "primarySmtpAddress desc",
+                    "serverName",
+                    "serverName desc",
+                    "connectorServerName",
+                    "connectorServerName desc",
+                    "exchangeConnectorType",
+                    "exchangeConnectorType desc",
+                    "version",
+                    "version desc",
+                    "exchangeAlias",
+                    "exchangeAlias desc",
+                    "exchangeOrganization",
+                    "exchangeOrganization desc"
+                ],
+                "type": "string"
+            }
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "lastSyncDateTime",
+                    "status",
+                    "primarySmtpAddress",
+                    "serverName",
+                    "connectorServerName",
+                    "exchangeConnectorType",
+                    "version",
+                    "exchangeAlias",
+                    "exchangeOrganization"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

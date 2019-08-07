@@ -1,0 +1,61 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "assignments": {
+                    "type": "array",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "allOf": [
+                                    {
+                                        "title": "entity",
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "example": {
+                                            "id": "String (identifier)"
+                                        }
+                                    },
+                                    {
+                                        "title": "targetedManagedAppPolicyAssignment",
+                                        "type": "object",
+                                        "properties": {
+                                            "target": {
+                                                "anyOf": [
+                                                    {
+                                                        "title": "deviceAndAppManagementAssignmentTarget",
+                                                        "type": "object"
+                                                    }
+                                                ],
+                                                "description": "Identifier for deployment of a group or app",
+                                                "nullable": true
+                                            }
+                                        },
+                                        "description": "The type for deployment of groups or apps."
+                                    }
+                                ],
+                                "example": {
+                                    "id": "String (identifier)",
+                                    "target": {
+                                        "@odata.type": "microsoft.graph.deviceAndAppManagementAssignmentTarget"
+                                    }
+                                }
+                            }
+                        ],
+                        "nullable": true
+                    }
+                }
+            }
+        },
+        "targetedManagedAppConfiguration_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

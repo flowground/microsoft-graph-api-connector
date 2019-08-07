@@ -1,0 +1,90 @@
+{
+    "type": "object",
+    "properties": {
+        "deviceCompliancePolicySettingStateSummary_id": {
+            "required": true,
+            "type": "string"
+        },
+        "_top": {
+            "minimum": 0,
+            "type": "integer"
+        },
+        "_skip": {
+            "minimum": 0,
+            "type": "integer"
+        },
+        "_search": {
+            "type": "string"
+        },
+        "_filter": {
+            "type": "string"
+        },
+        "_count": {
+            "type": "boolean"
+        },
+        "_orderby": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "id desc",
+                    "setting",
+                    "setting desc",
+                    "settingName",
+                    "settingName desc",
+                    "deviceId",
+                    "deviceId desc",
+                    "deviceName",
+                    "deviceName desc",
+                    "userId",
+                    "userId desc",
+                    "userEmail",
+                    "userEmail desc",
+                    "userName",
+                    "userName desc",
+                    "userPrincipalName",
+                    "userPrincipalName desc",
+                    "deviceModel",
+                    "deviceModel desc",
+                    "state",
+                    "state desc",
+                    "complianceGracePeriodExpirationDateTime",
+                    "complianceGracePeriodExpirationDateTime desc"
+                ],
+                "type": "string"
+            }
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "setting",
+                    "settingName",
+                    "deviceId",
+                    "deviceName",
+                    "userId",
+                    "userEmail",
+                    "userName",
+                    "userPrincipalName",
+                    "deviceModel",
+                    "state",
+                    "complianceGracePeriodExpirationDateTime"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

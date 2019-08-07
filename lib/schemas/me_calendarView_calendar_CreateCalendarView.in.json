@@ -1,0 +1,10 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {},
+        "event_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

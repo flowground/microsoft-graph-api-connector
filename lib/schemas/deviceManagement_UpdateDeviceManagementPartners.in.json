@@ -1,0 +1,112 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "allOf": [
+                {
+                    "title": "entity",
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        }
+                    },
+                    "example": {
+                        "id": "String (identifier)"
+                    }
+                },
+                {
+                    "title": "deviceManagementPartner",
+                    "type": "object",
+                    "properties": {
+                        "lastHeartbeatDateTime": {
+                            "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                            "type": "string",
+                            "description": "Timestamp of last heartbeat after admin enabled option Connect to Device management Partner",
+                            "format": "date-time"
+                        },
+                        "partnerState": {
+                            "anyOf": [
+                                {
+                                    "title": "deviceManagementPartnerTenantState",
+                                    "enum": [
+                                        "unknown",
+                                        "unavailable",
+                                        "enabled",
+                                        "terminated",
+                                        "rejected",
+                                        "unresponsive"
+                                    ],
+                                    "type": "string"
+                                }
+                            ],
+                            "description": "Partner state of this tenant"
+                        },
+                        "partnerAppType": {
+                            "anyOf": [
+                                {
+                                    "title": "deviceManagementPartnerAppType",
+                                    "enum": [
+                                        "unknown",
+                                        "singleTenantApp",
+                                        "multiTenantApp"
+                                    ],
+                                    "type": "string"
+                                }
+                            ],
+                            "description": "Partner App type"
+                        },
+                        "singleTenantAppId": {
+                            "type": "string",
+                            "description": "Partner Single tenant App id",
+                            "nullable": true
+                        },
+                        "displayName": {
+                            "type": "string",
+                            "description": "Partner display name",
+                            "nullable": true
+                        },
+                        "isConfigured": {
+                            "type": "boolean",
+                            "description": "Whether device management partner is configured or not"
+                        },
+                        "whenPartnerDevicesWillBeRemovedDateTime": {
+                            "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                            "type": "string",
+                            "description": "DateTime in UTC when PartnerDevices will be removed",
+                            "format": "date-time",
+                            "nullable": true
+                        },
+                        "whenPartnerDevicesWillBeMarkedAsNonCompliantDateTime": {
+                            "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                            "type": "string",
+                            "description": "DateTime in UTC when PartnerDevices will be marked as NonCompliant",
+                            "format": "date-time",
+                            "nullable": true
+                        }
+                    },
+                    "description": "Entity which represents a connection to device management partner."
+                }
+            ],
+            "example": {
+                "id": "String (identifier)",
+                "lastHeartbeatDateTime": "DateTimeOffset (timestamp)",
+                "partnerState": {
+                    "@odata.type": "microsoft.graph.deviceManagementPartnerTenantState"
+                },
+                "partnerAppType": {
+                    "@odata.type": "microsoft.graph.deviceManagementPartnerAppType"
+                },
+                "singleTenantAppId": "String",
+                "displayName": "String",
+                "isConfigured": true,
+                "whenPartnerDevicesWillBeRemovedDateTime": "DateTimeOffset (timestamp)",
+                "whenPartnerDevicesWillBeMarkedAsNonCompliantDateTime": "DateTimeOffset (timestamp)"
+            }
+        },
+        "deviceManagementPartner_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,74 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "allOf": [
+                {
+                    "title": "entity",
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        }
+                    },
+                    "example": {
+                        "id": "String (identifier)"
+                    }
+                },
+                {
+                    "title": "attachment",
+                    "type": "object",
+                    "properties": {
+                        "lastModifiedDateTime": {
+                            "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                            "type": "string",
+                            "format": "date-time",
+                            "nullable": true
+                        },
+                        "name": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "contentType": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "size": {
+                            "maximum": 2147483647,
+                            "minimum": -2147483648,
+                            "type": "integer",
+                            "format": "int32"
+                        },
+                        "isInline": {
+                            "type": "boolean"
+                        }
+                    }
+                }
+            ],
+            "example": {
+                "id": "String (identifier)",
+                "lastModifiedDateTime": "DateTimeOffset (timestamp)",
+                "name": "String",
+                "contentType": "String",
+                "size": "Int32",
+                "isInline": true
+            }
+        },
+        "user_id": {
+            "required": true,
+            "type": "string"
+        },
+        "calendarGroup_id": {
+            "required": true,
+            "type": "string"
+        },
+        "calendar_id": {
+            "required": true,
+            "type": "string"
+        },
+        "event_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

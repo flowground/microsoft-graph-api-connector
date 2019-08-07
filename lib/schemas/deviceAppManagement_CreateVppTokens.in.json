@@ -1,0 +1,134 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "allOf": [
+                {
+                    "title": "entity",
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        }
+                    },
+                    "example": {
+                        "id": "String (identifier)"
+                    }
+                },
+                {
+                    "title": "vppToken",
+                    "type": "object",
+                    "properties": {
+                        "organizationName": {
+                            "type": "string",
+                            "description": "The organization associated with the Apple Volume Purchase Program Token",
+                            "nullable": true
+                        },
+                        "vppTokenAccountType": {
+                            "anyOf": [
+                                {
+                                    "title": "vppTokenAccountType",
+                                    "enum": [
+                                        "business",
+                                        "education"
+                                    ],
+                                    "type": "string"
+                                }
+                            ],
+                            "description": "The type of volume purchase program which the given Apple Volume Purchase Program Token is associated with. Possible values are: `business`, `education`."
+                        },
+                        "appleId": {
+                            "type": "string",
+                            "description": "The apple Id associated with the given Apple Volume Purchase Program Token.",
+                            "nullable": true
+                        },
+                        "expirationDateTime": {
+                            "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                            "type": "string",
+                            "description": "The expiration date time of the Apple Volume Purchase Program Token.",
+                            "format": "date-time"
+                        },
+                        "lastSyncDateTime": {
+                            "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                            "type": "string",
+                            "description": "The last time when an application sync was done with the Apple volume purchase program service using the the Apple Volume Purchase Program Token.",
+                            "format": "date-time"
+                        },
+                        "token": {
+                            "type": "string",
+                            "description": "The Apple Volume Purchase Program Token string downloaded from the Apple Volume Purchase Program.",
+                            "nullable": true
+                        },
+                        "lastModifiedDateTime": {
+                            "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                            "type": "string",
+                            "description": "Last modification date time associated with the Apple Volume Purchase Program Token.",
+                            "format": "date-time"
+                        },
+                        "state": {
+                            "anyOf": [
+                                {
+                                    "title": "vppTokenState",
+                                    "enum": [
+                                        "unknown",
+                                        "valid",
+                                        "expired",
+                                        "invalid",
+                                        "assignedToExternalMDM"
+                                    ],
+                                    "type": "string"
+                                }
+                            ],
+                            "description": "Current state of the Apple Volume Purchase Program Token. Possible values are: `unknown`, `valid`, `expired`, `invalid`, `assignedToExternalMDM`."
+                        },
+                        "lastSyncStatus": {
+                            "anyOf": [
+                                {
+                                    "title": "vppTokenSyncStatus",
+                                    "enum": [
+                                        "none",
+                                        "inProgress",
+                                        "completed",
+                                        "failed"
+                                    ],
+                                    "type": "string"
+                                }
+                            ],
+                            "description": "Current sync status of the last application sync which was triggered using the Apple Volume Purchase Program Token. Possible values are: `none`, `inProgress`, `completed`, `failed`."
+                        },
+                        "automaticallyUpdateApps": {
+                            "type": "boolean",
+                            "description": "Whether or not apps for the VPP token will be automatically updated."
+                        },
+                        "countryOrRegion": {
+                            "type": "string",
+                            "description": "Whether or not apps for the VPP token will be automatically updated.",
+                            "nullable": true
+                        }
+                    },
+                    "description": "You purchase multiple licenses for iOS apps through the Apple Volume Purchase Program for Business or Education. This involves setting up an Apple VPP account from the Apple website and uploading the Apple VPP Business or Education token to Intune. You can then synchronize your volume purchase information with Intune and track your volume-purchased app use. You can upload multiple Apple VPP Business or Education tokens."
+                }
+            ],
+            "example": {
+                "id": "String (identifier)",
+                "organizationName": "String",
+                "vppTokenAccountType": {
+                    "@odata.type": "microsoft.graph.vppTokenAccountType"
+                },
+                "appleId": "String",
+                "expirationDateTime": "DateTimeOffset (timestamp)",
+                "lastSyncDateTime": "DateTimeOffset (timestamp)",
+                "token": "String",
+                "lastModifiedDateTime": "DateTimeOffset (timestamp)",
+                "state": {
+                    "@odata.type": "microsoft.graph.vppTokenState"
+                },
+                "lastSyncStatus": {
+                    "@odata.type": "microsoft.graph.vppTokenSyncStatus"
+                },
+                "automaticallyUpdateApps": true,
+                "countryOrRegion": "String"
+            }
+        }
+    }
+}

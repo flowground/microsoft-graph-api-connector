@@ -1,0 +1,48 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "allOf": [
+                {
+                    "title": "entity",
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        }
+                    },
+                    "example": {
+                        "id": "String (identifier)"
+                    }
+                },
+                {
+                    "title": "deviceConfigurationAssignment",
+                    "type": "object",
+                    "properties": {
+                        "target": {
+                            "anyOf": [
+                                {
+                                    "title": "deviceAndAppManagementAssignmentTarget",
+                                    "type": "object"
+                                }
+                            ],
+                            "description": "The assignment target for the device configuration.",
+                            "nullable": true
+                        }
+                    },
+                    "description": "The device configuration assignment entity assigns an AAD group to a specific device configuration."
+                }
+            ],
+            "example": {
+                "id": "String (identifier)",
+                "target": {
+                    "@odata.type": "microsoft.graph.deviceAndAppManagementAssignmentTarget"
+                }
+            }
+        },
+        "deviceConfiguration_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

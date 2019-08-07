@@ -1,0 +1,58 @@
+{
+    "type": "object",
+    "properties": {
+        "site_id": {
+            "required": true,
+            "type": "string"
+        },
+        "list_id": {
+            "required": true,
+            "type": "string"
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "createdBy",
+                    "createdDateTime",
+                    "description",
+                    "eTag",
+                    "lastModifiedBy",
+                    "lastModifiedDateTime",
+                    "name",
+                    "parentReference",
+                    "webUrl",
+                    "displayName",
+                    "list",
+                    "sharepointIds",
+                    "system",
+                    "createdByUser",
+                    "lastModifiedByUser",
+                    "columns",
+                    "contentTypes",
+                    "drive",
+                    "items"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*",
+                    "createdByUser",
+                    "lastModifiedByUser",
+                    "columns",
+                    "contentTypes",
+                    "drive",
+                    "items"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

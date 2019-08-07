@@ -1,0 +1,31 @@
+{
+    "type": "object",
+    "properties": {
+        "row": {
+            "required": true,
+            "maximum": 2147483647,
+            "minimum": -2147483648,
+            "type": "integer",
+            "format": "int32"
+        },
+        "column": {
+            "required": true,
+            "maximum": 2147483647,
+            "minimum": -2147483648,
+            "type": "integer",
+            "format": "int32"
+        },
+        "driveItem_id": {
+            "required": true,
+            "type": "string"
+        },
+        "workbookNamedItem_id": {
+            "required": true,
+            "type": "string"
+        },
+        "workbookPivotTable_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

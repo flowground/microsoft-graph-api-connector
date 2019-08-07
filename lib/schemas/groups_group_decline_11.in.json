@@ -1,0 +1,27 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "Comment": {
+                    "type": "string",
+                    "nullable": true
+                },
+                "SendResponse": {
+                    "type": "boolean",
+                    "default": false,
+                    "nullable": true
+                }
+            }
+        },
+        "group_id": {
+            "required": true,
+            "type": "string"
+        },
+        "event_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

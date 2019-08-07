@@ -1,0 +1,58 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "allOf": [
+                {
+                    "title": "entity",
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        }
+                    },
+                    "example": {
+                        "id": "String (identifier)"
+                    }
+                },
+                {
+                    "title": "domainDnsRecord",
+                    "type": "object",
+                    "properties": {
+                        "isOptional": {
+                            "type": "boolean"
+                        },
+                        "label": {
+                            "type": "string"
+                        },
+                        "recordType": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "supportedService": {
+                            "type": "string"
+                        },
+                        "ttl": {
+                            "maximum": 2147483647,
+                            "minimum": -2147483648,
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                }
+            ],
+            "example": {
+                "id": "String (identifier)",
+                "isOptional": true,
+                "label": "String",
+                "recordType": "String",
+                "supportedService": "String",
+                "ttl": "Int32"
+            }
+        },
+        "domainDnsRecord_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

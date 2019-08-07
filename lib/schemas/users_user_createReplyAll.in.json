@@ -1,0 +1,17 @@
+{
+    "type": "object",
+    "properties": {
+        "user_id": {
+            "required": true,
+            "type": "string"
+        },
+        "mailFolder_id": {
+            "required": true,
+            "type": "string"
+        },
+        "message_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

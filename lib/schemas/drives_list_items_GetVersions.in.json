@@ -1,0 +1,42 @@
+{
+    "type": "object",
+    "properties": {
+        "drive_id": {
+            "required": true,
+            "type": "string"
+        },
+        "listItem_id": {
+            "required": true,
+            "type": "string"
+        },
+        "listItemVersion_id": {
+            "required": true,
+            "type": "string"
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "lastModifiedBy",
+                    "lastModifiedDateTime",
+                    "publication",
+                    "fields"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*",
+                    "fields"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

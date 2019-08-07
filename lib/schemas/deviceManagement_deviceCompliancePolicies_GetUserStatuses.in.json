@@ -1,0 +1,38 @@
+{
+    "type": "object",
+    "properties": {
+        "deviceCompliancePolicy_id": {
+            "required": true,
+            "type": "string"
+        },
+        "deviceComplianceUserStatus_id": {
+            "required": true,
+            "type": "string"
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "userDisplayName",
+                    "devicesCount",
+                    "status",
+                    "lastReportedDateTime",
+                    "userPrincipalName"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

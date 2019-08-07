@@ -1,0 +1,92 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "mobileAppAssignments": {
+                    "type": "array",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "allOf": [
+                                    {
+                                        "title": "entity",
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "example": {
+                                            "id": "String (identifier)"
+                                        }
+                                    },
+                                    {
+                                        "title": "mobileAppAssignment",
+                                        "type": "object",
+                                        "properties": {
+                                            "intent": {
+                                                "anyOf": [
+                                                    {
+                                                        "title": "installIntent",
+                                                        "enum": [
+                                                            "available",
+                                                            "required",
+                                                            "uninstall",
+                                                            "availableWithoutEnrollment"
+                                                        ],
+                                                        "type": "string"
+                                                    }
+                                                ],
+                                                "description": "The install intent defined by the admin."
+                                            },
+                                            "target": {
+                                                "anyOf": [
+                                                    {
+                                                        "title": "deviceAndAppManagementAssignmentTarget",
+                                                        "type": "object"
+                                                    }
+                                                ],
+                                                "description": "The target group assignment defined by the admin.",
+                                                "nullable": true
+                                            },
+                                            "settings": {
+                                                "anyOf": [
+                                                    {
+                                                        "title": "mobileAppAssignmentSettings",
+                                                        "type": "object"
+                                                    }
+                                                ],
+                                                "description": "The settings for target assignment defined by the admin.",
+                                                "nullable": true
+                                            }
+                                        },
+                                        "description": "A class containing the properties used for Group Assignment of a Mobile App."
+                                    }
+                                ],
+                                "example": {
+                                    "id": "String (identifier)",
+                                    "intent": {
+                                        "@odata.type": "microsoft.graph.installIntent"
+                                    },
+                                    "target": {
+                                        "@odata.type": "microsoft.graph.deviceAndAppManagementAssignmentTarget"
+                                    },
+                                    "settings": {
+                                        "@odata.type": "microsoft.graph.mobileAppAssignmentSettings"
+                                    }
+                                }
+                            }
+                        ],
+                        "nullable": true
+                    }
+                }
+            }
+        },
+        "mobileApp_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {},
+        "sectionGroup_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

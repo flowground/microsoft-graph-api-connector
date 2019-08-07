@@ -1,0 +1,22 @@
+{
+    "type": "object",
+    "properties": {
+        "valuesOnly": {
+            "required": true,
+            "type": "boolean",
+            "default": false
+        },
+        "driveItem_id": {
+            "required": true,
+            "type": "string"
+        },
+        "workbookWorksheet_id": {
+            "required": true,
+            "type": "string"
+        },
+        "workbookChart_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

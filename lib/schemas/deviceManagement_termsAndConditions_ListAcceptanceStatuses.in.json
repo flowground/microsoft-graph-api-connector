@@ -1,0 +1,68 @@
+{
+    "type": "object",
+    "properties": {
+        "termsAndConditions_id": {
+            "required": true,
+            "type": "string"
+        },
+        "_top": {
+            "minimum": 0,
+            "type": "integer"
+        },
+        "_skip": {
+            "minimum": 0,
+            "type": "integer"
+        },
+        "_search": {
+            "type": "string"
+        },
+        "_filter": {
+            "type": "string"
+        },
+        "_count": {
+            "type": "boolean"
+        },
+        "_orderby": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "id desc",
+                    "userDisplayName",
+                    "userDisplayName desc",
+                    "acceptedVersion",
+                    "acceptedVersion desc",
+                    "acceptedDateTime",
+                    "acceptedDateTime desc"
+                ],
+                "type": "string"
+            }
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "userDisplayName",
+                    "acceptedVersion",
+                    "acceptedDateTime",
+                    "termsAndConditions"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*",
+                    "termsAndConditions"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

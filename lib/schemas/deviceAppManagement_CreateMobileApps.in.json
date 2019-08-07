@@ -1,0 +1,270 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "allOf": [
+                {
+                    "title": "entity",
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        }
+                    },
+                    "example": {
+                        "id": "String (identifier)"
+                    }
+                },
+                {
+                    "title": "mobileApp",
+                    "type": "object",
+                    "properties": {
+                        "displayName": {
+                            "type": "string",
+                            "description": "The admin provided or imported title of the app.",
+                            "nullable": true
+                        },
+                        "description": {
+                            "type": "string",
+                            "description": "The description of the app.",
+                            "nullable": true
+                        },
+                        "publisher": {
+                            "type": "string",
+                            "description": "The publisher of the app.",
+                            "nullable": true
+                        },
+                        "largeIcon": {
+                            "anyOf": [
+                                {
+                                    "title": "mimeContent",
+                                    "type": "object",
+                                    "properties": {
+                                        "type": {
+                                            "type": "string",
+                                            "description": "Indicates the content mime type.",
+                                            "nullable": true
+                                        },
+                                        "value": {
+                                            "type": "string",
+                                            "description": "The byte array that contains the actual content.",
+                                            "format": "base64url",
+                                            "nullable": true
+                                        }
+                                    },
+                                    "example": {
+                                        "type": "String",
+                                        "value": "Binary"
+                                    }
+                                }
+                            ],
+                            "description": "The large icon, to be displayed in the app details and used for upload of the icon.",
+                            "nullable": true
+                        },
+                        "createdDateTime": {
+                            "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                            "type": "string",
+                            "description": "The date and time the app was created.",
+                            "format": "date-time"
+                        },
+                        "lastModifiedDateTime": {
+                            "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                            "type": "string",
+                            "description": "The date and time the app was last modified.",
+                            "format": "date-time"
+                        },
+                        "isFeatured": {
+                            "type": "boolean",
+                            "description": "The value indicating whether the app is marked as featured by the admin."
+                        },
+                        "privacyInformationUrl": {
+                            "type": "string",
+                            "description": "The privacy statement Url.",
+                            "nullable": true
+                        },
+                        "informationUrl": {
+                            "type": "string",
+                            "description": "The more information Url.",
+                            "nullable": true
+                        },
+                        "owner": {
+                            "type": "string",
+                            "description": "The owner of the app.",
+                            "nullable": true
+                        },
+                        "developer": {
+                            "type": "string",
+                            "description": "The developer of the app.",
+                            "nullable": true
+                        },
+                        "notes": {
+                            "type": "string",
+                            "description": "Notes for the app.",
+                            "nullable": true
+                        },
+                        "publishingState": {
+                            "anyOf": [
+                                {
+                                    "title": "mobileAppPublishingState",
+                                    "enum": [
+                                        "notPublished",
+                                        "processing",
+                                        "published"
+                                    ],
+                                    "type": "string"
+                                }
+                            ],
+                            "description": "The publishing state for the app. The app cannot be assigned unless the app is published."
+                        },
+                        "categories": {
+                            "type": "array",
+                            "items": {
+                                "allOf": [
+                                    {
+                                        "title": "entity",
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "example": {
+                                            "id": "String (identifier)"
+                                        }
+                                    },
+                                    {
+                                        "title": "mobileAppCategory",
+                                        "type": "object",
+                                        "properties": {
+                                            "displayName": {
+                                                "type": "string",
+                                                "description": "The name of the app category.",
+                                                "nullable": true
+                                            },
+                                            "lastModifiedDateTime": {
+                                                "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                                                "type": "string",
+                                                "description": "The date and time the mobileAppCategory was last modified.",
+                                                "format": "date-time"
+                                            }
+                                        },
+                                        "description": "Contains properties for a single Intune app category."
+                                    }
+                                ],
+                                "example": {
+                                    "id": "String (identifier)",
+                                    "displayName": "String",
+                                    "lastModifiedDateTime": "DateTimeOffset (timestamp)"
+                                }
+                            }
+                        },
+                        "assignments": {
+                            "type": "array",
+                            "items": {
+                                "allOf": [
+                                    {
+                                        "title": "entity",
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "example": {
+                                            "id": "String (identifier)"
+                                        }
+                                    },
+                                    {
+                                        "title": "mobileAppAssignment",
+                                        "type": "object",
+                                        "properties": {
+                                            "intent": {
+                                                "anyOf": [
+                                                    {
+                                                        "title": "installIntent",
+                                                        "enum": [
+                                                            "available",
+                                                            "required",
+                                                            "uninstall",
+                                                            "availableWithoutEnrollment"
+                                                        ],
+                                                        "type": "string"
+                                                    }
+                                                ],
+                                                "description": "The install intent defined by the admin."
+                                            },
+                                            "target": {
+                                                "anyOf": [
+                                                    {
+                                                        "title": "deviceAndAppManagementAssignmentTarget",
+                                                        "type": "object"
+                                                    }
+                                                ],
+                                                "description": "The target group assignment defined by the admin.",
+                                                "nullable": true
+                                            },
+                                            "settings": {
+                                                "anyOf": [
+                                                    {
+                                                        "title": "mobileAppAssignmentSettings",
+                                                        "type": "object"
+                                                    }
+                                                ],
+                                                "description": "The settings for target assignment defined by the admin.",
+                                                "nullable": true
+                                            }
+                                        },
+                                        "description": "A class containing the properties used for Group Assignment of a Mobile App."
+                                    }
+                                ],
+                                "example": {
+                                    "id": "String (identifier)",
+                                    "intent": {
+                                        "@odata.type": "microsoft.graph.installIntent"
+                                    },
+                                    "target": {
+                                        "@odata.type": "microsoft.graph.deviceAndAppManagementAssignmentTarget"
+                                    },
+                                    "settings": {
+                                        "@odata.type": "microsoft.graph.mobileAppAssignmentSettings"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "description": "An abstract class containing the base properties for Intune mobile apps."
+                }
+            ],
+            "example": {
+                "id": "String (identifier)",
+                "displayName": "String",
+                "description": "String",
+                "publisher": "String",
+                "largeIcon": {
+                    "@odata.type": "microsoft.graph.mimeContent"
+                },
+                "createdDateTime": "DateTimeOffset (timestamp)",
+                "lastModifiedDateTime": "DateTimeOffset (timestamp)",
+                "isFeatured": true,
+                "privacyInformationUrl": "String",
+                "informationUrl": "String",
+                "owner": "String",
+                "developer": "String",
+                "notes": "String",
+                "publishingState": {
+                    "@odata.type": "microsoft.graph.mobileAppPublishingState"
+                },
+                "categories": [
+                    {
+                        "@odata.type": "microsoft.graph.mobileAppCategory"
+                    }
+                ],
+                "assignments": [
+                    {
+                        "@odata.type": "microsoft.graph.mobileAppAssignment"
+                    }
+                ]
+            }
+        }
+    }
+}

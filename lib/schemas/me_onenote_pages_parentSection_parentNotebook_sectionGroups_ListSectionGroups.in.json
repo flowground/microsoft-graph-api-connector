@@ -1,0 +1,93 @@
+{
+    "type": "object",
+    "properties": {
+        "onenotePage_id": {
+            "required": true,
+            "type": "string"
+        },
+        "sectionGroup_id": {
+            "required": true,
+            "type": "string"
+        },
+        "_top": {
+            "minimum": 0,
+            "type": "integer"
+        },
+        "_skip": {
+            "minimum": 0,
+            "type": "integer"
+        },
+        "_search": {
+            "type": "string"
+        },
+        "_filter": {
+            "type": "string"
+        },
+        "_count": {
+            "type": "boolean"
+        },
+        "_orderby": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "id desc",
+                    "self",
+                    "self desc",
+                    "createdDateTime",
+                    "createdDateTime desc",
+                    "displayName",
+                    "displayName desc",
+                    "createdBy",
+                    "createdBy desc",
+                    "lastModifiedBy",
+                    "lastModifiedBy desc",
+                    "lastModifiedDateTime",
+                    "lastModifiedDateTime desc",
+                    "sectionsUrl",
+                    "sectionsUrl desc",
+                    "sectionGroupsUrl",
+                    "sectionGroupsUrl desc"
+                ],
+                "type": "string"
+            }
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "self",
+                    "createdDateTime",
+                    "displayName",
+                    "createdBy",
+                    "lastModifiedBy",
+                    "lastModifiedDateTime",
+                    "sectionsUrl",
+                    "sectionGroupsUrl",
+                    "parentNotebook",
+                    "parentSectionGroup",
+                    "sections",
+                    "sectionGroups"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*",
+                    "parentNotebook",
+                    "parentSectionGroup",
+                    "sections",
+                    "sectionGroups"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

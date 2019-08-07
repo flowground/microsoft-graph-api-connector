@@ -1,0 +1,37 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "EmailAddresses": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "MailTipsOptions": {
+                    "anyOf": [
+                        {
+                            "title": "mailTipsType",
+                            "enum": [
+                                "automaticReplies",
+                                "mailboxFullStatus",
+                                "customMailTip",
+                                "externalMemberCount",
+                                "totalMemberCount",
+                                "maxMessageSize",
+                                "deliveryRestriction",
+                                "moderationStatus",
+                                "recipientScope",
+                                "recipientSuggestions"
+                            ],
+                            "type": "string"
+                        }
+                    ],
+                    "nullable": true
+                }
+            }
+        }
+    }
+}

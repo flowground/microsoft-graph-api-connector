@@ -1,0 +1,18 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "deviceTag": {
+                    "type": "string",
+                    "nullable": true
+                }
+            }
+        },
+        "user_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

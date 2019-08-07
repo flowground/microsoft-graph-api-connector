@@ -1,0 +1,46 @@
+{
+    "type": "object",
+    "properties": {
+        "group_id": {
+            "required": true,
+            "type": "string"
+        },
+        "conversationThread_id": {
+            "required": true,
+            "type": "string"
+        },
+        "post_id": {
+            "required": true,
+            "type": "string"
+        },
+        "attachment_id": {
+            "required": true,
+            "type": "string"
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "lastModifiedDateTime",
+                    "name",
+                    "contentType",
+                    "size",
+                    "isInline"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

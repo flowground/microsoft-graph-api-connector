@@ -1,0 +1,26 @@
+{
+    "type": "object",
+    "properties": {
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "name",
+                    "color",
+                    "changeKey",
+                    "canShare",
+                    "canViewPrivateItems",
+                    "canEdit",
+                    "owner",
+                    "events",
+                    "calendarView",
+                    "singleValueExtendedProperties",
+                    "multiValueExtendedProperties"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

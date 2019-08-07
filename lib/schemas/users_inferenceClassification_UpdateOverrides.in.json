@@ -1,0 +1,80 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "allOf": [
+                {
+                    "title": "entity",
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        }
+                    },
+                    "example": {
+                        "id": "String (identifier)"
+                    }
+                },
+                {
+                    "title": "inferenceClassificationOverride",
+                    "type": "object",
+                    "properties": {
+                        "classifyAs": {
+                            "anyOf": [
+                                {
+                                    "title": "inferenceClassificationType",
+                                    "enum": [
+                                        "focused",
+                                        "other"
+                                    ],
+                                    "type": "string"
+                                }
+                            ],
+                            "nullable": true
+                        },
+                        "senderEmailAddress": {
+                            "anyOf": [
+                                {
+                                    "title": "emailAddress",
+                                    "type": "object",
+                                    "properties": {
+                                        "name": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "address": {
+                                            "type": "string",
+                                            "nullable": true
+                                        }
+                                    },
+                                    "example": {
+                                        "name": "String",
+                                        "address": "String"
+                                    }
+                                }
+                            ],
+                            "nullable": true
+                        }
+                    }
+                }
+            ],
+            "example": {
+                "id": "String (identifier)",
+                "classifyAs": {
+                    "@odata.type": "microsoft.graph.inferenceClassificationType"
+                },
+                "senderEmailAddress": {
+                    "@odata.type": "microsoft.graph.emailAddress"
+                }
+            }
+        },
+        "user_id": {
+            "required": true,
+            "type": "string"
+        },
+        "inferenceClassificationOverride_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

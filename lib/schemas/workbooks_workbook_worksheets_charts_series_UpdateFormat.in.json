@@ -1,0 +1,115 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "allOf": [
+                {
+                    "title": "entity",
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        }
+                    },
+                    "example": {
+                        "id": "String (identifier)"
+                    }
+                },
+                {
+                    "title": "workbookChartSeriesFormat",
+                    "type": "object",
+                    "properties": {
+                        "fill": {
+                            "anyOf": [
+                                {
+                                    "allOf": [
+                                        {
+                                            "title": "entity",
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "example": {
+                                                "id": "String (identifier)"
+                                            }
+                                        },
+                                        {
+                                            "title": "workbookChartFill",
+                                            "type": "object"
+                                        }
+                                    ],
+                                    "example": {
+                                        "id": "String (identifier)"
+                                    }
+                                }
+                            ],
+                            "nullable": true
+                        },
+                        "line": {
+                            "anyOf": [
+                                {
+                                    "allOf": [
+                                        {
+                                            "title": "entity",
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "example": {
+                                                "id": "String (identifier)"
+                                            }
+                                        },
+                                        {
+                                            "title": "workbookChartLineFormat",
+                                            "type": "object",
+                                            "properties": {
+                                                "color": {
+                                                    "type": "string",
+                                                    "nullable": true
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "example": {
+                                        "id": "String (identifier)",
+                                        "color": "String"
+                                    }
+                                }
+                            ],
+                            "nullable": true
+                        }
+                    }
+                }
+            ],
+            "example": {
+                "id": "String (identifier)",
+                "fill": {
+                    "@odata.type": "microsoft.graph.workbookChartFill"
+                },
+                "line": {
+                    "@odata.type": "microsoft.graph.workbookChartLineFormat"
+                }
+            }
+        },
+        "driveItem_id": {
+            "required": true,
+            "type": "string"
+        },
+        "workbookWorksheet_id": {
+            "required": true,
+            "type": "string"
+        },
+        "workbookChart_id": {
+            "required": true,
+            "type": "string"
+        },
+        "workbookChartSeries_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

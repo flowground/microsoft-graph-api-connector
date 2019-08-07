@@ -1,0 +1,18 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {},
+        "group_id": {
+            "required": true,
+            "type": "string"
+        },
+        "conversation_id": {
+            "required": true,
+            "type": "string"
+        },
+        "conversationThread_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

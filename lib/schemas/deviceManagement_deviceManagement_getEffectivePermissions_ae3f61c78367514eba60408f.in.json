@@ -1,0 +1,10 @@
+{
+    "type": "object",
+    "properties": {
+        "scope": {
+            "required": true,
+            "type": "string",
+            "nullable": true
+        }
+    }
+}

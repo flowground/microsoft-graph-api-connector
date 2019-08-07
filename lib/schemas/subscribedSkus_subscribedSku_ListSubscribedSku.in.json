@@ -1,0 +1,50 @@
+{
+    "type": "object",
+    "properties": {
+        "_search": {
+            "type": "string"
+        },
+        "_orderby": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "id desc",
+                    "capabilityStatus",
+                    "capabilityStatus desc",
+                    "consumedUnits",
+                    "consumedUnits desc",
+                    "prepaidUnits",
+                    "prepaidUnits desc",
+                    "servicePlans",
+                    "servicePlans desc",
+                    "skuId",
+                    "skuId desc",
+                    "skuPartNumber",
+                    "skuPartNumber desc",
+                    "appliesTo",
+                    "appliesTo desc"
+                ],
+                "type": "string"
+            }
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "capabilityStatus",
+                    "consumedUnits",
+                    "prepaidUnits",
+                    "servicePlans",
+                    "skuId",
+                    "skuPartNumber",
+                    "appliesTo"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

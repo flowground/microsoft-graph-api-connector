@@ -1,0 +1,39 @@
+{
+    "type": "object",
+    "properties": {
+        "driveItem_id": {
+            "required": true,
+            "type": "string"
+        },
+        "permission_id": {
+            "required": true,
+            "type": "string"
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "grantedTo",
+                    "inheritedFrom",
+                    "invitation",
+                    "link",
+                    "roles",
+                    "shareId"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

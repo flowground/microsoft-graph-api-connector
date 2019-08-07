@@ -1,0 +1,33 @@
+{
+    "type": "object",
+    "properties": {
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "classes",
+                    "schools",
+                    "users",
+                    "me"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*",
+                    "classes",
+                    "schools",
+                    "users",
+                    "me"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

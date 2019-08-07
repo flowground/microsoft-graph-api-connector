@@ -1,0 +1,104 @@
+{
+    "type": "object",
+    "properties": {
+        "site_id": {
+            "required": true,
+            "type": "string"
+        },
+        "list_id": {
+            "required": true,
+            "type": "string"
+        },
+        "_top": {
+            "minimum": 0,
+            "type": "integer"
+        },
+        "_skip": {
+            "minimum": 0,
+            "type": "integer"
+        },
+        "_search": {
+            "type": "string"
+        },
+        "_filter": {
+            "type": "string"
+        },
+        "_count": {
+            "type": "boolean"
+        },
+        "_orderby": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "id desc",
+                    "createdBy",
+                    "createdBy desc",
+                    "createdDateTime",
+                    "createdDateTime desc",
+                    "description",
+                    "description desc",
+                    "eTag",
+                    "eTag desc",
+                    "lastModifiedBy",
+                    "lastModifiedBy desc",
+                    "lastModifiedDateTime",
+                    "lastModifiedDateTime desc",
+                    "name",
+                    "name desc",
+                    "parentReference",
+                    "parentReference desc",
+                    "webUrl",
+                    "webUrl desc",
+                    "contentType",
+                    "contentType desc",
+                    "sharepointIds",
+                    "sharepointIds desc"
+                ],
+                "type": "string"
+            }
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "createdBy",
+                    "createdDateTime",
+                    "description",
+                    "eTag",
+                    "lastModifiedBy",
+                    "lastModifiedDateTime",
+                    "name",
+                    "parentReference",
+                    "webUrl",
+                    "contentType",
+                    "sharepointIds",
+                    "createdByUser",
+                    "lastModifiedByUser",
+                    "driveItem",
+                    "fields",
+                    "versions"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*",
+                    "createdByUser",
+                    "lastModifiedByUser",
+                    "driveItem",
+                    "fields",
+                    "versions"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

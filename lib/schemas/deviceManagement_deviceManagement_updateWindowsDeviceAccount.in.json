@@ -1,0 +1,77 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "updateWindowsDeviceAccountActionParameter": {
+                    "anyOf": [
+                        {
+                            "title": "updateWindowsDeviceAccountActionParameter",
+                            "type": "object",
+                            "properties": {
+                                "deviceAccount": {
+                                    "anyOf": [
+                                        {
+                                            "title": "windowsDeviceAccount",
+                                            "type": "object",
+                                            "properties": {
+                                                "password": {
+                                                    "type": "string",
+                                                    "nullable": true
+                                                }
+                                            },
+                                            "example": {
+                                                "password": "String"
+                                            }
+                                        }
+                                    ],
+                                    "nullable": true
+                                },
+                                "passwordRotationEnabled": {
+                                    "type": "boolean",
+                                    "nullable": true
+                                },
+                                "calendarSyncEnabled": {
+                                    "type": "boolean",
+                                    "nullable": true
+                                },
+                                "deviceAccountEmail": {
+                                    "type": "string",
+                                    "nullable": true
+                                },
+                                "exchangeServer": {
+                                    "type": "string",
+                                    "nullable": true
+                                },
+                                "sessionInitiationProtocalAddress": {
+                                    "type": "string",
+                                    "nullable": true
+                                }
+                            },
+                            "example": {
+                                "deviceAccount": {
+                                    "@odata.type": "microsoft.graph.windowsDeviceAccount"
+                                },
+                                "passwordRotationEnabled": true,
+                                "calendarSyncEnabled": true,
+                                "deviceAccountEmail": "String",
+                                "exchangeServer": "String",
+                                "sessionInitiationProtocalAddress": "String"
+                            }
+                        }
+                    ],
+                    "nullable": true
+                }
+            }
+        },
+        "detectedApp_id": {
+            "required": true,
+            "type": "string"
+        },
+        "managedDevice_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

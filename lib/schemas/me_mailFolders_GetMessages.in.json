@@ -1,0 +1,70 @@
+{
+    "type": "object",
+    "properties": {
+        "mailFolder_id": {
+            "required": true,
+            "type": "string"
+        },
+        "message_id": {
+            "required": true,
+            "type": "string"
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "createdDateTime",
+                    "lastModifiedDateTime",
+                    "changeKey",
+                    "categories",
+                    "receivedDateTime",
+                    "sentDateTime",
+                    "hasAttachments",
+                    "internetMessageId",
+                    "internetMessageHeaders",
+                    "subject",
+                    "body",
+                    "bodyPreview",
+                    "importance",
+                    "parentFolderId",
+                    "sender",
+                    "from",
+                    "toRecipients",
+                    "ccRecipients",
+                    "bccRecipients",
+                    "replyTo",
+                    "conversationId",
+                    "uniqueBody",
+                    "isDeliveryReceiptRequested",
+                    "isReadReceiptRequested",
+                    "isRead",
+                    "isDraft",
+                    "webLink",
+                    "inferenceClassification",
+                    "flag",
+                    "attachments",
+                    "extensions",
+                    "singleValueExtendedProperties",
+                    "multiValueExtendedProperties"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*",
+                    "attachments",
+                    "extensions",
+                    "singleValueExtendedProperties",
+                    "multiValueExtendedProperties"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

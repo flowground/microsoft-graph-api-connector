@@ -1,0 +1,146 @@
+{
+    "type": "object",
+    "properties": {
+        "_top": {
+            "minimum": 0,
+            "type": "integer"
+        },
+        "_skip": {
+            "minimum": 0,
+            "type": "integer"
+        },
+        "_search": {
+            "type": "string"
+        },
+        "_filter": {
+            "type": "string"
+        },
+        "_count": {
+            "type": "boolean"
+        },
+        "_orderby": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "id desc",
+                    "activityGroupName",
+                    "activityGroupName desc",
+                    "assignedTo",
+                    "assignedTo desc",
+                    "azureSubscriptionId",
+                    "azureSubscriptionId desc",
+                    "azureTenantId",
+                    "azureTenantId desc",
+                    "category",
+                    "category desc",
+                    "closedDateTime",
+                    "closedDateTime desc",
+                    "cloudAppStates",
+                    "cloudAppStates desc",
+                    "comments",
+                    "comments desc",
+                    "confidence",
+                    "confidence desc",
+                    "createdDateTime",
+                    "createdDateTime desc",
+                    "description",
+                    "description desc",
+                    "detectionIds",
+                    "detectionIds desc",
+                    "eventDateTime",
+                    "eventDateTime desc",
+                    "feedback",
+                    "feedback desc",
+                    "fileStates",
+                    "fileStates desc",
+                    "hostStates",
+                    "hostStates desc",
+                    "lastModifiedDateTime",
+                    "lastModifiedDateTime desc",
+                    "malwareStates",
+                    "malwareStates desc",
+                    "networkConnections",
+                    "networkConnections desc",
+                    "processes",
+                    "processes desc",
+                    "recommendedActions",
+                    "recommendedActions desc",
+                    "registryKeyStates",
+                    "registryKeyStates desc",
+                    "severity",
+                    "severity desc",
+                    "sourceMaterials",
+                    "sourceMaterials desc",
+                    "status",
+                    "status desc",
+                    "tags",
+                    "tags desc",
+                    "title",
+                    "title desc",
+                    "triggers",
+                    "triggers desc",
+                    "userStates",
+                    "userStates desc",
+                    "vendorInformation",
+                    "vendorInformation desc",
+                    "vulnerabilityStates",
+                    "vulnerabilityStates desc"
+                ],
+                "type": "string"
+            }
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "activityGroupName",
+                    "assignedTo",
+                    "azureSubscriptionId",
+                    "azureTenantId",
+                    "category",
+                    "closedDateTime",
+                    "cloudAppStates",
+                    "comments",
+                    "confidence",
+                    "createdDateTime",
+                    "description",
+                    "detectionIds",
+                    "eventDateTime",
+                    "feedback",
+                    "fileStates",
+                    "hostStates",
+                    "lastModifiedDateTime",
+                    "malwareStates",
+                    "networkConnections",
+                    "processes",
+                    "recommendedActions",
+                    "registryKeyStates",
+                    "severity",
+                    "sourceMaterials",
+                    "status",
+                    "tags",
+                    "title",
+                    "triggers",
+                    "userStates",
+                    "vendorInformation",
+                    "vulnerabilityStates"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

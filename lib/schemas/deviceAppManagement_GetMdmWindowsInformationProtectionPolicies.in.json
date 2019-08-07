@@ -1,0 +1,62 @@
+{
+    "type": "object",
+    "properties": {
+        "mdmWindowsInformationProtectionPolicy_id": {
+            "required": true,
+            "type": "string"
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "displayName",
+                    "description",
+                    "createdDateTime",
+                    "lastModifiedDateTime",
+                    "version",
+                    "enforcementLevel",
+                    "enterpriseDomain",
+                    "enterpriseProtectedDomainNames",
+                    "protectionUnderLockConfigRequired",
+                    "dataRecoveryCertificate",
+                    "revokeOnUnenrollDisabled",
+                    "rightsManagementServicesTemplateId",
+                    "azureRightsManagementServicesAllowed",
+                    "iconsVisible",
+                    "protectedApps",
+                    "exemptApps",
+                    "enterpriseNetworkDomainNames",
+                    "enterpriseProxiedDomains",
+                    "enterpriseIPRanges",
+                    "enterpriseIPRangesAreAuthoritative",
+                    "enterpriseProxyServers",
+                    "enterpriseInternalProxyServers",
+                    "enterpriseProxyServersAreAuthoritative",
+                    "neutralDomainResources",
+                    "indexingEncryptedStoresOrItemsBlocked",
+                    "smbAutoEncryptedFileExtensions",
+                    "isAssigned",
+                    "protectedAppLockerFiles",
+                    "exemptAppLockerFiles",
+                    "assignments"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*",
+                    "protectedAppLockerFiles",
+                    "exemptAppLockerFiles",
+                    "assignments"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

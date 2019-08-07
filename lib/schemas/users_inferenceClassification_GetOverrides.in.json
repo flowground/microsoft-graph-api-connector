@@ -1,0 +1,25 @@
+{
+    "type": "object",
+    "properties": {
+        "user_id": {
+            "required": true,
+            "type": "string"
+        },
+        "inferenceClassificationOverride_id": {
+            "required": true,
+            "type": "string"
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "classifyAs",
+                    "senderEmailAddress"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

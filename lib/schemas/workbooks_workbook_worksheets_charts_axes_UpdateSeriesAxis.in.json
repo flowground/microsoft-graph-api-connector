@@ -1,0 +1,608 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "allOf": [
+                {
+                    "title": "entity",
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        }
+                    },
+                    "example": {
+                        "id": "String (identifier)"
+                    }
+                },
+                {
+                    "title": "workbookChartAxis",
+                    "type": "object",
+                    "properties": {
+                        "majorUnit": {
+                            "anyOf": [
+                                {
+                                    "title": "Json",
+                                    "type": "object"
+                                }
+                            ],
+                            "nullable": true
+                        },
+                        "maximum": {
+                            "anyOf": [
+                                {
+                                    "title": "Json",
+                                    "type": "object"
+                                }
+                            ],
+                            "nullable": true
+                        },
+                        "minimum": {
+                            "anyOf": [
+                                {
+                                    "title": "Json",
+                                    "type": "object"
+                                }
+                            ],
+                            "nullable": true
+                        },
+                        "minorUnit": {
+                            "anyOf": [
+                                {
+                                    "title": "Json",
+                                    "type": "object"
+                                }
+                            ],
+                            "nullable": true
+                        },
+                        "format": {
+                            "anyOf": [
+                                {
+                                    "allOf": [
+                                        {
+                                            "title": "entity",
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "example": {
+                                                "id": "String (identifier)"
+                                            }
+                                        },
+                                        {
+                                            "title": "workbookChartAxisFormat",
+                                            "type": "object",
+                                            "properties": {
+                                                "font": {
+                                                    "anyOf": [
+                                                        {
+                                                            "allOf": [
+                                                                {
+                                                                    "title": "entity",
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "id": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    },
+                                                                    "example": {
+                                                                        "id": "String (identifier)"
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "title": "workbookChartFont",
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "bold": {
+                                                                            "type": "boolean",
+                                                                            "nullable": true
+                                                                        },
+                                                                        "color": {
+                                                                            "type": "string",
+                                                                            "nullable": true
+                                                                        },
+                                                                        "italic": {
+                                                                            "type": "boolean",
+                                                                            "nullable": true
+                                                                        },
+                                                                        "name": {
+                                                                            "type": "string",
+                                                                            "nullable": true
+                                                                        },
+                                                                        "size": {
+                                                                            "anyOf": [
+                                                                                {
+                                                                                    "type": "number"
+                                                                                },
+                                                                                {
+                                                                                    "type": "string"
+                                                                                },
+                                                                                {
+                                                                                    "enum": [
+                                                                                        "-INF",
+                                                                                        "INF",
+                                                                                        "NaN"
+                                                                                    ]
+                                                                                }
+                                                                            ],
+                                                                            "format": "double",
+                                                                            "nullable": true
+                                                                        },
+                                                                        "underline": {
+                                                                            "type": "string",
+                                                                            "nullable": true
+                                                                        }
+                                                                    }
+                                                                }
+                                                            ],
+                                                            "example": {
+                                                                "id": "String (identifier)",
+                                                                "bold": true,
+                                                                "color": "String",
+                                                                "italic": true,
+                                                                "name": "String",
+                                                                "size": "Double",
+                                                                "underline": "String"
+                                                            }
+                                                        }
+                                                    ],
+                                                    "nullable": true
+                                                },
+                                                "line": {
+                                                    "anyOf": [
+                                                        {
+                                                            "allOf": [
+                                                                {
+                                                                    "title": "entity",
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "id": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    },
+                                                                    "example": {
+                                                                        "id": "String (identifier)"
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "title": "workbookChartLineFormat",
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "color": {
+                                                                            "type": "string",
+                                                                            "nullable": true
+                                                                        }
+                                                                    }
+                                                                }
+                                                            ],
+                                                            "example": {
+                                                                "id": "String (identifier)",
+                                                                "color": "String"
+                                                            }
+                                                        }
+                                                    ],
+                                                    "nullable": true
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "example": {
+                                        "id": "String (identifier)",
+                                        "font": {
+                                            "@odata.type": "microsoft.graph.workbookChartFont"
+                                        },
+                                        "line": {
+                                            "@odata.type": "microsoft.graph.workbookChartLineFormat"
+                                        }
+                                    }
+                                }
+                            ],
+                            "nullable": true
+                        },
+                        "majorGridlines": {
+                            "anyOf": [
+                                {
+                                    "allOf": [
+                                        {
+                                            "title": "entity",
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "example": {
+                                                "id": "String (identifier)"
+                                            }
+                                        },
+                                        {
+                                            "title": "workbookChartGridlines",
+                                            "type": "object",
+                                            "properties": {
+                                                "visible": {
+                                                    "type": "boolean"
+                                                },
+                                                "format": {
+                                                    "anyOf": [
+                                                        {
+                                                            "allOf": [
+                                                                {
+                                                                    "title": "entity",
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "id": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    },
+                                                                    "example": {
+                                                                        "id": "String (identifier)"
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "title": "workbookChartGridlinesFormat",
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "line": {
+                                                                            "anyOf": [
+                                                                                {
+                                                                                    "allOf": [
+                                                                                        {
+                                                                                            "title": "entity",
+                                                                                            "type": "object",
+                                                                                            "properties": {
+                                                                                                "id": {
+                                                                                                    "type": "string"
+                                                                                                }
+                                                                                            },
+                                                                                            "example": {
+                                                                                                "id": "String (identifier)"
+                                                                                            }
+                                                                                        },
+                                                                                        {
+                                                                                            "title": "workbookChartLineFormat",
+                                                                                            "type": "object",
+                                                                                            "properties": {
+                                                                                                "color": {
+                                                                                                    "type": "string",
+                                                                                                    "nullable": true
+                                                                                                }
+                                                                                            }
+                                                                                        }
+                                                                                    ],
+                                                                                    "example": {
+                                                                                        "id": "String (identifier)",
+                                                                                        "color": "String"
+                                                                                    }
+                                                                                }
+                                                                            ],
+                                                                            "nullable": true
+                                                                        }
+                                                                    }
+                                                                }
+                                                            ],
+                                                            "example": {
+                                                                "id": "String (identifier)",
+                                                                "line": {
+                                                                    "@odata.type": "microsoft.graph.workbookChartLineFormat"
+                                                                }
+                                                            }
+                                                        }
+                                                    ],
+                                                    "nullable": true
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "example": {
+                                        "id": "String (identifier)",
+                                        "visible": true,
+                                        "format": {
+                                            "@odata.type": "microsoft.graph.workbookChartGridlinesFormat"
+                                        }
+                                    }
+                                }
+                            ],
+                            "nullable": true
+                        },
+                        "minorGridlines": {
+                            "anyOf": [
+                                {
+                                    "allOf": [
+                                        {
+                                            "title": "entity",
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "example": {
+                                                "id": "String (identifier)"
+                                            }
+                                        },
+                                        {
+                                            "title": "workbookChartGridlines",
+                                            "type": "object",
+                                            "properties": {
+                                                "visible": {
+                                                    "type": "boolean"
+                                                },
+                                                "format": {
+                                                    "anyOf": [
+                                                        {
+                                                            "allOf": [
+                                                                {
+                                                                    "title": "entity",
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "id": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    },
+                                                                    "example": {
+                                                                        "id": "String (identifier)"
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "title": "workbookChartGridlinesFormat",
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "line": {
+                                                                            "anyOf": [
+                                                                                {
+                                                                                    "allOf": [
+                                                                                        {
+                                                                                            "title": "entity",
+                                                                                            "type": "object",
+                                                                                            "properties": {
+                                                                                                "id": {
+                                                                                                    "type": "string"
+                                                                                                }
+                                                                                            },
+                                                                                            "example": {
+                                                                                                "id": "String (identifier)"
+                                                                                            }
+                                                                                        },
+                                                                                        {
+                                                                                            "title": "workbookChartLineFormat",
+                                                                                            "type": "object",
+                                                                                            "properties": {
+                                                                                                "color": {
+                                                                                                    "type": "string",
+                                                                                                    "nullable": true
+                                                                                                }
+                                                                                            }
+                                                                                        }
+                                                                                    ],
+                                                                                    "example": {
+                                                                                        "id": "String (identifier)",
+                                                                                        "color": "String"
+                                                                                    }
+                                                                                }
+                                                                            ],
+                                                                            "nullable": true
+                                                                        }
+                                                                    }
+                                                                }
+                                                            ],
+                                                            "example": {
+                                                                "id": "String (identifier)",
+                                                                "line": {
+                                                                    "@odata.type": "microsoft.graph.workbookChartLineFormat"
+                                                                }
+                                                            }
+                                                        }
+                                                    ],
+                                                    "nullable": true
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "example": {
+                                        "id": "String (identifier)",
+                                        "visible": true,
+                                        "format": {
+                                            "@odata.type": "microsoft.graph.workbookChartGridlinesFormat"
+                                        }
+                                    }
+                                }
+                            ],
+                            "nullable": true
+                        },
+                        "title": {
+                            "anyOf": [
+                                {
+                                    "allOf": [
+                                        {
+                                            "title": "entity",
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "example": {
+                                                "id": "String (identifier)"
+                                            }
+                                        },
+                                        {
+                                            "title": "workbookChartAxisTitle",
+                                            "type": "object",
+                                            "properties": {
+                                                "text": {
+                                                    "type": "string",
+                                                    "nullable": true
+                                                },
+                                                "visible": {
+                                                    "type": "boolean"
+                                                },
+                                                "format": {
+                                                    "anyOf": [
+                                                        {
+                                                            "allOf": [
+                                                                {
+                                                                    "title": "entity",
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "id": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    },
+                                                                    "example": {
+                                                                        "id": "String (identifier)"
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "title": "workbookChartAxisTitleFormat",
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "font": {
+                                                                            "anyOf": [
+                                                                                {
+                                                                                    "allOf": [
+                                                                                        {
+                                                                                            "title": "entity",
+                                                                                            "type": "object",
+                                                                                            "properties": {
+                                                                                                "id": {
+                                                                                                    "type": "string"
+                                                                                                }
+                                                                                            },
+                                                                                            "example": {
+                                                                                                "id": "String (identifier)"
+                                                                                            }
+                                                                                        },
+                                                                                        {
+                                                                                            "title": "workbookChartFont",
+                                                                                            "type": "object",
+                                                                                            "properties": {
+                                                                                                "bold": {
+                                                                                                    "type": "boolean",
+                                                                                                    "nullable": true
+                                                                                                },
+                                                                                                "color": {
+                                                                                                    "type": "string",
+                                                                                                    "nullable": true
+                                                                                                },
+                                                                                                "italic": {
+                                                                                                    "type": "boolean",
+                                                                                                    "nullable": true
+                                                                                                },
+                                                                                                "name": {
+                                                                                                    "type": "string",
+                                                                                                    "nullable": true
+                                                                                                },
+                                                                                                "size": {
+                                                                                                    "anyOf": [
+                                                                                                        {
+                                                                                                            "type": "number"
+                                                                                                        },
+                                                                                                        {
+                                                                                                            "type": "string"
+                                                                                                        },
+                                                                                                        {
+                                                                                                            "enum": [
+                                                                                                                "-INF",
+                                                                                                                "INF",
+                                                                                                                "NaN"
+                                                                                                            ]
+                                                                                                        }
+                                                                                                    ],
+                                                                                                    "format": "double",
+                                                                                                    "nullable": true
+                                                                                                },
+                                                                                                "underline": {
+                                                                                                    "type": "string",
+                                                                                                    "nullable": true
+                                                                                                }
+                                                                                            }
+                                                                                        }
+                                                                                    ],
+                                                                                    "example": {
+                                                                                        "id": "String (identifier)",
+                                                                                        "bold": true,
+                                                                                        "color": "String",
+                                                                                        "italic": true,
+                                                                                        "name": "String",
+                                                                                        "size": "Double",
+                                                                                        "underline": "String"
+                                                                                    }
+                                                                                }
+                                                                            ],
+                                                                            "nullable": true
+                                                                        }
+                                                                    }
+                                                                }
+                                                            ],
+                                                            "example": {
+                                                                "id": "String (identifier)",
+                                                                "font": {
+                                                                    "@odata.type": "microsoft.graph.workbookChartFont"
+                                                                }
+                                                            }
+                                                        }
+                                                    ],
+                                                    "nullable": true
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "example": {
+                                        "id": "String (identifier)",
+                                        "text": "String",
+                                        "visible": true,
+                                        "format": {
+                                            "@odata.type": "microsoft.graph.workbookChartAxisTitleFormat"
+                                        }
+                                    }
+                                }
+                            ],
+                            "nullable": true
+                        }
+                    }
+                }
+            ],
+            "example": {
+                "id": "String (identifier)",
+                "majorUnit": {
+                    "@odata.type": "microsoft.graph.Json"
+                },
+                "maximum": {
+                    "@odata.type": "microsoft.graph.Json"
+                },
+                "minimum": {
+                    "@odata.type": "microsoft.graph.Json"
+                },
+                "minorUnit": {
+                    "@odata.type": "microsoft.graph.Json"
+                },
+                "format": {
+                    "@odata.type": "microsoft.graph.workbookChartAxisFormat"
+                },
+                "majorGridlines": {
+                    "@odata.type": "microsoft.graph.workbookChartGridlines"
+                },
+                "minorGridlines": {
+                    "@odata.type": "microsoft.graph.workbookChartGridlines"
+                },
+                "title": {
+                    "@odata.type": "microsoft.graph.workbookChartAxisTitle"
+                }
+            }
+        },
+        "driveItem_id": {
+            "required": true,
+            "type": "string"
+        },
+        "workbookWorksheet_id": {
+            "required": true,
+            "type": "string"
+        },
+        "workbookChart_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

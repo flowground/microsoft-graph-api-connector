@@ -1,0 +1,224 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "allOf": [
+                {
+                    "title": "entity",
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        }
+                    },
+                    "example": {
+                        "id": "String (identifier)"
+                    }
+                },
+                {
+                    "title": "contentType",
+                    "type": "object",
+                    "properties": {
+                        "description": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "group": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "hidden": {
+                            "type": "boolean",
+                            "nullable": true
+                        },
+                        "inheritedFrom": {
+                            "anyOf": [
+                                {
+                                    "title": "itemReference",
+                                    "type": "object",
+                                    "properties": {
+                                        "driveId": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "driveType": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "id": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "name": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "path": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "shareId": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "sharepointIds": {
+                                            "anyOf": [
+                                                {
+                                                    "title": "sharepointIds",
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "listId": {
+                                                            "type": "string",
+                                                            "nullable": true
+                                                        },
+                                                        "listItemId": {
+                                                            "type": "string",
+                                                            "nullable": true
+                                                        },
+                                                        "listItemUniqueId": {
+                                                            "type": "string",
+                                                            "nullable": true
+                                                        },
+                                                        "siteId": {
+                                                            "type": "string",
+                                                            "nullable": true
+                                                        },
+                                                        "siteUrl": {
+                                                            "type": "string",
+                                                            "nullable": true
+                                                        },
+                                                        "webId": {
+                                                            "type": "string",
+                                                            "nullable": true
+                                                        }
+                                                    },
+                                                    "example": {
+                                                        "listId": "String",
+                                                        "listItemId": "String",
+                                                        "listItemUniqueId": "String",
+                                                        "siteId": "String",
+                                                        "siteUrl": "String",
+                                                        "webId": "String"
+                                                    }
+                                                }
+                                            ],
+                                            "nullable": true
+                                        }
+                                    },
+                                    "example": {
+                                        "driveId": "String",
+                                        "driveType": "String",
+                                        "id": "String",
+                                        "name": "String",
+                                        "path": "String",
+                                        "shareId": "String",
+                                        "sharepointIds": {
+                                            "@odata.type": "microsoft.graph.sharepointIds"
+                                        }
+                                    }
+                                }
+                            ],
+                            "nullable": true
+                        },
+                        "name": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "order": {
+                            "anyOf": [
+                                {
+                                    "title": "contentTypeOrder",
+                                    "type": "object",
+                                    "properties": {
+                                        "default": {
+                                            "type": "boolean",
+                                            "nullable": true
+                                        },
+                                        "position": {
+                                            "maximum": 2147483647,
+                                            "minimum": -2147483648,
+                                            "type": "integer",
+                                            "format": "int32",
+                                            "nullable": true
+                                        }
+                                    },
+                                    "example": {
+                                        "default": true,
+                                        "position": "Int32"
+                                    }
+                                }
+                            ],
+                            "nullable": true
+                        },
+                        "parentId": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "readOnly": {
+                            "type": "boolean",
+                            "nullable": true
+                        },
+                        "sealed": {
+                            "type": "boolean",
+                            "nullable": true
+                        },
+                        "columnLinks": {
+                            "type": "array",
+                            "items": {
+                                "allOf": [
+                                    {
+                                        "title": "entity",
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "example": {
+                                            "id": "String (identifier)"
+                                        }
+                                    },
+                                    {
+                                        "title": "columnLink",
+                                        "type": "object",
+                                        "properties": {
+                                            "name": {
+                                                "type": "string",
+                                                "nullable": true
+                                            }
+                                        }
+                                    }
+                                ],
+                                "example": {
+                                    "id": "String (identifier)",
+                                    "name": "String"
+                                }
+                            }
+                        }
+                    }
+                }
+            ],
+            "example": {
+                "id": "String (identifier)",
+                "description": "String",
+                "group": "String",
+                "hidden": true,
+                "inheritedFrom": {
+                    "@odata.type": "microsoft.graph.itemReference"
+                },
+                "name": "String",
+                "order": {
+                    "@odata.type": "microsoft.graph.contentTypeOrder"
+                },
+                "parentId": "String",
+                "readOnly": true,
+                "sealed": true,
+                "columnLinks": [
+                    {
+                        "@odata.type": "microsoft.graph.columnLink"
+                    }
+                ]
+            }
+        }
+    }
+}

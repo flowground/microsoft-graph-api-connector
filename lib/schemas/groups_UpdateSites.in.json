@@ -1,0 +1,14 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {},
+        "group_id": {
+            "required": true,
+            "type": "string"
+        },
+        "site_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "type": "object",
+    "properties": {
+        "includePersonalNotebooks": {
+            "required": true,
+            "type": "boolean",
+            "default": false
+        },
+        "site_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

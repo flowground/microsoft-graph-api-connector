@@ -1,0 +1,560 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "allOf": [
+                {
+                    "allOf": [
+                        {
+                            "title": "entity",
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "string"
+                                }
+                            },
+                            "example": {
+                                "id": "String (identifier)"
+                            }
+                        },
+                        {
+                            "title": "outlookItem",
+                            "type": "object",
+                            "properties": {
+                                "createdDateTime": {
+                                    "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                                    "type": "string",
+                                    "format": "date-time",
+                                    "nullable": true
+                                },
+                                "lastModifiedDateTime": {
+                                    "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                                    "type": "string",
+                                    "format": "date-time",
+                                    "nullable": true
+                                },
+                                "changeKey": {
+                                    "type": "string",
+                                    "nullable": true
+                                },
+                                "categories": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string",
+                                        "nullable": true
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "example": {
+                        "id": "String (identifier)",
+                        "createdDateTime": "DateTimeOffset (timestamp)",
+                        "lastModifiedDateTime": "DateTimeOffset (timestamp)",
+                        "changeKey": "String",
+                        "categories": [
+                            "String"
+                        ]
+                    }
+                },
+                {
+                    "title": "contact",
+                    "type": "object",
+                    "properties": {
+                        "parentFolderId": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "birthday": {
+                            "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                            "type": "string",
+                            "format": "date-time",
+                            "nullable": true
+                        },
+                        "fileAs": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "displayName": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "givenName": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "initials": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "middleName": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "nickName": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "surname": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "title": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "yomiGivenName": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "yomiSurname": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "yomiCompanyName": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "generation": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "emailAddresses": {
+                            "type": "array",
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "title": "emailAddress",
+                                        "type": "object",
+                                        "properties": {
+                                            "name": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "address": {
+                                                "type": "string",
+                                                "nullable": true
+                                            }
+                                        },
+                                        "example": {
+                                            "name": "String",
+                                            "address": "String"
+                                        }
+                                    }
+                                ],
+                                "nullable": true
+                            }
+                        },
+                        "imAddresses": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "nullable": true
+                            }
+                        },
+                        "jobTitle": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "companyName": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "department": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "officeLocation": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "profession": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "businessHomePage": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "assistantName": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "manager": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "homePhones": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "nullable": true
+                            }
+                        },
+                        "mobilePhone": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "businessPhones": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "nullable": true
+                            }
+                        },
+                        "homeAddress": {
+                            "anyOf": [
+                                {
+                                    "title": "physicalAddress",
+                                    "type": "object",
+                                    "properties": {
+                                        "street": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "city": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "state": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "countryOrRegion": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "postalCode": {
+                                            "type": "string",
+                                            "nullable": true
+                                        }
+                                    },
+                                    "example": {
+                                        "street": "String",
+                                        "city": "String",
+                                        "state": "String",
+                                        "countryOrRegion": "String",
+                                        "postalCode": "String"
+                                    }
+                                }
+                            ],
+                            "nullable": true
+                        },
+                        "businessAddress": {
+                            "anyOf": [
+                                {
+                                    "title": "physicalAddress",
+                                    "type": "object",
+                                    "properties": {
+                                        "street": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "city": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "state": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "countryOrRegion": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "postalCode": {
+                                            "type": "string",
+                                            "nullable": true
+                                        }
+                                    },
+                                    "example": {
+                                        "street": "String",
+                                        "city": "String",
+                                        "state": "String",
+                                        "countryOrRegion": "String",
+                                        "postalCode": "String"
+                                    }
+                                }
+                            ],
+                            "nullable": true
+                        },
+                        "otherAddress": {
+                            "anyOf": [
+                                {
+                                    "title": "physicalAddress",
+                                    "type": "object",
+                                    "properties": {
+                                        "street": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "city": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "state": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "countryOrRegion": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "postalCode": {
+                                            "type": "string",
+                                            "nullable": true
+                                        }
+                                    },
+                                    "example": {
+                                        "street": "String",
+                                        "city": "String",
+                                        "state": "String",
+                                        "countryOrRegion": "String",
+                                        "postalCode": "String"
+                                    }
+                                }
+                            ],
+                            "nullable": true
+                        },
+                        "spouseName": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "personalNotes": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "children": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "nullable": true
+                            }
+                        },
+                        "extensions": {
+                            "type": "array",
+                            "items": {
+                                "allOf": [
+                                    {
+                                        "title": "entity",
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "example": {
+                                            "id": "String (identifier)"
+                                        }
+                                    },
+                                    {
+                                        "title": "extension",
+                                        "type": "object"
+                                    }
+                                ],
+                                "example": {
+                                    "id": "String (identifier)"
+                                }
+                            }
+                        },
+                        "singleValueExtendedProperties": {
+                            "type": "array",
+                            "items": {
+                                "allOf": [
+                                    {
+                                        "title": "entity",
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "example": {
+                                            "id": "String (identifier)"
+                                        }
+                                    },
+                                    {
+                                        "title": "singleValueLegacyExtendedProperty",
+                                        "type": "object",
+                                        "properties": {
+                                            "value": {
+                                                "type": "string",
+                                                "nullable": true
+                                            }
+                                        }
+                                    }
+                                ],
+                                "example": {
+                                    "id": "String (identifier)",
+                                    "value": "String"
+                                }
+                            }
+                        },
+                        "multiValueExtendedProperties": {
+                            "type": "array",
+                            "items": {
+                                "allOf": [
+                                    {
+                                        "title": "entity",
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "example": {
+                                            "id": "String (identifier)"
+                                        }
+                                    },
+                                    {
+                                        "title": "multiValueLegacyExtendedProperty",
+                                        "type": "object",
+                                        "properties": {
+                                            "value": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "string",
+                                                    "nullable": true
+                                                }
+                                            }
+                                        }
+                                    }
+                                ],
+                                "example": {
+                                    "id": "String (identifier)",
+                                    "value": [
+                                        "String"
+                                    ]
+                                }
+                            }
+                        },
+                        "photo": {
+                            "anyOf": [
+                                {
+                                    "allOf": [
+                                        {
+                                            "title": "entity",
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "example": {
+                                                "id": "String (identifier)"
+                                            }
+                                        },
+                                        {
+                                            "title": "profilePhoto",
+                                            "type": "object",
+                                            "properties": {
+                                                "height": {
+                                                    "maximum": 2147483647,
+                                                    "minimum": -2147483648,
+                                                    "type": "integer",
+                                                    "format": "int32",
+                                                    "nullable": true
+                                                },
+                                                "width": {
+                                                    "maximum": 2147483647,
+                                                    "minimum": -2147483648,
+                                                    "type": "integer",
+                                                    "format": "int32",
+                                                    "nullable": true
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "example": {
+                                        "id": "String (identifier)",
+                                        "height": "Int32",
+                                        "width": "Int32"
+                                    }
+                                }
+                            ],
+                            "nullable": true
+                        }
+                    }
+                }
+            ],
+            "example": {
+                "id": "String (identifier)",
+                "createdDateTime": "DateTimeOffset (timestamp)",
+                "lastModifiedDateTime": "DateTimeOffset (timestamp)",
+                "changeKey": "String",
+                "categories": [
+                    "String"
+                ],
+                "parentFolderId": "String",
+                "birthday": "DateTimeOffset (timestamp)",
+                "fileAs": "String",
+                "displayName": "String",
+                "givenName": "String",
+                "initials": "String",
+                "middleName": "String",
+                "nickName": "String",
+                "surname": "String",
+                "title": "String",
+                "yomiGivenName": "String",
+                "yomiSurname": "String",
+                "yomiCompanyName": "String",
+                "generation": "String",
+                "emailAddresses": [
+                    {
+                        "@odata.type": "microsoft.graph.emailAddress"
+                    }
+                ],
+                "imAddresses": [
+                    "String"
+                ],
+                "jobTitle": "String",
+                "companyName": "String",
+                "department": "String",
+                "officeLocation": "String",
+                "profession": "String",
+                "businessHomePage": "String",
+                "assistantName": "String",
+                "manager": "String",
+                "homePhones": [
+                    "String"
+                ],
+                "mobilePhone": "String",
+                "businessPhones": [
+                    "String"
+                ],
+                "homeAddress": {
+                    "@odata.type": "microsoft.graph.physicalAddress"
+                },
+                "businessAddress": {
+                    "@odata.type": "microsoft.graph.physicalAddress"
+                },
+                "otherAddress": {
+                    "@odata.type": "microsoft.graph.physicalAddress"
+                },
+                "spouseName": "String",
+                "personalNotes": "String",
+                "children": [
+                    "String"
+                ],
+                "extensions": [
+                    {
+                        "@odata.type": "microsoft.graph.extension"
+                    }
+                ],
+                "singleValueExtendedProperties": [
+                    {
+                        "@odata.type": "microsoft.graph.singleValueLegacyExtendedProperty"
+                    }
+                ],
+                "multiValueExtendedProperties": [
+                    {
+                        "@odata.type": "microsoft.graph.multiValueLegacyExtendedProperty"
+                    }
+                ],
+                "photo": {
+                    "@odata.type": "microsoft.graph.profilePhoto"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,25 @@
+{
+    "type": "object",
+    "properties": {
+        "user_id": {
+            "required": true,
+            "type": "string"
+        },
+        "calendarGroup_id": {
+            "required": true,
+            "type": "string"
+        },
+        "calendar_id": {
+            "required": true,
+            "type": "string"
+        },
+        "event_id": {
+            "required": true,
+            "type": "string"
+        },
+        "event_id2": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

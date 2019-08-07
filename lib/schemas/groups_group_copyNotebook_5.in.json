@@ -1,0 +1,42 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "groupId": {
+                    "type": "string",
+                    "nullable": true
+                },
+                "renameAs": {
+                    "type": "string",
+                    "nullable": true
+                },
+                "notebookFolder": {
+                    "type": "string",
+                    "nullable": true
+                },
+                "siteCollectionId": {
+                    "type": "string",
+                    "nullable": true
+                },
+                "siteId": {
+                    "type": "string",
+                    "nullable": true
+                }
+            }
+        },
+        "group_id": {
+            "required": true,
+            "type": "string"
+        },
+        "notebook_id": {
+            "required": true,
+            "type": "string"
+        },
+        "onenoteSection_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

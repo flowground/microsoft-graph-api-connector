@@ -1,0 +1,46 @@
+{
+    "type": "object",
+    "properties": {
+        "managedEBook_id": {
+            "required": true,
+            "type": "string"
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "displayName",
+                    "description",
+                    "publisher",
+                    "publishedDateTime",
+                    "largeCover",
+                    "createdDateTime",
+                    "lastModifiedDateTime",
+                    "informationUrl",
+                    "privacyInformationUrl",
+                    "assignments",
+                    "installSummary",
+                    "deviceStates",
+                    "userStateSummary"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*",
+                    "assignments",
+                    "installSummary",
+                    "deviceStates",
+                    "userStateSummary"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

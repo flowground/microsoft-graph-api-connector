@@ -1,0 +1,81 @@
+{
+    "type": "object",
+    "properties": {
+        "managedDevice_id": {
+            "required": true,
+            "type": "string"
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "userId",
+                    "deviceName",
+                    "managedDeviceOwnerType",
+                    "deviceActionResults",
+                    "enrolledDateTime",
+                    "lastSyncDateTime",
+                    "operatingSystem",
+                    "complianceState",
+                    "jailBroken",
+                    "managementAgent",
+                    "osVersion",
+                    "easActivated",
+                    "easDeviceId",
+                    "easActivationDateTime",
+                    "azureADRegistered",
+                    "deviceEnrollmentType",
+                    "activationLockBypassCode",
+                    "emailAddress",
+                    "azureADDeviceId",
+                    "deviceRegistrationState",
+                    "deviceCategoryDisplayName",
+                    "isSupervised",
+                    "exchangeLastSuccessfulSyncDateTime",
+                    "exchangeAccessState",
+                    "exchangeAccessStateReason",
+                    "remoteAssistanceSessionUrl",
+                    "remoteAssistanceSessionErrorDetails",
+                    "isEncrypted",
+                    "userPrincipalName",
+                    "model",
+                    "manufacturer",
+                    "imei",
+                    "complianceGracePeriodExpirationDateTime",
+                    "serialNumber",
+                    "phoneNumber",
+                    "androidSecurityPatchLevel",
+                    "userDisplayName",
+                    "configurationManagerClientEnabledFeatures",
+                    "wiFiMacAddress",
+                    "deviceHealthAttestationState",
+                    "subscriberCarrier",
+                    "meid",
+                    "totalStorageSpaceInBytes",
+                    "freeStorageSpaceInBytes",
+                    "managedDeviceName",
+                    "partnerReportedThreatState",
+                    "deviceConfigurationStates",
+                    "deviceCategory",
+                    "deviceCompliancePolicyStates"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*",
+                    "deviceConfigurationStates",
+                    "deviceCategory",
+                    "deviceCompliancePolicyStates"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

@@ -1,0 +1,18 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {},
+        "user_id": {
+            "required": true,
+            "type": "string"
+        },
+        "mailFolder_id": {
+            "required": true,
+            "type": "string"
+        },
+        "mailFolder_id2": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

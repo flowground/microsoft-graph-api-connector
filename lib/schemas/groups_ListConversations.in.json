@@ -1,0 +1,63 @@
+{
+    "type": "object",
+    "properties": {
+        "group_id": {
+            "required": true,
+            "type": "string"
+        },
+        "_top": {
+            "minimum": 0,
+            "type": "integer"
+        },
+        "_skip": {
+            "minimum": 0,
+            "type": "integer"
+        },
+        "_search": {
+            "type": "string"
+        },
+        "_filter": {
+            "type": "string"
+        },
+        "_count": {
+            "type": "boolean"
+        },
+        "_orderby": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "id desc",
+                    "topic",
+                    "topic desc",
+                    "hasAttachments",
+                    "hasAttachments desc",
+                    "lastDeliveredDateTime",
+                    "lastDeliveredDateTime desc",
+                    "uniqueSenders",
+                    "uniqueSenders desc",
+                    "preview",
+                    "preview desc"
+                ],
+                "type": "string"
+            }
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "topic",
+                    "hasAttachments",
+                    "lastDeliveredDateTime",
+                    "uniqueSenders",
+                    "preview",
+                    "threads"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

@@ -1,0 +1,36 @@
+{
+    "type": "object",
+    "properties": {
+        "deviceCompliancePolicy_id": {
+            "required": true,
+            "type": "string"
+        },
+        "deviceComplianceScheduledActionForRule_id": {
+            "required": true,
+            "type": "string"
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "ruleName",
+                    "scheduledActionConfigurations"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*",
+                    "scheduledActionConfigurations"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

@@ -1,0 +1,67 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "apps": {
+                    "type": "array",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "allOf": [
+                                    {
+                                        "title": "entity",
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "example": {
+                                            "id": "String (identifier)"
+                                        }
+                                    },
+                                    {
+                                        "title": "managedMobileApp",
+                                        "type": "object",
+                                        "properties": {
+                                            "mobileAppIdentifier": {
+                                                "anyOf": [
+                                                    {
+                                                        "title": "mobileAppIdentifier",
+                                                        "type": "object"
+                                                    }
+                                                ],
+                                                "description": "The identifier for an app with it's operating system type.",
+                                                "nullable": true
+                                            },
+                                            "version": {
+                                                "type": "string",
+                                                "description": "Version of the entity.",
+                                                "nullable": true
+                                            }
+                                        },
+                                        "description": "The identifier for the deployment an app."
+                                    }
+                                ],
+                                "example": {
+                                    "id": "String (identifier)",
+                                    "mobileAppIdentifier": {
+                                        "@odata.type": "microsoft.graph.mobileAppIdentifier"
+                                    },
+                                    "version": "String"
+                                }
+                            }
+                        ],
+                        "nullable": true
+                    }
+                }
+            }
+        },
+        "targetedManagedAppConfiguration_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

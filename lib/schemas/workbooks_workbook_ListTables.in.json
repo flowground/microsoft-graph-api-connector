@@ -1,0 +1,92 @@
+{
+    "type": "object",
+    "properties": {
+        "driveItem_id": {
+            "required": true,
+            "type": "string"
+        },
+        "_top": {
+            "minimum": 0,
+            "type": "integer"
+        },
+        "_skip": {
+            "minimum": 0,
+            "type": "integer"
+        },
+        "_search": {
+            "type": "string"
+        },
+        "_filter": {
+            "type": "string"
+        },
+        "_count": {
+            "type": "boolean"
+        },
+        "_orderby": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "id desc",
+                    "highlightFirstColumn",
+                    "highlightFirstColumn desc",
+                    "highlightLastColumn",
+                    "highlightLastColumn desc",
+                    "name",
+                    "name desc",
+                    "showBandedColumns",
+                    "showBandedColumns desc",
+                    "showBandedRows",
+                    "showBandedRows desc",
+                    "showFilterButton",
+                    "showFilterButton desc",
+                    "showHeaders",
+                    "showHeaders desc",
+                    "showTotals",
+                    "showTotals desc",
+                    "style",
+                    "style desc"
+                ],
+                "type": "string"
+            }
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "highlightFirstColumn",
+                    "highlightLastColumn",
+                    "name",
+                    "showBandedColumns",
+                    "showBandedRows",
+                    "showFilterButton",
+                    "showHeaders",
+                    "showTotals",
+                    "style",
+                    "columns",
+                    "rows",
+                    "sort",
+                    "worksheet"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*",
+                    "columns",
+                    "rows",
+                    "sort",
+                    "worksheet"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

@@ -1,0 +1,1116 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "allOf": [
+                {
+                    "title": "entity",
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        }
+                    },
+                    "example": {
+                        "id": "String (identifier)"
+                    }
+                },
+                {
+                    "title": "alert",
+                    "type": "object",
+                    "properties": {
+                        "activityGroupName": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "assignedTo": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "azureSubscriptionId": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "azureTenantId": {
+                            "type": "string"
+                        },
+                        "category": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "closedDateTime": {
+                            "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                            "type": "string",
+                            "format": "date-time",
+                            "nullable": true
+                        },
+                        "cloudAppStates": {
+                            "type": "array",
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "title": "cloudAppSecurityState",
+                                        "type": "object",
+                                        "properties": {
+                                            "destinationServiceIp": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "destinationServiceName": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "riskScore": {
+                                                "type": "string",
+                                                "nullable": true
+                                            }
+                                        },
+                                        "example": {
+                                            "destinationServiceIp": "String",
+                                            "destinationServiceName": "String",
+                                            "riskScore": "String"
+                                        }
+                                    }
+                                ],
+                                "nullable": true
+                            }
+                        },
+                        "comments": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "nullable": true
+                            }
+                        },
+                        "confidence": {
+                            "maximum": 2147483647,
+                            "minimum": -2147483648,
+                            "type": "integer",
+                            "format": "int32",
+                            "nullable": true
+                        },
+                        "createdDateTime": {
+                            "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "description": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "detectionIds": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "nullable": true
+                            }
+                        },
+                        "eventDateTime": {
+                            "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "feedback": {
+                            "anyOf": [
+                                {
+                                    "title": "alertFeedback",
+                                    "enum": [
+                                        "unknown",
+                                        "truePositive",
+                                        "falsePositive",
+                                        "benignPositive",
+                                        "unknownFutureValue"
+                                    ],
+                                    "type": "string"
+                                }
+                            ],
+                            "nullable": true
+                        },
+                        "fileStates": {
+                            "type": "array",
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "title": "fileSecurityState",
+                                        "type": "object",
+                                        "properties": {
+                                            "fileHash": {
+                                                "anyOf": [
+                                                    {
+                                                        "title": "fileHash",
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "hashType": {
+                                                                "anyOf": [
+                                                                    {
+                                                                        "title": "fileHashType",
+                                                                        "enum": [
+                                                                            "unknown",
+                                                                            "sha1",
+                                                                            "sha256",
+                                                                            "md5",
+                                                                            "authenticodeHash256",
+                                                                            "lsHash",
+                                                                            "ctph",
+                                                                            "unknownFutureValue"
+                                                                        ],
+                                                                        "type": "string"
+                                                                    }
+                                                                ],
+                                                                "nullable": true
+                                                            },
+                                                            "hashValue": {
+                                                                "type": "string",
+                                                                "nullable": true
+                                                            }
+                                                        },
+                                                        "example": {
+                                                            "hashType": {
+                                                                "@odata.type": "microsoft.graph.fileHashType"
+                                                            },
+                                                            "hashValue": "String"
+                                                        }
+                                                    }
+                                                ],
+                                                "nullable": true
+                                            },
+                                            "name": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "path": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "riskScore": {
+                                                "type": "string",
+                                                "nullable": true
+                                            }
+                                        },
+                                        "example": {
+                                            "fileHash": {
+                                                "@odata.type": "microsoft.graph.fileHash"
+                                            },
+                                            "name": "String",
+                                            "path": "String",
+                                            "riskScore": "String"
+                                        }
+                                    }
+                                ],
+                                "nullable": true
+                            }
+                        },
+                        "hostStates": {
+                            "type": "array",
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "title": "hostSecurityState",
+                                        "type": "object",
+                                        "properties": {
+                                            "fqdn": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "isAzureAdJoined": {
+                                                "type": "boolean",
+                                                "nullable": true
+                                            },
+                                            "isAzureAdRegistered": {
+                                                "type": "boolean",
+                                                "nullable": true
+                                            },
+                                            "isHybridAzureDomainJoined": {
+                                                "type": "boolean",
+                                                "nullable": true
+                                            },
+                                            "netBiosName": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "os": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "privateIpAddress": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "publicIpAddress": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "riskScore": {
+                                                "type": "string",
+                                                "nullable": true
+                                            }
+                                        },
+                                        "example": {
+                                            "fqdn": "String",
+                                            "isAzureAdJoined": true,
+                                            "isAzureAdRegistered": true,
+                                            "isHybridAzureDomainJoined": true,
+                                            "netBiosName": "String",
+                                            "os": "String",
+                                            "privateIpAddress": "String",
+                                            "publicIpAddress": "String",
+                                            "riskScore": "String"
+                                        }
+                                    }
+                                ],
+                                "nullable": true
+                            }
+                        },
+                        "lastModifiedDateTime": {
+                            "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                            "type": "string",
+                            "format": "date-time",
+                            "nullable": true
+                        },
+                        "malwareStates": {
+                            "type": "array",
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "title": "malwareState",
+                                        "type": "object",
+                                        "properties": {
+                                            "category": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "family": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "name": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "severity": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "wasRunning": {
+                                                "type": "boolean",
+                                                "nullable": true
+                                            }
+                                        },
+                                        "example": {
+                                            "category": "String",
+                                            "family": "String",
+                                            "name": "String",
+                                            "severity": "String",
+                                            "wasRunning": true
+                                        }
+                                    }
+                                ],
+                                "nullable": true
+                            }
+                        },
+                        "networkConnections": {
+                            "type": "array",
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "title": "networkConnection",
+                                        "type": "object",
+                                        "properties": {
+                                            "applicationName": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "destinationAddress": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "destinationDomain": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "destinationPort": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "destinationUrl": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "direction": {
+                                                "anyOf": [
+                                                    {
+                                                        "title": "connectionDirection",
+                                                        "enum": [
+                                                            "unknown",
+                                                            "inbound",
+                                                            "outbound",
+                                                            "unknownFutureValue"
+                                                        ],
+                                                        "type": "string"
+                                                    }
+                                                ],
+                                                "nullable": true
+                                            },
+                                            "domainRegisteredDateTime": {
+                                                "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                                                "type": "string",
+                                                "format": "date-time",
+                                                "nullable": true
+                                            },
+                                            "localDnsName": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "natDestinationAddress": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "natDestinationPort": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "natSourceAddress": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "natSourcePort": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "protocol": {
+                                                "anyOf": [
+                                                    {
+                                                        "title": "securityNetworkProtocol",
+                                                        "enum": [
+                                                            "ip",
+                                                            "icmp",
+                                                            "igmp",
+                                                            "ggp",
+                                                            "ipv4",
+                                                            "tcp",
+                                                            "pup",
+                                                            "udp",
+                                                            "idp",
+                                                            "ipv6",
+                                                            "ipv6RoutingHeader",
+                                                            "ipv6FragmentHeader",
+                                                            "ipSecEncapsulatingSecurityPayload",
+                                                            "ipSecAuthenticationHeader",
+                                                            "icmpV6",
+                                                            "ipv6NoNextHeader",
+                                                            "ipv6DestinationOptions",
+                                                            "nd",
+                                                            "raw",
+                                                            "ipx",
+                                                            "spx",
+                                                            "spxII",
+                                                            "unknownFutureValue",
+                                                            "unknown"
+                                                        ],
+                                                        "type": "string"
+                                                    }
+                                                ],
+                                                "nullable": true
+                                            },
+                                            "riskScore": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "sourceAddress": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "sourcePort": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "status": {
+                                                "anyOf": [
+                                                    {
+                                                        "title": "connectionStatus",
+                                                        "enum": [
+                                                            "unknown",
+                                                            "attempted",
+                                                            "succeeded",
+                                                            "blocked",
+                                                            "failed",
+                                                            "unknownFutureValue"
+                                                        ],
+                                                        "type": "string"
+                                                    }
+                                                ],
+                                                "nullable": true
+                                            },
+                                            "urlParameters": {
+                                                "type": "string",
+                                                "nullable": true
+                                            }
+                                        },
+                                        "example": {
+                                            "applicationName": "String",
+                                            "destinationAddress": "String",
+                                            "destinationDomain": "String",
+                                            "destinationPort": "String",
+                                            "destinationUrl": "String",
+                                            "direction": {
+                                                "@odata.type": "microsoft.graph.connectionDirection"
+                                            },
+                                            "domainRegisteredDateTime": "DateTimeOffset (timestamp)",
+                                            "localDnsName": "String",
+                                            "natDestinationAddress": "String",
+                                            "natDestinationPort": "String",
+                                            "natSourceAddress": "String",
+                                            "natSourcePort": "String",
+                                            "protocol": {
+                                                "@odata.type": "microsoft.graph.securityNetworkProtocol"
+                                            },
+                                            "riskScore": "String",
+                                            "sourceAddress": "String",
+                                            "sourcePort": "String",
+                                            "status": {
+                                                "@odata.type": "microsoft.graph.connectionStatus"
+                                            },
+                                            "urlParameters": "String"
+                                        }
+                                    }
+                                ],
+                                "nullable": true
+                            }
+                        },
+                        "processes": {
+                            "type": "array",
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "title": "process",
+                                        "type": "object",
+                                        "properties": {
+                                            "accountName": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "commandLine": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "createdDateTime": {
+                                                "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                                                "type": "string",
+                                                "format": "date-time",
+                                                "nullable": true
+                                            },
+                                            "fileHash": {
+                                                "anyOf": [
+                                                    {
+                                                        "title": "fileHash",
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "hashType": {
+                                                                "anyOf": [
+                                                                    {
+                                                                        "title": "fileHashType",
+                                                                        "enum": [
+                                                                            "unknown",
+                                                                            "sha1",
+                                                                            "sha256",
+                                                                            "md5",
+                                                                            "authenticodeHash256",
+                                                                            "lsHash",
+                                                                            "ctph",
+                                                                            "unknownFutureValue"
+                                                                        ],
+                                                                        "type": "string"
+                                                                    }
+                                                                ],
+                                                                "nullable": true
+                                                            },
+                                                            "hashValue": {
+                                                                "type": "string",
+                                                                "nullable": true
+                                                            }
+                                                        },
+                                                        "example": {
+                                                            "hashType": {
+                                                                "@odata.type": "microsoft.graph.fileHashType"
+                                                            },
+                                                            "hashValue": "String"
+                                                        }
+                                                    }
+                                                ],
+                                                "nullable": true
+                                            },
+                                            "integrityLevel": {
+                                                "anyOf": [
+                                                    {
+                                                        "title": "processIntegrityLevel",
+                                                        "enum": [
+                                                            "unknown",
+                                                            "untrusted",
+                                                            "low",
+                                                            "medium",
+                                                            "high",
+                                                            "system",
+                                                            "unknownFutureValue"
+                                                        ],
+                                                        "type": "string"
+                                                    }
+                                                ],
+                                                "nullable": true
+                                            },
+                                            "isElevated": {
+                                                "type": "boolean",
+                                                "nullable": true
+                                            },
+                                            "name": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "parentProcessCreatedDateTime": {
+                                                "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                                                "type": "string",
+                                                "format": "date-time",
+                                                "nullable": true
+                                            },
+                                            "parentProcessId": {
+                                                "maximum": 2147483647,
+                                                "minimum": -2147483648,
+                                                "type": "integer",
+                                                "format": "int32",
+                                                "nullable": true
+                                            },
+                                            "parentProcessName": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "path": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "processId": {
+                                                "maximum": 2147483647,
+                                                "minimum": -2147483648,
+                                                "type": "integer",
+                                                "format": "int32",
+                                                "nullable": true
+                                            }
+                                        },
+                                        "example": {
+                                            "accountName": "String",
+                                            "commandLine": "String",
+                                            "createdDateTime": "DateTimeOffset (timestamp)",
+                                            "fileHash": {
+                                                "@odata.type": "microsoft.graph.fileHash"
+                                            },
+                                            "integrityLevel": {
+                                                "@odata.type": "microsoft.graph.processIntegrityLevel"
+                                            },
+                                            "isElevated": true,
+                                            "name": "String",
+                                            "parentProcessCreatedDateTime": "DateTimeOffset (timestamp)",
+                                            "parentProcessId": "Int32",
+                                            "parentProcessName": "String",
+                                            "path": "String",
+                                            "processId": "Int32"
+                                        }
+                                    }
+                                ],
+                                "nullable": true
+                            }
+                        },
+                        "recommendedActions": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "nullable": true
+                            }
+                        },
+                        "registryKeyStates": {
+                            "type": "array",
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "title": "registryKeyState",
+                                        "type": "object",
+                                        "properties": {
+                                            "hive": {
+                                                "anyOf": [
+                                                    {
+                                                        "title": "registryHive",
+                                                        "enum": [
+                                                            "unknown",
+                                                            "currentConfig",
+                                                            "currentUser",
+                                                            "localMachineSam",
+                                                            "localMachineSecurity",
+                                                            "localMachineSoftware",
+                                                            "localMachineSystem",
+                                                            "usersDefault",
+                                                            "unknownFutureValue"
+                                                        ],
+                                                        "type": "string"
+                                                    }
+                                                ],
+                                                "nullable": true
+                                            },
+                                            "key": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "oldKey": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "oldValueData": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "oldValueName": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "operation": {
+                                                "anyOf": [
+                                                    {
+                                                        "title": "registryOperation",
+                                                        "enum": [
+                                                            "unknown",
+                                                            "create",
+                                                            "modify",
+                                                            "delete",
+                                                            "unknownFutureValue"
+                                                        ],
+                                                        "type": "string"
+                                                    }
+                                                ],
+                                                "nullable": true
+                                            },
+                                            "processId": {
+                                                "maximum": 2147483647,
+                                                "minimum": -2147483648,
+                                                "type": "integer",
+                                                "format": "int32",
+                                                "nullable": true
+                                            },
+                                            "valueData": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "valueName": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "valueType": {
+                                                "anyOf": [
+                                                    {
+                                                        "title": "registryValueType",
+                                                        "enum": [
+                                                            "unknown",
+                                                            "binary",
+                                                            "dword",
+                                                            "dwordLittleEndian",
+                                                            "dwordBigEndian",
+                                                            "expandSz",
+                                                            "link",
+                                                            "multiSz",
+                                                            "none",
+                                                            "qword",
+                                                            "qwordlittleEndian",
+                                                            "sz",
+                                                            "unknownFutureValue"
+                                                        ],
+                                                        "type": "string"
+                                                    }
+                                                ],
+                                                "nullable": true
+                                            }
+                                        },
+                                        "example": {
+                                            "hive": {
+                                                "@odata.type": "microsoft.graph.registryHive"
+                                            },
+                                            "key": "String",
+                                            "oldKey": "String",
+                                            "oldValueData": "String",
+                                            "oldValueName": "String",
+                                            "operation": {
+                                                "@odata.type": "microsoft.graph.registryOperation"
+                                            },
+                                            "processId": "Int32",
+                                            "valueData": "String",
+                                            "valueName": "String",
+                                            "valueType": {
+                                                "@odata.type": "microsoft.graph.registryValueType"
+                                            }
+                                        }
+                                    }
+                                ],
+                                "nullable": true
+                            }
+                        },
+                        "severity": {
+                            "anyOf": [
+                                {
+                                    "title": "alertSeverity",
+                                    "enum": [
+                                        "unknown",
+                                        "informational",
+                                        "low",
+                                        "medium",
+                                        "high",
+                                        "unknownFutureValue"
+                                    ],
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "sourceMaterials": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "nullable": true
+                            }
+                        },
+                        "status": {
+                            "anyOf": [
+                                {
+                                    "title": "alertStatus",
+                                    "enum": [
+                                        "unknown",
+                                        "newAlert",
+                                        "inProgress",
+                                        "resolved",
+                                        "dismissed",
+                                        "unknownFutureValue"
+                                    ],
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "tags": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "nullable": true
+                            }
+                        },
+                        "title": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "triggers": {
+                            "type": "array",
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "title": "alertTrigger",
+                                        "type": "object",
+                                        "properties": {
+                                            "name": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "type": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "value": {
+                                                "type": "string",
+                                                "nullable": true
+                                            }
+                                        },
+                                        "example": {
+                                            "name": "String",
+                                            "type": "String",
+                                            "value": "String"
+                                        }
+                                    }
+                                ],
+                                "nullable": true
+                            }
+                        },
+                        "userStates": {
+                            "type": "array",
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "title": "userSecurityState",
+                                        "type": "object",
+                                        "properties": {
+                                            "aadUserId": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "accountName": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "domainName": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "emailRole": {
+                                                "anyOf": [
+                                                    {
+                                                        "title": "emailRole",
+                                                        "enum": [
+                                                            "unknown",
+                                                            "sender",
+                                                            "recipient",
+                                                            "unknownFutureValue"
+                                                        ],
+                                                        "type": "string"
+                                                    }
+                                                ],
+                                                "nullable": true
+                                            },
+                                            "isVpn": {
+                                                "type": "boolean",
+                                                "nullable": true
+                                            },
+                                            "logonDateTime": {
+                                                "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                                                "type": "string",
+                                                "format": "date-time",
+                                                "nullable": true
+                                            },
+                                            "logonId": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "logonIp": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "logonLocation": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "logonType": {
+                                                "anyOf": [
+                                                    {
+                                                        "title": "logonType",
+                                                        "enum": [
+                                                            "unknown",
+                                                            "interactive",
+                                                            "remoteInteractive",
+                                                            "network",
+                                                            "batch",
+                                                            "service",
+                                                            "unknownFutureValue"
+                                                        ],
+                                                        "type": "string"
+                                                    }
+                                                ],
+                                                "nullable": true
+                                            },
+                                            "onPremisesSecurityIdentifier": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "riskScore": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "userAccountType": {
+                                                "anyOf": [
+                                                    {
+                                                        "title": "userAccountSecurityType",
+                                                        "enum": [
+                                                            "unknown",
+                                                            "standard",
+                                                            "power",
+                                                            "administrator",
+                                                            "unknownFutureValue"
+                                                        ],
+                                                        "type": "string"
+                                                    }
+                                                ],
+                                                "nullable": true
+                                            },
+                                            "userPrincipalName": {
+                                                "type": "string",
+                                                "nullable": true
+                                            }
+                                        },
+                                        "example": {
+                                            "aadUserId": "String",
+                                            "accountName": "String",
+                                            "domainName": "String",
+                                            "emailRole": {
+                                                "@odata.type": "microsoft.graph.emailRole"
+                                            },
+                                            "isVpn": true,
+                                            "logonDateTime": "DateTimeOffset (timestamp)",
+                                            "logonId": "String",
+                                            "logonIp": "String",
+                                            "logonLocation": "String",
+                                            "logonType": {
+                                                "@odata.type": "microsoft.graph.logonType"
+                                            },
+                                            "onPremisesSecurityIdentifier": "String",
+                                            "riskScore": "String",
+                                            "userAccountType": {
+                                                "@odata.type": "microsoft.graph.userAccountSecurityType"
+                                            },
+                                            "userPrincipalName": "String"
+                                        }
+                                    }
+                                ],
+                                "nullable": true
+                            }
+                        },
+                        "vendorInformation": {
+                            "title": "securityVendorInformation",
+                            "type": "object",
+                            "properties": {
+                                "provider": {
+                                    "type": "string"
+                                },
+                                "providerVersion": {
+                                    "type": "string",
+                                    "nullable": true
+                                },
+                                "subProvider": {
+                                    "type": "string",
+                                    "nullable": true
+                                },
+                                "vendor": {
+                                    "type": "string"
+                                }
+                            },
+                            "example": {
+                                "provider": "String",
+                                "providerVersion": "String",
+                                "subProvider": "String",
+                                "vendor": "String"
+                            }
+                        },
+                        "vulnerabilityStates": {
+                            "type": "array",
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "title": "vulnerabilityState",
+                                        "type": "object",
+                                        "properties": {
+                                            "cve": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "severity": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "wasRunning": {
+                                                "type": "boolean",
+                                                "nullable": true
+                                            }
+                                        },
+                                        "example": {
+                                            "cve": "String",
+                                            "severity": "String",
+                                            "wasRunning": true
+                                        }
+                                    }
+                                ],
+                                "nullable": true
+                            }
+                        }
+                    }
+                }
+            ],
+            "example": {
+                "id": "String (identifier)",
+                "activityGroupName": "String",
+                "assignedTo": "String",
+                "azureSubscriptionId": "String",
+                "azureTenantId": "String",
+                "category": "String",
+                "closedDateTime": "DateTimeOffset (timestamp)",
+                "cloudAppStates": [
+                    {
+                        "@odata.type": "microsoft.graph.cloudAppSecurityState"
+                    }
+                ],
+                "comments": [
+                    "String"
+                ],
+                "confidence": "Int32",
+                "createdDateTime": "DateTimeOffset (timestamp)",
+                "description": "String",
+                "detectionIds": [
+                    "String"
+                ],
+                "eventDateTime": "DateTimeOffset (timestamp)",
+                "feedback": {
+                    "@odata.type": "microsoft.graph.alertFeedback"
+                },
+                "fileStates": [
+                    {
+                        "@odata.type": "microsoft.graph.fileSecurityState"
+                    }
+                ],
+                "hostStates": [
+                    {
+                        "@odata.type": "microsoft.graph.hostSecurityState"
+                    }
+                ],
+                "lastModifiedDateTime": "DateTimeOffset (timestamp)",
+                "malwareStates": [
+                    {
+                        "@odata.type": "microsoft.graph.malwareState"
+                    }
+                ],
+                "networkConnections": [
+                    {
+                        "@odata.type": "microsoft.graph.networkConnection"
+                    }
+                ],
+                "processes": [
+                    {
+                        "@odata.type": "microsoft.graph.process"
+                    }
+                ],
+                "recommendedActions": [
+                    "String"
+                ],
+                "registryKeyStates": [
+                    {
+                        "@odata.type": "microsoft.graph.registryKeyState"
+                    }
+                ],
+                "severity": {
+                    "@odata.type": "microsoft.graph.alertSeverity"
+                },
+                "sourceMaterials": [
+                    "String"
+                ],
+                "status": {
+                    "@odata.type": "microsoft.graph.alertStatus"
+                },
+                "tags": [
+                    "String"
+                ],
+                "title": "String",
+                "triggers": [
+                    {
+                        "@odata.type": "microsoft.graph.alertTrigger"
+                    }
+                ],
+                "userStates": [
+                    {
+                        "@odata.type": "microsoft.graph.userSecurityState"
+                    }
+                ],
+                "vendorInformation": {
+                    "@odata.type": "microsoft.graph.securityVendorInformation"
+                },
+                "vulnerabilityStates": [
+                    {
+                        "@odata.type": "microsoft.graph.vulnerabilityState"
+                    }
+                ]
+            }
+        }
+    }
+}

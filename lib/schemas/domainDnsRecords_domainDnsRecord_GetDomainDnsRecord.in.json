@@ -1,0 +1,34 @@
+{
+    "type": "object",
+    "properties": {
+        "domainDnsRecord_id": {
+            "required": true,
+            "type": "string"
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "isOptional",
+                    "label",
+                    "recordType",
+                    "supportedService",
+                    "ttl"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

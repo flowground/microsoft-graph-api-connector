@@ -1,0 +1,53 @@
+{
+    "type": "object",
+    "properties": {
+        "site_id": {
+            "required": true,
+            "type": "string"
+        },
+        "onenoteSection_id": {
+            "required": true,
+            "type": "string"
+        },
+        "sectionGroup_id": {
+            "required": true,
+            "type": "string"
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "self",
+                    "createdDateTime",
+                    "displayName",
+                    "createdBy",
+                    "lastModifiedBy",
+                    "lastModifiedDateTime",
+                    "sectionsUrl",
+                    "sectionGroupsUrl",
+                    "parentNotebook",
+                    "parentSectionGroup",
+                    "sections",
+                    "sectionGroups"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*",
+                    "parentNotebook",
+                    "parentSectionGroup",
+                    "sections",
+                    "sectionGroups"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

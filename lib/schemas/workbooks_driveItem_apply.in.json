@@ -1,0 +1,105 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "criteria": {
+                    "anyOf": [
+                        {
+                            "title": "workbookFilterCriteria",
+                            "type": "object",
+                            "properties": {
+                                "color": {
+                                    "type": "string",
+                                    "nullable": true
+                                },
+                                "criterion1": {
+                                    "type": "string",
+                                    "nullable": true
+                                },
+                                "criterion2": {
+                                    "type": "string",
+                                    "nullable": true
+                                },
+                                "dynamicCriteria": {
+                                    "type": "string"
+                                },
+                                "filterOn": {
+                                    "type": "string"
+                                },
+                                "icon": {
+                                    "anyOf": [
+                                        {
+                                            "title": "workbookIcon",
+                                            "type": "object",
+                                            "properties": {
+                                                "index": {
+                                                    "maximum": 2147483647,
+                                                    "minimum": -2147483648,
+                                                    "type": "integer",
+                                                    "format": "int32"
+                                                },
+                                                "set": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "example": {
+                                                "index": "Int32",
+                                                "set": "String"
+                                            }
+                                        }
+                                    ],
+                                    "nullable": true
+                                },
+                                "operator": {
+                                    "type": "string"
+                                },
+                                "values": {
+                                    "anyOf": [
+                                        {
+                                            "title": "Json",
+                                            "type": "object"
+                                        }
+                                    ],
+                                    "nullable": true
+                                }
+                            },
+                            "example": {
+                                "color": "String",
+                                "criterion1": "String",
+                                "criterion2": "String",
+                                "dynamicCriteria": "String",
+                                "filterOn": "String",
+                                "icon": {
+                                    "@odata.type": "microsoft.graph.workbookIcon"
+                                },
+                                "operator": "String",
+                                "values": {
+                                    "@odata.type": "microsoft.graph.Json"
+                                }
+                            }
+                        }
+                    ],
+                    "nullable": true
+                }
+            }
+        },
+        "driveItem_id": {
+            "required": true,
+            "type": "string"
+        },
+        "workbookNamedItem_id": {
+            "required": true,
+            "type": "string"
+        },
+        "workbookTable_id": {
+            "required": true,
+            "type": "string"
+        },
+        "workbookTableColumn_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

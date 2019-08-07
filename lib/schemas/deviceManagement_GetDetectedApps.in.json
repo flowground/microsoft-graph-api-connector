@@ -1,0 +1,35 @@
+{
+    "type": "object",
+    "properties": {
+        "detectedApp_id": {
+            "required": true,
+            "type": "string"
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "displayName",
+                    "version",
+                    "sizeInByte",
+                    "deviceCount",
+                    "managedDevices"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*",
+                    "managedDevices"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "type": "object",
+    "properties": {
+        "deviceManagementExchangeConnector_id": {
+            "required": true,
+            "type": "string"
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "lastSyncDateTime",
+                    "status",
+                    "primarySmtpAddress",
+                    "serverName",
+                    "connectorServerName",
+                    "exchangeConnectorType",
+                    "version",
+                    "exchangeAlias",
+                    "exchangeOrganization"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

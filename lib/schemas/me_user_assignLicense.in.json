@@ -1,0 +1,47 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "addLicenses": {
+                    "type": "array",
+                    "items": {
+                        "title": "assignedLicense",
+                        "type": "object",
+                        "properties": {
+                            "disabledPlans": {
+                                "type": "array",
+                                "items": {
+                                    "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+                                    "type": "string",
+                                    "format": "uuid"
+                                }
+                            },
+                            "skuId": {
+                                "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+                                "type": "string",
+                                "format": "uuid",
+                                "nullable": true
+                            }
+                        },
+                        "example": {
+                            "disabledPlans": [
+                                "Guid"
+                            ],
+                            "skuId": "Guid"
+                        }
+                    }
+                },
+                "removeLicenses": {
+                    "type": "array",
+                    "items": {
+                        "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                }
+            }
+        }
+    }
+}

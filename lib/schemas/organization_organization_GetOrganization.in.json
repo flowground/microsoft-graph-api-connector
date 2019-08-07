@@ -1,0 +1,41 @@
+{
+    "type": "object",
+    "properties": {
+        "organization_id": {
+            "required": true,
+            "type": "string"
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "deletedDateTime",
+                    "assignedPlans",
+                    "businessPhones",
+                    "city",
+                    "country",
+                    "countryLetterCode",
+                    "displayName",
+                    "marketingNotificationEmails",
+                    "onPremisesLastSyncDateTime",
+                    "onPremisesSyncEnabled",
+                    "postalCode",
+                    "preferredLanguage",
+                    "privacyProfile",
+                    "provisionedPlans",
+                    "securityComplianceNotificationMails",
+                    "securityComplianceNotificationPhones",
+                    "state",
+                    "street",
+                    "technicalNotificationMails",
+                    "verifiedDomains",
+                    "mobileDeviceManagementAuthority",
+                    "extensions"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

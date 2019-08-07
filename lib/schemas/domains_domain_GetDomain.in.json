@@ -1,0 +1,44 @@
+{
+    "type": "object",
+    "properties": {
+        "domain_id": {
+            "required": true,
+            "type": "string"
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "authenticationType",
+                    "availabilityStatus",
+                    "isAdminManaged",
+                    "isDefault",
+                    "isInitial",
+                    "isRoot",
+                    "isVerified",
+                    "supportedServices",
+                    "state",
+                    "serviceConfigurationRecords",
+                    "verificationDnsRecords",
+                    "domainNameReferences"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*",
+                    "serviceConfigurationRecords",
+                    "verificationDnsRecords",
+                    "domainNameReferences"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

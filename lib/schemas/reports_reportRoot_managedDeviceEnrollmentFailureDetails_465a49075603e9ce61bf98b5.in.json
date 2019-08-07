@@ -1,0 +1,31 @@
+{
+    "type": "object",
+    "properties": {
+        "skip": {
+            "required": true,
+            "maximum": 2147483647,
+            "minimum": -2147483648,
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+        },
+        "top": {
+            "required": true,
+            "maximum": 2147483647,
+            "minimum": -2147483648,
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+        },
+        "filter": {
+            "required": true,
+            "type": "string",
+            "nullable": true
+        },
+        "skipToken": {
+            "required": true,
+            "type": "string",
+            "nullable": true
+        }
+    }
+}

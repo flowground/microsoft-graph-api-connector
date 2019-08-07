@@ -1,0 +1,48 @@
+{
+    "type": "object",
+    "properties": {
+        "columnDefinition_id": {
+            "required": true,
+            "type": "string"
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "boolean",
+                    "calculated",
+                    "choice",
+                    "columnGroup",
+                    "currency",
+                    "dateTime",
+                    "defaultValue",
+                    "description",
+                    "displayName",
+                    "enforceUniqueValues",
+                    "hidden",
+                    "indexed",
+                    "lookup",
+                    "name",
+                    "number",
+                    "personOrGroup",
+                    "readOnly",
+                    "required",
+                    "text"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

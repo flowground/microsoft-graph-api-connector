@@ -1,0 +1,14 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {},
+        "site_id": {
+            "required": true,
+            "type": "string"
+        },
+        "site_id2": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

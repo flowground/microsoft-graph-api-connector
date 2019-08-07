@@ -1,0 +1,34 @@
+{
+    "type": "object",
+    "properties": {
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "inGracePeriodCount",
+                    "configManagerCount",
+                    "unknownDeviceCount",
+                    "notApplicableDeviceCount",
+                    "compliantDeviceCount",
+                    "remediatedDeviceCount",
+                    "nonCompliantDeviceCount",
+                    "errorDeviceCount",
+                    "conflictDeviceCount"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

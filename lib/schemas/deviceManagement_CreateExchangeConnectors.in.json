@@ -1,0 +1,110 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "allOf": [
+                {
+                    "title": "entity",
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        }
+                    },
+                    "example": {
+                        "id": "String (identifier)"
+                    }
+                },
+                {
+                    "title": "deviceManagementExchangeConnector",
+                    "type": "object",
+                    "properties": {
+                        "lastSyncDateTime": {
+                            "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                            "type": "string",
+                            "description": "Last sync time for the Exchange Connector",
+                            "format": "date-time"
+                        },
+                        "status": {
+                            "anyOf": [
+                                {
+                                    "title": "deviceManagementExchangeConnectorStatus",
+                                    "enum": [
+                                        "none",
+                                        "connectionPending",
+                                        "connected",
+                                        "disconnected"
+                                    ],
+                                    "type": "string"
+                                }
+                            ],
+                            "description": "Exchange Connector Status"
+                        },
+                        "primarySmtpAddress": {
+                            "type": "string",
+                            "description": "Email address used to configure the Service To Service Exchange Connector.",
+                            "nullable": true
+                        },
+                        "serverName": {
+                            "type": "string",
+                            "description": "The name of the Exchange server.",
+                            "nullable": true
+                        },
+                        "connectorServerName": {
+                            "type": "string",
+                            "description": "The name of the server hosting the Exchange Connector.",
+                            "nullable": true
+                        },
+                        "exchangeConnectorType": {
+                            "anyOf": [
+                                {
+                                    "title": "deviceManagementExchangeConnectorType",
+                                    "enum": [
+                                        "onPremises",
+                                        "hosted",
+                                        "serviceToService",
+                                        "dedicated"
+                                    ],
+                                    "type": "string"
+                                }
+                            ],
+                            "description": "The type of Exchange Connector Configured."
+                        },
+                        "version": {
+                            "type": "string",
+                            "description": "The version of the ExchangeConnectorAgent",
+                            "nullable": true
+                        },
+                        "exchangeAlias": {
+                            "type": "string",
+                            "description": "An alias assigned to the Exchange server",
+                            "nullable": true
+                        },
+                        "exchangeOrganization": {
+                            "type": "string",
+                            "description": "Exchange Organization to the Exchange server",
+                            "nullable": true
+                        }
+                    },
+                    "description": "Entity which represents a connection to an Exchange environment."
+                }
+            ],
+            "example": {
+                "id": "String (identifier)",
+                "lastSyncDateTime": "DateTimeOffset (timestamp)",
+                "status": {
+                    "@odata.type": "microsoft.graph.deviceManagementExchangeConnectorStatus"
+                },
+                "primarySmtpAddress": "String",
+                "serverName": "String",
+                "connectorServerName": "String",
+                "exchangeConnectorType": {
+                    "@odata.type": "microsoft.graph.deviceManagementExchangeConnectorType"
+                },
+                "version": "String",
+                "exchangeAlias": "String",
+                "exchangeOrganization": "String"
+            }
+        }
+    }
+}

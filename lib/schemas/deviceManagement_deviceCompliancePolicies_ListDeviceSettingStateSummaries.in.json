@@ -1,0 +1,84 @@
+{
+    "type": "object",
+    "properties": {
+        "deviceCompliancePolicy_id": {
+            "required": true,
+            "type": "string"
+        },
+        "_top": {
+            "minimum": 0,
+            "type": "integer"
+        },
+        "_skip": {
+            "minimum": 0,
+            "type": "integer"
+        },
+        "_search": {
+            "type": "string"
+        },
+        "_filter": {
+            "type": "string"
+        },
+        "_count": {
+            "type": "boolean"
+        },
+        "_orderby": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "id desc",
+                    "settingName",
+                    "settingName desc",
+                    "instancePath",
+                    "instancePath desc",
+                    "unknownDeviceCount",
+                    "unknownDeviceCount desc",
+                    "notApplicableDeviceCount",
+                    "notApplicableDeviceCount desc",
+                    "compliantDeviceCount",
+                    "compliantDeviceCount desc",
+                    "remediatedDeviceCount",
+                    "remediatedDeviceCount desc",
+                    "nonCompliantDeviceCount",
+                    "nonCompliantDeviceCount desc",
+                    "errorDeviceCount",
+                    "errorDeviceCount desc",
+                    "conflictDeviceCount",
+                    "conflictDeviceCount desc"
+                ],
+                "type": "string"
+            }
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "settingName",
+                    "instancePath",
+                    "unknownDeviceCount",
+                    "notApplicableDeviceCount",
+                    "compliantDeviceCount",
+                    "remediatedDeviceCount",
+                    "nonCompliantDeviceCount",
+                    "errorDeviceCount",
+                    "conflictDeviceCount"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

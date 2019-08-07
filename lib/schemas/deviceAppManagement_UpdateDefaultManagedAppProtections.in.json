@@ -1,0 +1,600 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "allOf": [
+                {
+                    "allOf": [
+                        {
+                            "allOf": [
+                                {
+                                    "title": "entity",
+                                    "type": "object",
+                                    "properties": {
+                                        "id": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "example": {
+                                        "id": "String (identifier)"
+                                    }
+                                },
+                                {
+                                    "title": "managedAppPolicy",
+                                    "type": "object",
+                                    "properties": {
+                                        "displayName": {
+                                            "type": "string",
+                                            "description": "Policy display name."
+                                        },
+                                        "description": {
+                                            "type": "string",
+                                            "description": "The policy's description.",
+                                            "nullable": true
+                                        },
+                                        "createdDateTime": {
+                                            "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                                            "type": "string",
+                                            "description": "The date and time the policy was created.",
+                                            "format": "date-time"
+                                        },
+                                        "lastModifiedDateTime": {
+                                            "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                                            "type": "string",
+                                            "description": "Last time the policy was modified.",
+                                            "format": "date-time"
+                                        },
+                                        "version": {
+                                            "type": "string",
+                                            "description": "Version of the entity.",
+                                            "nullable": true
+                                        }
+                                    },
+                                    "description": "The ManagedAppPolicy resource represents a base type for platform specific policies."
+                                }
+                            ],
+                            "example": {
+                                "id": "String (identifier)",
+                                "displayName": "String",
+                                "description": "String",
+                                "createdDateTime": "DateTimeOffset (timestamp)",
+                                "lastModifiedDateTime": "DateTimeOffset (timestamp)",
+                                "version": "String"
+                            }
+                        },
+                        {
+                            "title": "managedAppProtection",
+                            "type": "object",
+                            "properties": {
+                                "periodOfflineBeforeAccessCheck": {
+                                    "pattern": "^-?P([0-9]+D)?(T([0-9]+H)?([0-9]+M)?([0-9]+([.][0-9]+)?S)?)?$",
+                                    "type": "string",
+                                    "description": "The period after which access is checked when the device is not connected to the internet.",
+                                    "format": "duration"
+                                },
+                                "periodOnlineBeforeAccessCheck": {
+                                    "pattern": "^-?P([0-9]+D)?(T([0-9]+H)?([0-9]+M)?([0-9]+([.][0-9]+)?S)?)?$",
+                                    "type": "string",
+                                    "description": "The period after which access is checked when the device is connected to the internet.",
+                                    "format": "duration"
+                                },
+                                "allowedInboundDataTransferSources": {
+                                    "anyOf": [
+                                        {
+                                            "title": "managedAppDataTransferLevel",
+                                            "enum": [
+                                                "allApps",
+                                                "managedApps",
+                                                "none"
+                                            ],
+                                            "type": "string"
+                                        }
+                                    ],
+                                    "description": "Sources from which data is allowed to be transferred."
+                                },
+                                "allowedOutboundDataTransferDestinations": {
+                                    "anyOf": [
+                                        {
+                                            "title": "managedAppDataTransferLevel",
+                                            "enum": [
+                                                "allApps",
+                                                "managedApps",
+                                                "none"
+                                            ],
+                                            "type": "string"
+                                        }
+                                    ],
+                                    "description": "Destinations to which data is allowed to be transferred."
+                                },
+                                "organizationalCredentialsRequired": {
+                                    "type": "boolean",
+                                    "description": "Indicates whether organizational credentials are required for app use."
+                                },
+                                "allowedOutboundClipboardSharingLevel": {
+                                    "anyOf": [
+                                        {
+                                            "title": "managedAppClipboardSharingLevel",
+                                            "enum": [
+                                                "allApps",
+                                                "managedAppsWithPasteIn",
+                                                "managedApps",
+                                                "blocked"
+                                            ],
+                                            "type": "string"
+                                        }
+                                    ],
+                                    "description": "The level to which the clipboard may be shared between apps on the managed device."
+                                },
+                                "dataBackupBlocked": {
+                                    "type": "boolean",
+                                    "description": "Indicates whether the backup of a managed app's data is blocked."
+                                },
+                                "deviceComplianceRequired": {
+                                    "type": "boolean",
+                                    "description": "Indicates whether device compliance is required."
+                                },
+                                "managedBrowserToOpenLinksRequired": {
+                                    "type": "boolean",
+                                    "description": "Indicates whether internet links should be opened in the managed browser app."
+                                },
+                                "saveAsBlocked": {
+                                    "type": "boolean",
+                                    "description": "Indicates whether users may use the \"Save As\" menu item to save a copy of protected files."
+                                },
+                                "periodOfflineBeforeWipeIsEnforced": {
+                                    "pattern": "^-?P([0-9]+D)?(T([0-9]+H)?([0-9]+M)?([0-9]+([.][0-9]+)?S)?)?$",
+                                    "type": "string",
+                                    "description": "The amount of time an app is allowed to remain disconnected from the internet before all managed data it is wiped.",
+                                    "format": "duration"
+                                },
+                                "pinRequired": {
+                                    "type": "boolean",
+                                    "description": "Indicates whether an app-level pin is required."
+                                },
+                                "maximumPinRetries": {
+                                    "maximum": 2147483647,
+                                    "minimum": -2147483648,
+                                    "type": "integer",
+                                    "description": "Maximum number of incorrect pin retry attempts before the managed app is either blocked or wiped.",
+                                    "format": "int32"
+                                },
+                                "simplePinBlocked": {
+                                    "type": "boolean",
+                                    "description": "Indicates whether simplePin is blocked."
+                                },
+                                "minimumPinLength": {
+                                    "maximum": 2147483647,
+                                    "minimum": -2147483648,
+                                    "type": "integer",
+                                    "description": "Minimum pin length required for an app-level pin if PinRequired is set to True",
+                                    "format": "int32"
+                                },
+                                "pinCharacterSet": {
+                                    "anyOf": [
+                                        {
+                                            "title": "managedAppPinCharacterSet",
+                                            "enum": [
+                                                "numeric",
+                                                "alphanumericAndSymbol"
+                                            ],
+                                            "type": "string"
+                                        }
+                                    ],
+                                    "description": "Character set which may be used for an app-level pin if PinRequired is set to True."
+                                },
+                                "periodBeforePinReset": {
+                                    "pattern": "^-?P([0-9]+D)?(T([0-9]+H)?([0-9]+M)?([0-9]+([.][0-9]+)?S)?)?$",
+                                    "type": "string",
+                                    "description": "TimePeriod before the all-level pin must be reset if PinRequired is set to True.",
+                                    "format": "duration"
+                                },
+                                "allowedDataStorageLocations": {
+                                    "type": "array",
+                                    "items": {
+                                        "anyOf": [
+                                            {
+                                                "title": "managedAppDataStorageLocation",
+                                                "enum": [
+                                                    "oneDriveForBusiness",
+                                                    "sharePoint",
+                                                    "localStorage"
+                                                ],
+                                                "type": "string"
+                                            }
+                                        ]
+                                    },
+                                    "description": "Data storage locations where a user may store managed data."
+                                },
+                                "contactSyncBlocked": {
+                                    "type": "boolean",
+                                    "description": "Indicates whether contacts can be synced to the user's device."
+                                },
+                                "printBlocked": {
+                                    "type": "boolean",
+                                    "description": "Indicates whether printing is allowed from managed apps."
+                                },
+                                "fingerprintBlocked": {
+                                    "type": "boolean",
+                                    "description": "Indicates whether use of the fingerprint reader is allowed in place of a pin if PinRequired is set to True."
+                                },
+                                "disableAppPinIfDevicePinIsSet": {
+                                    "type": "boolean",
+                                    "description": "Indicates whether use of the app pin is required if the device pin is set."
+                                },
+                                "minimumRequiredOsVersion": {
+                                    "type": "string",
+                                    "description": "Versions less than the specified version will block the managed app from accessing company data.",
+                                    "nullable": true
+                                },
+                                "minimumWarningOsVersion": {
+                                    "type": "string",
+                                    "description": "Versions less than the specified version will result in warning message on the managed app from accessing company data.",
+                                    "nullable": true
+                                },
+                                "minimumRequiredAppVersion": {
+                                    "type": "string",
+                                    "description": "Versions less than the specified version will block the managed app from accessing company data.",
+                                    "nullable": true
+                                },
+                                "minimumWarningAppVersion": {
+                                    "type": "string",
+                                    "description": "Versions less than the specified version will result in warning message on the managed app.",
+                                    "nullable": true
+                                }
+                            },
+                            "description": "Policy used to configure detailed management settings for a specified set of apps"
+                        }
+                    ],
+                    "example": {
+                        "id": "String (identifier)",
+                        "displayName": "String",
+                        "description": "String",
+                        "createdDateTime": "DateTimeOffset (timestamp)",
+                        "lastModifiedDateTime": "DateTimeOffset (timestamp)",
+                        "version": "String",
+                        "periodOfflineBeforeAccessCheck": "Duration",
+                        "periodOnlineBeforeAccessCheck": "Duration",
+                        "allowedInboundDataTransferSources": {
+                            "@odata.type": "microsoft.graph.managedAppDataTransferLevel"
+                        },
+                        "allowedOutboundDataTransferDestinations": {
+                            "@odata.type": "microsoft.graph.managedAppDataTransferLevel"
+                        },
+                        "organizationalCredentialsRequired": true,
+                        "allowedOutboundClipboardSharingLevel": {
+                            "@odata.type": "microsoft.graph.managedAppClipboardSharingLevel"
+                        },
+                        "dataBackupBlocked": true,
+                        "deviceComplianceRequired": true,
+                        "managedBrowserToOpenLinksRequired": true,
+                        "saveAsBlocked": true,
+                        "periodOfflineBeforeWipeIsEnforced": "Duration",
+                        "pinRequired": true,
+                        "maximumPinRetries": "Int32",
+                        "simplePinBlocked": true,
+                        "minimumPinLength": "Int32",
+                        "pinCharacterSet": {
+                            "@odata.type": "microsoft.graph.managedAppPinCharacterSet"
+                        },
+                        "periodBeforePinReset": "Duration",
+                        "allowedDataStorageLocations": [
+                            {
+                                "@odata.type": "microsoft.graph.managedAppDataStorageLocation"
+                            }
+                        ],
+                        "contactSyncBlocked": true,
+                        "printBlocked": true,
+                        "fingerprintBlocked": true,
+                        "disableAppPinIfDevicePinIsSet": true,
+                        "minimumRequiredOsVersion": "String",
+                        "minimumWarningOsVersion": "String",
+                        "minimumRequiredAppVersion": "String",
+                        "minimumWarningAppVersion": "String"
+                    }
+                },
+                {
+                    "title": "defaultManagedAppProtection",
+                    "type": "object",
+                    "properties": {
+                        "appDataEncryptionType": {
+                            "anyOf": [
+                                {
+                                    "title": "managedAppDataEncryptionType",
+                                    "enum": [
+                                        "useDeviceSettings",
+                                        "afterDeviceRestart",
+                                        "whenDeviceLockedExceptOpenFiles",
+                                        "whenDeviceLocked"
+                                    ],
+                                    "type": "string"
+                                }
+                            ],
+                            "description": "Type of encryption which should be used for data in a managed app. (iOS Only)"
+                        },
+                        "screenCaptureBlocked": {
+                            "type": "boolean",
+                            "description": "Indicates whether screen capture is blocked. (Android only)"
+                        },
+                        "encryptAppData": {
+                            "type": "boolean",
+                            "description": "Indicates whether managed-app data should be encrypted. (Android only)"
+                        },
+                        "disableAppEncryptionIfDeviceEncryptionIsEnabled": {
+                            "type": "boolean",
+                            "description": "When this setting is enabled, app level encryption is disabled if device level encryption is enabled. (Android only)"
+                        },
+                        "minimumRequiredSdkVersion": {
+                            "type": "string",
+                            "description": "Versions less than the specified version will block the managed app from accessing company data. (iOS Only)",
+                            "nullable": true
+                        },
+                        "customSettings": {
+                            "type": "array",
+                            "items": {
+                                "title": "keyValuePair",
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "description": "Name for this key-value pair"
+                                    },
+                                    "value": {
+                                        "type": "string",
+                                        "description": "Value for this key-value pair",
+                                        "nullable": true
+                                    }
+                                },
+                                "example": {
+                                    "name": "String",
+                                    "value": "String"
+                                }
+                            },
+                            "description": "A set of string key and string value pairs to be sent to the affected users, unalterned by this service"
+                        },
+                        "deployedAppCount": {
+                            "maximum": 2147483647,
+                            "minimum": -2147483648,
+                            "type": "integer",
+                            "description": "Count of apps to which the current policy is deployed.",
+                            "format": "int32"
+                        },
+                        "minimumRequiredPatchVersion": {
+                            "type": "string",
+                            "description": "Define the oldest required Android security patch level a user can have to gain secure access to the app. (Android only)",
+                            "nullable": true
+                        },
+                        "minimumWarningPatchVersion": {
+                            "type": "string",
+                            "description": "Define the oldest recommended Android security patch level a user can have for secure access to the app. (Android only)",
+                            "nullable": true
+                        },
+                        "faceIdBlocked": {
+                            "type": "boolean",
+                            "description": "Indicates whether use of the FaceID is allowed in place of a pin if PinRequired is set to True. (iOS Only)"
+                        },
+                        "apps": {
+                            "type": "array",
+                            "items": {
+                                "allOf": [
+                                    {
+                                        "title": "entity",
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "example": {
+                                            "id": "String (identifier)"
+                                        }
+                                    },
+                                    {
+                                        "title": "managedMobileApp",
+                                        "type": "object",
+                                        "properties": {
+                                            "mobileAppIdentifier": {
+                                                "anyOf": [
+                                                    {
+                                                        "title": "mobileAppIdentifier",
+                                                        "type": "object"
+                                                    }
+                                                ],
+                                                "description": "The identifier for an app with it's operating system type.",
+                                                "nullable": true
+                                            },
+                                            "version": {
+                                                "type": "string",
+                                                "description": "Version of the entity.",
+                                                "nullable": true
+                                            }
+                                        },
+                                        "description": "The identifier for the deployment an app."
+                                    }
+                                ],
+                                "example": {
+                                    "id": "String (identifier)",
+                                    "mobileAppIdentifier": {
+                                        "@odata.type": "microsoft.graph.mobileAppIdentifier"
+                                    },
+                                    "version": "String"
+                                }
+                            }
+                        },
+                        "deploymentSummary": {
+                            "anyOf": [
+                                {
+                                    "allOf": [
+                                        {
+                                            "title": "entity",
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "example": {
+                                                "id": "String (identifier)"
+                                            }
+                                        },
+                                        {
+                                            "title": "managedAppPolicyDeploymentSummary",
+                                            "type": "object",
+                                            "properties": {
+                                                "displayName": {
+                                                    "type": "string",
+                                                    "nullable": true
+                                                },
+                                                "configurationDeployedUserCount": {
+                                                    "maximum": 2147483647,
+                                                    "minimum": -2147483648,
+                                                    "type": "integer",
+                                                    "format": "int32"
+                                                },
+                                                "lastRefreshTime": {
+                                                    "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                                                    "type": "string",
+                                                    "format": "date-time"
+                                                },
+                                                "configurationDeploymentSummaryPerApp": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "anyOf": [
+                                                            {
+                                                                "title": "managedAppPolicyDeploymentSummaryPerApp",
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "mobileAppIdentifier": {
+                                                                        "anyOf": [
+                                                                            {
+                                                                                "title": "mobileAppIdentifier",
+                                                                                "type": "object"
+                                                                            }
+                                                                        ],
+                                                                        "description": "Deployment of an app.",
+                                                                        "nullable": true
+                                                                    },
+                                                                    "configurationAppliedUserCount": {
+                                                                        "maximum": 2147483647,
+                                                                        "minimum": -2147483648,
+                                                                        "type": "integer",
+                                                                        "description": "Number of users the policy is applied.",
+                                                                        "format": "int32"
+                                                                    }
+                                                                },
+                                                                "example": {
+                                                                    "mobileAppIdentifier": {
+                                                                        "@odata.type": "microsoft.graph.mobileAppIdentifier"
+                                                                    },
+                                                                    "configurationAppliedUserCount": "Int32"
+                                                                }
+                                                            }
+                                                        ],
+                                                        "nullable": true
+                                                    }
+                                                },
+                                                "version": {
+                                                    "type": "string",
+                                                    "description": "Version of the entity.",
+                                                    "nullable": true
+                                                }
+                                            },
+                                            "description": "The ManagedAppEntity is the base entity type for all other entity types under app management workflow."
+                                        }
+                                    ],
+                                    "example": {
+                                        "id": "String (identifier)",
+                                        "displayName": "String",
+                                        "configurationDeployedUserCount": "Int32",
+                                        "lastRefreshTime": "DateTimeOffset (timestamp)",
+                                        "configurationDeploymentSummaryPerApp": [
+                                            {
+                                                "@odata.type": "microsoft.graph.managedAppPolicyDeploymentSummaryPerApp"
+                                            }
+                                        ],
+                                        "version": "String"
+                                    }
+                                }
+                            ],
+                            "nullable": true
+                        }
+                    },
+                    "description": "Policy used to configure detailed management settings for a specified set of apps for all users not targeted by a TargetedManagedAppProtection Policy"
+                }
+            ],
+            "example": {
+                "id": "String (identifier)",
+                "displayName": "String",
+                "description": "String",
+                "createdDateTime": "DateTimeOffset (timestamp)",
+                "lastModifiedDateTime": "DateTimeOffset (timestamp)",
+                "version": "String",
+                "periodOfflineBeforeAccessCheck": "Duration",
+                "periodOnlineBeforeAccessCheck": "Duration",
+                "allowedInboundDataTransferSources": {
+                    "@odata.type": "microsoft.graph.managedAppDataTransferLevel"
+                },
+                "allowedOutboundDataTransferDestinations": {
+                    "@odata.type": "microsoft.graph.managedAppDataTransferLevel"
+                },
+                "organizationalCredentialsRequired": true,
+                "allowedOutboundClipboardSharingLevel": {
+                    "@odata.type": "microsoft.graph.managedAppClipboardSharingLevel"
+                },
+                "dataBackupBlocked": true,
+                "deviceComplianceRequired": true,
+                "managedBrowserToOpenLinksRequired": true,
+                "saveAsBlocked": true,
+                "periodOfflineBeforeWipeIsEnforced": "Duration",
+                "pinRequired": true,
+                "maximumPinRetries": "Int32",
+                "simplePinBlocked": true,
+                "minimumPinLength": "Int32",
+                "pinCharacterSet": {
+                    "@odata.type": "microsoft.graph.managedAppPinCharacterSet"
+                },
+                "periodBeforePinReset": "Duration",
+                "allowedDataStorageLocations": [
+                    {
+                        "@odata.type": "microsoft.graph.managedAppDataStorageLocation"
+                    }
+                ],
+                "contactSyncBlocked": true,
+                "printBlocked": true,
+                "fingerprintBlocked": true,
+                "disableAppPinIfDevicePinIsSet": true,
+                "minimumRequiredOsVersion": "String",
+                "minimumWarningOsVersion": "String",
+                "minimumRequiredAppVersion": "String",
+                "minimumWarningAppVersion": "String",
+                "appDataEncryptionType": {
+                    "@odata.type": "microsoft.graph.managedAppDataEncryptionType"
+                },
+                "screenCaptureBlocked": true,
+                "encryptAppData": true,
+                "disableAppEncryptionIfDeviceEncryptionIsEnabled": true,
+                "minimumRequiredSdkVersion": "String",
+                "customSettings": [
+                    {
+                        "@odata.type": "microsoft.graph.keyValuePair"
+                    }
+                ],
+                "deployedAppCount": "Int32",
+                "minimumRequiredPatchVersion": "String",
+                "minimumWarningPatchVersion": "String",
+                "faceIdBlocked": true,
+                "apps": [
+                    {
+                        "@odata.type": "microsoft.graph.managedMobileApp"
+                    }
+                ],
+                "deploymentSummary": {
+                    "@odata.type": "microsoft.graph.managedAppPolicyDeploymentSummary"
+                }
+            }
+        },
+        "defaultManagedAppProtection_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

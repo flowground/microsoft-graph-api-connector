@@ -1,0 +1,74 @@
+{
+    "type": "object",
+    "properties": {
+        "user_id": {
+            "required": true,
+            "type": "string"
+        },
+        "calendarGroup_id": {
+            "required": true,
+            "type": "string"
+        },
+        "calendar_id": {
+            "required": true,
+            "type": "string"
+        },
+        "event_id": {
+            "required": true,
+            "type": "string"
+        },
+        "event_id2": {
+            "required": true,
+            "type": "string"
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "createdDateTime",
+                    "lastModifiedDateTime",
+                    "changeKey",
+                    "categories",
+                    "originalStartTimeZone",
+                    "originalEndTimeZone",
+                    "responseStatus",
+                    "iCalUId",
+                    "reminderMinutesBeforeStart",
+                    "isReminderOn",
+                    "hasAttachments",
+                    "subject",
+                    "body",
+                    "bodyPreview",
+                    "importance",
+                    "sensitivity",
+                    "start",
+                    "originalStart",
+                    "end",
+                    "location",
+                    "locations",
+                    "isAllDay",
+                    "isCancelled",
+                    "isOrganizer",
+                    "recurrence",
+                    "responseRequested",
+                    "seriesMasterId",
+                    "showAs",
+                    "type",
+                    "attendees",
+                    "organizer",
+                    "webLink",
+                    "onlineMeetingUrl",
+                    "calendar",
+                    "instances",
+                    "extensions",
+                    "attachments",
+                    "singleValueExtendedProperties",
+                    "multiValueExtendedProperties"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

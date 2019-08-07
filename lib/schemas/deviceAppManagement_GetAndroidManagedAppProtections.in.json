@@ -1,0 +1,73 @@
+{
+    "type": "object",
+    "properties": {
+        "androidManagedAppProtection_id": {
+            "required": true,
+            "type": "string"
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "displayName",
+                    "description",
+                    "createdDateTime",
+                    "lastModifiedDateTime",
+                    "version",
+                    "periodOfflineBeforeAccessCheck",
+                    "periodOnlineBeforeAccessCheck",
+                    "allowedInboundDataTransferSources",
+                    "allowedOutboundDataTransferDestinations",
+                    "organizationalCredentialsRequired",
+                    "allowedOutboundClipboardSharingLevel",
+                    "dataBackupBlocked",
+                    "deviceComplianceRequired",
+                    "managedBrowserToOpenLinksRequired",
+                    "saveAsBlocked",
+                    "periodOfflineBeforeWipeIsEnforced",
+                    "pinRequired",
+                    "maximumPinRetries",
+                    "simplePinBlocked",
+                    "minimumPinLength",
+                    "pinCharacterSet",
+                    "periodBeforePinReset",
+                    "allowedDataStorageLocations",
+                    "contactSyncBlocked",
+                    "printBlocked",
+                    "fingerprintBlocked",
+                    "disableAppPinIfDevicePinIsSet",
+                    "minimumRequiredOsVersion",
+                    "minimumWarningOsVersion",
+                    "minimumRequiredAppVersion",
+                    "minimumWarningAppVersion",
+                    "isAssigned",
+                    "screenCaptureBlocked",
+                    "disableAppEncryptionIfDeviceEncryptionIsEnabled",
+                    "encryptAppData",
+                    "deployedAppCount",
+                    "minimumRequiredPatchVersion",
+                    "minimumWarningPatchVersion",
+                    "assignments",
+                    "apps",
+                    "deploymentSummary"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*",
+                    "assignments",
+                    "apps",
+                    "deploymentSummary"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

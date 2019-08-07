@@ -1,0 +1,97 @@
+{
+    "type": "object",
+    "properties": {
+        "group_id": {
+            "required": true,
+            "type": "string"
+        },
+        "_top": {
+            "minimum": 0,
+            "type": "integer"
+        },
+        "_skip": {
+            "minimum": 0,
+            "type": "integer"
+        },
+        "_search": {
+            "type": "string"
+        },
+        "_filter": {
+            "type": "string"
+        },
+        "_count": {
+            "type": "boolean"
+        },
+        "_orderby": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "id desc",
+                    "self",
+                    "self desc",
+                    "createdDateTime",
+                    "createdDateTime desc",
+                    "displayName",
+                    "displayName desc",
+                    "createdBy",
+                    "createdBy desc",
+                    "lastModifiedBy",
+                    "lastModifiedBy desc",
+                    "lastModifiedDateTime",
+                    "lastModifiedDateTime desc",
+                    "isDefault",
+                    "isDefault desc",
+                    "userRole",
+                    "userRole desc",
+                    "isShared",
+                    "isShared desc",
+                    "sectionsUrl",
+                    "sectionsUrl desc",
+                    "sectionGroupsUrl",
+                    "sectionGroupsUrl desc",
+                    "links",
+                    "links desc"
+                ],
+                "type": "string"
+            }
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "self",
+                    "createdDateTime",
+                    "displayName",
+                    "createdBy",
+                    "lastModifiedBy",
+                    "lastModifiedDateTime",
+                    "isDefault",
+                    "userRole",
+                    "isShared",
+                    "sectionsUrl",
+                    "sectionGroupsUrl",
+                    "links",
+                    "sections",
+                    "sectionGroups"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*",
+                    "sections",
+                    "sectionGroups"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

@@ -1,0 +1,1268 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "allOf": [
+                {
+                    "title": "entity",
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        }
+                    },
+                    "example": {
+                        "id": "String (identifier)"
+                    }
+                },
+                {
+                    "title": "managedDevice",
+                    "type": "object",
+                    "properties": {
+                        "userId": {
+                            "type": "string",
+                            "description": "Unique Identifier for the user associated with the device",
+                            "nullable": true
+                        },
+                        "deviceName": {
+                            "type": "string",
+                            "description": "Name of the device",
+                            "nullable": true
+                        },
+                        "managedDeviceOwnerType": {
+                            "anyOf": [
+                                {
+                                    "title": "managedDeviceOwnerType",
+                                    "enum": [
+                                        "unknown",
+                                        "company",
+                                        "personal"
+                                    ],
+                                    "type": "string"
+                                }
+                            ],
+                            "description": "Ownership of the device. Can be 'company' or 'personal'"
+                        },
+                        "deviceActionResults": {
+                            "type": "array",
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "title": "deviceActionResult",
+                                        "type": "object",
+                                        "properties": {
+                                            "actionName": {
+                                                "type": "string",
+                                                "description": "Action name",
+                                                "nullable": true
+                                            },
+                                            "actionState": {
+                                                "anyOf": [
+                                                    {
+                                                        "title": "actionState",
+                                                        "enum": [
+                                                            "none",
+                                                            "pending",
+                                                            "canceled",
+                                                            "active",
+                                                            "done",
+                                                            "failed",
+                                                            "notSupported"
+                                                        ],
+                                                        "type": "string"
+                                                    }
+                                                ],
+                                                "description": "State of the action"
+                                            },
+                                            "startDateTime": {
+                                                "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                                                "type": "string",
+                                                "description": "Time the action was initiated",
+                                                "format": "date-time"
+                                            },
+                                            "lastUpdatedDateTime": {
+                                                "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                                                "type": "string",
+                                                "description": "Time the action state was last updated",
+                                                "format": "date-time"
+                                            }
+                                        },
+                                        "example": {
+                                            "actionName": "String",
+                                            "actionState": {
+                                                "@odata.type": "microsoft.graph.actionState"
+                                            },
+                                            "startDateTime": "DateTimeOffset (timestamp)",
+                                            "lastUpdatedDateTime": "DateTimeOffset (timestamp)"
+                                        }
+                                    }
+                                ],
+                                "nullable": true
+                            },
+                            "description": "List of ComplexType deviceActionResult objects."
+                        },
+                        "enrolledDateTime": {
+                            "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                            "type": "string",
+                            "description": "Enrollment time of the device.",
+                            "format": "date-time"
+                        },
+                        "lastSyncDateTime": {
+                            "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                            "type": "string",
+                            "description": "The date and time that the device last completed a successful sync with Intune.",
+                            "format": "date-time"
+                        },
+                        "operatingSystem": {
+                            "type": "string",
+                            "description": "Operating system of the device. Windows, iOS, etc.",
+                            "nullable": true
+                        },
+                        "complianceState": {
+                            "anyOf": [
+                                {
+                                    "title": "complianceState",
+                                    "enum": [
+                                        "unknown",
+                                        "compliant",
+                                        "noncompliant",
+                                        "conflict",
+                                        "error",
+                                        "inGracePeriod",
+                                        "configManager"
+                                    ],
+                                    "type": "string"
+                                }
+                            ],
+                            "description": "Compliance state of the device."
+                        },
+                        "jailBroken": {
+                            "type": "string",
+                            "description": "whether the device is jail broken or rooted.",
+                            "nullable": true
+                        },
+                        "managementAgent": {
+                            "anyOf": [
+                                {
+                                    "title": "managementAgentType",
+                                    "enum": [
+                                        "eas",
+                                        "mdm",
+                                        "easMdm",
+                                        "intuneClient",
+                                        "easIntuneClient",
+                                        "configurationManagerClient",
+                                        "configurationManagerClientMdm",
+                                        "configurationManagerClientMdmEas",
+                                        "unknown",
+                                        "jamf",
+                                        "googleCloudDevicePolicyController"
+                                    ],
+                                    "type": "string"
+                                }
+                            ],
+                            "description": "Management channel of the device. Intune, EAS, etc."
+                        },
+                        "osVersion": {
+                            "type": "string",
+                            "description": "Operating system version of the device.",
+                            "nullable": true
+                        },
+                        "easActivated": {
+                            "type": "boolean",
+                            "description": "Whether the device is Exchange ActiveSync activated."
+                        },
+                        "easDeviceId": {
+                            "type": "string",
+                            "description": "Exchange ActiveSync Id of the device.",
+                            "nullable": true
+                        },
+                        "easActivationDateTime": {
+                            "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                            "type": "string",
+                            "description": "Exchange ActivationSync activation time of the device.",
+                            "format": "date-time"
+                        },
+                        "azureADRegistered": {
+                            "type": "boolean",
+                            "description": "Whether the device is Azure Active Directory registered.",
+                            "nullable": true
+                        },
+                        "deviceEnrollmentType": {
+                            "anyOf": [
+                                {
+                                    "title": "deviceEnrollmentType",
+                                    "enum": [
+                                        "unknown",
+                                        "userEnrollment",
+                                        "deviceEnrollmentManager",
+                                        "appleBulkWithUser",
+                                        "appleBulkWithoutUser",
+                                        "windowsAzureADJoin",
+                                        "windowsBulkUserless",
+                                        "windowsAutoEnrollment",
+                                        "windowsBulkAzureDomainJoin",
+                                        "windowsCoManagement"
+                                    ],
+                                    "type": "string"
+                                }
+                            ],
+                            "description": "Enrollment type of the device."
+                        },
+                        "activationLockBypassCode": {
+                            "type": "string",
+                            "description": "Code that allows the Activation Lock on a device to be bypassed.",
+                            "nullable": true
+                        },
+                        "emailAddress": {
+                            "type": "string",
+                            "description": "Email(s) for the user associated with the device",
+                            "nullable": true
+                        },
+                        "azureADDeviceId": {
+                            "type": "string",
+                            "description": "The unique identifier for the Azure Active Directory device. Read only.",
+                            "nullable": true
+                        },
+                        "deviceRegistrationState": {
+                            "anyOf": [
+                                {
+                                    "title": "deviceRegistrationState",
+                                    "enum": [
+                                        "notRegistered",
+                                        "registered",
+                                        "revoked",
+                                        "keyConflict",
+                                        "approvalPending",
+                                        "certificateReset",
+                                        "notRegisteredPendingEnrollment",
+                                        "unknown"
+                                    ],
+                                    "type": "string"
+                                }
+                            ],
+                            "description": "Device registration state."
+                        },
+                        "deviceCategoryDisplayName": {
+                            "type": "string",
+                            "description": "Device category display name",
+                            "nullable": true
+                        },
+                        "isSupervised": {
+                            "type": "boolean",
+                            "description": "Device supervised status"
+                        },
+                        "exchangeLastSuccessfulSyncDateTime": {
+                            "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                            "type": "string",
+                            "description": "Last time the device contacted Exchange.",
+                            "format": "date-time"
+                        },
+                        "exchangeAccessState": {
+                            "anyOf": [
+                                {
+                                    "title": "deviceManagementExchangeAccessState",
+                                    "enum": [
+                                        "none",
+                                        "unknown",
+                                        "allowed",
+                                        "blocked",
+                                        "quarantined"
+                                    ],
+                                    "type": "string"
+                                }
+                            ],
+                            "description": "The Access State of the device in Exchange."
+                        },
+                        "exchangeAccessStateReason": {
+                            "anyOf": [
+                                {
+                                    "title": "deviceManagementExchangeAccessStateReason",
+                                    "enum": [
+                                        "none",
+                                        "unknown",
+                                        "exchangeGlobalRule",
+                                        "exchangeIndividualRule",
+                                        "exchangeDeviceRule",
+                                        "exchangeUpgrade",
+                                        "exchangeMailboxPolicy",
+                                        "other",
+                                        "compliant",
+                                        "notCompliant",
+                                        "notEnrolled",
+                                        "unknownLocation",
+                                        "mfaRequired",
+                                        "azureADBlockDueToAccessPolicy",
+                                        "compromisedPassword",
+                                        "deviceNotKnownWithManagedApp"
+                                    ],
+                                    "type": "string"
+                                }
+                            ],
+                            "description": "The reason for the device's access state in Exchange."
+                        },
+                        "remoteAssistanceSessionUrl": {
+                            "type": "string",
+                            "description": "Url that allows a Remote Assistance session to be established with the device.",
+                            "nullable": true
+                        },
+                        "remoteAssistanceSessionErrorDetails": {
+                            "type": "string",
+                            "description": "An error string that identifies issues when creating Remote Assistance session objects.",
+                            "nullable": true
+                        },
+                        "isEncrypted": {
+                            "type": "boolean",
+                            "description": "Device encryption status"
+                        },
+                        "userPrincipalName": {
+                            "type": "string",
+                            "description": "Device user principal name",
+                            "nullable": true
+                        },
+                        "model": {
+                            "type": "string",
+                            "description": "Model of the device",
+                            "nullable": true
+                        },
+                        "manufacturer": {
+                            "type": "string",
+                            "description": "Manufacturer of the device",
+                            "nullable": true
+                        },
+                        "imei": {
+                            "type": "string",
+                            "description": "IMEI",
+                            "nullable": true
+                        },
+                        "complianceGracePeriodExpirationDateTime": {
+                            "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                            "type": "string",
+                            "description": "The DateTime when device compliance grace period expires",
+                            "format": "date-time"
+                        },
+                        "serialNumber": {
+                            "type": "string",
+                            "description": "SerialNumber",
+                            "nullable": true
+                        },
+                        "phoneNumber": {
+                            "type": "string",
+                            "description": "Phone number of the device",
+                            "nullable": true
+                        },
+                        "androidSecurityPatchLevel": {
+                            "type": "string",
+                            "description": "Android security patch level",
+                            "nullable": true
+                        },
+                        "userDisplayName": {
+                            "type": "string",
+                            "description": "User display name",
+                            "nullable": true
+                        },
+                        "configurationManagerClientEnabledFeatures": {
+                            "anyOf": [
+                                {
+                                    "title": "configurationManagerClientEnabledFeatures",
+                                    "type": "object",
+                                    "properties": {
+                                        "inventory": {
+                                            "type": "boolean",
+                                            "description": "Whether inventory is managed by Intune"
+                                        },
+                                        "modernApps": {
+                                            "type": "boolean",
+                                            "description": "Whether modern application is managed by Intune"
+                                        },
+                                        "resourceAccess": {
+                                            "type": "boolean",
+                                            "description": "Whether resource access is managed by Intune"
+                                        },
+                                        "deviceConfiguration": {
+                                            "type": "boolean",
+                                            "description": "Whether device configuration is managed by Intune"
+                                        },
+                                        "compliancePolicy": {
+                                            "type": "boolean",
+                                            "description": "Whether compliance policy is managed by Intune"
+                                        },
+                                        "windowsUpdateForBusiness": {
+                                            "type": "boolean",
+                                            "description": "Whether Windows Update for Business is managed by Intune"
+                                        }
+                                    },
+                                    "example": {
+                                        "inventory": true,
+                                        "modernApps": true,
+                                        "resourceAccess": true,
+                                        "deviceConfiguration": true,
+                                        "compliancePolicy": true,
+                                        "windowsUpdateForBusiness": true
+                                    }
+                                }
+                            ],
+                            "description": "ConfigrMgr client enabled features",
+                            "nullable": true
+                        },
+                        "wiFiMacAddress": {
+                            "type": "string",
+                            "description": "Wi-Fi MAC",
+                            "nullable": true
+                        },
+                        "deviceHealthAttestationState": {
+                            "anyOf": [
+                                {
+                                    "title": "deviceHealthAttestationState",
+                                    "type": "object",
+                                    "properties": {
+                                        "lastUpdateDateTime": {
+                                            "type": "string",
+                                            "description": "The Timestamp of the last update.",
+                                            "nullable": true
+                                        },
+                                        "contentNamespaceUrl": {
+                                            "type": "string",
+                                            "description": "The DHA report version. (Namespace version)",
+                                            "nullable": true
+                                        },
+                                        "deviceHealthAttestationStatus": {
+                                            "type": "string",
+                                            "description": "The DHA report version. (Namespace version)",
+                                            "nullable": true
+                                        },
+                                        "contentVersion": {
+                                            "type": "string",
+                                            "description": "The HealthAttestation state schema version",
+                                            "nullable": true
+                                        },
+                                        "issuedDateTime": {
+                                            "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                                            "type": "string",
+                                            "description": "The DateTime when device was evaluated or issued to MDM",
+                                            "format": "date-time"
+                                        },
+                                        "attestationIdentityKey": {
+                                            "type": "string",
+                                            "description": "TWhen an Attestation Identity Key (AIK) is present on a device, it indicates that the device has an endorsement key (EK) certificate.",
+                                            "nullable": true
+                                        },
+                                        "resetCount": {
+                                            "type": "integer",
+                                            "description": "The number of times a PC device has hibernated or resumed",
+                                            "format": "int64"
+                                        },
+                                        "restartCount": {
+                                            "type": "integer",
+                                            "description": "The number of times a PC device has rebooted",
+                                            "format": "int64"
+                                        },
+                                        "dataExcutionPolicy": {
+                                            "type": "string",
+                                            "description": "DEP Policy defines a set of hardware and software technologies that perform additional checks on memory ",
+                                            "nullable": true
+                                        },
+                                        "bitLockerStatus": {
+                                            "type": "string",
+                                            "description": "On or Off of BitLocker Drive Encryption",
+                                            "nullable": true
+                                        },
+                                        "bootManagerVersion": {
+                                            "type": "string",
+                                            "description": "The version of the Boot Manager",
+                                            "nullable": true
+                                        },
+                                        "codeIntegrityCheckVersion": {
+                                            "type": "string",
+                                            "description": "The version of the Boot Manager",
+                                            "nullable": true
+                                        },
+                                        "secureBoot": {
+                                            "type": "string",
+                                            "description": "When Secure Boot is enabled, the core components must have the correct cryptographic signatures",
+                                            "nullable": true
+                                        },
+                                        "bootDebugging": {
+                                            "type": "string",
+                                            "description": "When bootDebugging is enabled, the device is used in development and testing",
+                                            "nullable": true
+                                        },
+                                        "operatingSystemKernelDebugging": {
+                                            "type": "string",
+                                            "description": "When operatingSystemKernelDebugging is enabled, the device is used in development and testing",
+                                            "nullable": true
+                                        },
+                                        "codeIntegrity": {
+                                            "type": "string",
+                                            "description": " When code integrity is enabled, code execution is restricted to integrity verified code",
+                                            "nullable": true
+                                        },
+                                        "testSigning": {
+                                            "type": "string",
+                                            "description": "When test signing is allowed, the device does not enforce signature validation during boot",
+                                            "nullable": true
+                                        },
+                                        "safeMode": {
+                                            "type": "string",
+                                            "description": "Safe mode is a troubleshooting option for Windows that starts your computer in a limited state",
+                                            "nullable": true
+                                        },
+                                        "windowsPE": {
+                                            "type": "string",
+                                            "description": "Operating system running with limited services that is used to prepare a computer for Windows",
+                                            "nullable": true
+                                        },
+                                        "earlyLaunchAntiMalwareDriverProtection": {
+                                            "type": "string",
+                                            "description": "ELAM provides protection for the computers in your network when they start up",
+                                            "nullable": true
+                                        },
+                                        "virtualSecureMode": {
+                                            "type": "string",
+                                            "description": "VSM is a container that protects high value assets from a compromised kernel",
+                                            "nullable": true
+                                        },
+                                        "pcrHashAlgorithm": {
+                                            "type": "string",
+                                            "description": "Informational attribute that identifies the HASH algorithm that was used by TPM",
+                                            "nullable": true
+                                        },
+                                        "bootAppSecurityVersion": {
+                                            "type": "string",
+                                            "description": "The security version number of the Boot Application",
+                                            "nullable": true
+                                        },
+                                        "bootManagerSecurityVersion": {
+                                            "type": "string",
+                                            "description": "The security version number of the Boot Application",
+                                            "nullable": true
+                                        },
+                                        "tpmVersion": {
+                                            "type": "string",
+                                            "description": "The security version number of the Boot Application",
+                                            "nullable": true
+                                        },
+                                        "pcr0": {
+                                            "type": "string",
+                                            "description": "The measurement that is captured in PCR[0]",
+                                            "nullable": true
+                                        },
+                                        "secureBootConfigurationPolicyFingerPrint": {
+                                            "type": "string",
+                                            "description": "Fingerprint of the Custom Secure Boot Configuration Policy",
+                                            "nullable": true
+                                        },
+                                        "codeIntegrityPolicy": {
+                                            "type": "string",
+                                            "description": "The Code Integrity policy that is controlling the security of the boot environment",
+                                            "nullable": true
+                                        },
+                                        "bootRevisionListInfo": {
+                                            "type": "string",
+                                            "description": "The Boot Revision List that was loaded during initial boot on the attested device",
+                                            "nullable": true
+                                        },
+                                        "operatingSystemRevListInfo": {
+                                            "type": "string",
+                                            "description": "The Operating System Revision List that was loaded during initial boot on the attested device",
+                                            "nullable": true
+                                        },
+                                        "healthStatusMismatchInfo": {
+                                            "type": "string",
+                                            "description": "This attribute appears if DHA-Service detects an integrity issue",
+                                            "nullable": true
+                                        },
+                                        "healthAttestationSupportedStatus": {
+                                            "type": "string",
+                                            "description": "This attribute indicates if DHA is supported for the device",
+                                            "nullable": true
+                                        }
+                                    },
+                                    "example": {
+                                        "lastUpdateDateTime": "String",
+                                        "contentNamespaceUrl": "String",
+                                        "deviceHealthAttestationStatus": "String",
+                                        "contentVersion": "String",
+                                        "issuedDateTime": "DateTimeOffset (timestamp)",
+                                        "attestationIdentityKey": "String",
+                                        "resetCount": "Int64",
+                                        "restartCount": "Int64",
+                                        "dataExcutionPolicy": "String",
+                                        "bitLockerStatus": "String",
+                                        "bootManagerVersion": "String",
+                                        "codeIntegrityCheckVersion": "String",
+                                        "secureBoot": "String",
+                                        "bootDebugging": "String",
+                                        "operatingSystemKernelDebugging": "String",
+                                        "codeIntegrity": "String",
+                                        "testSigning": "String",
+                                        "safeMode": "String",
+                                        "windowsPE": "String",
+                                        "earlyLaunchAntiMalwareDriverProtection": "String",
+                                        "virtualSecureMode": "String",
+                                        "pcrHashAlgorithm": "String",
+                                        "bootAppSecurityVersion": "String",
+                                        "bootManagerSecurityVersion": "String",
+                                        "tpmVersion": "String",
+                                        "pcr0": "String",
+                                        "secureBootConfigurationPolicyFingerPrint": "String",
+                                        "codeIntegrityPolicy": "String",
+                                        "bootRevisionListInfo": "String",
+                                        "operatingSystemRevListInfo": "String",
+                                        "healthStatusMismatchInfo": "String",
+                                        "healthAttestationSupportedStatus": "String"
+                                    }
+                                }
+                            ],
+                            "description": "The device health attestation state.",
+                            "nullable": true
+                        },
+                        "subscriberCarrier": {
+                            "type": "string",
+                            "description": "Subscriber Carrier",
+                            "nullable": true
+                        },
+                        "meid": {
+                            "type": "string",
+                            "description": "MEID",
+                            "nullable": true
+                        },
+                        "totalStorageSpaceInBytes": {
+                            "type": "integer",
+                            "description": "Total Storage in Bytes",
+                            "format": "int64"
+                        },
+                        "freeStorageSpaceInBytes": {
+                            "type": "integer",
+                            "description": "Free Storage in Bytes",
+                            "format": "int64"
+                        },
+                        "managedDeviceName": {
+                            "type": "string",
+                            "description": "Automatically generated name to identify a device. Can be overwritten to a user friendly name.",
+                            "nullable": true
+                        },
+                        "partnerReportedThreatState": {
+                            "anyOf": [
+                                {
+                                    "title": "managedDevicePartnerReportedHealthState",
+                                    "enum": [
+                                        "unknown",
+                                        "activated",
+                                        "deactivated",
+                                        "secured",
+                                        "lowSeverity",
+                                        "mediumSeverity",
+                                        "highSeverity",
+                                        "unresponsive",
+                                        "compromised",
+                                        "misconfigured"
+                                    ],
+                                    "type": "string"
+                                }
+                            ],
+                            "description": "Indicates the threat state of a device when a Mobile Threat Defense partner is in use by the account and device. Read Only."
+                        },
+                        "deviceConfigurationStates": {
+                            "type": "array",
+                            "items": {
+                                "allOf": [
+                                    {
+                                        "title": "entity",
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "example": {
+                                            "id": "String (identifier)"
+                                        }
+                                    },
+                                    {
+                                        "title": "deviceConfigurationState",
+                                        "type": "object",
+                                        "properties": {
+                                            "settingStates": {
+                                                "type": "array",
+                                                "items": {
+                                                    "anyOf": [
+                                                        {
+                                                            "title": "deviceConfigurationSettingState",
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "setting": {
+                                                                    "type": "string",
+                                                                    "description": "The setting that is being reported",
+                                                                    "nullable": true
+                                                                },
+                                                                "settingName": {
+                                                                    "type": "string",
+                                                                    "description": "Localized/user friendly setting name that is being reported",
+                                                                    "nullable": true
+                                                                },
+                                                                "instanceDisplayName": {
+                                                                    "type": "string",
+                                                                    "description": "Name of setting instance that is being reported.",
+                                                                    "nullable": true
+                                                                },
+                                                                "state": {
+                                                                    "anyOf": [
+                                                                        {
+                                                                            "title": "complianceStatus",
+                                                                            "enum": [
+                                                                                "unknown",
+                                                                                "notApplicable",
+                                                                                "compliant",
+                                                                                "remediated",
+                                                                                "nonCompliant",
+                                                                                "error",
+                                                                                "conflict",
+                                                                                "notAssigned"
+                                                                            ],
+                                                                            "type": "string"
+                                                                        }
+                                                                    ],
+                                                                    "description": "The compliance state of the setting"
+                                                                },
+                                                                "errorCode": {
+                                                                    "type": "integer",
+                                                                    "description": "Error code for the setting",
+                                                                    "format": "int64"
+                                                                },
+                                                                "errorDescription": {
+                                                                    "type": "string",
+                                                                    "description": "Error description",
+                                                                    "nullable": true
+                                                                },
+                                                                "userId": {
+                                                                    "type": "string",
+                                                                    "description": "UserId",
+                                                                    "nullable": true
+                                                                },
+                                                                "userName": {
+                                                                    "type": "string",
+                                                                    "description": "UserName",
+                                                                    "nullable": true
+                                                                },
+                                                                "userEmail": {
+                                                                    "type": "string",
+                                                                    "description": "UserEmail",
+                                                                    "nullable": true
+                                                                },
+                                                                "userPrincipalName": {
+                                                                    "type": "string",
+                                                                    "description": "UserPrincipalName.",
+                                                                    "nullable": true
+                                                                },
+                                                                "sources": {
+                                                                    "type": "array",
+                                                                    "items": {
+                                                                        "anyOf": [
+                                                                            {
+                                                                                "title": "settingSource",
+                                                                                "type": "object",
+                                                                                "properties": {
+                                                                                    "id": {
+                                                                                        "type": "string",
+                                                                                        "nullable": true
+                                                                                    },
+                                                                                    "displayName": {
+                                                                                        "type": "string",
+                                                                                        "nullable": true
+                                                                                    }
+                                                                                },
+                                                                                "example": {
+                                                                                    "id": "String",
+                                                                                    "displayName": "String"
+                                                                                }
+                                                                            }
+                                                                        ],
+                                                                        "nullable": true
+                                                                    },
+                                                                    "description": "Contributing policies"
+                                                                },
+                                                                "currentValue": {
+                                                                    "type": "string",
+                                                                    "description": "Current value of setting on device",
+                                                                    "nullable": true
+                                                                }
+                                                            },
+                                                            "example": {
+                                                                "setting": "String",
+                                                                "settingName": "String",
+                                                                "instanceDisplayName": "String",
+                                                                "state": {
+                                                                    "@odata.type": "microsoft.graph.complianceStatus"
+                                                                },
+                                                                "errorCode": "Int64",
+                                                                "errorDescription": "String",
+                                                                "userId": "String",
+                                                                "userName": "String",
+                                                                "userEmail": "String",
+                                                                "userPrincipalName": "String",
+                                                                "sources": [
+                                                                    {
+                                                                        "@odata.type": "microsoft.graph.settingSource"
+                                                                    }
+                                                                ],
+                                                                "currentValue": "String"
+                                                            }
+                                                        }
+                                                    ],
+                                                    "nullable": true
+                                                }
+                                            },
+                                            "displayName": {
+                                                "type": "string",
+                                                "description": "The name of the policy for this policyBase",
+                                                "nullable": true
+                                            },
+                                            "version": {
+                                                "maximum": 2147483647,
+                                                "minimum": -2147483648,
+                                                "type": "integer",
+                                                "description": "The version of the policy",
+                                                "format": "int32"
+                                            },
+                                            "platformType": {
+                                                "anyOf": [
+                                                    {
+                                                        "title": "policyPlatformType",
+                                                        "enum": [
+                                                            "android",
+                                                            "iOS",
+                                                            "macOS",
+                                                            "windowsPhone81",
+                                                            "windows81AndLater",
+                                                            "windows10AndLater",
+                                                            "androidWorkProfile",
+                                                            "all"
+                                                        ],
+                                                        "type": "string"
+                                                    }
+                                                ],
+                                                "description": "Platform type that the policy applies to"
+                                            },
+                                            "state": {
+                                                "anyOf": [
+                                                    {
+                                                        "title": "complianceStatus",
+                                                        "enum": [
+                                                            "unknown",
+                                                            "notApplicable",
+                                                            "compliant",
+                                                            "remediated",
+                                                            "nonCompliant",
+                                                            "error",
+                                                            "conflict",
+                                                            "notAssigned"
+                                                        ],
+                                                        "type": "string"
+                                                    }
+                                                ],
+                                                "description": "The compliance state of the policy"
+                                            },
+                                            "settingCount": {
+                                                "maximum": 2147483647,
+                                                "minimum": -2147483648,
+                                                "type": "integer",
+                                                "description": "Count of how many setting a policy holds",
+                                                "format": "int32"
+                                            }
+                                        },
+                                        "description": "Device Configuration State for a given device."
+                                    }
+                                ],
+                                "example": {
+                                    "id": "String (identifier)",
+                                    "settingStates": [
+                                        {
+                                            "@odata.type": "microsoft.graph.deviceConfigurationSettingState"
+                                        }
+                                    ],
+                                    "displayName": "String",
+                                    "version": "Int32",
+                                    "platformType": {
+                                        "@odata.type": "microsoft.graph.policyPlatformType"
+                                    },
+                                    "state": {
+                                        "@odata.type": "microsoft.graph.complianceStatus"
+                                    },
+                                    "settingCount": "Int32"
+                                }
+                            }
+                        },
+                        "deviceCategory": {
+                            "anyOf": [
+                                {
+                                    "allOf": [
+                                        {
+                                            "title": "entity",
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "example": {
+                                                "id": "String (identifier)"
+                                            }
+                                        },
+                                        {
+                                            "title": "deviceCategory",
+                                            "type": "object",
+                                            "properties": {
+                                                "displayName": {
+                                                    "type": "string",
+                                                    "description": "Display name for the device category.",
+                                                    "nullable": true
+                                                },
+                                                "description": {
+                                                    "type": "string",
+                                                    "description": "Optional description for the device category.",
+                                                    "nullable": true
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "example": {
+                                        "id": "String (identifier)",
+                                        "displayName": "String",
+                                        "description": "String"
+                                    }
+                                }
+                            ],
+                            "nullable": true
+                        },
+                        "deviceCompliancePolicyStates": {
+                            "type": "array",
+                            "items": {
+                                "allOf": [
+                                    {
+                                        "title": "entity",
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "example": {
+                                            "id": "String (identifier)"
+                                        }
+                                    },
+                                    {
+                                        "title": "deviceCompliancePolicyState",
+                                        "type": "object",
+                                        "properties": {
+                                            "settingStates": {
+                                                "type": "array",
+                                                "items": {
+                                                    "anyOf": [
+                                                        {
+                                                            "title": "deviceCompliancePolicySettingState",
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "setting": {
+                                                                    "type": "string",
+                                                                    "description": "The setting that is being reported",
+                                                                    "nullable": true
+                                                                },
+                                                                "settingName": {
+                                                                    "type": "string",
+                                                                    "description": "Localized/user friendly setting name that is being reported",
+                                                                    "nullable": true
+                                                                },
+                                                                "instanceDisplayName": {
+                                                                    "type": "string",
+                                                                    "description": "Name of setting instance that is being reported.",
+                                                                    "nullable": true
+                                                                },
+                                                                "state": {
+                                                                    "anyOf": [
+                                                                        {
+                                                                            "title": "complianceStatus",
+                                                                            "enum": [
+                                                                                "unknown",
+                                                                                "notApplicable",
+                                                                                "compliant",
+                                                                                "remediated",
+                                                                                "nonCompliant",
+                                                                                "error",
+                                                                                "conflict",
+                                                                                "notAssigned"
+                                                                            ],
+                                                                            "type": "string"
+                                                                        }
+                                                                    ],
+                                                                    "description": "The compliance state of the setting"
+                                                                },
+                                                                "errorCode": {
+                                                                    "type": "integer",
+                                                                    "description": "Error code for the setting",
+                                                                    "format": "int64"
+                                                                },
+                                                                "errorDescription": {
+                                                                    "type": "string",
+                                                                    "description": "Error description",
+                                                                    "nullable": true
+                                                                },
+                                                                "userId": {
+                                                                    "type": "string",
+                                                                    "description": "UserId",
+                                                                    "nullable": true
+                                                                },
+                                                                "userName": {
+                                                                    "type": "string",
+                                                                    "description": "UserName",
+                                                                    "nullable": true
+                                                                },
+                                                                "userEmail": {
+                                                                    "type": "string",
+                                                                    "description": "UserEmail",
+                                                                    "nullable": true
+                                                                },
+                                                                "userPrincipalName": {
+                                                                    "type": "string",
+                                                                    "description": "UserPrincipalName.",
+                                                                    "nullable": true
+                                                                },
+                                                                "sources": {
+                                                                    "type": "array",
+                                                                    "items": {
+                                                                        "anyOf": [
+                                                                            {
+                                                                                "title": "settingSource",
+                                                                                "type": "object",
+                                                                                "properties": {
+                                                                                    "id": {
+                                                                                        "type": "string",
+                                                                                        "nullable": true
+                                                                                    },
+                                                                                    "displayName": {
+                                                                                        "type": "string",
+                                                                                        "nullable": true
+                                                                                    }
+                                                                                },
+                                                                                "example": {
+                                                                                    "id": "String",
+                                                                                    "displayName": "String"
+                                                                                }
+                                                                            }
+                                                                        ],
+                                                                        "nullable": true
+                                                                    },
+                                                                    "description": "Contributing policies"
+                                                                },
+                                                                "currentValue": {
+                                                                    "type": "string",
+                                                                    "description": "Current value of setting on device",
+                                                                    "nullable": true
+                                                                }
+                                                            },
+                                                            "example": {
+                                                                "setting": "String",
+                                                                "settingName": "String",
+                                                                "instanceDisplayName": "String",
+                                                                "state": {
+                                                                    "@odata.type": "microsoft.graph.complianceStatus"
+                                                                },
+                                                                "errorCode": "Int64",
+                                                                "errorDescription": "String",
+                                                                "userId": "String",
+                                                                "userName": "String",
+                                                                "userEmail": "String",
+                                                                "userPrincipalName": "String",
+                                                                "sources": [
+                                                                    {
+                                                                        "@odata.type": "microsoft.graph.settingSource"
+                                                                    }
+                                                                ],
+                                                                "currentValue": "String"
+                                                            }
+                                                        }
+                                                    ],
+                                                    "nullable": true
+                                                }
+                                            },
+                                            "displayName": {
+                                                "type": "string",
+                                                "description": "The name of the policy for this policyBase",
+                                                "nullable": true
+                                            },
+                                            "version": {
+                                                "maximum": 2147483647,
+                                                "minimum": -2147483648,
+                                                "type": "integer",
+                                                "description": "The version of the policy",
+                                                "format": "int32"
+                                            },
+                                            "platformType": {
+                                                "anyOf": [
+                                                    {
+                                                        "title": "policyPlatformType",
+                                                        "enum": [
+                                                            "android",
+                                                            "iOS",
+                                                            "macOS",
+                                                            "windowsPhone81",
+                                                            "windows81AndLater",
+                                                            "windows10AndLater",
+                                                            "androidWorkProfile",
+                                                            "all"
+                                                        ],
+                                                        "type": "string"
+                                                    }
+                                                ],
+                                                "description": "Platform type that the policy applies to"
+                                            },
+                                            "state": {
+                                                "anyOf": [
+                                                    {
+                                                        "title": "complianceStatus",
+                                                        "enum": [
+                                                            "unknown",
+                                                            "notApplicable",
+                                                            "compliant",
+                                                            "remediated",
+                                                            "nonCompliant",
+                                                            "error",
+                                                            "conflict",
+                                                            "notAssigned"
+                                                        ],
+                                                        "type": "string"
+                                                    }
+                                                ],
+                                                "description": "The compliance state of the policy"
+                                            },
+                                            "settingCount": {
+                                                "maximum": 2147483647,
+                                                "minimum": -2147483648,
+                                                "type": "integer",
+                                                "description": "Count of how many setting a policy holds",
+                                                "format": "int32"
+                                            }
+                                        },
+                                        "description": "Device Compliance Policy State for a given device."
+                                    }
+                                ],
+                                "example": {
+                                    "id": "String (identifier)",
+                                    "settingStates": [
+                                        {
+                                            "@odata.type": "microsoft.graph.deviceCompliancePolicySettingState"
+                                        }
+                                    ],
+                                    "displayName": "String",
+                                    "version": "Int32",
+                                    "platformType": {
+                                        "@odata.type": "microsoft.graph.policyPlatformType"
+                                    },
+                                    "state": {
+                                        "@odata.type": "microsoft.graph.complianceStatus"
+                                    },
+                                    "settingCount": "Int32"
+                                }
+                            }
+                        }
+                    },
+                    "description": "Devices that are managed or pre-enrolled through Intune"
+                }
+            ],
+            "example": {
+                "id": "String (identifier)",
+                "userId": "String",
+                "deviceName": "String",
+                "managedDeviceOwnerType": {
+                    "@odata.type": "microsoft.graph.managedDeviceOwnerType"
+                },
+                "deviceActionResults": [
+                    {
+                        "@odata.type": "microsoft.graph.deviceActionResult"
+                    }
+                ],
+                "enrolledDateTime": "DateTimeOffset (timestamp)",
+                "lastSyncDateTime": "DateTimeOffset (timestamp)",
+                "operatingSystem": "String",
+                "complianceState": {
+                    "@odata.type": "microsoft.graph.complianceState"
+                },
+                "jailBroken": "String",
+                "managementAgent": {
+                    "@odata.type": "microsoft.graph.managementAgentType"
+                },
+                "osVersion": "String",
+                "easActivated": true,
+                "easDeviceId": "String",
+                "easActivationDateTime": "DateTimeOffset (timestamp)",
+                "azureADRegistered": true,
+                "deviceEnrollmentType": {
+                    "@odata.type": "microsoft.graph.deviceEnrollmentType"
+                },
+                "activationLockBypassCode": "String",
+                "emailAddress": "String",
+                "azureADDeviceId": "String",
+                "deviceRegistrationState": {
+                    "@odata.type": "microsoft.graph.deviceRegistrationState"
+                },
+                "deviceCategoryDisplayName": "String",
+                "isSupervised": true,
+                "exchangeLastSuccessfulSyncDateTime": "DateTimeOffset (timestamp)",
+                "exchangeAccessState": {
+                    "@odata.type": "microsoft.graph.deviceManagementExchangeAccessState"
+                },
+                "exchangeAccessStateReason": {
+                    "@odata.type": "microsoft.graph.deviceManagementExchangeAccessStateReason"
+                },
+                "remoteAssistanceSessionUrl": "String",
+                "remoteAssistanceSessionErrorDetails": "String",
+                "isEncrypted": true,
+                "userPrincipalName": "String",
+                "model": "String",
+                "manufacturer": "String",
+                "imei": "String",
+                "complianceGracePeriodExpirationDateTime": "DateTimeOffset (timestamp)",
+                "serialNumber": "String",
+                "phoneNumber": "String",
+                "androidSecurityPatchLevel": "String",
+                "userDisplayName": "String",
+                "configurationManagerClientEnabledFeatures": {
+                    "@odata.type": "microsoft.graph.configurationManagerClientEnabledFeatures"
+                },
+                "wiFiMacAddress": "String",
+                "deviceHealthAttestationState": {
+                    "@odata.type": "microsoft.graph.deviceHealthAttestationState"
+                },
+                "subscriberCarrier": "String",
+                "meid": "String",
+                "totalStorageSpaceInBytes": "Int64",
+                "freeStorageSpaceInBytes": "Int64",
+                "managedDeviceName": "String",
+                "partnerReportedThreatState": {
+                    "@odata.type": "microsoft.graph.managedDevicePartnerReportedHealthState"
+                },
+                "deviceConfigurationStates": [
+                    {
+                        "@odata.type": "microsoft.graph.deviceConfigurationState"
+                    }
+                ],
+                "deviceCategory": {
+                    "@odata.type": "microsoft.graph.deviceCategory"
+                },
+                "deviceCompliancePolicyStates": [
+                    {
+                        "@odata.type": "microsoft.graph.deviceCompliancePolicyState"
+                    }
+                ]
+            }
+        },
+        "user_id": {
+            "required": true,
+            "type": "string"
+        },
+        "managedDevice_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

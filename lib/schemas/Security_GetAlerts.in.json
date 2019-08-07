@@ -1,0 +1,60 @@
+{
+    "type": "object",
+    "properties": {
+        "alert_id": {
+            "required": true,
+            "type": "string"
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "activityGroupName",
+                    "assignedTo",
+                    "azureSubscriptionId",
+                    "azureTenantId",
+                    "category",
+                    "closedDateTime",
+                    "cloudAppStates",
+                    "comments",
+                    "confidence",
+                    "createdDateTime",
+                    "description",
+                    "detectionIds",
+                    "eventDateTime",
+                    "feedback",
+                    "fileStates",
+                    "hostStates",
+                    "lastModifiedDateTime",
+                    "malwareStates",
+                    "networkConnections",
+                    "processes",
+                    "recommendedActions",
+                    "registryKeyStates",
+                    "severity",
+                    "sourceMaterials",
+                    "status",
+                    "tags",
+                    "title",
+                    "triggers",
+                    "userStates",
+                    "vendorInformation",
+                    "vulnerabilityStates"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

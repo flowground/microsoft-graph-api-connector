@@ -1,0 +1,998 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "allOf": [
+                {
+                    "title": "entity",
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        }
+                    },
+                    "example": {
+                        "id": "String (identifier)"
+                    }
+                },
+                {
+                    "title": "messageRule",
+                    "type": "object",
+                    "properties": {
+                        "displayName": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "sequence": {
+                            "maximum": 2147483647,
+                            "minimum": -2147483648,
+                            "type": "integer",
+                            "format": "int32",
+                            "nullable": true
+                        },
+                        "conditions": {
+                            "anyOf": [
+                                {
+                                    "title": "messageRulePredicates",
+                                    "type": "object",
+                                    "properties": {
+                                        "categories": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string",
+                                                "nullable": true
+                                            }
+                                        },
+                                        "subjectContains": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string",
+                                                "nullable": true
+                                            }
+                                        },
+                                        "bodyContains": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string",
+                                                "nullable": true
+                                            }
+                                        },
+                                        "bodyOrSubjectContains": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string",
+                                                "nullable": true
+                                            }
+                                        },
+                                        "senderContains": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string",
+                                                "nullable": true
+                                            }
+                                        },
+                                        "recipientContains": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string",
+                                                "nullable": true
+                                            }
+                                        },
+                                        "headerContains": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string",
+                                                "nullable": true
+                                            }
+                                        },
+                                        "messageActionFlag": {
+                                            "anyOf": [
+                                                {
+                                                    "title": "messageActionFlag",
+                                                    "enum": [
+                                                        "any",
+                                                        "call",
+                                                        "doNotForward",
+                                                        "followUp",
+                                                        "fyi",
+                                                        "forward",
+                                                        "noResponseNecessary",
+                                                        "read",
+                                                        "reply",
+                                                        "replyToAll",
+                                                        "review"
+                                                    ],
+                                                    "type": "string"
+                                                }
+                                            ],
+                                            "nullable": true
+                                        },
+                                        "importance": {
+                                            "anyOf": [
+                                                {
+                                                    "title": "importance",
+                                                    "enum": [
+                                                        "low",
+                                                        "normal",
+                                                        "high"
+                                                    ],
+                                                    "type": "string"
+                                                }
+                                            ],
+                                            "nullable": true
+                                        },
+                                        "sensitivity": {
+                                            "anyOf": [
+                                                {
+                                                    "title": "sensitivity",
+                                                    "enum": [
+                                                        "normal",
+                                                        "personal",
+                                                        "private",
+                                                        "confidential"
+                                                    ],
+                                                    "type": "string"
+                                                }
+                                            ],
+                                            "nullable": true
+                                        },
+                                        "fromAddresses": {
+                                            "type": "array",
+                                            "items": {
+                                                "anyOf": [
+                                                    {
+                                                        "title": "recipient",
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "emailAddress": {
+                                                                "anyOf": [
+                                                                    {
+                                                                        "title": "emailAddress",
+                                                                        "type": "object",
+                                                                        "properties": {
+                                                                            "name": {
+                                                                                "type": "string",
+                                                                                "nullable": true
+                                                                            },
+                                                                            "address": {
+                                                                                "type": "string",
+                                                                                "nullable": true
+                                                                            }
+                                                                        },
+                                                                        "example": {
+                                                                            "name": "String",
+                                                                            "address": "String"
+                                                                        }
+                                                                    }
+                                                                ],
+                                                                "nullable": true
+                                                            }
+                                                        },
+                                                        "example": {
+                                                            "emailAddress": {
+                                                                "@odata.type": "microsoft.graph.emailAddress"
+                                                            }
+                                                        }
+                                                    }
+                                                ],
+                                                "nullable": true
+                                            }
+                                        },
+                                        "sentToAddresses": {
+                                            "type": "array",
+                                            "items": {
+                                                "anyOf": [
+                                                    {
+                                                        "title": "recipient",
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "emailAddress": {
+                                                                "anyOf": [
+                                                                    {
+                                                                        "title": "emailAddress",
+                                                                        "type": "object",
+                                                                        "properties": {
+                                                                            "name": {
+                                                                                "type": "string",
+                                                                                "nullable": true
+                                                                            },
+                                                                            "address": {
+                                                                                "type": "string",
+                                                                                "nullable": true
+                                                                            }
+                                                                        },
+                                                                        "example": {
+                                                                            "name": "String",
+                                                                            "address": "String"
+                                                                        }
+                                                                    }
+                                                                ],
+                                                                "nullable": true
+                                                            }
+                                                        },
+                                                        "example": {
+                                                            "emailAddress": {
+                                                                "@odata.type": "microsoft.graph.emailAddress"
+                                                            }
+                                                        }
+                                                    }
+                                                ],
+                                                "nullable": true
+                                            }
+                                        },
+                                        "sentToMe": {
+                                            "type": "boolean",
+                                            "nullable": true
+                                        },
+                                        "sentOnlyToMe": {
+                                            "type": "boolean",
+                                            "nullable": true
+                                        },
+                                        "sentCcMe": {
+                                            "type": "boolean",
+                                            "nullable": true
+                                        },
+                                        "sentToOrCcMe": {
+                                            "type": "boolean",
+                                            "nullable": true
+                                        },
+                                        "notSentToMe": {
+                                            "type": "boolean",
+                                            "nullable": true
+                                        },
+                                        "hasAttachments": {
+                                            "type": "boolean",
+                                            "nullable": true
+                                        },
+                                        "isApprovalRequest": {
+                                            "type": "boolean",
+                                            "nullable": true
+                                        },
+                                        "isAutomaticForward": {
+                                            "type": "boolean",
+                                            "nullable": true
+                                        },
+                                        "isAutomaticReply": {
+                                            "type": "boolean",
+                                            "nullable": true
+                                        },
+                                        "isEncrypted": {
+                                            "type": "boolean",
+                                            "nullable": true
+                                        },
+                                        "isMeetingRequest": {
+                                            "type": "boolean",
+                                            "nullable": true
+                                        },
+                                        "isMeetingResponse": {
+                                            "type": "boolean",
+                                            "nullable": true
+                                        },
+                                        "isNonDeliveryReport": {
+                                            "type": "boolean",
+                                            "nullable": true
+                                        },
+                                        "isPermissionControlled": {
+                                            "type": "boolean",
+                                            "nullable": true
+                                        },
+                                        "isReadReceipt": {
+                                            "type": "boolean",
+                                            "nullable": true
+                                        },
+                                        "isSigned": {
+                                            "type": "boolean",
+                                            "nullable": true
+                                        },
+                                        "isVoicemail": {
+                                            "type": "boolean",
+                                            "nullable": true
+                                        },
+                                        "withinSizeRange": {
+                                            "anyOf": [
+                                                {
+                                                    "title": "sizeRange",
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "minimumSize": {
+                                                            "maximum": 2147483647,
+                                                            "minimum": -2147483648,
+                                                            "type": "integer",
+                                                            "format": "int32",
+                                                            "nullable": true
+                                                        },
+                                                        "maximumSize": {
+                                                            "maximum": 2147483647,
+                                                            "minimum": -2147483648,
+                                                            "type": "integer",
+                                                            "format": "int32",
+                                                            "nullable": true
+                                                        }
+                                                    },
+                                                    "example": {
+                                                        "minimumSize": "Int32",
+                                                        "maximumSize": "Int32"
+                                                    }
+                                                }
+                                            ],
+                                            "nullable": true
+                                        }
+                                    },
+                                    "example": {
+                                        "categories": [
+                                            "String"
+                                        ],
+                                        "subjectContains": [
+                                            "String"
+                                        ],
+                                        "bodyContains": [
+                                            "String"
+                                        ],
+                                        "bodyOrSubjectContains": [
+                                            "String"
+                                        ],
+                                        "senderContains": [
+                                            "String"
+                                        ],
+                                        "recipientContains": [
+                                            "String"
+                                        ],
+                                        "headerContains": [
+                                            "String"
+                                        ],
+                                        "messageActionFlag": {
+                                            "@odata.type": "microsoft.graph.messageActionFlag"
+                                        },
+                                        "importance": {
+                                            "@odata.type": "microsoft.graph.importance"
+                                        },
+                                        "sensitivity": {
+                                            "@odata.type": "microsoft.graph.sensitivity"
+                                        },
+                                        "fromAddresses": [
+                                            {
+                                                "@odata.type": "microsoft.graph.recipient"
+                                            }
+                                        ],
+                                        "sentToAddresses": [
+                                            {
+                                                "@odata.type": "microsoft.graph.recipient"
+                                            }
+                                        ],
+                                        "sentToMe": true,
+                                        "sentOnlyToMe": true,
+                                        "sentCcMe": true,
+                                        "sentToOrCcMe": true,
+                                        "notSentToMe": true,
+                                        "hasAttachments": true,
+                                        "isApprovalRequest": true,
+                                        "isAutomaticForward": true,
+                                        "isAutomaticReply": true,
+                                        "isEncrypted": true,
+                                        "isMeetingRequest": true,
+                                        "isMeetingResponse": true,
+                                        "isNonDeliveryReport": true,
+                                        "isPermissionControlled": true,
+                                        "isReadReceipt": true,
+                                        "isSigned": true,
+                                        "isVoicemail": true,
+                                        "withinSizeRange": {
+                                            "@odata.type": "microsoft.graph.sizeRange"
+                                        }
+                                    }
+                                }
+                            ],
+                            "nullable": true
+                        },
+                        "actions": {
+                            "anyOf": [
+                                {
+                                    "title": "messageRuleActions",
+                                    "type": "object",
+                                    "properties": {
+                                        "moveToFolder": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "copyToFolder": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "delete": {
+                                            "type": "boolean",
+                                            "nullable": true
+                                        },
+                                        "permanentDelete": {
+                                            "type": "boolean",
+                                            "nullable": true
+                                        },
+                                        "markAsRead": {
+                                            "type": "boolean",
+                                            "nullable": true
+                                        },
+                                        "markImportance": {
+                                            "anyOf": [
+                                                {
+                                                    "title": "importance",
+                                                    "enum": [
+                                                        "low",
+                                                        "normal",
+                                                        "high"
+                                                    ],
+                                                    "type": "string"
+                                                }
+                                            ],
+                                            "nullable": true
+                                        },
+                                        "forwardTo": {
+                                            "type": "array",
+                                            "items": {
+                                                "anyOf": [
+                                                    {
+                                                        "title": "recipient",
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "emailAddress": {
+                                                                "anyOf": [
+                                                                    {
+                                                                        "title": "emailAddress",
+                                                                        "type": "object",
+                                                                        "properties": {
+                                                                            "name": {
+                                                                                "type": "string",
+                                                                                "nullable": true
+                                                                            },
+                                                                            "address": {
+                                                                                "type": "string",
+                                                                                "nullable": true
+                                                                            }
+                                                                        },
+                                                                        "example": {
+                                                                            "name": "String",
+                                                                            "address": "String"
+                                                                        }
+                                                                    }
+                                                                ],
+                                                                "nullable": true
+                                                            }
+                                                        },
+                                                        "example": {
+                                                            "emailAddress": {
+                                                                "@odata.type": "microsoft.graph.emailAddress"
+                                                            }
+                                                        }
+                                                    }
+                                                ],
+                                                "nullable": true
+                                            }
+                                        },
+                                        "forwardAsAttachmentTo": {
+                                            "type": "array",
+                                            "items": {
+                                                "anyOf": [
+                                                    {
+                                                        "title": "recipient",
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "emailAddress": {
+                                                                "anyOf": [
+                                                                    {
+                                                                        "title": "emailAddress",
+                                                                        "type": "object",
+                                                                        "properties": {
+                                                                            "name": {
+                                                                                "type": "string",
+                                                                                "nullable": true
+                                                                            },
+                                                                            "address": {
+                                                                                "type": "string",
+                                                                                "nullable": true
+                                                                            }
+                                                                        },
+                                                                        "example": {
+                                                                            "name": "String",
+                                                                            "address": "String"
+                                                                        }
+                                                                    }
+                                                                ],
+                                                                "nullable": true
+                                                            }
+                                                        },
+                                                        "example": {
+                                                            "emailAddress": {
+                                                                "@odata.type": "microsoft.graph.emailAddress"
+                                                            }
+                                                        }
+                                                    }
+                                                ],
+                                                "nullable": true
+                                            }
+                                        },
+                                        "redirectTo": {
+                                            "type": "array",
+                                            "items": {
+                                                "anyOf": [
+                                                    {
+                                                        "title": "recipient",
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "emailAddress": {
+                                                                "anyOf": [
+                                                                    {
+                                                                        "title": "emailAddress",
+                                                                        "type": "object",
+                                                                        "properties": {
+                                                                            "name": {
+                                                                                "type": "string",
+                                                                                "nullable": true
+                                                                            },
+                                                                            "address": {
+                                                                                "type": "string",
+                                                                                "nullable": true
+                                                                            }
+                                                                        },
+                                                                        "example": {
+                                                                            "name": "String",
+                                                                            "address": "String"
+                                                                        }
+                                                                    }
+                                                                ],
+                                                                "nullable": true
+                                                            }
+                                                        },
+                                                        "example": {
+                                                            "emailAddress": {
+                                                                "@odata.type": "microsoft.graph.emailAddress"
+                                                            }
+                                                        }
+                                                    }
+                                                ],
+                                                "nullable": true
+                                            }
+                                        },
+                                        "assignCategories": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string",
+                                                "nullable": true
+                                            }
+                                        },
+                                        "stopProcessingRules": {
+                                            "type": "boolean",
+                                            "nullable": true
+                                        }
+                                    },
+                                    "example": {
+                                        "moveToFolder": "String",
+                                        "copyToFolder": "String",
+                                        "delete": true,
+                                        "permanentDelete": true,
+                                        "markAsRead": true,
+                                        "markImportance": {
+                                            "@odata.type": "microsoft.graph.importance"
+                                        },
+                                        "forwardTo": [
+                                            {
+                                                "@odata.type": "microsoft.graph.recipient"
+                                            }
+                                        ],
+                                        "forwardAsAttachmentTo": [
+                                            {
+                                                "@odata.type": "microsoft.graph.recipient"
+                                            }
+                                        ],
+                                        "redirectTo": [
+                                            {
+                                                "@odata.type": "microsoft.graph.recipient"
+                                            }
+                                        ],
+                                        "assignCategories": [
+                                            "String"
+                                        ],
+                                        "stopProcessingRules": true
+                                    }
+                                }
+                            ],
+                            "nullable": true
+                        },
+                        "exceptions": {
+                            "anyOf": [
+                                {
+                                    "title": "messageRulePredicates",
+                                    "type": "object",
+                                    "properties": {
+                                        "categories": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string",
+                                                "nullable": true
+                                            }
+                                        },
+                                        "subjectContains": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string",
+                                                "nullable": true
+                                            }
+                                        },
+                                        "bodyContains": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string",
+                                                "nullable": true
+                                            }
+                                        },
+                                        "bodyOrSubjectContains": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string",
+                                                "nullable": true
+                                            }
+                                        },
+                                        "senderContains": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string",
+                                                "nullable": true
+                                            }
+                                        },
+                                        "recipientContains": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string",
+                                                "nullable": true
+                                            }
+                                        },
+                                        "headerContains": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string",
+                                                "nullable": true
+                                            }
+                                        },
+                                        "messageActionFlag": {
+                                            "anyOf": [
+                                                {
+                                                    "title": "messageActionFlag",
+                                                    "enum": [
+                                                        "any",
+                                                        "call",
+                                                        "doNotForward",
+                                                        "followUp",
+                                                        "fyi",
+                                                        "forward",
+                                                        "noResponseNecessary",
+                                                        "read",
+                                                        "reply",
+                                                        "replyToAll",
+                                                        "review"
+                                                    ],
+                                                    "type": "string"
+                                                }
+                                            ],
+                                            "nullable": true
+                                        },
+                                        "importance": {
+                                            "anyOf": [
+                                                {
+                                                    "title": "importance",
+                                                    "enum": [
+                                                        "low",
+                                                        "normal",
+                                                        "high"
+                                                    ],
+                                                    "type": "string"
+                                                }
+                                            ],
+                                            "nullable": true
+                                        },
+                                        "sensitivity": {
+                                            "anyOf": [
+                                                {
+                                                    "title": "sensitivity",
+                                                    "enum": [
+                                                        "normal",
+                                                        "personal",
+                                                        "private",
+                                                        "confidential"
+                                                    ],
+                                                    "type": "string"
+                                                }
+                                            ],
+                                            "nullable": true
+                                        },
+                                        "fromAddresses": {
+                                            "type": "array",
+                                            "items": {
+                                                "anyOf": [
+                                                    {
+                                                        "title": "recipient",
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "emailAddress": {
+                                                                "anyOf": [
+                                                                    {
+                                                                        "title": "emailAddress",
+                                                                        "type": "object",
+                                                                        "properties": {
+                                                                            "name": {
+                                                                                "type": "string",
+                                                                                "nullable": true
+                                                                            },
+                                                                            "address": {
+                                                                                "type": "string",
+                                                                                "nullable": true
+                                                                            }
+                                                                        },
+                                                                        "example": {
+                                                                            "name": "String",
+                                                                            "address": "String"
+                                                                        }
+                                                                    }
+                                                                ],
+                                                                "nullable": true
+                                                            }
+                                                        },
+                                                        "example": {
+                                                            "emailAddress": {
+                                                                "@odata.type": "microsoft.graph.emailAddress"
+                                                            }
+                                                        }
+                                                    }
+                                                ],
+                                                "nullable": true
+                                            }
+                                        },
+                                        "sentToAddresses": {
+                                            "type": "array",
+                                            "items": {
+                                                "anyOf": [
+                                                    {
+                                                        "title": "recipient",
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "emailAddress": {
+                                                                "anyOf": [
+                                                                    {
+                                                                        "title": "emailAddress",
+                                                                        "type": "object",
+                                                                        "properties": {
+                                                                            "name": {
+                                                                                "type": "string",
+                                                                                "nullable": true
+                                                                            },
+                                                                            "address": {
+                                                                                "type": "string",
+                                                                                "nullable": true
+                                                                            }
+                                                                        },
+                                                                        "example": {
+                                                                            "name": "String",
+                                                                            "address": "String"
+                                                                        }
+                                                                    }
+                                                                ],
+                                                                "nullable": true
+                                                            }
+                                                        },
+                                                        "example": {
+                                                            "emailAddress": {
+                                                                "@odata.type": "microsoft.graph.emailAddress"
+                                                            }
+                                                        }
+                                                    }
+                                                ],
+                                                "nullable": true
+                                            }
+                                        },
+                                        "sentToMe": {
+                                            "type": "boolean",
+                                            "nullable": true
+                                        },
+                                        "sentOnlyToMe": {
+                                            "type": "boolean",
+                                            "nullable": true
+                                        },
+                                        "sentCcMe": {
+                                            "type": "boolean",
+                                            "nullable": true
+                                        },
+                                        "sentToOrCcMe": {
+                                            "type": "boolean",
+                                            "nullable": true
+                                        },
+                                        "notSentToMe": {
+                                            "type": "boolean",
+                                            "nullable": true
+                                        },
+                                        "hasAttachments": {
+                                            "type": "boolean",
+                                            "nullable": true
+                                        },
+                                        "isApprovalRequest": {
+                                            "type": "boolean",
+                                            "nullable": true
+                                        },
+                                        "isAutomaticForward": {
+                                            "type": "boolean",
+                                            "nullable": true
+                                        },
+                                        "isAutomaticReply": {
+                                            "type": "boolean",
+                                            "nullable": true
+                                        },
+                                        "isEncrypted": {
+                                            "type": "boolean",
+                                            "nullable": true
+                                        },
+                                        "isMeetingRequest": {
+                                            "type": "boolean",
+                                            "nullable": true
+                                        },
+                                        "isMeetingResponse": {
+                                            "type": "boolean",
+                                            "nullable": true
+                                        },
+                                        "isNonDeliveryReport": {
+                                            "type": "boolean",
+                                            "nullable": true
+                                        },
+                                        "isPermissionControlled": {
+                                            "type": "boolean",
+                                            "nullable": true
+                                        },
+                                        "isReadReceipt": {
+                                            "type": "boolean",
+                                            "nullable": true
+                                        },
+                                        "isSigned": {
+                                            "type": "boolean",
+                                            "nullable": true
+                                        },
+                                        "isVoicemail": {
+                                            "type": "boolean",
+                                            "nullable": true
+                                        },
+                                        "withinSizeRange": {
+                                            "anyOf": [
+                                                {
+                                                    "title": "sizeRange",
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "minimumSize": {
+                                                            "maximum": 2147483647,
+                                                            "minimum": -2147483648,
+                                                            "type": "integer",
+                                                            "format": "int32",
+                                                            "nullable": true
+                                                        },
+                                                        "maximumSize": {
+                                                            "maximum": 2147483647,
+                                                            "minimum": -2147483648,
+                                                            "type": "integer",
+                                                            "format": "int32",
+                                                            "nullable": true
+                                                        }
+                                                    },
+                                                    "example": {
+                                                        "minimumSize": "Int32",
+                                                        "maximumSize": "Int32"
+                                                    }
+                                                }
+                                            ],
+                                            "nullable": true
+                                        }
+                                    },
+                                    "example": {
+                                        "categories": [
+                                            "String"
+                                        ],
+                                        "subjectContains": [
+                                            "String"
+                                        ],
+                                        "bodyContains": [
+                                            "String"
+                                        ],
+                                        "bodyOrSubjectContains": [
+                                            "String"
+                                        ],
+                                        "senderContains": [
+                                            "String"
+                                        ],
+                                        "recipientContains": [
+                                            "String"
+                                        ],
+                                        "headerContains": [
+                                            "String"
+                                        ],
+                                        "messageActionFlag": {
+                                            "@odata.type": "microsoft.graph.messageActionFlag"
+                                        },
+                                        "importance": {
+                                            "@odata.type": "microsoft.graph.importance"
+                                        },
+                                        "sensitivity": {
+                                            "@odata.type": "microsoft.graph.sensitivity"
+                                        },
+                                        "fromAddresses": [
+                                            {
+                                                "@odata.type": "microsoft.graph.recipient"
+                                            }
+                                        ],
+                                        "sentToAddresses": [
+                                            {
+                                                "@odata.type": "microsoft.graph.recipient"
+                                            }
+                                        ],
+                                        "sentToMe": true,
+                                        "sentOnlyToMe": true,
+                                        "sentCcMe": true,
+                                        "sentToOrCcMe": true,
+                                        "notSentToMe": true,
+                                        "hasAttachments": true,
+                                        "isApprovalRequest": true,
+                                        "isAutomaticForward": true,
+                                        "isAutomaticReply": true,
+                                        "isEncrypted": true,
+                                        "isMeetingRequest": true,
+                                        "isMeetingResponse": true,
+                                        "isNonDeliveryReport": true,
+                                        "isPermissionControlled": true,
+                                        "isReadReceipt": true,
+                                        "isSigned": true,
+                                        "isVoicemail": true,
+                                        "withinSizeRange": {
+                                            "@odata.type": "microsoft.graph.sizeRange"
+                                        }
+                                    }
+                                }
+                            ],
+                            "nullable": true
+                        },
+                        "isEnabled": {
+                            "type": "boolean",
+                            "nullable": true
+                        },
+                        "hasError": {
+                            "type": "boolean",
+                            "nullable": true
+                        },
+                        "isReadOnly": {
+                            "type": "boolean",
+                            "nullable": true
+                        }
+                    }
+                }
+            ],
+            "example": {
+                "id": "String (identifier)",
+                "displayName": "String",
+                "sequence": "Int32",
+                "conditions": {
+                    "@odata.type": "microsoft.graph.messageRulePredicates"
+                },
+                "actions": {
+                    "@odata.type": "microsoft.graph.messageRuleActions"
+                },
+                "exceptions": {
+                    "@odata.type": "microsoft.graph.messageRulePredicates"
+                },
+                "isEnabled": true,
+                "hasError": true,
+                "isReadOnly": true
+            }
+        },
+        "user_id": {
+            "required": true,
+            "type": "string"
+        },
+        "mailFolder_id": {
+            "required": true,
+            "type": "string"
+        },
+        "messageRule_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

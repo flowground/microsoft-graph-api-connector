@@ -1,0 +1,30 @@
+{
+    "type": "object",
+    "properties": {
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "enrolledDeviceCount",
+                    "mdmEnrolledCount",
+                    "dualEnrolledDeviceCount",
+                    "deviceOperatingSystemSummary",
+                    "deviceExchangeAccessStateSummary"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

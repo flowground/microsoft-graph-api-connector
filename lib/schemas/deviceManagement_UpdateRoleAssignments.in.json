@@ -1,0 +1,10 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {},
+        "deviceAndAppManagementRoleAssignment_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

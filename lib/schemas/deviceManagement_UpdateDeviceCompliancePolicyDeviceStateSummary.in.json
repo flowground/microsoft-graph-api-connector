@@ -1,0 +1,102 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "allOf": [
+                {
+                    "title": "entity",
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        }
+                    },
+                    "example": {
+                        "id": "String (identifier)"
+                    }
+                },
+                {
+                    "title": "deviceCompliancePolicyDeviceStateSummary",
+                    "type": "object",
+                    "properties": {
+                        "inGracePeriodCount": {
+                            "maximum": 2147483647,
+                            "minimum": -2147483648,
+                            "type": "integer",
+                            "description": "Number of devices that are in grace period",
+                            "format": "int32"
+                        },
+                        "configManagerCount": {
+                            "maximum": 2147483647,
+                            "minimum": -2147483648,
+                            "type": "integer",
+                            "description": "Number of devices that have compliance managed by System Center Configuration Manager",
+                            "format": "int32"
+                        },
+                        "unknownDeviceCount": {
+                            "maximum": 2147483647,
+                            "minimum": -2147483648,
+                            "type": "integer",
+                            "description": "Number of unknown devices",
+                            "format": "int32"
+                        },
+                        "notApplicableDeviceCount": {
+                            "maximum": 2147483647,
+                            "minimum": -2147483648,
+                            "type": "integer",
+                            "description": "Number of not applicable devices",
+                            "format": "int32"
+                        },
+                        "compliantDeviceCount": {
+                            "maximum": 2147483647,
+                            "minimum": -2147483648,
+                            "type": "integer",
+                            "description": "Number of compliant devices",
+                            "format": "int32"
+                        },
+                        "remediatedDeviceCount": {
+                            "maximum": 2147483647,
+                            "minimum": -2147483648,
+                            "type": "integer",
+                            "description": "Number of remediated devices",
+                            "format": "int32"
+                        },
+                        "nonCompliantDeviceCount": {
+                            "maximum": 2147483647,
+                            "minimum": -2147483648,
+                            "type": "integer",
+                            "description": "Number of NonCompliant devices",
+                            "format": "int32"
+                        },
+                        "errorDeviceCount": {
+                            "maximum": 2147483647,
+                            "minimum": -2147483648,
+                            "type": "integer",
+                            "description": "Number of error devices",
+                            "format": "int32"
+                        },
+                        "conflictDeviceCount": {
+                            "maximum": 2147483647,
+                            "minimum": -2147483648,
+                            "type": "integer",
+                            "description": "Number of conflict devices",
+                            "format": "int32"
+                        }
+                    }
+                }
+            ],
+            "example": {
+                "id": "String (identifier)",
+                "inGracePeriodCount": "Int32",
+                "configManagerCount": "Int32",
+                "unknownDeviceCount": "Int32",
+                "notApplicableDeviceCount": "Int32",
+                "compliantDeviceCount": "Int32",
+                "remediatedDeviceCount": "Int32",
+                "nonCompliantDeviceCount": "Int32",
+                "errorDeviceCount": "Int32",
+                "conflictDeviceCount": "Int32"
+            }
+        }
+    }
+}

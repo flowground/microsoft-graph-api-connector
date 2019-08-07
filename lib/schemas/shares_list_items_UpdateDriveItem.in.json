@@ -1,0 +1,14 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {},
+        "sharedDriveItem_id": {
+            "required": true,
+            "type": "string"
+        },
+        "listItem_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,18 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {},
+        "site_id": {
+            "required": true,
+            "type": "string"
+        },
+        "sectionGroup_id": {
+            "required": true,
+            "type": "string"
+        },
+        "sectionGroup_id2": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

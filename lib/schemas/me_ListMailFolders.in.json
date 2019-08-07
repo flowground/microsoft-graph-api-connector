@@ -1,0 +1,60 @@
+{
+    "type": "object",
+    "properties": {
+        "_top": {
+            "minimum": 0,
+            "type": "integer"
+        },
+        "_skip": {
+            "minimum": 0,
+            "type": "integer"
+        },
+        "_filter": {
+            "type": "string"
+        },
+        "_count": {
+            "type": "boolean"
+        },
+        "_orderby": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "id desc",
+                    "displayName",
+                    "displayName desc",
+                    "parentFolderId",
+                    "parentFolderId desc",
+                    "childFolderCount",
+                    "childFolderCount desc",
+                    "unreadItemCount",
+                    "unreadItemCount desc",
+                    "totalItemCount",
+                    "totalItemCount desc"
+                ],
+                "type": "string"
+            }
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "displayName",
+                    "parentFolderId",
+                    "childFolderCount",
+                    "unreadItemCount",
+                    "totalItemCount",
+                    "messages",
+                    "messageRules",
+                    "childFolders",
+                    "singleValueExtendedProperties",
+                    "multiValueExtendedProperties"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

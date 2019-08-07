@@ -1,0 +1,39 @@
+{
+    "type": "object",
+    "properties": {
+        "invitation_id": {
+            "required": true,
+            "type": "string"
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "invitedUserDisplayName",
+                    "invitedUserType",
+                    "invitedUserEmailAddress",
+                    "invitedUserMessageInfo",
+                    "sendInvitationMessage",
+                    "inviteRedirectUrl",
+                    "inviteRedeemUrl",
+                    "status",
+                    "invitedUser"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*",
+                    "invitedUser"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

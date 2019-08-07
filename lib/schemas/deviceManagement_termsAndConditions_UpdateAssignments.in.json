@@ -1,0 +1,52 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "allOf": [
+                {
+                    "title": "entity",
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        }
+                    },
+                    "example": {
+                        "id": "String (identifier)"
+                    }
+                },
+                {
+                    "title": "termsAndConditionsAssignment",
+                    "type": "object",
+                    "properties": {
+                        "target": {
+                            "anyOf": [
+                                {
+                                    "title": "deviceAndAppManagementAssignmentTarget",
+                                    "type": "object"
+                                }
+                            ],
+                            "description": "Assignment target that the T&C policy is assigned to.",
+                            "nullable": true
+                        }
+                    },
+                    "description": "A termsAndConditionsAssignment entity represents the assignment of a given Terms and Conditions (T&C) policy to a given group. Users in the group will be required to accept the terms in order to have devices enrolled into Intune."
+                }
+            ],
+            "example": {
+                "id": "String (identifier)",
+                "target": {
+                    "@odata.type": "microsoft.graph.deviceAndAppManagementAssignmentTarget"
+                }
+            }
+        },
+        "termsAndConditions_id": {
+            "required": true,
+            "type": "string"
+        },
+        "termsAndConditionsAssignment_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

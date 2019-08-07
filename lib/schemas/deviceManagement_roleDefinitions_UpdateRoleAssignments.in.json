@@ -1,0 +1,14 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {},
+        "roleDefinition_id": {
+            "required": true,
+            "type": "string"
+        },
+        "roleAssignment_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,335 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "allOf": [
+                {
+                    "allOf": [
+                        {
+                            "title": "entity",
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "string"
+                                }
+                            },
+                            "example": {
+                                "id": "String (identifier)"
+                            }
+                        },
+                        {
+                            "title": "directoryObject",
+                            "type": "object",
+                            "properties": {
+                                "deletedDateTime": {
+                                    "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                                    "type": "string",
+                                    "format": "date-time",
+                                    "nullable": true
+                                }
+                            }
+                        }
+                    ],
+                    "example": {
+                        "id": "String (identifier)",
+                        "deletedDateTime": "DateTimeOffset (timestamp)"
+                    }
+                },
+                {
+                    "title": "organization",
+                    "type": "object",
+                    "properties": {
+                        "assignedPlans": {
+                            "type": "array",
+                            "items": {
+                                "title": "assignedPlan",
+                                "type": "object",
+                                "properties": {
+                                    "assignedDateTime": {
+                                        "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                                        "type": "string",
+                                        "format": "date-time",
+                                        "nullable": true
+                                    },
+                                    "capabilityStatus": {
+                                        "type": "string",
+                                        "nullable": true
+                                    },
+                                    "service": {
+                                        "type": "string",
+                                        "nullable": true
+                                    },
+                                    "servicePlanId": {
+                                        "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+                                        "type": "string",
+                                        "format": "uuid",
+                                        "nullable": true
+                                    }
+                                },
+                                "example": {
+                                    "assignedDateTime": "DateTimeOffset (timestamp)",
+                                    "capabilityStatus": "String",
+                                    "service": "String",
+                                    "servicePlanId": "Guid"
+                                }
+                            }
+                        },
+                        "businessPhones": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "city": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "country": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "countryLetterCode": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "displayName": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "marketingNotificationEmails": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "onPremisesLastSyncDateTime": {
+                            "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                            "type": "string",
+                            "format": "date-time",
+                            "nullable": true
+                        },
+                        "onPremisesSyncEnabled": {
+                            "type": "boolean",
+                            "nullable": true
+                        },
+                        "postalCode": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "preferredLanguage": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "privacyProfile": {
+                            "anyOf": [
+                                {
+                                    "title": "privacyProfile",
+                                    "type": "object",
+                                    "properties": {
+                                        "contactEmail": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "statementUrl": {
+                                            "type": "string",
+                                            "nullable": true
+                                        }
+                                    },
+                                    "example": {
+                                        "contactEmail": "String",
+                                        "statementUrl": "String"
+                                    }
+                                }
+                            ],
+                            "nullable": true
+                        },
+                        "provisionedPlans": {
+                            "type": "array",
+                            "items": {
+                                "title": "provisionedPlan",
+                                "type": "object",
+                                "properties": {
+                                    "capabilityStatus": {
+                                        "type": "string",
+                                        "nullable": true
+                                    },
+                                    "provisioningStatus": {
+                                        "type": "string",
+                                        "nullable": true
+                                    },
+                                    "service": {
+                                        "type": "string",
+                                        "nullable": true
+                                    }
+                                },
+                                "example": {
+                                    "capabilityStatus": "String",
+                                    "provisioningStatus": "String",
+                                    "service": "String"
+                                }
+                            }
+                        },
+                        "securityComplianceNotificationMails": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "securityComplianceNotificationPhones": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "state": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "street": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "technicalNotificationMails": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "verifiedDomains": {
+                            "type": "array",
+                            "items": {
+                                "title": "verifiedDomain",
+                                "type": "object",
+                                "properties": {
+                                    "capabilities": {
+                                        "type": "string",
+                                        "nullable": true
+                                    },
+                                    "isDefault": {
+                                        "type": "boolean",
+                                        "nullable": true
+                                    },
+                                    "isInitial": {
+                                        "type": "boolean",
+                                        "nullable": true
+                                    },
+                                    "name": {
+                                        "type": "string",
+                                        "nullable": true
+                                    },
+                                    "type": {
+                                        "type": "string",
+                                        "nullable": true
+                                    }
+                                },
+                                "example": {
+                                    "capabilities": "String",
+                                    "isDefault": true,
+                                    "isInitial": true,
+                                    "name": "String",
+                                    "type": "String"
+                                }
+                            }
+                        },
+                        "mobileDeviceManagementAuthority": {
+                            "anyOf": [
+                                {
+                                    "title": "mdmAuthority",
+                                    "enum": [
+                                        "unknown",
+                                        "intune",
+                                        "sccm",
+                                        "office365"
+                                    ],
+                                    "type": "string"
+                                }
+                            ],
+                            "description": "Mobile device management authority."
+                        },
+                        "extensions": {
+                            "type": "array",
+                            "items": {
+                                "allOf": [
+                                    {
+                                        "title": "entity",
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "example": {
+                                            "id": "String (identifier)"
+                                        }
+                                    },
+                                    {
+                                        "title": "extension",
+                                        "type": "object"
+                                    }
+                                ],
+                                "example": {
+                                    "id": "String (identifier)"
+                                }
+                            }
+                        }
+                    }
+                }
+            ],
+            "example": {
+                "id": "String (identifier)",
+                "deletedDateTime": "DateTimeOffset (timestamp)",
+                "assignedPlans": [
+                    {
+                        "@odata.type": "microsoft.graph.assignedPlan"
+                    }
+                ],
+                "businessPhones": [
+                    "String"
+                ],
+                "city": "String",
+                "country": "String",
+                "countryLetterCode": "String",
+                "displayName": "String",
+                "marketingNotificationEmails": [
+                    "String"
+                ],
+                "onPremisesLastSyncDateTime": "DateTimeOffset (timestamp)",
+                "onPremisesSyncEnabled": true,
+                "postalCode": "String",
+                "preferredLanguage": "String",
+                "privacyProfile": {
+                    "@odata.type": "microsoft.graph.privacyProfile"
+                },
+                "provisionedPlans": [
+                    {
+                        "@odata.type": "microsoft.graph.provisionedPlan"
+                    }
+                ],
+                "securityComplianceNotificationMails": [
+                    "String"
+                ],
+                "securityComplianceNotificationPhones": [
+                    "String"
+                ],
+                "state": "String",
+                "street": "String",
+                "technicalNotificationMails": [
+                    "String"
+                ],
+                "verifiedDomains": [
+                    {
+                        "@odata.type": "microsoft.graph.verifiedDomain"
+                    }
+                ],
+                "mobileDeviceManagementAuthority": {
+                    "@odata.type": "microsoft.graph.mdmAuthority"
+                },
+                "extensions": [
+                    {
+                        "@odata.type": "microsoft.graph.extension"
+                    }
+                ]
+            }
+        }
+    }
+}

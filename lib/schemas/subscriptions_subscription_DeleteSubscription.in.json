@@ -1,0 +1,12 @@
+{
+    "type": "object",
+    "properties": {
+        "subscription_id": {
+            "required": true,
+            "type": "string"
+        },
+        "If_Match": {
+            "type": "string"
+        }
+    }
+}

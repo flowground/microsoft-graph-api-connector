@@ -1,0 +1,22 @@
+{
+    "type": "object",
+    "properties": {
+        "TimeZoneStandard": {
+            "required": true,
+            "anyOf": [
+                {
+                    "title": "timeZoneStandard",
+                    "enum": [
+                        "windows",
+                        "iana"
+                    ],
+                    "type": "string"
+                }
+            ]
+        },
+        "user_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

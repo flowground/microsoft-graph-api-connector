@@ -1,0 +1,64 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "Comment": {
+                    "type": "string",
+                    "nullable": true
+                },
+                "ToRecipients": {
+                    "type": "array",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "title": "recipient",
+                                "type": "object",
+                                "properties": {
+                                    "emailAddress": {
+                                        "anyOf": [
+                                            {
+                                                "title": "emailAddress",
+                                                "type": "object",
+                                                "properties": {
+                                                    "name": {
+                                                        "type": "string",
+                                                        "nullable": true
+                                                    },
+                                                    "address": {
+                                                        "type": "string",
+                                                        "nullable": true
+                                                    }
+                                                },
+                                                "example": {
+                                                    "name": "String",
+                                                    "address": "String"
+                                                }
+                                            }
+                                        ],
+                                        "nullable": true
+                                    }
+                                },
+                                "example": {
+                                    "emailAddress": {
+                                        "@odata.type": "microsoft.graph.emailAddress"
+                                    }
+                                }
+                            }
+                        ],
+                        "nullable": true
+                    }
+                }
+            }
+        },
+        "mailFolder_id": {
+            "required": true,
+            "type": "string"
+        },
+        "message_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

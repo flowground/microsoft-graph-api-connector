@@ -1,0 +1,38 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "allOf": [
+                {
+                    "title": "entity",
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        }
+                    },
+                    "example": {
+                        "id": "String (identifier)"
+                    }
+                },
+                {
+                    "title": "workbookApplication",
+                    "type": "object",
+                    "properties": {
+                        "calculationMode": {
+                            "type": "string"
+                        }
+                    }
+                }
+            ],
+            "example": {
+                "id": "String (identifier)",
+                "calculationMode": "String"
+            }
+        },
+        "driveItem_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,39 @@
+{
+    "type": "object",
+    "properties": {
+        "driveItem_id": {
+            "required": true,
+            "type": "string"
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "application",
+                    "names",
+                    "tables",
+                    "worksheets",
+                    "functions"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*",
+                    "application",
+                    "names",
+                    "tables",
+                    "worksheets",
+                    "functions"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

@@ -1,0 +1,34 @@
+{
+    "type": "object",
+    "properties": {
+        "managedDeviceMobileAppConfiguration_id": {
+            "required": true,
+            "type": "string"
+        },
+        "managedDeviceMobileAppConfigurationAssignment_id": {
+            "required": true,
+            "type": "string"
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "target"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

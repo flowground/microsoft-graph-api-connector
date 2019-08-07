@@ -1,0 +1,14 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {},
+        "contactFolder_id": {
+            "required": true,
+            "type": "string"
+        },
+        "contactFolder_id2": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

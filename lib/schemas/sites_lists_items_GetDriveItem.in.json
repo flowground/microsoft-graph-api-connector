@@ -1,0 +1,83 @@
+{
+    "type": "object",
+    "properties": {
+        "site_id": {
+            "required": true,
+            "type": "string"
+        },
+        "list_id": {
+            "required": true,
+            "type": "string"
+        },
+        "listItem_id": {
+            "required": true,
+            "type": "string"
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "createdBy",
+                    "createdDateTime",
+                    "description",
+                    "eTag",
+                    "lastModifiedBy",
+                    "lastModifiedDateTime",
+                    "name",
+                    "parentReference",
+                    "webUrl",
+                    "audio",
+                    "content",
+                    "cTag",
+                    "deleted",
+                    "file",
+                    "fileSystemInfo",
+                    "folder",
+                    "image",
+                    "location",
+                    "package",
+                    "photo",
+                    "publication",
+                    "remoteItem",
+                    "root",
+                    "searchResult",
+                    "shared",
+                    "sharepointIds",
+                    "size",
+                    "specialFolder",
+                    "video",
+                    "webDavUrl",
+                    "createdByUser",
+                    "lastModifiedByUser",
+                    "children",
+                    "listItem",
+                    "permissions",
+                    "thumbnails",
+                    "versions",
+                    "workbook"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*",
+                    "createdByUser",
+                    "lastModifiedByUser",
+                    "children",
+                    "listItem",
+                    "permissions",
+                    "thumbnails",
+                    "versions",
+                    "workbook"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

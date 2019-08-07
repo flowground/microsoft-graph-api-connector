@@ -1,0 +1,14 @@
+{
+    "type": "object",
+    "properties": {
+        "includePersonalNotebooks": {
+            "required": true,
+            "type": "boolean",
+            "default": false
+        },
+        "group_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

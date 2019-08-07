@@ -1,0 +1,516 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "allOf": [
+                {
+                    "title": "entity",
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        }
+                    },
+                    "example": {
+                        "id": "String (identifier)"
+                    }
+                },
+                {
+                    "title": "managedEBook",
+                    "type": "object",
+                    "properties": {
+                        "displayName": {
+                            "type": "string",
+                            "description": "Name of the eBook."
+                        },
+                        "description": {
+                            "type": "string",
+                            "description": "Description.",
+                            "nullable": true
+                        },
+                        "publisher": {
+                            "type": "string",
+                            "description": "Publisher.",
+                            "nullable": true
+                        },
+                        "publishedDateTime": {
+                            "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                            "type": "string",
+                            "description": "The date and time when the eBook was published.",
+                            "format": "date-time"
+                        },
+                        "largeCover": {
+                            "anyOf": [
+                                {
+                                    "title": "mimeContent",
+                                    "type": "object",
+                                    "properties": {
+                                        "type": {
+                                            "type": "string",
+                                            "description": "Indicates the content mime type.",
+                                            "nullable": true
+                                        },
+                                        "value": {
+                                            "type": "string",
+                                            "description": "The byte array that contains the actual content.",
+                                            "format": "base64url",
+                                            "nullable": true
+                                        }
+                                    },
+                                    "example": {
+                                        "type": "String",
+                                        "value": "Binary"
+                                    }
+                                }
+                            ],
+                            "description": "Book cover.",
+                            "nullable": true
+                        },
+                        "createdDateTime": {
+                            "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                            "type": "string",
+                            "description": "The date and time when the eBook file was created.",
+                            "format": "date-time"
+                        },
+                        "lastModifiedDateTime": {
+                            "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                            "type": "string",
+                            "description": "The date and time when the eBook was last modified.",
+                            "format": "date-time"
+                        },
+                        "informationUrl": {
+                            "type": "string",
+                            "description": "The more information Url.",
+                            "nullable": true
+                        },
+                        "privacyInformationUrl": {
+                            "type": "string",
+                            "description": "The privacy statement Url.",
+                            "nullable": true
+                        },
+                        "assignments": {
+                            "type": "array",
+                            "items": {
+                                "allOf": [
+                                    {
+                                        "title": "entity",
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "example": {
+                                            "id": "String (identifier)"
+                                        }
+                                    },
+                                    {
+                                        "title": "managedEBookAssignment",
+                                        "type": "object",
+                                        "properties": {
+                                            "target": {
+                                                "anyOf": [
+                                                    {
+                                                        "title": "deviceAndAppManagementAssignmentTarget",
+                                                        "type": "object"
+                                                    }
+                                                ],
+                                                "description": "The assignment target for eBook.",
+                                                "nullable": true
+                                            },
+                                            "installIntent": {
+                                                "anyOf": [
+                                                    {
+                                                        "title": "installIntent",
+                                                        "enum": [
+                                                            "available",
+                                                            "required",
+                                                            "uninstall",
+                                                            "availableWithoutEnrollment"
+                                                        ],
+                                                        "type": "string"
+                                                    }
+                                                ],
+                                                "description": "The install intent for eBook."
+                                            }
+                                        },
+                                        "description": "Contains properties used to assign a eBook to a group."
+                                    }
+                                ],
+                                "example": {
+                                    "id": "String (identifier)",
+                                    "target": {
+                                        "@odata.type": "microsoft.graph.deviceAndAppManagementAssignmentTarget"
+                                    },
+                                    "installIntent": {
+                                        "@odata.type": "microsoft.graph.installIntent"
+                                    }
+                                }
+                            }
+                        },
+                        "installSummary": {
+                            "anyOf": [
+                                {
+                                    "allOf": [
+                                        {
+                                            "title": "entity",
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "example": {
+                                                "id": "String (identifier)"
+                                            }
+                                        },
+                                        {
+                                            "title": "eBookInstallSummary",
+                                            "type": "object",
+                                            "properties": {
+                                                "installedDeviceCount": {
+                                                    "maximum": 2147483647,
+                                                    "minimum": -2147483648,
+                                                    "type": "integer",
+                                                    "description": "Number of Devices that have successfully installed this book.",
+                                                    "format": "int32"
+                                                },
+                                                "failedDeviceCount": {
+                                                    "maximum": 2147483647,
+                                                    "minimum": -2147483648,
+                                                    "type": "integer",
+                                                    "description": "Number of Devices that have failed to install this book.",
+                                                    "format": "int32"
+                                                },
+                                                "notInstalledDeviceCount": {
+                                                    "maximum": 2147483647,
+                                                    "minimum": -2147483648,
+                                                    "type": "integer",
+                                                    "description": "Number of Devices that does not have this book installed.",
+                                                    "format": "int32"
+                                                },
+                                                "installedUserCount": {
+                                                    "maximum": 2147483647,
+                                                    "minimum": -2147483648,
+                                                    "type": "integer",
+                                                    "description": "Number of Users whose devices have all succeeded to install this book.",
+                                                    "format": "int32"
+                                                },
+                                                "failedUserCount": {
+                                                    "maximum": 2147483647,
+                                                    "minimum": -2147483648,
+                                                    "type": "integer",
+                                                    "description": "Number of Users that have 1 or more device that failed to install this book.",
+                                                    "format": "int32"
+                                                },
+                                                "notInstalledUserCount": {
+                                                    "maximum": 2147483647,
+                                                    "minimum": -2147483648,
+                                                    "type": "integer",
+                                                    "description": "Number of Users that did not install this book.",
+                                                    "format": "int32"
+                                                }
+                                            },
+                                            "description": "Contains properties for the installation summary of a book for a device."
+                                        }
+                                    ],
+                                    "example": {
+                                        "id": "String (identifier)",
+                                        "installedDeviceCount": "Int32",
+                                        "failedDeviceCount": "Int32",
+                                        "notInstalledDeviceCount": "Int32",
+                                        "installedUserCount": "Int32",
+                                        "failedUserCount": "Int32",
+                                        "notInstalledUserCount": "Int32"
+                                    }
+                                }
+                            ],
+                            "nullable": true
+                        },
+                        "deviceStates": {
+                            "type": "array",
+                            "items": {
+                                "allOf": [
+                                    {
+                                        "title": "entity",
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "example": {
+                                            "id": "String (identifier)"
+                                        }
+                                    },
+                                    {
+                                        "title": "deviceInstallState",
+                                        "type": "object",
+                                        "properties": {
+                                            "deviceName": {
+                                                "type": "string",
+                                                "description": "Device name.",
+                                                "nullable": true
+                                            },
+                                            "deviceId": {
+                                                "type": "string",
+                                                "description": "Device Id.",
+                                                "nullable": true
+                                            },
+                                            "lastSyncDateTime": {
+                                                "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                                                "type": "string",
+                                                "description": "Last sync date and time.",
+                                                "format": "date-time"
+                                            },
+                                            "installState": {
+                                                "anyOf": [
+                                                    {
+                                                        "title": "installState",
+                                                        "enum": [
+                                                            "notApplicable",
+                                                            "installed",
+                                                            "failed",
+                                                            "notInstalled",
+                                                            "uninstallFailed",
+                                                            "unknown"
+                                                        ],
+                                                        "type": "string"
+                                                    }
+                                                ],
+                                                "description": "The install state of the eBook."
+                                            },
+                                            "errorCode": {
+                                                "type": "string",
+                                                "description": "The error code for install failures.",
+                                                "nullable": true
+                                            },
+                                            "osVersion": {
+                                                "type": "string",
+                                                "description": "OS Version.",
+                                                "nullable": true
+                                            },
+                                            "osDescription": {
+                                                "type": "string",
+                                                "description": "OS Description.",
+                                                "nullable": true
+                                            },
+                                            "userName": {
+                                                "type": "string",
+                                                "description": "Device User Name.",
+                                                "nullable": true
+                                            }
+                                        },
+                                        "description": "Contains properties for the installation state for a device."
+                                    }
+                                ],
+                                "example": {
+                                    "id": "String (identifier)",
+                                    "deviceName": "String",
+                                    "deviceId": "String",
+                                    "lastSyncDateTime": "DateTimeOffset (timestamp)",
+                                    "installState": {
+                                        "@odata.type": "microsoft.graph.installState"
+                                    },
+                                    "errorCode": "String",
+                                    "osVersion": "String",
+                                    "osDescription": "String",
+                                    "userName": "String"
+                                }
+                            }
+                        },
+                        "userStateSummary": {
+                            "type": "array",
+                            "items": {
+                                "allOf": [
+                                    {
+                                        "title": "entity",
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "example": {
+                                            "id": "String (identifier)"
+                                        }
+                                    },
+                                    {
+                                        "title": "userInstallStateSummary",
+                                        "type": "object",
+                                        "properties": {
+                                            "userName": {
+                                                "type": "string",
+                                                "description": "User name.",
+                                                "nullable": true
+                                            },
+                                            "installedDeviceCount": {
+                                                "maximum": 2147483647,
+                                                "minimum": -2147483648,
+                                                "type": "integer",
+                                                "description": "Installed Device Count.",
+                                                "format": "int32"
+                                            },
+                                            "failedDeviceCount": {
+                                                "maximum": 2147483647,
+                                                "minimum": -2147483648,
+                                                "type": "integer",
+                                                "description": "Failed Device Count.",
+                                                "format": "int32"
+                                            },
+                                            "notInstalledDeviceCount": {
+                                                "maximum": 2147483647,
+                                                "minimum": -2147483648,
+                                                "type": "integer",
+                                                "description": "Not installed device count.",
+                                                "format": "int32"
+                                            },
+                                            "deviceStates": {
+                                                "type": "array",
+                                                "items": {
+                                                    "allOf": [
+                                                        {
+                                                            "title": "entity",
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "id": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "example": {
+                                                                "id": "String (identifier)"
+                                                            }
+                                                        },
+                                                        {
+                                                            "title": "deviceInstallState",
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "deviceName": {
+                                                                    "type": "string",
+                                                                    "description": "Device name.",
+                                                                    "nullable": true
+                                                                },
+                                                                "deviceId": {
+                                                                    "type": "string",
+                                                                    "description": "Device Id.",
+                                                                    "nullable": true
+                                                                },
+                                                                "lastSyncDateTime": {
+                                                                    "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                                                                    "type": "string",
+                                                                    "description": "Last sync date and time.",
+                                                                    "format": "date-time"
+                                                                },
+                                                                "installState": {
+                                                                    "anyOf": [
+                                                                        {
+                                                                            "title": "installState",
+                                                                            "enum": [
+                                                                                "notApplicable",
+                                                                                "installed",
+                                                                                "failed",
+                                                                                "notInstalled",
+                                                                                "uninstallFailed",
+                                                                                "unknown"
+                                                                            ],
+                                                                            "type": "string"
+                                                                        }
+                                                                    ],
+                                                                    "description": "The install state of the eBook."
+                                                                },
+                                                                "errorCode": {
+                                                                    "type": "string",
+                                                                    "description": "The error code for install failures.",
+                                                                    "nullable": true
+                                                                },
+                                                                "osVersion": {
+                                                                    "type": "string",
+                                                                    "description": "OS Version.",
+                                                                    "nullable": true
+                                                                },
+                                                                "osDescription": {
+                                                                    "type": "string",
+                                                                    "description": "OS Description.",
+                                                                    "nullable": true
+                                                                },
+                                                                "userName": {
+                                                                    "type": "string",
+                                                                    "description": "Device User Name.",
+                                                                    "nullable": true
+                                                                }
+                                                            },
+                                                            "description": "Contains properties for the installation state for a device."
+                                                        }
+                                                    ],
+                                                    "example": {
+                                                        "id": "String (identifier)",
+                                                        "deviceName": "String",
+                                                        "deviceId": "String",
+                                                        "lastSyncDateTime": "DateTimeOffset (timestamp)",
+                                                        "installState": {
+                                                            "@odata.type": "microsoft.graph.installState"
+                                                        },
+                                                        "errorCode": "String",
+                                                        "osVersion": "String",
+                                                        "osDescription": "String",
+                                                        "userName": "String"
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "description": "Contains properties for the installation state summary for a user."
+                                    }
+                                ],
+                                "example": {
+                                    "id": "String (identifier)",
+                                    "userName": "String",
+                                    "installedDeviceCount": "Int32",
+                                    "failedDeviceCount": "Int32",
+                                    "notInstalledDeviceCount": "Int32",
+                                    "deviceStates": [
+                                        {
+                                            "@odata.type": "microsoft.graph.deviceInstallState"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "description": "An abstract class containing the base properties for Managed eBook."
+                }
+            ],
+            "example": {
+                "id": "String (identifier)",
+                "displayName": "String",
+                "description": "String",
+                "publisher": "String",
+                "publishedDateTime": "DateTimeOffset (timestamp)",
+                "largeCover": {
+                    "@odata.type": "microsoft.graph.mimeContent"
+                },
+                "createdDateTime": "DateTimeOffset (timestamp)",
+                "lastModifiedDateTime": "DateTimeOffset (timestamp)",
+                "informationUrl": "String",
+                "privacyInformationUrl": "String",
+                "assignments": [
+                    {
+                        "@odata.type": "microsoft.graph.managedEBookAssignment"
+                    }
+                ],
+                "installSummary": {
+                    "@odata.type": "microsoft.graph.eBookInstallSummary"
+                },
+                "deviceStates": [
+                    {
+                        "@odata.type": "microsoft.graph.deviceInstallState"
+                    }
+                ],
+                "userStateSummary": [
+                    {
+                        "@odata.type": "microsoft.graph.userInstallStateSummary"
+                    }
+                ]
+            }
+        }
+    }
+}

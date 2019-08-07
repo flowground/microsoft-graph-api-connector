@@ -1,0 +1,73 @@
+{
+    "type": "object",
+    "properties": {
+        "deviceCompliancePolicy_id": {
+            "required": true,
+            "type": "string"
+        },
+        "deviceComplianceScheduledActionForRule_id": {
+            "required": true,
+            "type": "string"
+        },
+        "_top": {
+            "minimum": 0,
+            "type": "integer"
+        },
+        "_skip": {
+            "minimum": 0,
+            "type": "integer"
+        },
+        "_search": {
+            "type": "string"
+        },
+        "_filter": {
+            "type": "string"
+        },
+        "_count": {
+            "type": "boolean"
+        },
+        "_orderby": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "id desc",
+                    "gracePeriodHours",
+                    "gracePeriodHours desc",
+                    "actionType",
+                    "actionType desc",
+                    "notificationTemplateId",
+                    "notificationTemplateId desc",
+                    "notificationMessageCCList",
+                    "notificationMessageCCList desc"
+                ],
+                "type": "string"
+            }
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "gracePeriodHours",
+                    "actionType",
+                    "notificationTemplateId",
+                    "notificationMessageCCList"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

@@ -1,0 +1,151 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "allOf": [
+                {
+                    "title": "entity",
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        }
+                    },
+                    "example": {
+                        "id": "String (identifier)"
+                    }
+                },
+                {
+                    "title": "workbookChartAreaFormat",
+                    "type": "object",
+                    "properties": {
+                        "fill": {
+                            "anyOf": [
+                                {
+                                    "allOf": [
+                                        {
+                                            "title": "entity",
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "example": {
+                                                "id": "String (identifier)"
+                                            }
+                                        },
+                                        {
+                                            "title": "workbookChartFill",
+                                            "type": "object"
+                                        }
+                                    ],
+                                    "example": {
+                                        "id": "String (identifier)"
+                                    }
+                                }
+                            ],
+                            "nullable": true
+                        },
+                        "font": {
+                            "anyOf": [
+                                {
+                                    "allOf": [
+                                        {
+                                            "title": "entity",
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "example": {
+                                                "id": "String (identifier)"
+                                            }
+                                        },
+                                        {
+                                            "title": "workbookChartFont",
+                                            "type": "object",
+                                            "properties": {
+                                                "bold": {
+                                                    "type": "boolean",
+                                                    "nullable": true
+                                                },
+                                                "color": {
+                                                    "type": "string",
+                                                    "nullable": true
+                                                },
+                                                "italic": {
+                                                    "type": "boolean",
+                                                    "nullable": true
+                                                },
+                                                "name": {
+                                                    "type": "string",
+                                                    "nullable": true
+                                                },
+                                                "size": {
+                                                    "anyOf": [
+                                                        {
+                                                            "type": "number"
+                                                        },
+                                                        {
+                                                            "type": "string"
+                                                        },
+                                                        {
+                                                            "enum": [
+                                                                "-INF",
+                                                                "INF",
+                                                                "NaN"
+                                                            ]
+                                                        }
+                                                    ],
+                                                    "format": "double",
+                                                    "nullable": true
+                                                },
+                                                "underline": {
+                                                    "type": "string",
+                                                    "nullable": true
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "example": {
+                                        "id": "String (identifier)",
+                                        "bold": true,
+                                        "color": "String",
+                                        "italic": true,
+                                        "name": "String",
+                                        "size": "Double",
+                                        "underline": "String"
+                                    }
+                                }
+                            ],
+                            "nullable": true
+                        }
+                    }
+                }
+            ],
+            "example": {
+                "id": "String (identifier)",
+                "fill": {
+                    "@odata.type": "microsoft.graph.workbookChartFill"
+                },
+                "font": {
+                    "@odata.type": "microsoft.graph.workbookChartFont"
+                }
+            }
+        },
+        "driveItem_id": {
+            "required": true,
+            "type": "string"
+        },
+        "workbookNamedItem_id": {
+            "required": true,
+            "type": "string"
+        },
+        "workbookChart_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

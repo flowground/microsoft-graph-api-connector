@@ -1,0 +1,17 @@
+{
+    "type": "object",
+    "properties": {
+        "driveItem_id": {
+            "required": true,
+            "type": "string"
+        },
+        "workbookWorksheet_id": {
+            "required": true,
+            "type": "string"
+        },
+        "workbookPivotTable_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,80 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "allOf": [
+                {
+                    "title": "entity",
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        }
+                    },
+                    "example": {
+                        "id": "String (identifier)"
+                    }
+                },
+                {
+                    "title": "licenseDetails",
+                    "type": "object",
+                    "properties": {
+                        "servicePlans": {
+                            "type": "array",
+                            "items": {
+                                "title": "servicePlanInfo",
+                                "type": "object",
+                                "properties": {
+                                    "servicePlanId": {
+                                        "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+                                        "type": "string",
+                                        "format": "uuid",
+                                        "nullable": true
+                                    },
+                                    "servicePlanName": {
+                                        "type": "string",
+                                        "nullable": true
+                                    },
+                                    "provisioningStatus": {
+                                        "type": "string",
+                                        "nullable": true
+                                    },
+                                    "appliesTo": {
+                                        "type": "string",
+                                        "nullable": true
+                                    }
+                                },
+                                "example": {
+                                    "servicePlanId": "Guid",
+                                    "servicePlanName": "String",
+                                    "provisioningStatus": "String",
+                                    "appliesTo": "String"
+                                }
+                            }
+                        },
+                        "skuId": {
+                            "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+                            "type": "string",
+                            "format": "uuid",
+                            "nullable": true
+                        },
+                        "skuPartNumber": {
+                            "type": "string",
+                            "nullable": true
+                        }
+                    }
+                }
+            ],
+            "example": {
+                "id": "String (identifier)",
+                "servicePlans": [
+                    {
+                        "@odata.type": "microsoft.graph.servicePlanInfo"
+                    }
+                ],
+                "skuId": "Guid",
+                "skuPartNumber": "String"
+            }
+        }
+    }
+}

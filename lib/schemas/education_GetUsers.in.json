@@ -1,0 +1,65 @@
+{
+    "type": "object",
+    "properties": {
+        "educationUser_id": {
+            "required": true,
+            "type": "string"
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "primaryRole",
+                    "middleName",
+                    "externalSource",
+                    "residenceAddress",
+                    "mailingAddress",
+                    "student",
+                    "teacher",
+                    "createdBy",
+                    "relatedContacts",
+                    "accountEnabled",
+                    "assignedLicenses",
+                    "assignedPlans",
+                    "businessPhones",
+                    "department",
+                    "displayName",
+                    "givenName",
+                    "mail",
+                    "mailNickname",
+                    "mobilePhone",
+                    "passwordPolicies",
+                    "passwordProfile",
+                    "officeLocation",
+                    "preferredLanguage",
+                    "provisionedPlans",
+                    "refreshTokensValidFromDateTime",
+                    "showInAddressList",
+                    "surname",
+                    "usageLocation",
+                    "userPrincipalName",
+                    "userType",
+                    "schools",
+                    "classes",
+                    "user"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*",
+                    "schools",
+                    "classes",
+                    "user"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

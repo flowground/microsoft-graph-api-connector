@@ -1,0 +1,44 @@
+{
+    "type": "object",
+    "properties": {
+        "onenotePage_id": {
+            "required": true,
+            "type": "string"
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "self",
+                    "createdDateTime",
+                    "title",
+                    "createdByAppId",
+                    "links",
+                    "contentUrl",
+                    "content",
+                    "lastModifiedDateTime",
+                    "level",
+                    "order",
+                    "userTags",
+                    "parentSection",
+                    "parentNotebook"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*",
+                    "parentSection",
+                    "parentNotebook"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

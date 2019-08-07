@@ -1,0 +1,37 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "page": {
+                    "type": "string",
+                    "nullable": true
+                },
+                "zoom": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "enum": [
+                                "-INF",
+                                "INF",
+                                "NaN"
+                            ]
+                        }
+                    ],
+                    "format": "double",
+                    "nullable": true
+                }
+            }
+        },
+        "driveItem_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

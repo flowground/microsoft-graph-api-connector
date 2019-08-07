@@ -1,0 +1,68 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "allOf": [
+                {
+                    "allOf": [
+                        {
+                            "title": "entity",
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "string"
+                                }
+                            },
+                            "example": {
+                                "id": "String (identifier)"
+                            }
+                        },
+                        {
+                            "title": "onenoteEntityBaseModel",
+                            "type": "object",
+                            "properties": {
+                                "self": {
+                                    "type": "string",
+                                    "nullable": true
+                                }
+                            }
+                        }
+                    ],
+                    "example": {
+                        "id": "String (identifier)",
+                        "self": "String"
+                    }
+                },
+                {
+                    "title": "onenoteResource",
+                    "type": "object",
+                    "properties": {
+                        "content": {
+                            "type": "string",
+                            "format": "base64url",
+                            "nullable": true
+                        },
+                        "contentUrl": {
+                            "type": "string",
+                            "nullable": true
+                        }
+                    }
+                }
+            ],
+            "example": {
+                "id": "String (identifier)",
+                "self": "String",
+                "content": "Stream",
+                "contentUrl": "String"
+            }
+        },
+        "site_id": {
+            "required": true,
+            "type": "string"
+        },
+        "onenoteResource_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

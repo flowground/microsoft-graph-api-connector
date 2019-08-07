@@ -1,0 +1,40 @@
+{
+    "type": "object",
+    "properties": {
+        "vppToken_id": {
+            "required": true,
+            "type": "string"
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "organizationName",
+                    "vppTokenAccountType",
+                    "appleId",
+                    "expirationDateTime",
+                    "lastSyncDateTime",
+                    "token",
+                    "lastModifiedDateTime",
+                    "state",
+                    "lastSyncStatus",
+                    "automaticallyUpdateApps",
+                    "countryOrRegion"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

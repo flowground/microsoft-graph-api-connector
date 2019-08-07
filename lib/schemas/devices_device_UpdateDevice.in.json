@@ -1,0 +1,282 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "allOf": [
+                {
+                    "allOf": [
+                        {
+                            "title": "entity",
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "string"
+                                }
+                            },
+                            "example": {
+                                "id": "String (identifier)"
+                            }
+                        },
+                        {
+                            "title": "directoryObject",
+                            "type": "object",
+                            "properties": {
+                                "deletedDateTime": {
+                                    "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                                    "type": "string",
+                                    "format": "date-time",
+                                    "nullable": true
+                                }
+                            }
+                        }
+                    ],
+                    "example": {
+                        "id": "String (identifier)",
+                        "deletedDateTime": "DateTimeOffset (timestamp)"
+                    }
+                },
+                {
+                    "title": "device",
+                    "type": "object",
+                    "properties": {
+                        "accountEnabled": {
+                            "type": "boolean",
+                            "nullable": true
+                        },
+                        "alternativeSecurityIds": {
+                            "type": "array",
+                            "items": {
+                                "title": "alternativeSecurityId",
+                                "type": "object",
+                                "properties": {
+                                    "type": {
+                                        "maximum": 2147483647,
+                                        "minimum": -2147483648,
+                                        "type": "integer",
+                                        "format": "int32",
+                                        "nullable": true
+                                    },
+                                    "identityProvider": {
+                                        "type": "string",
+                                        "nullable": true
+                                    },
+                                    "key": {
+                                        "type": "string",
+                                        "format": "base64url",
+                                        "nullable": true
+                                    }
+                                },
+                                "example": {
+                                    "type": "Int32",
+                                    "identityProvider": "String",
+                                    "key": "Binary"
+                                }
+                            }
+                        },
+                        "approximateLastSignInDateTime": {
+                            "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                            "type": "string",
+                            "format": "date-time",
+                            "nullable": true
+                        },
+                        "deviceId": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "deviceMetadata": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "deviceVersion": {
+                            "maximum": 2147483647,
+                            "minimum": -2147483648,
+                            "type": "integer",
+                            "format": "int32",
+                            "nullable": true
+                        },
+                        "displayName": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "isCompliant": {
+                            "type": "boolean",
+                            "nullable": true
+                        },
+                        "isManaged": {
+                            "type": "boolean",
+                            "nullable": true
+                        },
+                        "onPremisesLastSyncDateTime": {
+                            "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                            "type": "string",
+                            "format": "date-time",
+                            "nullable": true
+                        },
+                        "onPremisesSyncEnabled": {
+                            "type": "boolean",
+                            "nullable": true
+                        },
+                        "operatingSystem": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "operatingSystemVersion": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "physicalIds": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "trustType": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "registeredOwners": {
+                            "type": "array",
+                            "items": {
+                                "allOf": [
+                                    {
+                                        "title": "entity",
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "example": {
+                                            "id": "String (identifier)"
+                                        }
+                                    },
+                                    {
+                                        "title": "directoryObject",
+                                        "type": "object",
+                                        "properties": {
+                                            "deletedDateTime": {
+                                                "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                                                "type": "string",
+                                                "format": "date-time",
+                                                "nullable": true
+                                            }
+                                        }
+                                    }
+                                ],
+                                "example": {
+                                    "id": "String (identifier)",
+                                    "deletedDateTime": "DateTimeOffset (timestamp)"
+                                }
+                            }
+                        },
+                        "registeredUsers": {
+                            "type": "array",
+                            "items": {
+                                "allOf": [
+                                    {
+                                        "title": "entity",
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "example": {
+                                            "id": "String (identifier)"
+                                        }
+                                    },
+                                    {
+                                        "title": "directoryObject",
+                                        "type": "object",
+                                        "properties": {
+                                            "deletedDateTime": {
+                                                "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                                                "type": "string",
+                                                "format": "date-time",
+                                                "nullable": true
+                                            }
+                                        }
+                                    }
+                                ],
+                                "example": {
+                                    "id": "String (identifier)",
+                                    "deletedDateTime": "DateTimeOffset (timestamp)"
+                                }
+                            }
+                        },
+                        "extensions": {
+                            "type": "array",
+                            "items": {
+                                "allOf": [
+                                    {
+                                        "title": "entity",
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "example": {
+                                            "id": "String (identifier)"
+                                        }
+                                    },
+                                    {
+                                        "title": "extension",
+                                        "type": "object"
+                                    }
+                                ],
+                                "example": {
+                                    "id": "String (identifier)"
+                                }
+                            }
+                        }
+                    }
+                }
+            ],
+            "example": {
+                "id": "String (identifier)",
+                "deletedDateTime": "DateTimeOffset (timestamp)",
+                "accountEnabled": true,
+                "alternativeSecurityIds": [
+                    {
+                        "@odata.type": "microsoft.graph.alternativeSecurityId"
+                    }
+                ],
+                "approximateLastSignInDateTime": "DateTimeOffset (timestamp)",
+                "deviceId": "String",
+                "deviceMetadata": "String",
+                "deviceVersion": "Int32",
+                "displayName": "String",
+                "isCompliant": true,
+                "isManaged": true,
+                "onPremisesLastSyncDateTime": "DateTimeOffset (timestamp)",
+                "onPremisesSyncEnabled": true,
+                "operatingSystem": "String",
+                "operatingSystemVersion": "String",
+                "physicalIds": [
+                    "String"
+                ],
+                "trustType": "String",
+                "registeredOwners": [
+                    {
+                        "@odata.type": "microsoft.graph.directoryObject"
+                    }
+                ],
+                "registeredUsers": [
+                    {
+                        "@odata.type": "microsoft.graph.directoryObject"
+                    }
+                ],
+                "extensions": [
+                    {
+                        "@odata.type": "microsoft.graph.extension"
+                    }
+                ]
+            }
+        },
+        "device_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

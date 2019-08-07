@@ -1,0 +1,50 @@
+{
+    "type": "object",
+    "properties": {
+        "educationSchool_id": {
+            "required": true,
+            "type": "string"
+        },
+        "educationClass_id": {
+            "required": true,
+            "type": "string"
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "displayName",
+                    "mailNickname",
+                    "description",
+                    "createdBy",
+                    "classCode",
+                    "externalName",
+                    "externalId",
+                    "externalSource",
+                    "term",
+                    "schools",
+                    "members",
+                    "teachers",
+                    "group"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*",
+                    "schools",
+                    "members",
+                    "teachers",
+                    "group"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

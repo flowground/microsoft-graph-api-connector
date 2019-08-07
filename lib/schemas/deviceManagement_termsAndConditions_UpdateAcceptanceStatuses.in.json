@@ -1,0 +1,14 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {},
+        "termsAndConditions_id": {
+            "required": true,
+            "type": "string"
+        },
+        "termsAndConditionsAcceptanceStatus_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

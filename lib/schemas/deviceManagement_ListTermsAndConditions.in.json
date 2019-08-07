@@ -1,0 +1,81 @@
+{
+    "type": "object",
+    "properties": {
+        "_top": {
+            "minimum": 0,
+            "type": "integer"
+        },
+        "_skip": {
+            "minimum": 0,
+            "type": "integer"
+        },
+        "_search": {
+            "type": "string"
+        },
+        "_filter": {
+            "type": "string"
+        },
+        "_count": {
+            "type": "boolean"
+        },
+        "_orderby": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "id desc",
+                    "createdDateTime",
+                    "createdDateTime desc",
+                    "lastModifiedDateTime",
+                    "lastModifiedDateTime desc",
+                    "displayName",
+                    "displayName desc",
+                    "description",
+                    "description desc",
+                    "title",
+                    "title desc",
+                    "bodyText",
+                    "bodyText desc",
+                    "acceptanceStatement",
+                    "acceptanceStatement desc",
+                    "version",
+                    "version desc"
+                ],
+                "type": "string"
+            }
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "createdDateTime",
+                    "lastModifiedDateTime",
+                    "displayName",
+                    "description",
+                    "title",
+                    "bodyText",
+                    "acceptanceStatement",
+                    "version",
+                    "assignments",
+                    "acceptanceStatuses"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*",
+                    "assignments",
+                    "acceptanceStatuses"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

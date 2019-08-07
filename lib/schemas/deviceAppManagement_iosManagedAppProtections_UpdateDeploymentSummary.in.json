@@ -1,0 +1,101 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "allOf": [
+                {
+                    "title": "entity",
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        }
+                    },
+                    "example": {
+                        "id": "String (identifier)"
+                    }
+                },
+                {
+                    "title": "managedAppPolicyDeploymentSummary",
+                    "type": "object",
+                    "properties": {
+                        "displayName": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "configurationDeployedUserCount": {
+                            "maximum": 2147483647,
+                            "minimum": -2147483648,
+                            "type": "integer",
+                            "format": "int32"
+                        },
+                        "lastRefreshTime": {
+                            "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "configurationDeploymentSummaryPerApp": {
+                            "type": "array",
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "title": "managedAppPolicyDeploymentSummaryPerApp",
+                                        "type": "object",
+                                        "properties": {
+                                            "mobileAppIdentifier": {
+                                                "anyOf": [
+                                                    {
+                                                        "title": "mobileAppIdentifier",
+                                                        "type": "object"
+                                                    }
+                                                ],
+                                                "description": "Deployment of an app.",
+                                                "nullable": true
+                                            },
+                                            "configurationAppliedUserCount": {
+                                                "maximum": 2147483647,
+                                                "minimum": -2147483648,
+                                                "type": "integer",
+                                                "description": "Number of users the policy is applied.",
+                                                "format": "int32"
+                                            }
+                                        },
+                                        "example": {
+                                            "mobileAppIdentifier": {
+                                                "@odata.type": "microsoft.graph.mobileAppIdentifier"
+                                            },
+                                            "configurationAppliedUserCount": "Int32"
+                                        }
+                                    }
+                                ],
+                                "nullable": true
+                            }
+                        },
+                        "version": {
+                            "type": "string",
+                            "description": "Version of the entity.",
+                            "nullable": true
+                        }
+                    },
+                    "description": "The ManagedAppEntity is the base entity type for all other entity types under app management workflow."
+                }
+            ],
+            "example": {
+                "id": "String (identifier)",
+                "displayName": "String",
+                "configurationDeployedUserCount": "Int32",
+                "lastRefreshTime": "DateTimeOffset (timestamp)",
+                "configurationDeploymentSummaryPerApp": [
+                    {
+                        "@odata.type": "microsoft.graph.managedAppPolicyDeploymentSummaryPerApp"
+                    }
+                ],
+                "version": "String"
+            }
+        },
+        "iosManagedAppProtection_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

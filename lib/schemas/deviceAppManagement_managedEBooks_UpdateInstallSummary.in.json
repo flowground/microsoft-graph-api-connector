@@ -1,0 +1,83 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "allOf": [
+                {
+                    "title": "entity",
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        }
+                    },
+                    "example": {
+                        "id": "String (identifier)"
+                    }
+                },
+                {
+                    "title": "eBookInstallSummary",
+                    "type": "object",
+                    "properties": {
+                        "installedDeviceCount": {
+                            "maximum": 2147483647,
+                            "minimum": -2147483648,
+                            "type": "integer",
+                            "description": "Number of Devices that have successfully installed this book.",
+                            "format": "int32"
+                        },
+                        "failedDeviceCount": {
+                            "maximum": 2147483647,
+                            "minimum": -2147483648,
+                            "type": "integer",
+                            "description": "Number of Devices that have failed to install this book.",
+                            "format": "int32"
+                        },
+                        "notInstalledDeviceCount": {
+                            "maximum": 2147483647,
+                            "minimum": -2147483648,
+                            "type": "integer",
+                            "description": "Number of Devices that does not have this book installed.",
+                            "format": "int32"
+                        },
+                        "installedUserCount": {
+                            "maximum": 2147483647,
+                            "minimum": -2147483648,
+                            "type": "integer",
+                            "description": "Number of Users whose devices have all succeeded to install this book.",
+                            "format": "int32"
+                        },
+                        "failedUserCount": {
+                            "maximum": 2147483647,
+                            "minimum": -2147483648,
+                            "type": "integer",
+                            "description": "Number of Users that have 1 or more device that failed to install this book.",
+                            "format": "int32"
+                        },
+                        "notInstalledUserCount": {
+                            "maximum": 2147483647,
+                            "minimum": -2147483648,
+                            "type": "integer",
+                            "description": "Number of Users that did not install this book.",
+                            "format": "int32"
+                        }
+                    },
+                    "description": "Contains properties for the installation summary of a book for a device."
+                }
+            ],
+            "example": {
+                "id": "String (identifier)",
+                "installedDeviceCount": "Int32",
+                "failedDeviceCount": "Int32",
+                "notInstalledDeviceCount": "Int32",
+                "installedUserCount": "Int32",
+                "failedUserCount": "Int32",
+                "notInstalledUserCount": "Int32"
+            }
+        },
+        "managedEBook_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

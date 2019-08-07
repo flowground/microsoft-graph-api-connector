@@ -1,0 +1,82 @@
+{
+    "type": "object",
+    "properties": {
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "subscriptionState",
+                    "settings",
+                    "intuneBrand",
+                    "termsAndConditions",
+                    "applePushNotificationCertificate",
+                    "managedDeviceOverview",
+                    "detectedApps",
+                    "managedDevices",
+                    "deviceConfigurations",
+                    "deviceCompliancePolicies",
+                    "softwareUpdateStatusSummary",
+                    "deviceCompliancePolicyDeviceStateSummary",
+                    "deviceCompliancePolicySettingStateSummaries",
+                    "deviceConfigurationDeviceStateSummaries",
+                    "iosUpdateStatuses",
+                    "deviceCategories",
+                    "exchangeConnectors",
+                    "deviceEnrollmentConfigurations",
+                    "conditionalAccessSettings",
+                    "mobileThreatDefenseConnectors",
+                    "deviceManagementPartners",
+                    "notificationMessageTemplates",
+                    "roleDefinitions",
+                    "roleAssignments",
+                    "resourceOperations",
+                    "telecomExpenseManagementPartners",
+                    "remoteAssistancePartners",
+                    "windowsInformationProtectionAppLearningSummaries",
+                    "windowsInformationProtectionNetworkLearningSummaries",
+                    "troubleshootingEvents"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*",
+                    "termsAndConditions",
+                    "applePushNotificationCertificate",
+                    "managedDeviceOverview",
+                    "detectedApps",
+                    "managedDevices",
+                    "deviceConfigurations",
+                    "deviceCompliancePolicies",
+                    "softwareUpdateStatusSummary",
+                    "deviceCompliancePolicyDeviceStateSummary",
+                    "deviceCompliancePolicySettingStateSummaries",
+                    "deviceConfigurationDeviceStateSummaries",
+                    "iosUpdateStatuses",
+                    "deviceCategories",
+                    "exchangeConnectors",
+                    "deviceEnrollmentConfigurations",
+                    "conditionalAccessSettings",
+                    "mobileThreatDefenseConnectors",
+                    "deviceManagementPartners",
+                    "notificationMessageTemplates",
+                    "roleDefinitions",
+                    "roleAssignments",
+                    "resourceOperations",
+                    "telecomExpenseManagementPartners",
+                    "remoteAssistancePartners",
+                    "windowsInformationProtectionAppLearningSummaries",
+                    "windowsInformationProtectionNetworkLearningSummaries",
+                    "troubleshootingEvents"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

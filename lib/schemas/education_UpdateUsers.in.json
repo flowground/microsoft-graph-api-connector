@@ -1,0 +1,10 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {},
+        "educationUser_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

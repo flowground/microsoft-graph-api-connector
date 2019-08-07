@@ -1,0 +1,548 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "allOf": [
+                {
+                    "title": "entity",
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        }
+                    },
+                    "example": {
+                        "id": "String (identifier)"
+                    }
+                },
+                {
+                    "title": "person",
+                    "type": "object",
+                    "properties": {
+                        "displayName": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "givenName": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "surname": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "birthday": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "personNotes": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "isFavorite": {
+                            "type": "boolean",
+                            "nullable": true
+                        },
+                        "scoredEmailAddresses": {
+                            "type": "array",
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "title": "scoredEmailAddress",
+                                        "type": "object",
+                                        "properties": {
+                                            "address": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "relevanceScore": {
+                                                "anyOf": [
+                                                    {
+                                                        "type": "number"
+                                                    },
+                                                    {
+                                                        "type": "string"
+                                                    },
+                                                    {
+                                                        "enum": [
+                                                            "-INF",
+                                                            "INF",
+                                                            "NaN"
+                                                        ]
+                                                    }
+                                                ],
+                                                "format": "double",
+                                                "nullable": true
+                                            },
+                                            "selectionLikelihood": {
+                                                "anyOf": [
+                                                    {
+                                                        "title": "selectionLikelihoodInfo",
+                                                        "enum": [
+                                                            "notSpecified",
+                                                            "high"
+                                                        ],
+                                                        "type": "string"
+                                                    }
+                                                ],
+                                                "nullable": true
+                                            },
+                                            "ItemId": {
+                                                "type": "string",
+                                                "nullable": true
+                                            }
+                                        },
+                                        "example": {
+                                            "address": "String",
+                                            "relevanceScore": "Double",
+                                            "selectionLikelihood": {
+                                                "@odata.type": "microsoft.graph.selectionLikelihoodInfo"
+                                            },
+                                            "ItemId": "String"
+                                        }
+                                    }
+                                ],
+                                "nullable": true
+                            }
+                        },
+                        "phones": {
+                            "type": "array",
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "title": "phone",
+                                        "type": "object",
+                                        "properties": {
+                                            "type": {
+                                                "anyOf": [
+                                                    {
+                                                        "title": "phoneType",
+                                                        "enum": [
+                                                            "home",
+                                                            "business",
+                                                            "mobile",
+                                                            "other",
+                                                            "assistant",
+                                                            "homeFax",
+                                                            "businessFax",
+                                                            "otherFax",
+                                                            "pager",
+                                                            "radio"
+                                                        ],
+                                                        "type": "string"
+                                                    }
+                                                ],
+                                                "nullable": true
+                                            },
+                                            "number": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "region": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "language": {
+                                                "type": "string",
+                                                "nullable": true
+                                            }
+                                        },
+                                        "example": {
+                                            "type": {
+                                                "@odata.type": "microsoft.graph.phoneType"
+                                            },
+                                            "number": "String",
+                                            "region": "String",
+                                            "language": "String"
+                                        }
+                                    }
+                                ],
+                                "nullable": true
+                            }
+                        },
+                        "postalAddresses": {
+                            "type": "array",
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "title": "location",
+                                        "type": "object",
+                                        "properties": {
+                                            "displayName": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "locationEmailAddress": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "address": {
+                                                "anyOf": [
+                                                    {
+                                                        "title": "physicalAddress",
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "street": {
+                                                                "type": "string",
+                                                                "nullable": true
+                                                            },
+                                                            "city": {
+                                                                "type": "string",
+                                                                "nullable": true
+                                                            },
+                                                            "state": {
+                                                                "type": "string",
+                                                                "nullable": true
+                                                            },
+                                                            "countryOrRegion": {
+                                                                "type": "string",
+                                                                "nullable": true
+                                                            },
+                                                            "postalCode": {
+                                                                "type": "string",
+                                                                "nullable": true
+                                                            }
+                                                        },
+                                                        "example": {
+                                                            "street": "String",
+                                                            "city": "String",
+                                                            "state": "String",
+                                                            "countryOrRegion": "String",
+                                                            "postalCode": "String"
+                                                        }
+                                                    }
+                                                ],
+                                                "nullable": true
+                                            },
+                                            "coordinates": {
+                                                "anyOf": [
+                                                    {
+                                                        "title": "outlookGeoCoordinates",
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "altitude": {
+                                                                "anyOf": [
+                                                                    {
+                                                                        "type": "number"
+                                                                    },
+                                                                    {
+                                                                        "type": "string"
+                                                                    },
+                                                                    {
+                                                                        "enum": [
+                                                                            "-INF",
+                                                                            "INF",
+                                                                            "NaN"
+                                                                        ]
+                                                                    }
+                                                                ],
+                                                                "format": "double",
+                                                                "nullable": true
+                                                            },
+                                                            "latitude": {
+                                                                "anyOf": [
+                                                                    {
+                                                                        "type": "number"
+                                                                    },
+                                                                    {
+                                                                        "type": "string"
+                                                                    },
+                                                                    {
+                                                                        "enum": [
+                                                                            "-INF",
+                                                                            "INF",
+                                                                            "NaN"
+                                                                        ]
+                                                                    }
+                                                                ],
+                                                                "format": "double",
+                                                                "nullable": true
+                                                            },
+                                                            "longitude": {
+                                                                "anyOf": [
+                                                                    {
+                                                                        "type": "number"
+                                                                    },
+                                                                    {
+                                                                        "type": "string"
+                                                                    },
+                                                                    {
+                                                                        "enum": [
+                                                                            "-INF",
+                                                                            "INF",
+                                                                            "NaN"
+                                                                        ]
+                                                                    }
+                                                                ],
+                                                                "format": "double",
+                                                                "nullable": true
+                                                            },
+                                                            "accuracy": {
+                                                                "anyOf": [
+                                                                    {
+                                                                        "type": "number"
+                                                                    },
+                                                                    {
+                                                                        "type": "string"
+                                                                    },
+                                                                    {
+                                                                        "enum": [
+                                                                            "-INF",
+                                                                            "INF",
+                                                                            "NaN"
+                                                                        ]
+                                                                    }
+                                                                ],
+                                                                "format": "double",
+                                                                "nullable": true
+                                                            },
+                                                            "altitudeAccuracy": {
+                                                                "anyOf": [
+                                                                    {
+                                                                        "type": "number"
+                                                                    },
+                                                                    {
+                                                                        "type": "string"
+                                                                    },
+                                                                    {
+                                                                        "enum": [
+                                                                            "-INF",
+                                                                            "INF",
+                                                                            "NaN"
+                                                                        ]
+                                                                    }
+                                                                ],
+                                                                "format": "double",
+                                                                "nullable": true
+                                                            }
+                                                        },
+                                                        "example": {
+                                                            "altitude": "Double",
+                                                            "latitude": "Double",
+                                                            "longitude": "Double",
+                                                            "accuracy": "Double",
+                                                            "altitudeAccuracy": "Double"
+                                                        }
+                                                    }
+                                                ],
+                                                "nullable": true
+                                            },
+                                            "locationUri": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "locationType": {
+                                                "anyOf": [
+                                                    {
+                                                        "title": "locationType",
+                                                        "enum": [
+                                                            "default",
+                                                            "conferenceRoom",
+                                                            "homeAddress",
+                                                            "businessAddress",
+                                                            "geoCoordinates",
+                                                            "streetAddress",
+                                                            "hotel",
+                                                            "restaurant",
+                                                            "localBusiness",
+                                                            "postalAddress"
+                                                        ],
+                                                        "type": "string"
+                                                    }
+                                                ],
+                                                "nullable": true
+                                            },
+                                            "uniqueId": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "uniqueIdType": {
+                                                "anyOf": [
+                                                    {
+                                                        "title": "locationUniqueIdType",
+                                                        "enum": [
+                                                            "unknown",
+                                                            "locationStore",
+                                                            "directory",
+                                                            "private",
+                                                            "bing"
+                                                        ],
+                                                        "type": "string"
+                                                    }
+                                                ],
+                                                "nullable": true
+                                            }
+                                        },
+                                        "example": {
+                                            "displayName": "String",
+                                            "locationEmailAddress": "String",
+                                            "address": {
+                                                "@odata.type": "microsoft.graph.physicalAddress"
+                                            },
+                                            "coordinates": {
+                                                "@odata.type": "microsoft.graph.outlookGeoCoordinates"
+                                            },
+                                            "locationUri": "String",
+                                            "locationType": {
+                                                "@odata.type": "microsoft.graph.locationType"
+                                            },
+                                            "uniqueId": "String",
+                                            "uniqueIdType": {
+                                                "@odata.type": "microsoft.graph.locationUniqueIdType"
+                                            }
+                                        }
+                                    }
+                                ],
+                                "nullable": true
+                            }
+                        },
+                        "websites": {
+                            "type": "array",
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "title": "website",
+                                        "type": "object",
+                                        "properties": {
+                                            "type": {
+                                                "anyOf": [
+                                                    {
+                                                        "title": "websiteType",
+                                                        "enum": [
+                                                            "other",
+                                                            "home",
+                                                            "work",
+                                                            "blog",
+                                                            "profile"
+                                                        ],
+                                                        "type": "string"
+                                                    }
+                                                ],
+                                                "nullable": true
+                                            },
+                                            "address": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "displayName": {
+                                                "type": "string",
+                                                "nullable": true
+                                            }
+                                        },
+                                        "example": {
+                                            "type": {
+                                                "@odata.type": "microsoft.graph.websiteType"
+                                            },
+                                            "address": "String",
+                                            "displayName": "String"
+                                        }
+                                    }
+                                ],
+                                "nullable": true
+                            }
+                        },
+                        "jobTitle": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "companyName": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "yomiCompany": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "department": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "officeLocation": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "profession": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "personType": {
+                            "anyOf": [
+                                {
+                                    "title": "personType",
+                                    "type": "object",
+                                    "properties": {
+                                        "class": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "subclass": {
+                                            "type": "string",
+                                            "nullable": true
+                                        }
+                                    },
+                                    "example": {
+                                        "class": "String",
+                                        "subclass": "String"
+                                    }
+                                }
+                            ],
+                            "nullable": true
+                        },
+                        "userPrincipalName": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "imAddress": {
+                            "type": "string",
+                            "nullable": true
+                        }
+                    }
+                }
+            ],
+            "example": {
+                "id": "String (identifier)",
+                "displayName": "String",
+                "givenName": "String",
+                "surname": "String",
+                "birthday": "String",
+                "personNotes": "String",
+                "isFavorite": true,
+                "scoredEmailAddresses": [
+                    {
+                        "@odata.type": "microsoft.graph.scoredEmailAddress"
+                    }
+                ],
+                "phones": [
+                    {
+                        "@odata.type": "microsoft.graph.phone"
+                    }
+                ],
+                "postalAddresses": [
+                    {
+                        "@odata.type": "microsoft.graph.location"
+                    }
+                ],
+                "websites": [
+                    {
+                        "@odata.type": "microsoft.graph.website"
+                    }
+                ],
+                "jobTitle": "String",
+                "companyName": "String",
+                "yomiCompany": "String",
+                "department": "String",
+                "officeLocation": "String",
+                "profession": "String",
+                "personType": {
+                    "@odata.type": "microsoft.graph.personType"
+                },
+                "userPrincipalName": "String",
+                "imAddress": "String"
+            }
+        },
+        "user_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

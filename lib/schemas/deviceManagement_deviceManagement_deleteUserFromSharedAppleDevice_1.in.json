@@ -1,0 +1,18 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "userPrincipalName": {
+                    "type": "string",
+                    "nullable": true
+                }
+            }
+        },
+        "managedDevice_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

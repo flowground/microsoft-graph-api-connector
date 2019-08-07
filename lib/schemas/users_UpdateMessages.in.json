@@ -1,0 +1,846 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "allOf": [
+                {
+                    "allOf": [
+                        {
+                            "title": "entity",
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "string"
+                                }
+                            },
+                            "example": {
+                                "id": "String (identifier)"
+                            }
+                        },
+                        {
+                            "title": "outlookItem",
+                            "type": "object",
+                            "properties": {
+                                "createdDateTime": {
+                                    "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                                    "type": "string",
+                                    "format": "date-time",
+                                    "nullable": true
+                                },
+                                "lastModifiedDateTime": {
+                                    "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                                    "type": "string",
+                                    "format": "date-time",
+                                    "nullable": true
+                                },
+                                "changeKey": {
+                                    "type": "string",
+                                    "nullable": true
+                                },
+                                "categories": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string",
+                                        "nullable": true
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "example": {
+                        "id": "String (identifier)",
+                        "createdDateTime": "DateTimeOffset (timestamp)",
+                        "lastModifiedDateTime": "DateTimeOffset (timestamp)",
+                        "changeKey": "String",
+                        "categories": [
+                            "String"
+                        ]
+                    }
+                },
+                {
+                    "title": "message",
+                    "type": "object",
+                    "properties": {
+                        "receivedDateTime": {
+                            "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                            "type": "string",
+                            "format": "date-time",
+                            "nullable": true
+                        },
+                        "sentDateTime": {
+                            "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                            "type": "string",
+                            "format": "date-time",
+                            "nullable": true
+                        },
+                        "hasAttachments": {
+                            "type": "boolean",
+                            "nullable": true
+                        },
+                        "internetMessageId": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "internetMessageHeaders": {
+                            "type": "array",
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "title": "internetMessageHeader",
+                                        "type": "object",
+                                        "properties": {
+                                            "name": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "value": {
+                                                "type": "string",
+                                                "nullable": true
+                                            }
+                                        },
+                                        "example": {
+                                            "name": "String",
+                                            "value": "String"
+                                        }
+                                    }
+                                ],
+                                "nullable": true
+                            }
+                        },
+                        "subject": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "body": {
+                            "anyOf": [
+                                {
+                                    "title": "itemBody",
+                                    "type": "object",
+                                    "properties": {
+                                        "contentType": {
+                                            "anyOf": [
+                                                {
+                                                    "title": "bodyType",
+                                                    "enum": [
+                                                        "text",
+                                                        "html"
+                                                    ],
+                                                    "type": "string"
+                                                }
+                                            ],
+                                            "nullable": true
+                                        },
+                                        "content": {
+                                            "type": "string",
+                                            "nullable": true
+                                        }
+                                    },
+                                    "example": {
+                                        "contentType": {
+                                            "@odata.type": "microsoft.graph.bodyType"
+                                        },
+                                        "content": "String"
+                                    }
+                                }
+                            ],
+                            "nullable": true
+                        },
+                        "bodyPreview": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "importance": {
+                            "anyOf": [
+                                {
+                                    "title": "importance",
+                                    "enum": [
+                                        "low",
+                                        "normal",
+                                        "high"
+                                    ],
+                                    "type": "string"
+                                }
+                            ],
+                            "nullable": true
+                        },
+                        "parentFolderId": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "sender": {
+                            "anyOf": [
+                                {
+                                    "title": "recipient",
+                                    "type": "object",
+                                    "properties": {
+                                        "emailAddress": {
+                                            "anyOf": [
+                                                {
+                                                    "title": "emailAddress",
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "name": {
+                                                            "type": "string",
+                                                            "nullable": true
+                                                        },
+                                                        "address": {
+                                                            "type": "string",
+                                                            "nullable": true
+                                                        }
+                                                    },
+                                                    "example": {
+                                                        "name": "String",
+                                                        "address": "String"
+                                                    }
+                                                }
+                                            ],
+                                            "nullable": true
+                                        }
+                                    },
+                                    "example": {
+                                        "emailAddress": {
+                                            "@odata.type": "microsoft.graph.emailAddress"
+                                        }
+                                    }
+                                }
+                            ],
+                            "nullable": true
+                        },
+                        "from": {
+                            "anyOf": [
+                                {
+                                    "title": "recipient",
+                                    "type": "object",
+                                    "properties": {
+                                        "emailAddress": {
+                                            "anyOf": [
+                                                {
+                                                    "title": "emailAddress",
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "name": {
+                                                            "type": "string",
+                                                            "nullable": true
+                                                        },
+                                                        "address": {
+                                                            "type": "string",
+                                                            "nullable": true
+                                                        }
+                                                    },
+                                                    "example": {
+                                                        "name": "String",
+                                                        "address": "String"
+                                                    }
+                                                }
+                                            ],
+                                            "nullable": true
+                                        }
+                                    },
+                                    "example": {
+                                        "emailAddress": {
+                                            "@odata.type": "microsoft.graph.emailAddress"
+                                        }
+                                    }
+                                }
+                            ],
+                            "nullable": true
+                        },
+                        "toRecipients": {
+                            "type": "array",
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "title": "recipient",
+                                        "type": "object",
+                                        "properties": {
+                                            "emailAddress": {
+                                                "anyOf": [
+                                                    {
+                                                        "title": "emailAddress",
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "name": {
+                                                                "type": "string",
+                                                                "nullable": true
+                                                            },
+                                                            "address": {
+                                                                "type": "string",
+                                                                "nullable": true
+                                                            }
+                                                        },
+                                                        "example": {
+                                                            "name": "String",
+                                                            "address": "String"
+                                                        }
+                                                    }
+                                                ],
+                                                "nullable": true
+                                            }
+                                        },
+                                        "example": {
+                                            "emailAddress": {
+                                                "@odata.type": "microsoft.graph.emailAddress"
+                                            }
+                                        }
+                                    }
+                                ],
+                                "nullable": true
+                            }
+                        },
+                        "ccRecipients": {
+                            "type": "array",
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "title": "recipient",
+                                        "type": "object",
+                                        "properties": {
+                                            "emailAddress": {
+                                                "anyOf": [
+                                                    {
+                                                        "title": "emailAddress",
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "name": {
+                                                                "type": "string",
+                                                                "nullable": true
+                                                            },
+                                                            "address": {
+                                                                "type": "string",
+                                                                "nullable": true
+                                                            }
+                                                        },
+                                                        "example": {
+                                                            "name": "String",
+                                                            "address": "String"
+                                                        }
+                                                    }
+                                                ],
+                                                "nullable": true
+                                            }
+                                        },
+                                        "example": {
+                                            "emailAddress": {
+                                                "@odata.type": "microsoft.graph.emailAddress"
+                                            }
+                                        }
+                                    }
+                                ],
+                                "nullable": true
+                            }
+                        },
+                        "bccRecipients": {
+                            "type": "array",
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "title": "recipient",
+                                        "type": "object",
+                                        "properties": {
+                                            "emailAddress": {
+                                                "anyOf": [
+                                                    {
+                                                        "title": "emailAddress",
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "name": {
+                                                                "type": "string",
+                                                                "nullable": true
+                                                            },
+                                                            "address": {
+                                                                "type": "string",
+                                                                "nullable": true
+                                                            }
+                                                        },
+                                                        "example": {
+                                                            "name": "String",
+                                                            "address": "String"
+                                                        }
+                                                    }
+                                                ],
+                                                "nullable": true
+                                            }
+                                        },
+                                        "example": {
+                                            "emailAddress": {
+                                                "@odata.type": "microsoft.graph.emailAddress"
+                                            }
+                                        }
+                                    }
+                                ],
+                                "nullable": true
+                            }
+                        },
+                        "replyTo": {
+                            "type": "array",
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "title": "recipient",
+                                        "type": "object",
+                                        "properties": {
+                                            "emailAddress": {
+                                                "anyOf": [
+                                                    {
+                                                        "title": "emailAddress",
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "name": {
+                                                                "type": "string",
+                                                                "nullable": true
+                                                            },
+                                                            "address": {
+                                                                "type": "string",
+                                                                "nullable": true
+                                                            }
+                                                        },
+                                                        "example": {
+                                                            "name": "String",
+                                                            "address": "String"
+                                                        }
+                                                    }
+                                                ],
+                                                "nullable": true
+                                            }
+                                        },
+                                        "example": {
+                                            "emailAddress": {
+                                                "@odata.type": "microsoft.graph.emailAddress"
+                                            }
+                                        }
+                                    }
+                                ],
+                                "nullable": true
+                            }
+                        },
+                        "conversationId": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "uniqueBody": {
+                            "anyOf": [
+                                {
+                                    "title": "itemBody",
+                                    "type": "object",
+                                    "properties": {
+                                        "contentType": {
+                                            "anyOf": [
+                                                {
+                                                    "title": "bodyType",
+                                                    "enum": [
+                                                        "text",
+                                                        "html"
+                                                    ],
+                                                    "type": "string"
+                                                }
+                                            ],
+                                            "nullable": true
+                                        },
+                                        "content": {
+                                            "type": "string",
+                                            "nullable": true
+                                        }
+                                    },
+                                    "example": {
+                                        "contentType": {
+                                            "@odata.type": "microsoft.graph.bodyType"
+                                        },
+                                        "content": "String"
+                                    }
+                                }
+                            ],
+                            "nullable": true
+                        },
+                        "isDeliveryReceiptRequested": {
+                            "type": "boolean",
+                            "nullable": true
+                        },
+                        "isReadReceiptRequested": {
+                            "type": "boolean",
+                            "nullable": true
+                        },
+                        "isRead": {
+                            "type": "boolean",
+                            "nullable": true
+                        },
+                        "isDraft": {
+                            "type": "boolean",
+                            "nullable": true
+                        },
+                        "webLink": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "inferenceClassification": {
+                            "anyOf": [
+                                {
+                                    "title": "inferenceClassificationType",
+                                    "enum": [
+                                        "focused",
+                                        "other"
+                                    ],
+                                    "type": "string"
+                                }
+                            ],
+                            "nullable": true
+                        },
+                        "flag": {
+                            "anyOf": [
+                                {
+                                    "title": "followupFlag",
+                                    "type": "object",
+                                    "properties": {
+                                        "completedDateTime": {
+                                            "anyOf": [
+                                                {
+                                                    "title": "dateTimeTimeZone",
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "dateTime": {
+                                                            "type": "string"
+                                                        },
+                                                        "timeZone": {
+                                                            "type": "string",
+                                                            "nullable": true
+                                                        }
+                                                    },
+                                                    "example": {
+                                                        "dateTime": "String",
+                                                        "timeZone": "String"
+                                                    }
+                                                }
+                                            ],
+                                            "nullable": true
+                                        },
+                                        "dueDateTime": {
+                                            "anyOf": [
+                                                {
+                                                    "title": "dateTimeTimeZone",
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "dateTime": {
+                                                            "type": "string"
+                                                        },
+                                                        "timeZone": {
+                                                            "type": "string",
+                                                            "nullable": true
+                                                        }
+                                                    },
+                                                    "example": {
+                                                        "dateTime": "String",
+                                                        "timeZone": "String"
+                                                    }
+                                                }
+                                            ],
+                                            "nullable": true
+                                        },
+                                        "startDateTime": {
+                                            "anyOf": [
+                                                {
+                                                    "title": "dateTimeTimeZone",
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "dateTime": {
+                                                            "type": "string"
+                                                        },
+                                                        "timeZone": {
+                                                            "type": "string",
+                                                            "nullable": true
+                                                        }
+                                                    },
+                                                    "example": {
+                                                        "dateTime": "String",
+                                                        "timeZone": "String"
+                                                    }
+                                                }
+                                            ],
+                                            "nullable": true
+                                        },
+                                        "flagStatus": {
+                                            "anyOf": [
+                                                {
+                                                    "title": "followupFlagStatus",
+                                                    "enum": [
+                                                        "notFlagged",
+                                                        "complete",
+                                                        "flagged"
+                                                    ],
+                                                    "type": "string"
+                                                }
+                                            ],
+                                            "nullable": true
+                                        }
+                                    },
+                                    "example": {
+                                        "completedDateTime": {
+                                            "@odata.type": "microsoft.graph.dateTimeTimeZone"
+                                        },
+                                        "dueDateTime": {
+                                            "@odata.type": "microsoft.graph.dateTimeTimeZone"
+                                        },
+                                        "startDateTime": {
+                                            "@odata.type": "microsoft.graph.dateTimeTimeZone"
+                                        },
+                                        "flagStatus": {
+                                            "@odata.type": "microsoft.graph.followupFlagStatus"
+                                        }
+                                    }
+                                }
+                            ],
+                            "nullable": true
+                        },
+                        "attachments": {
+                            "type": "array",
+                            "items": {
+                                "allOf": [
+                                    {
+                                        "title": "entity",
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "example": {
+                                            "id": "String (identifier)"
+                                        }
+                                    },
+                                    {
+                                        "title": "attachment",
+                                        "type": "object",
+                                        "properties": {
+                                            "lastModifiedDateTime": {
+                                                "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                                                "type": "string",
+                                                "format": "date-time",
+                                                "nullable": true
+                                            },
+                                            "name": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "contentType": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "size": {
+                                                "maximum": 2147483647,
+                                                "minimum": -2147483648,
+                                                "type": "integer",
+                                                "format": "int32"
+                                            },
+                                            "isInline": {
+                                                "type": "boolean"
+                                            }
+                                        }
+                                    }
+                                ],
+                                "example": {
+                                    "id": "String (identifier)",
+                                    "lastModifiedDateTime": "DateTimeOffset (timestamp)",
+                                    "name": "String",
+                                    "contentType": "String",
+                                    "size": "Int32",
+                                    "isInline": true
+                                }
+                            }
+                        },
+                        "extensions": {
+                            "type": "array",
+                            "items": {
+                                "allOf": [
+                                    {
+                                        "title": "entity",
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "example": {
+                                            "id": "String (identifier)"
+                                        }
+                                    },
+                                    {
+                                        "title": "extension",
+                                        "type": "object"
+                                    }
+                                ],
+                                "example": {
+                                    "id": "String (identifier)"
+                                }
+                            }
+                        },
+                        "singleValueExtendedProperties": {
+                            "type": "array",
+                            "items": {
+                                "allOf": [
+                                    {
+                                        "title": "entity",
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "example": {
+                                            "id": "String (identifier)"
+                                        }
+                                    },
+                                    {
+                                        "title": "singleValueLegacyExtendedProperty",
+                                        "type": "object",
+                                        "properties": {
+                                            "value": {
+                                                "type": "string",
+                                                "nullable": true
+                                            }
+                                        }
+                                    }
+                                ],
+                                "example": {
+                                    "id": "String (identifier)",
+                                    "value": "String"
+                                }
+                            }
+                        },
+                        "multiValueExtendedProperties": {
+                            "type": "array",
+                            "items": {
+                                "allOf": [
+                                    {
+                                        "title": "entity",
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "example": {
+                                            "id": "String (identifier)"
+                                        }
+                                    },
+                                    {
+                                        "title": "multiValueLegacyExtendedProperty",
+                                        "type": "object",
+                                        "properties": {
+                                            "value": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "string",
+                                                    "nullable": true
+                                                }
+                                            }
+                                        }
+                                    }
+                                ],
+                                "example": {
+                                    "id": "String (identifier)",
+                                    "value": [
+                                        "String"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            ],
+            "example": {
+                "id": "String (identifier)",
+                "createdDateTime": "DateTimeOffset (timestamp)",
+                "lastModifiedDateTime": "DateTimeOffset (timestamp)",
+                "changeKey": "String",
+                "categories": [
+                    "String"
+                ],
+                "receivedDateTime": "DateTimeOffset (timestamp)",
+                "sentDateTime": "DateTimeOffset (timestamp)",
+                "hasAttachments": true,
+                "internetMessageId": "String",
+                "internetMessageHeaders": [
+                    {
+                        "@odata.type": "microsoft.graph.internetMessageHeader"
+                    }
+                ],
+                "subject": "String",
+                "body": {
+                    "@odata.type": "microsoft.graph.itemBody"
+                },
+                "bodyPreview": "String",
+                "importance": {
+                    "@odata.type": "microsoft.graph.importance"
+                },
+                "parentFolderId": "String",
+                "sender": {
+                    "@odata.type": "microsoft.graph.recipient"
+                },
+                "from": {
+                    "@odata.type": "microsoft.graph.recipient"
+                },
+                "toRecipients": [
+                    {
+                        "@odata.type": "microsoft.graph.recipient"
+                    }
+                ],
+                "ccRecipients": [
+                    {
+                        "@odata.type": "microsoft.graph.recipient"
+                    }
+                ],
+                "bccRecipients": [
+                    {
+                        "@odata.type": "microsoft.graph.recipient"
+                    }
+                ],
+                "replyTo": [
+                    {
+                        "@odata.type": "microsoft.graph.recipient"
+                    }
+                ],
+                "conversationId": "String",
+                "uniqueBody": {
+                    "@odata.type": "microsoft.graph.itemBody"
+                },
+                "isDeliveryReceiptRequested": true,
+                "isReadReceiptRequested": true,
+                "isRead": true,
+                "isDraft": true,
+                "webLink": "String",
+                "inferenceClassification": {
+                    "@odata.type": "microsoft.graph.inferenceClassificationType"
+                },
+                "flag": {
+                    "@odata.type": "microsoft.graph.followupFlag"
+                },
+                "attachments": [
+                    {
+                        "@odata.type": "microsoft.graph.attachment"
+                    }
+                ],
+                "extensions": [
+                    {
+                        "@odata.type": "microsoft.graph.extension"
+                    }
+                ],
+                "singleValueExtendedProperties": [
+                    {
+                        "@odata.type": "microsoft.graph.singleValueLegacyExtendedProperty"
+                    }
+                ],
+                "multiValueExtendedProperties": [
+                    {
+                        "@odata.type": "microsoft.graph.multiValueLegacyExtendedProperty"
+                    }
+                ]
+            }
+        },
+        "user_id": {
+            "required": true,
+            "type": "string"
+        },
+        "message_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

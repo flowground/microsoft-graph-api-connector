@@ -1,0 +1,37 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "criteria1": {
+                    "type": "string",
+                    "nullable": true
+                },
+                "criteria2": {
+                    "type": "string",
+                    "nullable": true
+                },
+                "oper": {
+                    "type": "string"
+                }
+            }
+        },
+        "driveItem_id": {
+            "required": true,
+            "type": "string"
+        },
+        "workbookWorksheet_id": {
+            "required": true,
+            "type": "string"
+        },
+        "workbookTable_id": {
+            "required": true,
+            "type": "string"
+        },
+        "workbookTableColumn_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

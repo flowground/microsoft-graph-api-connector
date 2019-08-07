@@ -1,0 +1,48 @@
+{
+    "type": "object",
+    "properties": {
+        "deviceCompliancePolicy_id": {
+            "required": true,
+            "type": "string"
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "createdDateTime",
+                    "description",
+                    "lastModifiedDateTime",
+                    "displayName",
+                    "version",
+                    "scheduledActionsForRule",
+                    "deviceStatuses",
+                    "userStatuses",
+                    "deviceStatusOverview",
+                    "userStatusOverview",
+                    "deviceSettingStateSummaries",
+                    "assignments"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*",
+                    "scheduledActionsForRule",
+                    "deviceStatuses",
+                    "userStatuses",
+                    "deviceStatusOverview",
+                    "userStatusOverview",
+                    "deviceSettingStateSummaries",
+                    "assignments"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

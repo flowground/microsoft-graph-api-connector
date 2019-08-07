@@ -1,0 +1,74 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "item": {
+                    "anyOf": [
+                        {
+                            "title": "driveItemUploadableProperties",
+                            "type": "object",
+                            "properties": {
+                                "description": {
+                                    "type": "string",
+                                    "nullable": true
+                                },
+                                "fileSystemInfo": {
+                                    "anyOf": [
+                                        {
+                                            "title": "fileSystemInfo",
+                                            "type": "object",
+                                            "properties": {
+                                                "createdDateTime": {
+                                                    "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                                                    "type": "string",
+                                                    "format": "date-time",
+                                                    "nullable": true
+                                                },
+                                                "lastAccessedDateTime": {
+                                                    "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                                                    "type": "string",
+                                                    "format": "date-time",
+                                                    "nullable": true
+                                                },
+                                                "lastModifiedDateTime": {
+                                                    "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                                                    "type": "string",
+                                                    "format": "date-time",
+                                                    "nullable": true
+                                                }
+                                            },
+                                            "example": {
+                                                "createdDateTime": "DateTimeOffset (timestamp)",
+                                                "lastAccessedDateTime": "DateTimeOffset (timestamp)",
+                                                "lastModifiedDateTime": "DateTimeOffset (timestamp)"
+                                            }
+                                        }
+                                    ],
+                                    "nullable": true
+                                },
+                                "name": {
+                                    "type": "string",
+                                    "nullable": true
+                                }
+                            },
+                            "example": {
+                                "description": "String",
+                                "fileSystemInfo": {
+                                    "@odata.type": "microsoft.graph.fileSystemInfo"
+                                },
+                                "name": "String"
+                            }
+                        }
+                    ],
+                    "nullable": true
+                }
+            }
+        },
+        "driveItem_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

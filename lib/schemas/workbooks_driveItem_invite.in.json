@@ -1,0 +1,61 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "requireSignIn": {
+                    "type": "boolean",
+                    "default": false,
+                    "nullable": true
+                },
+                "roles": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "sendInvitation": {
+                    "type": "boolean",
+                    "default": false,
+                    "nullable": true
+                },
+                "message": {
+                    "type": "string",
+                    "nullable": true
+                },
+                "recipients": {
+                    "type": "array",
+                    "items": {
+                        "title": "driveRecipient",
+                        "type": "object",
+                        "properties": {
+                            "alias": {
+                                "type": "string",
+                                "nullable": true
+                            },
+                            "email": {
+                                "type": "string",
+                                "nullable": true
+                            },
+                            "objectId": {
+                                "type": "string",
+                                "nullable": true
+                            }
+                        },
+                        "example": {
+                            "alias": "String",
+                            "email": "String",
+                            "objectId": "String"
+                        }
+                    }
+                }
+            }
+        },
+        "driveItem_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

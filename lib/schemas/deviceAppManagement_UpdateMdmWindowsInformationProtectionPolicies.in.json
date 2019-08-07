@@ -1,0 +1,886 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "allOf": [
+                {
+                    "allOf": [
+                        {
+                            "allOf": [
+                                {
+                                    "title": "entity",
+                                    "type": "object",
+                                    "properties": {
+                                        "id": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "example": {
+                                        "id": "String (identifier)"
+                                    }
+                                },
+                                {
+                                    "title": "managedAppPolicy",
+                                    "type": "object",
+                                    "properties": {
+                                        "displayName": {
+                                            "type": "string",
+                                            "description": "Policy display name."
+                                        },
+                                        "description": {
+                                            "type": "string",
+                                            "description": "The policy's description.",
+                                            "nullable": true
+                                        },
+                                        "createdDateTime": {
+                                            "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                                            "type": "string",
+                                            "description": "The date and time the policy was created.",
+                                            "format": "date-time"
+                                        },
+                                        "lastModifiedDateTime": {
+                                            "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                                            "type": "string",
+                                            "description": "Last time the policy was modified.",
+                                            "format": "date-time"
+                                        },
+                                        "version": {
+                                            "type": "string",
+                                            "description": "Version of the entity.",
+                                            "nullable": true
+                                        }
+                                    },
+                                    "description": "The ManagedAppPolicy resource represents a base type for platform specific policies."
+                                }
+                            ],
+                            "example": {
+                                "id": "String (identifier)",
+                                "displayName": "String",
+                                "description": "String",
+                                "createdDateTime": "DateTimeOffset (timestamp)",
+                                "lastModifiedDateTime": "DateTimeOffset (timestamp)",
+                                "version": "String"
+                            }
+                        },
+                        {
+                            "title": "windowsInformationProtection",
+                            "type": "object",
+                            "properties": {
+                                "enforcementLevel": {
+                                    "anyOf": [
+                                        {
+                                            "title": "windowsInformationProtectionEnforcementLevel",
+                                            "enum": [
+                                                "noProtection",
+                                                "encryptAndAuditOnly",
+                                                "encryptAuditAndPrompt",
+                                                "encryptAuditAndBlock"
+                                            ],
+                                            "type": "string"
+                                        }
+                                    ],
+                                    "description": "WIP enforcement level.See the Enum definition for supported values"
+                                },
+                                "enterpriseDomain": {
+                                    "type": "string",
+                                    "description": "Primary enterprise domain",
+                                    "nullable": true
+                                },
+                                "enterpriseProtectedDomainNames": {
+                                    "type": "array",
+                                    "items": {
+                                        "anyOf": [
+                                            {
+                                                "title": "windowsInformationProtectionResourceCollection",
+                                                "type": "object",
+                                                "properties": {
+                                                    "displayName": {
+                                                        "type": "string",
+                                                        "description": "Display name"
+                                                    },
+                                                    "resources": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string",
+                                                            "nullable": true
+                                                        },
+                                                        "description": "Collection of resources"
+                                                    }
+                                                },
+                                                "example": {
+                                                    "displayName": "String",
+                                                    "resources": [
+                                                        "String"
+                                                    ]
+                                                }
+                                            }
+                                        ],
+                                        "nullable": true
+                                    },
+                                    "description": "List of enterprise domains to be protected"
+                                },
+                                "protectionUnderLockConfigRequired": {
+                                    "type": "boolean",
+                                    "description": "Specifies whether the protection under lock feature (also known as encrypt under pin) should be configured"
+                                },
+                                "dataRecoveryCertificate": {
+                                    "anyOf": [
+                                        {
+                                            "title": "windowsInformationProtectionDataRecoveryCertificate",
+                                            "type": "object",
+                                            "properties": {
+                                                "subjectName": {
+                                                    "type": "string",
+                                                    "description": "Data recovery Certificate subject name",
+                                                    "nullable": true
+                                                },
+                                                "description": {
+                                                    "type": "string",
+                                                    "description": "Data recovery Certificate description",
+                                                    "nullable": true
+                                                },
+                                                "expirationDateTime": {
+                                                    "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+                                                    "type": "string",
+                                                    "description": "Data recovery Certificate expiration datetime",
+                                                    "format": "date-time"
+                                                },
+                                                "certificate": {
+                                                    "type": "string",
+                                                    "description": "Data recovery Certificate",
+                                                    "format": "base64url",
+                                                    "nullable": true
+                                                }
+                                            },
+                                            "example": {
+                                                "subjectName": "String",
+                                                "description": "String",
+                                                "expirationDateTime": "DateTimeOffset (timestamp)",
+                                                "certificate": "Binary"
+                                            }
+                                        }
+                                    ],
+                                    "description": "Specifies a recovery certificate that can be used for data recovery of encrypted files. This is the same as the data recovery agent(DRA) certificate for encrypting file system(EFS)",
+                                    "nullable": true
+                                },
+                                "revokeOnUnenrollDisabled": {
+                                    "type": "boolean",
+                                    "description": "This policy controls whether to revoke the WIP keys when a device unenrolls from the management service. If set to 1 (Don't revoke keys), the keys will not be revoked and the user will continue to have access to protected files after unenrollment. If the keys are not revoked, there will be no revoked file cleanup subsequently."
+                                },
+                                "rightsManagementServicesTemplateId": {
+                                    "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+                                    "type": "string",
+                                    "description": "TemplateID GUID to use for RMS encryption. The RMS template allows the IT admin to configure the details about who has access to RMS-protected file and how long they have access",
+                                    "format": "uuid",
+                                    "nullable": true
+                                },
+                                "azureRightsManagementServicesAllowed": {
+                                    "type": "boolean",
+                                    "description": "Specifies whether to allow Azure RMS encryption for WIP"
+                                },
+                                "iconsVisible": {
+                                    "type": "boolean",
+                                    "description": "Determines whether overlays are added to icons for WIP protected files in Explorer and enterprise only app tiles in the Start menu. Starting in Windows 10, version 1703 this setting also configures the visibility of the WIP icon in the title bar of a WIP-protected app"
+                                },
+                                "protectedApps": {
+                                    "type": "array",
+                                    "items": {
+                                        "anyOf": [
+                                            {
+                                                "title": "windowsInformationProtectionApp",
+                                                "type": "object",
+                                                "properties": {
+                                                    "displayName": {
+                                                        "type": "string",
+                                                        "description": "App display name."
+                                                    },
+                                                    "description": {
+                                                        "type": "string",
+                                                        "description": "The app's description.",
+                                                        "nullable": true
+                                                    },
+                                                    "publisherName": {
+                                                        "type": "string",
+                                                        "description": "The publisher name",
+                                                        "nullable": true
+                                                    },
+                                                    "productName": {
+                                                        "type": "string",
+                                                        "description": "The product name.",
+                                                        "nullable": true
+                                                    },
+                                                    "denied": {
+                                                        "type": "boolean",
+                                                        "description": "If true, app is denied protection or exemption."
+                                                    }
+                                                },
+                                                "example": {
+                                                    "displayName": "String",
+                                                    "description": "String",
+                                                    "publisherName": "String",
+                                                    "productName": "String",
+                                                    "denied": true
+                                                }
+                                            }
+                                        ],
+                                        "nullable": true
+                                    },
+                                    "description": "Protected applications can access enterprise data and the data handled by those applications are protected with encryption"
+                                },
+                                "exemptApps": {
+                                    "type": "array",
+                                    "items": {
+                                        "anyOf": [
+                                            {
+                                                "title": "windowsInformationProtectionApp",
+                                                "type": "object",
+                                                "properties": {
+                                                    "displayName": {
+                                                        "type": "string",
+                                                        "description": "App display name."
+                                                    },
+                                                    "description": {
+                                                        "type": "string",
+                                                        "description": "The app's description.",
+                                                        "nullable": true
+                                                    },
+                                                    "publisherName": {
+                                                        "type": "string",
+                                                        "description": "The publisher name",
+                                                        "nullable": true
+                                                    },
+                                                    "productName": {
+                                                        "type": "string",
+                                                        "description": "The product name.",
+                                                        "nullable": true
+                                                    },
+                                                    "denied": {
+                                                        "type": "boolean",
+                                                        "description": "If true, app is denied protection or exemption."
+                                                    }
+                                                },
+                                                "example": {
+                                                    "displayName": "String",
+                                                    "description": "String",
+                                                    "publisherName": "String",
+                                                    "productName": "String",
+                                                    "denied": true
+                                                }
+                                            }
+                                        ],
+                                        "nullable": true
+                                    },
+                                    "description": "Exempt applications can also access enterprise data, but the data handled by those applications are not protected. This is because some critical enterprise applications may have compatibility problems with encrypted data."
+                                },
+                                "enterpriseNetworkDomainNames": {
+                                    "type": "array",
+                                    "items": {
+                                        "anyOf": [
+                                            {
+                                                "title": "windowsInformationProtectionResourceCollection",
+                                                "type": "object",
+                                                "properties": {
+                                                    "displayName": {
+                                                        "type": "string",
+                                                        "description": "Display name"
+                                                    },
+                                                    "resources": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string",
+                                                            "nullable": true
+                                                        },
+                                                        "description": "Collection of resources"
+                                                    }
+                                                },
+                                                "example": {
+                                                    "displayName": "String",
+                                                    "resources": [
+                                                        "String"
+                                                    ]
+                                                }
+                                            }
+                                        ],
+                                        "nullable": true
+                                    },
+                                    "description": "This is the list of domains that comprise the boundaries of the enterprise. Data from one of these domains that is sent to a device will be considered enterprise data and protected These locations will be considered a safe destination for enterprise data to be shared to"
+                                },
+                                "enterpriseProxiedDomains": {
+                                    "type": "array",
+                                    "items": {
+                                        "anyOf": [
+                                            {
+                                                "title": "windowsInformationProtectionProxiedDomainCollection",
+                                                "type": "object",
+                                                "properties": {
+                                                    "displayName": {
+                                                        "type": "string",
+                                                        "description": "Display name"
+                                                    },
+                                                    "proxiedDomains": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "title": "proxiedDomain",
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "ipAddressOrFQDN": {
+                                                                    "type": "string",
+                                                                    "description": "The IP address or FQDN"
+                                                                },
+                                                                "proxy": {
+                                                                    "type": "string",
+                                                                    "description": "Proxy IP",
+                                                                    "nullable": true
+                                                                }
+                                                            },
+                                                            "example": {
+                                                                "ipAddressOrFQDN": "String",
+                                                                "proxy": "String"
+                                                            }
+                                                        },
+                                                        "description": "Collection of proxied domains"
+                                                    }
+                                                },
+                                                "example": {
+                                                    "displayName": "String",
+                                                    "proxiedDomains": [
+                                                        {
+                                                            "@odata.type": "microsoft.graph.proxiedDomain"
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ],
+                                        "nullable": true
+                                    },
+                                    "description": "Contains a list of Enterprise resource domains hosted in the cloud that need to be protected. Connections to these resources are considered enterprise data. If a proxy is paired with a cloud resource, traffic to the cloud resource will be routed through the enterprise network via the denoted proxy server (on Port 80). A proxy server used for this purpose must also be configured using the EnterpriseInternalProxyServers policy"
+                                },
+                                "enterpriseIPRanges": {
+                                    "type": "array",
+                                    "items": {
+                                        "anyOf": [
+                                            {
+                                                "title": "windowsInformationProtectionIPRangeCollection",
+                                                "type": "object",
+                                                "properties": {
+                                                    "displayName": {
+                                                        "type": "string",
+                                                        "description": "Display name"
+                                                    },
+                                                    "ranges": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "title": "ipRange",
+                                                            "type": "object"
+                                                        },
+                                                        "description": "Collection of ip ranges"
+                                                    }
+                                                },
+                                                "example": {
+                                                    "displayName": "String",
+                                                    "ranges": [
+                                                        {
+                                                            "@odata.type": "microsoft.graph.ipRange"
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ],
+                                        "nullable": true
+                                    },
+                                    "description": "Sets the enterprise IP ranges that define the computers in the enterprise network. Data that comes from those computers will be considered part of the enterprise and protected. These locations will be considered a safe destination for enterprise data to be shared to"
+                                },
+                                "enterpriseIPRangesAreAuthoritative": {
+                                    "type": "boolean",
+                                    "description": "Boolean value that tells the client to accept the configured list and not to use heuristics to attempt to find other subnets. Default is false"
+                                },
+                                "enterpriseProxyServers": {
+                                    "type": "array",
+                                    "items": {
+                                        "anyOf": [
+                                            {
+                                                "title": "windowsInformationProtectionResourceCollection",
+                                                "type": "object",
+                                                "properties": {
+                                                    "displayName": {
+                                                        "type": "string",
+                                                        "description": "Display name"
+                                                    },
+                                                    "resources": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string",
+                                                            "nullable": true
+                                                        },
+                                                        "description": "Collection of resources"
+                                                    }
+                                                },
+                                                "example": {
+                                                    "displayName": "String",
+                                                    "resources": [
+                                                        "String"
+                                                    ]
+                                                }
+                                            }
+                                        ],
+                                        "nullable": true
+                                    },
+                                    "description": "This is a list of proxy servers. Any server not on this list is considered non-enterprise"
+                                },
+                                "enterpriseInternalProxyServers": {
+                                    "type": "array",
+                                    "items": {
+                                        "anyOf": [
+                                            {
+                                                "title": "windowsInformationProtectionResourceCollection",
+                                                "type": "object",
+                                                "properties": {
+                                                    "displayName": {
+                                                        "type": "string",
+                                                        "description": "Display name"
+                                                    },
+                                                    "resources": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string",
+                                                            "nullable": true
+                                                        },
+                                                        "description": "Collection of resources"
+                                                    }
+                                                },
+                                                "example": {
+                                                    "displayName": "String",
+                                                    "resources": [
+                                                        "String"
+                                                    ]
+                                                }
+                                            }
+                                        ],
+                                        "nullable": true
+                                    },
+                                    "description": "This is the comma-separated list of internal proxy servers. For example, \"157.54.14.28, 157.54.11.118, 10.202.14.167, 157.53.14.163, 157.69.210.59\". These proxies have been configured by the admin to connect to specific resources on the Internet. They are considered to be enterprise network locations. The proxies are only leveraged in configuring the EnterpriseProxiedDomains policy to force traffic to the matched domains through these proxies"
+                                },
+                                "enterpriseProxyServersAreAuthoritative": {
+                                    "type": "boolean",
+                                    "description": "Boolean value that tells the client to accept the configured list of proxies and not try to detect other work proxies. Default is false"
+                                },
+                                "neutralDomainResources": {
+                                    "type": "array",
+                                    "items": {
+                                        "anyOf": [
+                                            {
+                                                "title": "windowsInformationProtectionResourceCollection",
+                                                "type": "object",
+                                                "properties": {
+                                                    "displayName": {
+                                                        "type": "string",
+                                                        "description": "Display name"
+                                                    },
+                                                    "resources": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string",
+                                                            "nullable": true
+                                                        },
+                                                        "description": "Collection of resources"
+                                                    }
+                                                },
+                                                "example": {
+                                                    "displayName": "String",
+                                                    "resources": [
+                                                        "String"
+                                                    ]
+                                                }
+                                            }
+                                        ],
+                                        "nullable": true
+                                    },
+                                    "description": "List of domain names that can used for work or personal resource"
+                                },
+                                "indexingEncryptedStoresOrItemsBlocked": {
+                                    "type": "boolean",
+                                    "description": "This switch is for the Windows Search Indexer, to allow or disallow indexing of items"
+                                },
+                                "smbAutoEncryptedFileExtensions": {
+                                    "type": "array",
+                                    "items": {
+                                        "anyOf": [
+                                            {
+                                                "title": "windowsInformationProtectionResourceCollection",
+                                                "type": "object",
+                                                "properties": {
+                                                    "displayName": {
+                                                        "type": "string",
+                                                        "description": "Display name"
+                                                    },
+                                                    "resources": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string",
+                                                            "nullable": true
+                                                        },
+                                                        "description": "Collection of resources"
+                                                    }
+                                                },
+                                                "example": {
+                                                    "displayName": "String",
+                                                    "resources": [
+                                                        "String"
+                                                    ]
+                                                }
+                                            }
+                                        ],
+                                        "nullable": true
+                                    },
+                                    "description": "Specifies a list of file extensions, so that files with these extensions are encrypted when copying from an SMB share within the corporate boundary"
+                                },
+                                "isAssigned": {
+                                    "type": "boolean",
+                                    "description": "Indicates if the policy is deployed to any inclusion groups or not."
+                                },
+                                "protectedAppLockerFiles": {
+                                    "type": "array",
+                                    "items": {
+                                        "allOf": [
+                                            {
+                                                "title": "entity",
+                                                "type": "object",
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "example": {
+                                                    "id": "String (identifier)"
+                                                }
+                                            },
+                                            {
+                                                "title": "windowsInformationProtectionAppLockerFile",
+                                                "type": "object",
+                                                "properties": {
+                                                    "displayName": {
+                                                        "type": "string",
+                                                        "description": "The friendly name",
+                                                        "nullable": true
+                                                    },
+                                                    "fileHash": {
+                                                        "type": "string",
+                                                        "description": "SHA256 hash of the file",
+                                                        "nullable": true
+                                                    },
+                                                    "file": {
+                                                        "type": "string",
+                                                        "description": "File as a byte array",
+                                                        "format": "base64url",
+                                                        "nullable": true
+                                                    },
+                                                    "version": {
+                                                        "type": "string",
+                                                        "description": "Version of the entity.",
+                                                        "nullable": true
+                                                    }
+                                                },
+                                                "description": "Windows Information Protection AppLocker File"
+                                            }
+                                        ],
+                                        "example": {
+                                            "id": "String (identifier)",
+                                            "displayName": "String",
+                                            "fileHash": "String",
+                                            "file": "Binary",
+                                            "version": "String"
+                                        }
+                                    }
+                                },
+                                "exemptAppLockerFiles": {
+                                    "type": "array",
+                                    "items": {
+                                        "allOf": [
+                                            {
+                                                "title": "entity",
+                                                "type": "object",
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "example": {
+                                                    "id": "String (identifier)"
+                                                }
+                                            },
+                                            {
+                                                "title": "windowsInformationProtectionAppLockerFile",
+                                                "type": "object",
+                                                "properties": {
+                                                    "displayName": {
+                                                        "type": "string",
+                                                        "description": "The friendly name",
+                                                        "nullable": true
+                                                    },
+                                                    "fileHash": {
+                                                        "type": "string",
+                                                        "description": "SHA256 hash of the file",
+                                                        "nullable": true
+                                                    },
+                                                    "file": {
+                                                        "type": "string",
+                                                        "description": "File as a byte array",
+                                                        "format": "base64url",
+                                                        "nullable": true
+                                                    },
+                                                    "version": {
+                                                        "type": "string",
+                                                        "description": "Version of the entity.",
+                                                        "nullable": true
+                                                    }
+                                                },
+                                                "description": "Windows Information Protection AppLocker File"
+                                            }
+                                        ],
+                                        "example": {
+                                            "id": "String (identifier)",
+                                            "displayName": "String",
+                                            "fileHash": "String",
+                                            "file": "Binary",
+                                            "version": "String"
+                                        }
+                                    }
+                                },
+                                "assignments": {
+                                    "type": "array",
+                                    "items": {
+                                        "allOf": [
+                                            {
+                                                "title": "entity",
+                                                "type": "object",
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "example": {
+                                                    "id": "String (identifier)"
+                                                }
+                                            },
+                                            {
+                                                "title": "targetedManagedAppPolicyAssignment",
+                                                "type": "object",
+                                                "properties": {
+                                                    "target": {
+                                                        "anyOf": [
+                                                            {
+                                                                "title": "deviceAndAppManagementAssignmentTarget",
+                                                                "type": "object"
+                                                            }
+                                                        ],
+                                                        "description": "Identifier for deployment of a group or app",
+                                                        "nullable": true
+                                                    }
+                                                },
+                                                "description": "The type for deployment of groups or apps."
+                                            }
+                                        ],
+                                        "example": {
+                                            "id": "String (identifier)",
+                                            "target": {
+                                                "@odata.type": "microsoft.graph.deviceAndAppManagementAssignmentTarget"
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "description": "Policy for Windows information protection to configure detailed management settings"
+                        }
+                    ],
+                    "example": {
+                        "id": "String (identifier)",
+                        "displayName": "String",
+                        "description": "String",
+                        "createdDateTime": "DateTimeOffset (timestamp)",
+                        "lastModifiedDateTime": "DateTimeOffset (timestamp)",
+                        "version": "String",
+                        "enforcementLevel": {
+                            "@odata.type": "microsoft.graph.windowsInformationProtectionEnforcementLevel"
+                        },
+                        "enterpriseDomain": "String",
+                        "enterpriseProtectedDomainNames": [
+                            {
+                                "@odata.type": "microsoft.graph.windowsInformationProtectionResourceCollection"
+                            }
+                        ],
+                        "protectionUnderLockConfigRequired": true,
+                        "dataRecoveryCertificate": {
+                            "@odata.type": "microsoft.graph.windowsInformationProtectionDataRecoveryCertificate"
+                        },
+                        "revokeOnUnenrollDisabled": true,
+                        "rightsManagementServicesTemplateId": "Guid",
+                        "azureRightsManagementServicesAllowed": true,
+                        "iconsVisible": true,
+                        "protectedApps": [
+                            {
+                                "@odata.type": "microsoft.graph.windowsInformationProtectionApp"
+                            }
+                        ],
+                        "exemptApps": [
+                            {
+                                "@odata.type": "microsoft.graph.windowsInformationProtectionApp"
+                            }
+                        ],
+                        "enterpriseNetworkDomainNames": [
+                            {
+                                "@odata.type": "microsoft.graph.windowsInformationProtectionResourceCollection"
+                            }
+                        ],
+                        "enterpriseProxiedDomains": [
+                            {
+                                "@odata.type": "microsoft.graph.windowsInformationProtectionProxiedDomainCollection"
+                            }
+                        ],
+                        "enterpriseIPRanges": [
+                            {
+                                "@odata.type": "microsoft.graph.windowsInformationProtectionIPRangeCollection"
+                            }
+                        ],
+                        "enterpriseIPRangesAreAuthoritative": true,
+                        "enterpriseProxyServers": [
+                            {
+                                "@odata.type": "microsoft.graph.windowsInformationProtectionResourceCollection"
+                            }
+                        ],
+                        "enterpriseInternalProxyServers": [
+                            {
+                                "@odata.type": "microsoft.graph.windowsInformationProtectionResourceCollection"
+                            }
+                        ],
+                        "enterpriseProxyServersAreAuthoritative": true,
+                        "neutralDomainResources": [
+                            {
+                                "@odata.type": "microsoft.graph.windowsInformationProtectionResourceCollection"
+                            }
+                        ],
+                        "indexingEncryptedStoresOrItemsBlocked": true,
+                        "smbAutoEncryptedFileExtensions": [
+                            {
+                                "@odata.type": "microsoft.graph.windowsInformationProtectionResourceCollection"
+                            }
+                        ],
+                        "isAssigned": true,
+                        "protectedAppLockerFiles": [
+                            {
+                                "@odata.type": "microsoft.graph.windowsInformationProtectionAppLockerFile"
+                            }
+                        ],
+                        "exemptAppLockerFiles": [
+                            {
+                                "@odata.type": "microsoft.graph.windowsInformationProtectionAppLockerFile"
+                            }
+                        ],
+                        "assignments": [
+                            {
+                                "@odata.type": "microsoft.graph.targetedManagedAppPolicyAssignment"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "title": "mdmWindowsInformationProtectionPolicy",
+                    "type": "object",
+                    "description": "Policy for Windows information protection with MDM"
+                }
+            ],
+            "example": {
+                "id": "String (identifier)",
+                "displayName": "String",
+                "description": "String",
+                "createdDateTime": "DateTimeOffset (timestamp)",
+                "lastModifiedDateTime": "DateTimeOffset (timestamp)",
+                "version": "String",
+                "enforcementLevel": {
+                    "@odata.type": "microsoft.graph.windowsInformationProtectionEnforcementLevel"
+                },
+                "enterpriseDomain": "String",
+                "enterpriseProtectedDomainNames": [
+                    {
+                        "@odata.type": "microsoft.graph.windowsInformationProtectionResourceCollection"
+                    }
+                ],
+                "protectionUnderLockConfigRequired": true,
+                "dataRecoveryCertificate": {
+                    "@odata.type": "microsoft.graph.windowsInformationProtectionDataRecoveryCertificate"
+                },
+                "revokeOnUnenrollDisabled": true,
+                "rightsManagementServicesTemplateId": "Guid",
+                "azureRightsManagementServicesAllowed": true,
+                "iconsVisible": true,
+                "protectedApps": [
+                    {
+                        "@odata.type": "microsoft.graph.windowsInformationProtectionApp"
+                    }
+                ],
+                "exemptApps": [
+                    {
+                        "@odata.type": "microsoft.graph.windowsInformationProtectionApp"
+                    }
+                ],
+                "enterpriseNetworkDomainNames": [
+                    {
+                        "@odata.type": "microsoft.graph.windowsInformationProtectionResourceCollection"
+                    }
+                ],
+                "enterpriseProxiedDomains": [
+                    {
+                        "@odata.type": "microsoft.graph.windowsInformationProtectionProxiedDomainCollection"
+                    }
+                ],
+                "enterpriseIPRanges": [
+                    {
+                        "@odata.type": "microsoft.graph.windowsInformationProtectionIPRangeCollection"
+                    }
+                ],
+                "enterpriseIPRangesAreAuthoritative": true,
+                "enterpriseProxyServers": [
+                    {
+                        "@odata.type": "microsoft.graph.windowsInformationProtectionResourceCollection"
+                    }
+                ],
+                "enterpriseInternalProxyServers": [
+                    {
+                        "@odata.type": "microsoft.graph.windowsInformationProtectionResourceCollection"
+                    }
+                ],
+                "enterpriseProxyServersAreAuthoritative": true,
+                "neutralDomainResources": [
+                    {
+                        "@odata.type": "microsoft.graph.windowsInformationProtectionResourceCollection"
+                    }
+                ],
+                "indexingEncryptedStoresOrItemsBlocked": true,
+                "smbAutoEncryptedFileExtensions": [
+                    {
+                        "@odata.type": "microsoft.graph.windowsInformationProtectionResourceCollection"
+                    }
+                ],
+                "isAssigned": true,
+                "protectedAppLockerFiles": [
+                    {
+                        "@odata.type": "microsoft.graph.windowsInformationProtectionAppLockerFile"
+                    }
+                ],
+                "exemptAppLockerFiles": [
+                    {
+                        "@odata.type": "microsoft.graph.windowsInformationProtectionAppLockerFile"
+                    }
+                ],
+                "assignments": [
+                    {
+                        "@odata.type": "microsoft.graph.targetedManagedAppPolicyAssignment"
+                    }
+                ]
+            }
+        },
+        "mdmWindowsInformationProtectionPolicy_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

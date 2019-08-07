@@ -1,0 +1,40 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "allOf": [
+                {
+                    "title": "entity",
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        }
+                    },
+                    "example": {
+                        "id": "String (identifier)"
+                    }
+                },
+                {
+                    "title": "extension",
+                    "type": "object"
+                }
+            ],
+            "example": {
+                "id": "String (identifier)"
+            }
+        },
+        "contactFolder_id": {
+            "required": true,
+            "type": "string"
+        },
+        "contact_id": {
+            "required": true,
+            "type": "string"
+        },
+        "extension_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

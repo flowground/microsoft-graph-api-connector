@@ -1,0 +1,24 @@
+{
+    "type": "object",
+    "properties": {
+        "contract_id": {
+            "required": true,
+            "type": "string"
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "deletedDateTime",
+                    "contractType",
+                    "customerId",
+                    "defaultDomainName",
+                    "displayName"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

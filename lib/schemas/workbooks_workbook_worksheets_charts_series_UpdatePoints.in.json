@@ -1,0 +1,126 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "allOf": [
+                {
+                    "title": "entity",
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        }
+                    },
+                    "example": {
+                        "id": "String (identifier)"
+                    }
+                },
+                {
+                    "title": "workbookChartPoint",
+                    "type": "object",
+                    "properties": {
+                        "value": {
+                            "anyOf": [
+                                {
+                                    "title": "Json",
+                                    "type": "object"
+                                }
+                            ],
+                            "nullable": true
+                        },
+                        "format": {
+                            "anyOf": [
+                                {
+                                    "allOf": [
+                                        {
+                                            "title": "entity",
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "example": {
+                                                "id": "String (identifier)"
+                                            }
+                                        },
+                                        {
+                                            "title": "workbookChartPointFormat",
+                                            "type": "object",
+                                            "properties": {
+                                                "fill": {
+                                                    "anyOf": [
+                                                        {
+                                                            "allOf": [
+                                                                {
+                                                                    "title": "entity",
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "id": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    },
+                                                                    "example": {
+                                                                        "id": "String (identifier)"
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "title": "workbookChartFill",
+                                                                    "type": "object"
+                                                                }
+                                                            ],
+                                                            "example": {
+                                                                "id": "String (identifier)"
+                                                            }
+                                                        }
+                                                    ],
+                                                    "nullable": true
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "example": {
+                                        "id": "String (identifier)",
+                                        "fill": {
+                                            "@odata.type": "microsoft.graph.workbookChartFill"
+                                        }
+                                    }
+                                }
+                            ],
+                            "nullable": true
+                        }
+                    }
+                }
+            ],
+            "example": {
+                "id": "String (identifier)",
+                "value": {
+                    "@odata.type": "microsoft.graph.Json"
+                },
+                "format": {
+                    "@odata.type": "microsoft.graph.workbookChartPointFormat"
+                }
+            }
+        },
+        "driveItem_id": {
+            "required": true,
+            "type": "string"
+        },
+        "workbookWorksheet_id": {
+            "required": true,
+            "type": "string"
+        },
+        "workbookChart_id": {
+            "required": true,
+            "type": "string"
+        },
+        "workbookChartSeries_id": {
+            "required": true,
+            "type": "string"
+        },
+        "workbookChartPoint_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

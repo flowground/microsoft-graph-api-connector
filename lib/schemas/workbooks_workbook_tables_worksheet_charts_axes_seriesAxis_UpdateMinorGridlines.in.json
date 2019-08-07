@@ -1,0 +1,117 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "allOf": [
+                {
+                    "title": "entity",
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        }
+                    },
+                    "example": {
+                        "id": "String (identifier)"
+                    }
+                },
+                {
+                    "title": "workbookChartGridlines",
+                    "type": "object",
+                    "properties": {
+                        "visible": {
+                            "type": "boolean"
+                        },
+                        "format": {
+                            "anyOf": [
+                                {
+                                    "allOf": [
+                                        {
+                                            "title": "entity",
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "example": {
+                                                "id": "String (identifier)"
+                                            }
+                                        },
+                                        {
+                                            "title": "workbookChartGridlinesFormat",
+                                            "type": "object",
+                                            "properties": {
+                                                "line": {
+                                                    "anyOf": [
+                                                        {
+                                                            "allOf": [
+                                                                {
+                                                                    "title": "entity",
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "id": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    },
+                                                                    "example": {
+                                                                        "id": "String (identifier)"
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "title": "workbookChartLineFormat",
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "color": {
+                                                                            "type": "string",
+                                                                            "nullable": true
+                                                                        }
+                                                                    }
+                                                                }
+                                                            ],
+                                                            "example": {
+                                                                "id": "String (identifier)",
+                                                                "color": "String"
+                                                            }
+                                                        }
+                                                    ],
+                                                    "nullable": true
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "example": {
+                                        "id": "String (identifier)",
+                                        "line": {
+                                            "@odata.type": "microsoft.graph.workbookChartLineFormat"
+                                        }
+                                    }
+                                }
+                            ],
+                            "nullable": true
+                        }
+                    }
+                }
+            ],
+            "example": {
+                "id": "String (identifier)",
+                "visible": true,
+                "format": {
+                    "@odata.type": "microsoft.graph.workbookChartGridlinesFormat"
+                }
+            }
+        },
+        "driveItem_id": {
+            "required": true,
+            "type": "string"
+        },
+        "workbookTable_id": {
+            "required": true,
+            "type": "string"
+        },
+        "workbookChart_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

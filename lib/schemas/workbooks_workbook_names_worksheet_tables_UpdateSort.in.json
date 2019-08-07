@@ -1,0 +1,122 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "allOf": [
+                {
+                    "title": "entity",
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        }
+                    },
+                    "example": {
+                        "id": "String (identifier)"
+                    }
+                },
+                {
+                    "title": "workbookTableSort",
+                    "type": "object",
+                    "properties": {
+                        "fields": {
+                            "type": "array",
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "title": "workbookSortField",
+                                        "type": "object",
+                                        "properties": {
+                                            "ascending": {
+                                                "type": "boolean"
+                                            },
+                                            "color": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "dataOption": {
+                                                "type": "string"
+                                            },
+                                            "icon": {
+                                                "anyOf": [
+                                                    {
+                                                        "title": "workbookIcon",
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "index": {
+                                                                "maximum": 2147483647,
+                                                                "minimum": -2147483648,
+                                                                "type": "integer",
+                                                                "format": "int32"
+                                                            },
+                                                            "set": {
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "example": {
+                                                            "index": "Int32",
+                                                            "set": "String"
+                                                        }
+                                                    }
+                                                ],
+                                                "nullable": true
+                                            },
+                                            "key": {
+                                                "maximum": 2147483647,
+                                                "minimum": -2147483648,
+                                                "type": "integer",
+                                                "format": "int32"
+                                            },
+                                            "sortOn": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "example": {
+                                            "ascending": true,
+                                            "color": "String",
+                                            "dataOption": "String",
+                                            "icon": {
+                                                "@odata.type": "microsoft.graph.workbookIcon"
+                                            },
+                                            "key": "Int32",
+                                            "sortOn": "String"
+                                        }
+                                    }
+                                ],
+                                "nullable": true
+                            }
+                        },
+                        "matchCase": {
+                            "type": "boolean"
+                        },
+                        "method": {
+                            "type": "string"
+                        }
+                    }
+                }
+            ],
+            "example": {
+                "id": "String (identifier)",
+                "fields": [
+                    {
+                        "@odata.type": "microsoft.graph.workbookSortField"
+                    }
+                ],
+                "matchCase": true,
+                "method": "String"
+            }
+        },
+        "driveItem_id": {
+            "required": true,
+            "type": "string"
+        },
+        "workbookNamedItem_id": {
+            "required": true,
+            "type": "string"
+        },
+        "workbookTable_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

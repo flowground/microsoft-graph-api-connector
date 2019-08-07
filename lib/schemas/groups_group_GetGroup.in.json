@@ -1,0 +1,61 @@
+{
+    "type": "object",
+    "properties": {
+        "group_id": {
+            "required": true,
+            "type": "string"
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "deletedDateTime",
+                    "classification",
+                    "createdDateTime",
+                    "description",
+                    "displayName",
+                    "groupTypes",
+                    "mail",
+                    "mailEnabled",
+                    "mailNickname",
+                    "onPremisesLastSyncDateTime",
+                    "onPremisesProvisioningErrors",
+                    "onPremisesSecurityIdentifier",
+                    "onPremisesSyncEnabled",
+                    "proxyAddresses",
+                    "renewedDateTime",
+                    "securityEnabled",
+                    "visibility",
+                    "allowExternalSenders",
+                    "autoSubscribeNewMembers",
+                    "isSubscribedByMail",
+                    "unseenCount",
+                    "members",
+                    "memberOf",
+                    "createdOnBehalfOf",
+                    "owners",
+                    "settings",
+                    "extensions",
+                    "threads",
+                    "calendar",
+                    "calendarView",
+                    "events",
+                    "conversations",
+                    "photo",
+                    "photos",
+                    "acceptedSenders",
+                    "rejectedSenders",
+                    "drive",
+                    "drives",
+                    "sites",
+                    "planner",
+                    "onenote",
+                    "groupLifecyclePolicies"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

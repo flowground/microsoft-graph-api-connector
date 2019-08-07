@@ -1,0 +1,22 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "quickScan": {
+                    "type": "boolean",
+                    "default": false
+                }
+            }
+        },
+        "detectedApp_id": {
+            "required": true,
+            "type": "string"
+        },
+        "managedDevice_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

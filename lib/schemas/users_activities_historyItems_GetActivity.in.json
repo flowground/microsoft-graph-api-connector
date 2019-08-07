@@ -1,0 +1,52 @@
+{
+    "type": "object",
+    "properties": {
+        "user_id": {
+            "required": true,
+            "type": "string"
+        },
+        "userActivity_id": {
+            "required": true,
+            "type": "string"
+        },
+        "activityHistoryItem_id": {
+            "required": true,
+            "type": "string"
+        },
+        "_select": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "id",
+                    "visualElements",
+                    "activitySourceHost",
+                    "activationUrl",
+                    "appActivityId",
+                    "appDisplayName",
+                    "contentUrl",
+                    "createdDateTime",
+                    "expirationDateTime",
+                    "fallbackUrl",
+                    "lastModifiedDateTime",
+                    "userTimezone",
+                    "contentInfo",
+                    "status",
+                    "historyItems"
+                ],
+                "type": "string"
+            }
+        },
+        "_expand": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "*",
+                    "historyItems"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}
